@@ -475,20 +475,24 @@
 	if(user.lying || user.prone)
 		shot_recoil /= 2
 
-	var/shot_accuracy = rand(-accuracy, accuracy)
-
+	var/shot_accuracy
 	var/dt_movement = world.time - user.last_movement
 
-	if (dt_movement <= 6)
-		shot_accuracy = rand(-20, 20)
-	else if (dt_movement < 10)
-		var/accuracy_range = 20 / sqrt(dt_movement - 6)
-		shot_accuracy = rand(-accuracy_range, accuracy_range)
-		if (abs(shot_accuracy) < 5) // even RNjesus won’t help you get there right away
-			shot_accuracy += 5
-		if (istype(user, /mob/living/human))
-			if(user.m_intent != "run")
-				shot_accuracy *= 0.75
+	switch(dt_movement)
+		if(0 to 6) // if (dt_movement <= 6) --- 0.6 seconds
+			shot_accuracy = rand(-20, 20)
+
+		if(7 to 10) // else if (dt_movement < 10) --- 1 second
+			var/accuracy_range = 20 / sqrt(dt_movement - 6)
+			shot_accuracy = rand(-accuracy_range, accuracy_range)
+			if (abs(shot_accuracy) < 5) // even RNjesus won’t help you get there right away
+				shot_accuracy += 5
+			if (istype(user, /mob/living/human))
+				if(user.m_intent != "run")
+					shot_accuracy *= 0.75
+
+		else // Use the base variable of the gun; this is used in shot_dispersion only, not hit_chances contrary to the variable name
+			shot_accuracy = rand(-accuracy, accuracy)
 
 	var/shot_dispersion = clamp(shot_recoil + shot_accuracy, -40, 40)
 
