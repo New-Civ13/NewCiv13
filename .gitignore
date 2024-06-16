@@ -10,11 +10,7 @@
 data/*
 SQL/*
 serverdata.txt
-
-
-
 .DS_Store
-config/host.txt
 recipes.txt
 .vscode/
 cfg/admin.txt
@@ -28,8 +24,5 @@ map_saves/
 map_backups/
 maps/test/
 tts/
-config/host.txt
 civ13od.dme
 odcomp.bat
-
-config/host.txt
