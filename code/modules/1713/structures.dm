@@ -390,7 +390,7 @@
 	not_movable = FALSE
 	not_disassemblable = TRUE
 	density = FALSE
-	opacity = TRUE
+	opacity = FALSE
 	anchored = TRUE
 /obj/structure/props/junk/New()
 	..()
