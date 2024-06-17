@@ -115,6 +115,7 @@ var/civmax_research = list(230,230,230)
 
 	//age (313 B.C., 1013, 1713, etc)
 	var/age = "5000 B.C."
+	//ordinal age (5000 B.C. = 0, 313 B.C. = 1, 1013 = 2, 1713 = 3, 1873 = 4, 1903 = 5, 1943 = 6, 1969 = 7, 2013 = 8)
 	var/ordinal_age = 0
 
 	//weather
