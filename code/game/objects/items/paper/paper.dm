@@ -17,7 +17,7 @@
 	w_class = ITEM_SIZE_TINY
 	throw_range = TRUE
 	throw_speed = TRUE
-	layer = 4
+	layer = 3 // Used to be `4`, but was above game plane and so renders did not work properly.
 	slot_flags = SLOT_HEAD
 	body_parts_covered = HEAD
 	attack_verb = list("bapped")
@@ -49,6 +49,39 @@
 	var/faction = ""
 	var/color1 = "#000000"
 	var/color2 = "#FFFFFF"
+
+/obj/item/weapon/paper/official/fna
+	base_icon = "official"
+	name = "\improper Official FNA Document"
+	icon_state = "Decree_empty"
+
+/obj/item/weapon/paper/official/fna/document
+	desc = "An official document printed by the Foreign Nations Alliance (FNA)."
+	icon_state = "fna_doc"
+
+/obj/item/weapon/paper/official/fna/document_stamped
+	desc = "An official document printed by the Foreign Nations Alliance (FNA), which also appears to be stamped."
+	icon_state = "fna_doc_stamped"
+
+/obj/item/weapon/paper/official/fna/document_stamped2
+	desc = "An official document printed by the Foreign Nations Alliance (FNA), which also appears to be stamped."
+	icon_state = "fna_doc_stamped2"
+
+/obj/item/weapon/paper/official/fna/document_stamped3
+	desc = "An official document printed by the Foreign Nations Alliance (FNA), which also appears to be stamped."
+	icon_state = "fna_doc_stamped3"
+
+/obj/item/weapon/paper/official/fna/document_denied
+	desc = "An official document printed by the Foreign Nations Alliance (FNA), which also appears to be stamped for denial."
+	icon_state = "fna_doc_denied"
+
+/obj/item/weapon/paper/official/fna/document_approved
+	desc = "An official document printed by the Foreign Nations Alliance (FNA), which also appears to be stamped for approval."
+	icon_state = "fna_doc_approved"
+
+/obj/item/weapon/paper/official/fna/document_warrant
+	desc = "An official warrant printed by the Foreign Nations Alliance (FNA), which also appears to be stamped and contains details, along with what seems to be a photograph of the targeted individual."
+	icon_state = "fna_warrant"
 
 /obj/item/weapon/paper/entry_permit
 	name = "entry permit"
@@ -82,18 +115,20 @@
 
 /obj/item/weapon/paper/official/New()
 	..()
-	spawn(30)
-		name = "official [faction] paper"
+	if(faction) // To prevent the double space in-between "official  paper", if faction is "".
+		spawn(30)
+			name = "official [faction] paper"
 
 /obj/item/weapon/paper/official/update_icon()
 	..()
-	overlays.Cut()
-	var/image/i1 = image(icon=src.icon, icon_state="Decree_Overlay_1")
-	var/image/i2 = image(icon=src.icon, icon_state="Decree_Overlay_2")
-	i1.color = color1
-	i2.color = color2
-	overlays += i1
-	overlays += i2
+	if(!istype(src, /obj/item/weapon/paper/official/fna))
+		overlays.Cut()
+		var/image/i1 = image(icon=src.icon, icon_state="Decree_Overlay_1")
+		var/image/i2 = image(icon=src.icon, icon_state="Decree_Overlay_2")
+		i1.color = color1
+		i2.color = color2
+		overlays += i1
+		overlays += i2
 
 //lipstick wiping is in code/game/objects/items/weapons/cosmetics.dm!
 
@@ -104,7 +139,8 @@
 	stamps = ""
 
 	if (name != "paper")
-		desc = "This is a paper titled '" + name + "'."
+		if(!istype(src, /obj/item/weapon/paper/official/fna)) // FNA; To prevent these official paper descriptions to be over-written on New().
+			desc = "This is a paper titled '" + name + "'."
 
 	if (info != initial(info))
 		info = html_encode(info)
@@ -122,9 +158,10 @@
 			icon_state = "scrollpaper"
 			desc = "A blank parchement scroll."
 		else if (map.ordinal_age <= 3)
-			name = "paper"
-			icon_state = "Colonial_Paper_Empty"
-			desc = "A blank paper sheet."
+			if(!istype(src, /obj/item/weapon/paper/official/fna)) // FNA; To prevent these official game-mode restricted papers from transforming into empty sheets during New().
+				name = "paper"
+				icon_state = "Colonial_Paper_Empty"
+				desc = "A blank paper sheet."
 
 /obj/item/weapon/paper/verb/airplane()
 	var/done = FALSE
@@ -158,10 +195,11 @@
 				return
 			icon_state = "paper"
 	else if (base_icon == "official")
-		if (info)
-			icon_state = "Decree"
-		else
-			icon_state = "Decree_empty"
+		if(!istype(src, /obj/item/weapon/paper/official/fna)) // FNA; To prevent these official game-mode restricted papers from transforming into empty sheets during compile.
+			if (info)
+				icon_state = "Decree"
+			else
+				icon_state = "Decree_empty"
 
 /obj/item/weapon/paper/proc/update_space(var/new_text)
 	if (!new_text)
