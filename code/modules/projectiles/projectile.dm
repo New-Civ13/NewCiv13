@@ -760,8 +760,8 @@
 			on_impact(loc) //for any final impact behaviours
 			qdel(src)
 			return
-		var/area/block_area = get_area(src)
 		/*
+		var/area/block_area = get_area(src)
 		if (map && firer && map.check_caribbean_block(firer, loc) && !map.allow_bullets_through_blocks.Find(block_area))
 			qdel(src)
 			return
