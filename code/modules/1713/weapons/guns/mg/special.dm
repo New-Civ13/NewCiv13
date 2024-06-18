@@ -7,7 +7,7 @@
 	// more accuracy than MGs, less than everything else
 	load_method = MAGAZINE
 	slot_flags = SLOT_SHOULDER|SLOT_BELT
-	equiptimer = 13
+	equiptimer = 6
 	gun_safety = TRUE
 	load_delay = 8
 	gun_type = GUN_TYPE_RIFLE
@@ -49,7 +49,7 @@
 	fire_sound = 'sound/weapons/guns/fire/assault_rifle.ogg'
 	magazine_type = /obj/item/ammo_magazine/mk18
 	good_mags = list(/obj/item/ammo_magazine/mk18)
-	equiptimer = 12
+	equiptimer = 6
 	firemodes = list(
 		list(name = "semiauto", burst=1, burst_delay=1.3),
 		list(name = "3-round-burst", burst=3, burst_delay=1.4),
@@ -79,7 +79,7 @@
 	magazine_type = /obj/item/ammo_magazine/ak74
 	good_mags = list(/obj/item/ammo_magazine/rpk74, /obj/item/ammo_magazine/rpk74/drum, /obj/item/ammo_magazine/ak74, /obj/item/ammo_magazine/ak74/ak74m)
 	attachment_slots = ATTACH_IRONSIGHTS|ATTACH_SCOPE|ATTACH_UNDER|ATTACH_BARREL
-	equiptimer = 12
+	equiptimer = 6
 	firemodes = list(
 		list(name = "semiauto",	burst=1, burst_delay=0.8),
 		list(name = "3-round-burst",	burst=3, burst_delay=0.8),

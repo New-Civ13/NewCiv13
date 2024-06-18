@@ -11,7 +11,7 @@
 	fire_sound = 'sound/weapons/guns/fire/AKM.ogg'
 	magazine_type = /obj/item/ammo_magazine/ak101
 	good_mags = list(/obj/item/ammo_magazine/ak101, /obj/item/ammo_magazine/ak101/drum)
-	equiptimer = 15
+	equiptimer = 7
 	firemodes = list(
 		list(name = "semiauto",	burst=1, burst_delay=1.2, recoil=0, move_delay=2),
 		list(name = "automatic",	burst=1, burst_delay=1.2, recoil=0, move_delay=4),
@@ -37,13 +37,13 @@
 	if (folded)
 		folded = FALSE
 		usr << "You extend the stock on \the [src]."
-		equiptimer = 15
+		equiptimer = 8
 		set_stock()
 		update_icon()
 	else
 		folded = TRUE
 		usr << "You collapse the stock on \the [src]."
-		equiptimer = 7
+		equiptimer = 5
 		set_stock()
 		update_icon()
 
@@ -63,7 +63,7 @@
 	weight = 3
 	magazine_type = /obj/item/ammo_magazine/ak101
 	good_mags = list(/obj/item/ammo_magazine/ak101, /obj/item/ammo_magazine/ak101/drum)
-	equiptimer = 12
+	equiptimer = 6
 	accuracy = 3
 	recoil = 35
 
@@ -77,7 +77,7 @@
 	caliber = "a762x39"
 	magazine_type = /obj/item/ammo_magazine/ak47
 	good_mags = list(/obj/item/ammo_magazine/rpk47, /obj/item/ammo_magazine/rpk47/drum, /obj/item/ammo_magazine/ak47, /obj/item/ammo_magazine/ak47/drum,, /obj/item/ammo_magazine/ak47/makeshift)
-	equiptimer = 15
+	equiptimer = 6
 	accuracy = 2
 	recoil = 40
 
@@ -88,7 +88,7 @@
 	item_state = "ak74m"
 	base_icon = "ak101"
 	weight = 3.2
-	equiptimer = 12
+	equiptimer = 6
 	accuracy = 3
 	recoil = 45
 
@@ -100,7 +100,7 @@
 	base_icon = "ak101"
 	caliber = "a545x39"
 	weight = 3.2
-	equiptimer = 12
+	equiptimer = 6
 	magazine_type = /obj/item/ammo_magazine/ak74
 	good_mags = list(/obj/item/ammo_magazine/rpk74, /obj/item/ammo_magazine/rpk74/drum, /obj/item/ammo_magazine/ak74, /obj/item/ammo_magazine/ak74/drum, /obj/item/ammo_magazine/ak74/ak74m)
 	accuracy = 2

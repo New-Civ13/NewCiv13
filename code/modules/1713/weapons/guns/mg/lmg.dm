@@ -5,7 +5,7 @@
 	force = 15
 	throwforce = 30
 	base_icon = "automatic"
-	equiptimer = 28
+	equiptimer = 14
 	load_delay = 12
 	gun_safety = TRUE
 	slowdown = 0.5
@@ -203,7 +203,7 @@
 		recoil *= 1.5
 		icon_state = "[base_icon]_folded"
 		usr << "You extend the stock on \the [src]."
-		equiptimer = 15
+		equiptimer = 7
 		set_stock()
 		update_icon()
 	else
@@ -211,7 +211,7 @@
 		folded = TRUE
 		icon_state = "[base_icon]"
 		usr << "You collapse the stock on \the [src]."
-		equiptimer = 7
+		equiptimer = 5
 		set_stock()
 		update_icon()
 
@@ -374,7 +374,7 @@
 	force = 20
 	nothrow = TRUE
 	throwforce = 30
-	equiptimer = 25
+	equiptimer = 12
 	load_delay = 10
 	slowdown = 1
 	recoil = 30
@@ -452,7 +452,7 @@
 	force = 20
 	nothrow = TRUE
 	throwforce = 30
-	equiptimer = 22
+	equiptimer = 11
 	load_delay = 40
 	slowdown = 0.6
 	recoil = 30
@@ -473,7 +473,7 @@
 	max_shells = 20
 	caliber = "a65x52"
 	weight = 10.6
-	equiptimer = 20
+	equiptimer = 10
 	slot_flags = SLOT_SHOULDER
 	load_method = SINGLE_CASING | SPEEDLOADER
 	magazine_type = /obj/item/ammo_magazine/breda30
@@ -548,7 +548,7 @@
 	force = 20
 	nothrow = TRUE
 	throwforce = 30
-	equiptimer = 25
+	equiptimer = 13
 	load_delay = 50
 	slowdown = 1
 	recoil = 40
@@ -572,7 +572,7 @@
 	force = 20
 	nothrow = TRUE
 	throwforce = 30
-	equiptimer = 25
+	equiptimer = 12
 	load_delay = 50
 	slowdown = 0.8
 	recoil = 40
@@ -636,7 +636,7 @@
 	force = 20
 	nothrow = TRUE
 	throwforce = 30
-	equiptimer = 20
+	equiptimer = 10
 	load_delay = 8
 	slowdown = 0.5
 	recoil = 25
@@ -696,7 +696,7 @@
 	force = 20
 	nothrow = TRUE
 	throwforce = 30
-	equiptimer = 21
+	equiptimer = 11
 	load_delay = 8
 	slowdown = 0.4
 	recoil = 35
@@ -705,9 +705,9 @@
 	scope_y_offset = -1
 	scope_mounts = list ("dovetail")
 
-/obj/item/weapon/gun/projectile/automatic/rpk47/modern
+/obj/item/weapon/gun/projectile/automatic/rpk47/modern // TODO; add icon.
 	slowdown = 0.3
-	equiptimer = 18
+	equiptimer = 9
 	load_delay = 19
 	weight = 4.7
 	name = "RPK-47M machine gun"
@@ -733,7 +733,7 @@
 	force = 20
 	nothrow = TRUE
 	throwforce = 30
-	equiptimer = 25
+	equiptimer = 13
 	load_delay = 50
 	slowdown = 0.9
 	recoil = 40
@@ -769,7 +769,7 @@
 	force = 20
 	nothrow = TRUE
 	throwforce = 25
-	equiptimer = 25
+	equiptimer = 12
 	load_delay = 55
 	slowdown = 0.8
 	recoil = 60
@@ -803,7 +803,7 @@
 	force = 20
 	nothrow = TRUE
 	throwforce = 30
-	equiptimer = 21
+	equiptimer = 10
 	load_delay = 21
 	slowdown = 0.5
 	recoil = 40
@@ -847,7 +847,7 @@
 	scope_mounts = list ("picatinny")
 	mag_x_offset = -4
 	mag_y_offset = -2
-	equiptimer = 25
+	equiptimer = 12
 	load_delay = 10
 	slowdown = 1
 

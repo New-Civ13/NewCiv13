@@ -31,7 +31,7 @@
 	gtype = "rifle"
 	move_delay = 5
 	fire_delay = 5
-	equiptimer = 20
+	equiptimer = 10
 	maxhealth = 20
 	accuracy = 5
 
@@ -220,7 +220,7 @@
 	weight = 4.0
 	ammo_type = /obj/item/ammo_casing/musketball
 	value = 80
-	equiptimer = 12
+	equiptimer = 8
 	accuracy = 5
 
 /obj/item/weapon/gun/projectile/flintlock/crude
@@ -256,7 +256,7 @@
 	value = 70
 	stat = "pistol"
 	gtype = "pistol"
-	equiptimer = 7
+	equiptimer = 3
 	gun_type = GUN_TYPE_PISTOL
 	accuracy_increase_mod = 1.50
 	accuracy_decrease_mod = 2.00
@@ -282,7 +282,7 @@
 	ammo_type = /obj/item/ammo_casing/blunderbuss
 	gun_type = GUN_TYPE_SHOTGUN
 	fire_sound = 'sound/weapons/guns/fire/shotgun.ogg'
-	equiptimer = 15
+	equiptimer = 7
 	// 15% more accurate than SMGs
 	accuracy = 5
 
@@ -310,7 +310,7 @@
 	stat = "pistol"
 	gtype = "pistol"
 	gun_type = GUN_TYPE_PISTOL
-	equiptimer = 7
+	equiptimer = 3
 	accuracy_increase_mod = 1.40
 	accuracy_decrease_mod = 2.00
 	KD_chance = KD_CHANCE_LOW
@@ -339,7 +339,7 @@
 	stat = "pistol"
 	gtype = "pistol"
 	gun_type = GUN_TYPE_PISTOL
-	equiptimer = 7
+	equiptimer = 3
 	accuracy = 3
 
 /obj/item/weapon/gun/projectile/flintlock/pistoletmodeleanxiii
@@ -362,7 +362,7 @@
 	stat = "pistol"
 	gtype = "pistol"
 	gun_type = GUN_TYPE_PISTOL
-	equiptimer = 7
+	equiptimer = 3
 	accuracy_increase_mod = 1.40
 	accuracy_decrease_mod = 2.00
 	KD_chance = KD_CHANCE_LOW

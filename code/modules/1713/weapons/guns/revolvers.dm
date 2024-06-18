@@ -19,7 +19,7 @@
 	magazine_based = FALSE
 	var/single_action = FALSE
 	var/cocked = FALSE
-	equiptimer = 5
+	equiptimer = 2
 	gun_type = GUN_TYPE_PISTOL
 	maxhealth = 55
 	gtype = "pistol"
@@ -312,7 +312,7 @@
 	fire_sound = 'sound/weapons/guns/fire/32ACP.ogg'
 	handle_casings = CYCLE_CASINGS
 	max_shells = 6
-	equiptimer = 4
+	equiptimer = 2
 	good_mags = list(/obj/item/ammo_magazine/emptyspeedloader)
 	magazine_type = /obj/item/ammo_magazine/c32
 	ammo_type = /obj/item/ammo_casing/a32
@@ -445,7 +445,7 @@
 	magazine_type = /obj/item/ammo_magazine/c32
 	ammo_type = /obj/item/ammo_casing/a32
 	weight = 1.6
-	equiptimer = 3
+	equiptimer = 2
 	single_action = FALSE
 	blackpowder = FALSE
 	cocked = FALSE
@@ -464,7 +464,7 @@
 	magazine_type = /obj/item/ammo_magazine/c32
 	ammo_type = /obj/item/ammo_casing/a32
 	weight = 1.6
-	equiptimer = 3
+	equiptimer = 2
 	single_action = TRUE
 	blackpowder = FALSE
 	cocked = FALSE
@@ -484,7 +484,7 @@
 	magazine_type = /obj/item/ammo_magazine/c38
 	ammo_type = /obj/item/ammo_casing/a38
 	weight = 1.6
-	equiptimer = 3
+	equiptimer = 2
 	single_action = FALSE
 	blackpowder = FALSE
 	cocked = FALSE
