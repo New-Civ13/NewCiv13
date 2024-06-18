@@ -172,9 +172,9 @@
 
 	//randomize clickpoint a bit based on dispersion
 	if (dispersion)
-		var/radius = round((dispersion*0.443)*world.icon_size*0.8) //0.443 = sqrt(pi)/4 = 2a, where a is the side length of a square that shares the same area as a circle with diameter = dispersion
-		p_x = between(0, p_x + rand(-radius, radius), world.icon_size)
-		p_y = between(0, p_y + rand(-radius, radius), world.icon_size)
+		var/radius = round((dispersion*0.443)*world.icon_size*0.8) // OUTDATED ((0.443 = sqrt(pi)/4 = 2a, where a is the side length of a square that shares the same area as a circle with diameter = dispersion))
+		p_x = between(0, p_x + radius, world.icon_size)
+		p_y = between(0, p_y + radius, world.icon_size) // We don't do rand(-radius, radius) because it is already randomized in var/radius ; repetition of code ; and the value will be significantly reduced.
 
 //called to launch a projectile from a gun
 /obj/item/projectile/proc/launch(atom/target, mob/user, obj/item/weapon/gun/launcher, var/target_zone, var/x_offset=0, var/y_offset=0)
@@ -709,7 +709,7 @@
 		--penetrating
 
 	if (istype(src, /obj/item/projectile/shell))
-		if (permutated.len > get_dist(starting, trajectory.target) + rand(0, 3))
+		if (permutated.len > get_dist(starting, trajectory.target) + rand(-1, 1)) // rand(0,3) is very inaccurate ; this code handles where the shell explodes on the turf.
 			var/obj/item/projectile/shell/S = src
 			on_impact(T)
 			S.initiate(loc)
