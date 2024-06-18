@@ -95,7 +95,7 @@
 	cooldownw = 7
 
 /obj/item/weapon/material/marx
-	name = "bronze bust of karl marx"
+	name = "bust of karl marx"
 	sharp = FALSE
 	edge = FALSE
 	desc = "A bronze bust of karl marx"
