@@ -71,6 +71,8 @@
 
 	var/damage_modifier = 0
 
+	var/last_pick_up = 0
+
 //	var/wielded = FALSE
 //	var/must_wield = FALSE
 //	var/can_wield = FALSE
@@ -107,6 +109,12 @@
 
 	if (!aim_targets)
 		aim_targets = list()
+
+/obj/item/weapon/gun/attack_hand(mob/user as mob)
+	..()
+	if(user.get_inactive_hand() == src)
+		return
+	last_pick_up = world.time
 
 //Checks whether a given mob can use the gun
 //Any checks that shouldn't result in handle_click_empty() being called if they fail should go here.
@@ -427,6 +435,7 @@
 /obj/item/weapon/gun/proc/get_dispersion_range(mob/user)
 	var/dt = world.time - last_shot_time
 	var/dt_movement = world.time - user.last_movement
+	var/dt_picked_up = world.time - last_pick_up
 	var/recoil_range = recoil / ergonomics
 	var/accuracy_range = accuracy
 
@@ -445,6 +454,8 @@
 	else if (dt_movement < 10)
 		accuracy_range = 40 / (dt_movement - 6)
 
+	if(dt_picked_up < 10)
+		accuracy_range = 40 / sqrt(dt_picked_up) / ergonomics
 	return recoil_range + accuracy_range
 
 //does the actual launching of the projectile
@@ -493,6 +504,12 @@
 
 		else // Use the base variable of the gun; this is used in shot_dispersion only, not hit_chances contrary to the variable name
 			shot_accuracy = rand(-accuracy, accuracy)
+
+	var/dt_picked_up = world.time - last_pick_up
+	var/accuracy_range
+	if(dt_picked_up < 15 && dt_picked_up != 0) // Clicking as you are picking up a gun will cause an exeception; Division by zero, hence the `dt_picked_up != 0` check.
+		accuracy_range = 30 / sqrt(dt_picked_up)
+		shot_accuracy = rand(-accuracy_range, accuracy_range)
 
 	var/shot_dispersion = clamp(shot_recoil + shot_accuracy, -40, 40)
 
