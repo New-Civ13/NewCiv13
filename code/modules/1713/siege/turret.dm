@@ -257,7 +257,9 @@
 		A.dir = dir
 		A.Fire(locate(x + target_x, y + target_y, z),gunner)
 		A.forceMove(src)
+
 		next_shot_delay = A.firemodes[A.sel_mode].burst_delay
+
 	else if(istype(weapons[selected_weapon], /obj/item/weapon/gun/projectile))
 		var/obj/item/weapon/gun/projectile/G = weapons[selected_weapon]
 		G.recoil = 1
