@@ -761,9 +761,11 @@
 			qdel(src)
 			return
 		var/area/block_area = get_area(src)
+		/*
 		if (map && firer && map.check_caribbean_block(firer, loc) && !map.allow_bullets_through_blocks.Find(block_area))
 			qdel(src)
 			return
+		*/
 		if ((!( current ) || loc == current))
 			current = locate(min(max(x + xo, 1), world.maxx), min(max(y + yo, 1), world.maxy), z)
 
