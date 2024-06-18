@@ -500,7 +500,7 @@
 	var/direction = get_direction()
 
 	var/turf/previous_step = starting
-	if(T!= starting && permutated.len)
+	if(T != starting && permutated.len)
 		previous_step = permutated[permutated.len]
 
 	var/passthrough = TRUE //if the projectile should continue flying
