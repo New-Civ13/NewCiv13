@@ -668,8 +668,8 @@
 /area/caribbean/roofed)
 "du" = (
 /obj/structure/closet/safe,
-/obj/item/stack/money/goldcoin,
-/obj/item/stack/money/goldcoin,
+/obj/item/stack/money/coin/gold,
+/obj/item/stack/money/coin/gold,
 /turf/floor/wood,
 /area/caribbean/roofed)
 "dv" = (

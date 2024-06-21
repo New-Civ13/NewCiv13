@@ -38,7 +38,7 @@
 		if (1)
 			equip_to_slot_or_del(new /obj/item/clothing/under/celtic_short_braccae(src), slot_w_uniform)
 			equip_to_slot_or_del(new /obj/item/clothing/shoes/roman(src), slot_shoes)
-			equip_to_slot_or_del(new /obj/item/stack/money/coppercoin/twohundred(src), slot_r_store)
+			equip_to_slot_or_del(new /obj/item/stack/money/coin/copper/twohundred(src), slot_r_store)
 
 		if (2)
 			if (map && map.ID == MAP_CIVILIZATIONS)
@@ -190,7 +190,7 @@
 				else
 					equip_to_slot_or_del(new /obj/item/clothing/under/civf1(src), slot_w_uniform)
 					equip_to_slot_or_del(new /obj/item/clothing/head/kerchief(src), slot_head)
-			equip_to_slot_or_del(new /obj/item/stack/money/coppercoin/twohundred(src), slot_r_store)
+			equip_to_slot_or_del(new /obj/item/stack/money/coin/copper/twohundred(src), slot_r_store)
 			equip_to_slot_or_del(new /obj/item/clothing/shoes/leatherboots(src), slot_shoes)
 
 		if (4)
@@ -199,7 +199,7 @@
 			else
 				equip_to_slot_or_del(new /obj/item/clothing/under/civf1(src), slot_w_uniform)
 				equip_to_slot_or_del(new /obj/item/clothing/head/kerchief(src), slot_head)
-			equip_to_slot_or_del(new /obj/item/stack/money/coppercoin/twohundred(src), slot_r_store)
+			equip_to_slot_or_del(new /obj/item/stack/money/coin/copper/twohundred(src), slot_r_store)
 			equip_to_slot_or_del(new /obj/item/clothing/shoes/leatherboots(src), slot_shoes)
 
 		if (5)
@@ -209,7 +209,7 @@
 			else
 				equip_to_slot_or_del(new /obj/item/clothing/under/civf1(src), slot_w_uniform)
 				equip_to_slot_or_del(new /obj/item/clothing/shoes/sandal(src), slot_shoes)
-			equip_to_slot_or_del(new /obj/item/stack/money/coppercoin/twohundred(src), slot_r_store)
+			equip_to_slot_or_del(new /obj/item/stack/money/coin/copper/twohundred(src), slot_r_store)
 
 		if (6)
 			if (map.ID == MAP_NATIONSRP || map.ID == MAP_NATIONSRP_TRIPLE || map.ID == MAP_NATIONSRPMED || map.ID == MAP_NATIONSRP_WW2) // TODO: separate all NATIONSRP maps to appropriate ages
@@ -242,7 +242,7 @@
 				else
 					equip_to_slot_or_del(new /obj/item/clothing/under/civf1(src), slot_w_uniform)
 					equip_to_slot_or_del(new /obj/item/clothing/shoes/sandal(src), slot_shoes)
-				equip_to_slot_or_del(new /obj/item/stack/money/coppercoin/twohundred(src), slot_r_store)
+				equip_to_slot_or_del(new /obj/item/stack/money/coin/copper/twohundred(src), slot_r_store)
 
 		if (7)
 			if (map.ID == MAP_NATIONSRP_COLDWAR_CMP)
@@ -330,7 +330,7 @@
 				else
 					equip_to_slot_or_del(new /obj/item/clothing/under/civf1(src), slot_w_uniform)
 					equip_to_slot_or_del(new /obj/item/clothing/shoes/sandal(src), slot_shoes)
-				equip_to_slot_or_del(new /obj/item/stack/money/coppercoin/twohundred(src), slot_r_store)
+				equip_to_slot_or_del(new /obj/item/stack/money/coin/copper/twohundred(src), slot_r_store)
 		if (8)
 			if (map.ID == MAP_NOMADS_PERSISTENCE_BETA)
 				equip_to_slot_or_del(new /obj/item/clothing/shoes/jackboots(src), slot_shoes)
@@ -348,7 +348,7 @@
 				else
 					equip_to_slot_or_del(new /obj/item/clothing/under/civf1(src), slot_w_uniform)
 					equip_to_slot_or_del(new /obj/item/clothing/shoes/sandal(src), slot_shoes)
-				equip_to_slot_or_del(new /obj/item/stack/money/coppercoin/twohundred(src), slot_r_store)
+				equip_to_slot_or_del(new /obj/item/stack/money/coin/copper/twohundred(src), slot_r_store)
 	if (map.ID == MAP_PEPELSIBIRSK)
 		equip_to_slot_or_del(new /obj/item/weapon/personal_documents(src), slot_wear_id)
 //coats/////////////////////////////////////////////////

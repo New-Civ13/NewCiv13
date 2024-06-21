@@ -1745,7 +1745,7 @@
 "oSr" = (/obj/covers/cement_wall{color = "#f3dd78"},/obj/structure/sign/logo/yellow,/turf/wall/cement,/area/caribbean/roofed)
 "oSJ" = (/obj/structure/rails,/turf/floor/trench,/area/caribbean/roofed/temperate)
 "oSN" = (/obj/structure/wild/rock,/turf/floor/beach/sand,/area/caribbean/nomads/forest)
-"oTi" = (/obj/structure/table/rack/shelf,/obj/item/stack/money/goldcoin,/turf/floor/plating/marble/decorative_tile,/area/caribbean/roofed)
+"oTi" = (/obj/structure/table/rack/shelf,/obj/item/stack/money/coin/gold,/turf/floor/plating/marble/decorative_tile,/area/caribbean/roofed)
 "oTH" = (/obj/structure/morgue{dir = 1},/obj/effect/floor_decal/corner/paleblue/border{dir = 4},/obj/effect/floor_decal/corner/paleblue/border,/turf/floor/plating/white,/area/caribbean/roofed/temperate)
 "oUc" = (/obj/effect/floor_decal/corner_kafel/red/diagonal,/obj/structure/bed/chair/office/dark{dir = 4; icon_state = "officechair_dark"},/turf/floor/plating/marble/tile{color = "#ecc1cc"},/area/caribbean/roofed)
 "oUh" = (/obj/structure/simple_door/key_door/anyone/wood,/turf/floor/plating/tiled/woodh,/area/caribbean/roofed/temperate)

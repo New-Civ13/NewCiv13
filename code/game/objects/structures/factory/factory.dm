@@ -300,7 +300,7 @@
 				qdel(I)
 				return				  //INPUT 1
 
-			else if (istype(I, /obj/item/stack/money/goldcoin))
+			else if (istype(I, /obj/item/stack/money/coin/gold))
 				gold += I.amount/5
 				H << "You place \the [I] in \the [src], smelting it."
 				qdel(I)
@@ -311,7 +311,7 @@
 				qdel(I)
 				return
 
-			else if (istype(I, /obj/item/stack/money/coppercoin))
+			else if (istype(I, /obj/item/stack/money/coin/copper))
 				copper += I.amount/5
 				H << "You place \the [I] in \the [src], smelting it."
 				qdel(I)
@@ -322,7 +322,7 @@
 				qdel(I)
 				return
 
-			else if (istype(I, /obj/item/stack/money/silvercoin))
+			else if (istype(I, /obj/item/stack/money/coin/silver))
 				silver += I.amount/10
 				H << "You place \the [I] in \the [src], smelting it."
 				qdel(I)
@@ -396,15 +396,15 @@
 
 /obj/structure/machinery/factory/coinsmelter/process()
 	if (gold > 0)
-		var/obj/item/stack/money/goldcoin/newgoldcoin = new/obj/item/stack/material/gold(src.loc)
+		var/obj/item/stack/money/coin/gold/newgoldcoin = new/obj/item/stack/material/gold(src.loc)
 		newgoldcoin.amount = gold
 		gold = 0
 	if (copper > 0)
-		var/obj/item/stack/money/coppercoin/newcoppercoin = new/obj/item/stack/material/copper(src.loc)
+		var/obj/item/stack/money/coin/copper/newcoppercoin = new/obj/item/stack/material/copper(src.loc)
 		newcoppercoin.amount = copper
 		copper = 0
 	else if (silver > 0)
-		var/obj/item/stack/money/silvercoin/newsilvercoin = new/obj/item/stack/material/silver(src.loc)
+		var/obj/item/stack/money/coin/silver/newsilvercoin = new/obj/item/stack/material/silver(src.loc)
 		newsilvercoin.amount = silver
 		silver = 0
 
@@ -415,15 +415,15 @@
 	set name = "Empty"
 	set src in range(1, usr)
 	if (goldcoin > 0)
-		var/obj/item/stack/money/goldcoin/emptyedgoldcoin = new/obj/item/stack/money/goldcoin/(src.loc)
+		var/obj/item/stack/money/coin/gold/emptyedgoldcoin = new/obj/item/stack/money/coin/gold/(src.loc)
 		emptyedgoldcoin.amount = goldcoin
 		goldcoin = 0
 	if (coppercoin > 0)
-		var/obj/item/stack/money/coppercoin/emptyedcoppercoin = new/obj/item/stack/money/coppercoin(src.loc)
+		var/obj/item/stack/money/coin/copper/emptyedcoppercoin = new/obj/item/stack/money/coin/copper(src.loc)
 		emptyedcoppercoin.amount = coppercoin
 		coppercoin = 0
 	if (silvercoin > 0)
-		var/obj/item/stack/money/silvercoin/emptyedsilvercoin = new/obj/item/stack/money/silvercoin(src.loc)
+		var/obj/item/stack/money/coin/silver/emptyedsilvercoin = new/obj/item/stack/money/coin/silver(src.loc)
 		emptyedsilvercoin.amount = silvercoin
 		silvercoin = 0
 

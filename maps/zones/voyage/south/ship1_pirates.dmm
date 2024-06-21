@@ -51,7 +51,7 @@
 "VJ" = (/obj/structure/barricade/ship/wood/a7,/obj/covers/repairedfloor/ship,/obj/structure/sign/painting9,/turf/floor/beach/water/deep/saltwater,/area/caribbean/sea/bottom/roofed)
 "We" = (/obj/covers/repairedfloor/ship,/obj/item/stack/money/goldvaluables,/obj/structure/closet/crate/chest,/turf/floor/beach/water/deep/saltwater,/area/caribbean/sea/bottom/roofed)
 "Wt" = (/obj/structure/barricade/ship/blue/b16,/obj/covers/repairedfloor/ship,/turf/floor/beach/water/deep/saltwater,/area/caribbean/sea/bottom/roofed)
-"Xi" = (/obj/covers/repairedfloor/ship,/obj/item/stack/money/goldcoin,/obj/structure/closet/crate/chest,/turf/floor/beach/water/deep/saltwater,/area/caribbean/sea/bottom/roofed)
+"Xi" = (/obj/covers/repairedfloor/ship,/obj/item/stack/money/coin/gold,/obj/structure/closet/crate/chest,/turf/floor/beach/water/deep/saltwater,/area/caribbean/sea/bottom/roofed)
 "YO" = (/turf/floor/beach/water/deep/saltwater,/area/caribbean/sea/bottom)
 "Ze" = (/obj/covers/repairedfloor/ship,/obj/structure/closet/crate/rations/fruits,/turf/floor/beach/water/deep/saltwater,/area/caribbean/sea/bottom/roofed)
 

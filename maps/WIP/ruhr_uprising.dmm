@@ -469,7 +469,7 @@
 /area/caribbean/roofed)
 "dq" = (
 /obj/structure/table/wood,
-/obj/item/stack/money/goldcoin{
+/obj/item/stack/money/coin/gold{
 	amount = 500
 	},
 /turf/floor/wood,

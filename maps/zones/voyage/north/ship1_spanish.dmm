@@ -11,7 +11,7 @@
 "kK" = (/obj/structure/barricade/ship/wood/a4,/obj/covers/repairedfloor/ship,/obj/structure/barricade/ship/blue/b1,/turf/floor/beach/water/deep/saltwater,/area/caribbean/sea/top/roofed)
 "ry" = (/obj/covers/repairedfloor/ship,/obj/structure/closet/crate/rations/fruits,/turf/floor/beach/water/deep/saltwater,/area/caribbean/sea/top/roofed)
 "rT" = (/obj/structure/window/barrier/ship/wood/port0,/obj/covers/repairedfloor/ship,/turf/floor/beach/water/deep/saltwater,/area/caribbean/sea/top)
-"sg" = (/obj/covers/repairedfloor/ship,/obj/item/stack/money/goldcoin,/obj/structure/closet/crate/chest,/turf/floor/beach/water/deep/saltwater,/area/caribbean/sea/top/roofed)
+"sg" = (/obj/covers/repairedfloor/ship,/obj/item/stack/money/coin/gold,/obj/structure/closet/crate/chest,/turf/floor/beach/water/deep/saltwater,/area/caribbean/sea/top/roofed)
 "sO" = (/obj/covers/repairedfloor/ship,/obj/structure/bed/chair{dir = 4},/turf/floor/beach/water/deep/saltwater,/area/caribbean/sea/top/roofed)
 "tL" = (/obj/structure/barricade/ship/wood/a2,/obj/covers/repairedfloor/ship,/turf/floor/beach/water/deep/saltwater,/area/caribbean/sea/top/roofed)
 "tW" = (/obj/covers/repairedfloor/ship,/obj/structure/bookcase,/obj/item/weapon/book,/obj/item/weapon/book,/obj/item/weapon/book,/obj/item/weapon/book,/obj/item/weapon/book,/turf/floor/beach/water/deep/saltwater,/area/caribbean/sea/top/roofed)

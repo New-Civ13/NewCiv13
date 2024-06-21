@@ -303,17 +303,17 @@
 								qdel(D)
 						else
 							if (moneyin > 0 && moneyin <= 3)
-								var/obj/item/stack/money/coppercoin/NM = new/obj/item/stack/money/coppercoin(loc)
+								var/obj/item/stack/money/coin/copper/NM = new/obj/item/stack/money/coin/copper(loc)
 								NM.amount = moneyin/NM.value
 								if (NM.amount <= 0)
 									qdel(NM)
 							else if (moneyin > 3 && moneyin <= 40)
-								var/obj/item/stack/money/silvercoin/NM = new/obj/item/stack/money/silvercoin(loc)
+								var/obj/item/stack/money/coin/silver/NM = new/obj/item/stack/money/coin/silver(loc)
 								NM.amount = moneyin/NM.value
 								if (NM.amount <= 0)
 									qdel(NM)
 							else
-								var/obj/item/stack/money/goldcoin/NM = new/obj/item/stack/money/goldcoin(loc)
+								var/obj/item/stack/money/coin/gold/NM = new/obj/item/stack/money/coin/gold(loc)
 								NM.amount = moneyin/NM.value
 								if (NM.amount <= 0)
 									qdel(NM)
@@ -346,7 +346,7 @@
 				if (D.amount == 0)
 					qdel(D)
 			else
-				var/obj/item/stack/money/goldcoin/GC = new/obj/item/stack/money/goldcoin(loc)
+				var/obj/item/stack/money/coin/gold/GC = new/obj/item/stack/money/coin/gold(loc)
 				GC.amount = moneyin/GC.value
 				if (GC.amount == 0)
 					qdel(GC)

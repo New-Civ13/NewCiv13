@@ -799,13 +799,13 @@ var/global/datum/external_relations/external_relations = new()
 					if((round(money) >= 1))
 						new/obj/item/stack/money/rubles(loc, round(money))
 					if (((money) - round(money)) > 0)
-						new/obj/item/stack/money/coppercoin(loc, round(((money) - round(money)), 0.01) * 100)	//This should never happen, but just in case
+						new/obj/item/stack/money/coin/copper(loc, round(((money) - round(money)), 0.01) * 100)	//This should never happen, but just in case
 					money = 0
 				else // you're broke
 					if((round(money) >= 1))
 						new/obj/item/stack/money/rubles(loc, round(money))
 					if (((money) - round(money)) > 0)
-						new/obj/item/stack/money/coppercoin(loc, round(((money) - round(money)), 0.01) * 100)	//This should never happen, but just in case
+						new/obj/item/stack/money/coin/copper(loc, round(((money) - round(money)), 0.01) * 100)	//This should never happen, but just in case
 					money = 0
 					to_chat(user, "You don't have enough money for this item.")
 				break
@@ -813,7 +813,7 @@ var/global/datum/external_relations/external_relations = new()
 		if((round(money) >= 1)) //giving money back
 			new/obj/item/stack/money/rubles(loc, round(money))
 		if (((money) - round(money)) > 0)
-			new/obj/item/stack/money/coppercoin(loc, round(((money) - round(money)), 0.01) * 100)	//This should never happen, but just in case
+			new/obj/item/stack/money/coin/copper(loc, round(((money) - round(money)), 0.01) * 100)	//This should never happen, but just in case
 		money = 0
 		return
 
@@ -833,7 +833,7 @@ var/global/datum/external_relations/external_relations = new()
 		if((round(money) >= 1))
 			new/obj/item/stack/money/rubles(loc, round(money))		//Rubles
 		if (((money) - round(money)) > 0)
-			new/obj/item/stack/money/coppercoin(loc, round(((money) - round(money)), 0.01) * 100)  //This should never happen, but just in case
+			new/obj/item/stack/money/coin/copper(loc, round(((money) - round(money)), 0.01) * 100)  //This should never happen, but just in case
 		money = 0
 		return
 	if (choice == "Narodnyygorod (CIV)")

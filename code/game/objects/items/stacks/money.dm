@@ -1,7 +1,6 @@
 // Spanish money was the world currency in the early 18th century. 1 doubloon = 2 escudos = 4 spanish dollars = 32 reales
 /obj/item/stack/money/update_icon()
-	if (novariants)
-		return // TO-DO: Check if the parent proc is actually needed here as a "return ..()"
+	if (novariants) return // TO-DO: Check if the parent proc is actually needed here as a "return ..()"
 	if (map.ordinal_age >= 4 && icon_state != "silvercoin_pile")
 		var/icon_suffix = ""
 		switch(amount)
@@ -20,15 +19,16 @@
 		icon_state = initial(icon_state)
 	..()
 	//TO-DO: Check what the parent proc actually does
+
 // -------------------------------------------------
-// GOLD COINS
+// PARENT TYPE.
 // -------------------------------------------------
 
 /obj/item/stack/money
-	name = "gold coins"
-	desc = "Shiny."
-	singular_name = "coin"
-	icon_state = "goldcoin_pile"
+	name = ""
+	desc = ""
+	singular_name = ""
+	icon_state = ""
 	flags = CONDUCT
 	force = WEAPON_FORCE_HARMLESS
 	throwforce = WEAPON_FORCE_HARMLESS
@@ -47,9 +47,9 @@
 // -------------------------------------------------
 
 /obj/item/stack/money/cents
-	name = "Dollar Cents"
+	name = "\improper Dollar Cents" // \improper is wiped during merge; todo: fix this.
 	desc = "Small coins that represent fractions of a dollar"
-	singular_name = "cent"
+	singular_name = "cents"
 	icon_state = "silvercoin_pile"
 	amount = 1
 	value = 0.04
@@ -61,32 +61,34 @@
 /obj/item/stack/money/real
 	name = "spanish reales"
 	desc = "A small silver coin."
-	singular_name = "real"
-	icon_state = "dollar" 
+	singular_name = "coin"
+	icon_state = "real" 
 	amount = 1
 	value = 1
 	flags = CONDUCT
+	novariants = FALSE
+	var/base_icon_state = "real" // A variable to store the base icon state for over-writing.
 
 /obj/item/stack/money/real/New()
 	switch(map.ordinal_age)
 		if(4 to INFINITY) // 1873 and onwards, max 2013.
 			if (map.ID == MAP_BANK_ROBBERY)
-				name = "Dollar Bill"
+				name = "\improper Dollar Bill" // \improper is wiped during merge; todo: fix this.
 				desc = "Paper bank note valued at 1 dollar."
 				singular_name = "Dollar Bill"
 				icon_state = "dollar"
+				base_icon_state = "dollar"
 				value = 1
-				novariants = FALSE
 				flags = FALSE
 				update_icon()
 				return ..()
 			else
-				name = "Dollar Bill"
+				name = "\improper Dollar Bill" // \improper is wiped during merge; todo: fix this.
 				desc = "Paper bank note valued at one dollar."
 				singular_name = "Dollar Bill"
 				icon_state = "dollar"
+				base_icon_state = "dollar"
 				value = 4
-				novariants = FALSE
 				flags = FALSE
 				update_icon()
 				return ..()
@@ -95,32 +97,56 @@
 			desc = "A small silver coin."
 			singular_name = "real"
 			icon_state = "silvercoin_pile"
+			base_icon_state = "silvercoin_pile"
 			value = 1
+			update_icon()
 			return ..()
 		else
 			name = "pfennige"
 			desc = "A small silver coin."
 			singular_name = "pfennig"
 			icon_state = "silvercoin_pile"
+			base_icon_state = "silvercoin_pile"
 			value = 1
+			update_icon()
 			return ..()
+
+/obj/item/stack/money/real/update_icon()
+	if (novariants) return // Safety check.
+	var/icon_suffix = ""
+	switch(amount)
+		if (1 to 49)
+			icon_suffix = ""
+		if (50 to 99)
+			icon_suffix = "_2"
+		if (100 to 299)
+			icon_suffix = "_3"
+		if (300 to 499)
+			icon_suffix = "_4"
+		if (500 to INFINITY)
+			if(base_icon_state != "silvercoin_pile") // silvercoin_pile does not have a `_5` sprite suffix.
+				icon_suffix = "_5"
+	icon_state = "[base_icon_state][icon_suffix]"
+
 // -------------------------------------------------
 // SOVIET RUBLES
 // -------------------------------------------------
 
 /obj/item/stack/money/rubles
-	name = "Soviet Ruble"
+	name = "\improper Soviet Ruble"
 	desc = "A Soviet 1 ruble banknote."
 	singular_name = "ruble"
-	icon_state = "ruble" 
+	icon_state = "ruble"
 	amount = 1
 	value = 1
+	novariants = FALSE
 
 /obj/item/stack/money/rubles/New()
 	update_icon()
 	return ..()
 
 /obj/item/stack/money/rubles/update_icon()
+	if (novariants) return // Safety check.
 	var/icon_suffix = ""
 	switch(amount)
 		if (1 to 49)
@@ -139,30 +165,40 @@
 // PARENT DEFINES: DO NOT USE
 // -------------------------------------------------
 
+/obj/item/stack/money/coin // Main coin-types ; gold ; silver; copper.
+	name = ""
+	desc = ""
+	singular_name = ""
+	icon_state = ""
+	novariants = FALSE
+
 /obj/item/stack/money/european
 	name = ""
 	desc = ""
 	singular_name = ""
 	icon_state = ""
+	novariants = FALSE
 
-/obj/item/stack/money/asian
+/obj/item/stack/money/asian // asian coin type; feng shui for now... maybe re-path feng shui to money/asain/coin - but i dont want it too convoluted.
 	name = ""
 	desc = ""
 	singular_name = ""
 	icon_state = ""
+	novariants = FALSE
 
 /obj/item/stack/money/fictional
 	name = ""
 	desc = ""
 	singular_name = ""
 	icon_state = ""
+	novariants = FALSE
 
 // -------------------------------------------------
 // FICTIONAL: Arstotzka Credit
 // -------------------------------------------------
 
 /obj/item/stack/money/fictional/arstotzkacredit
-	name = "Arstotzka Credit"
+	name = "\improper Arstotzka Credit"
 	desc = "The singular banknote of the official Arstotzka Credit, minted and printed by the Ministry of Trade, and seen as the only legal tender within the borders of Arstotzka. Glory to Arstotzka."
 	singular_name = "Arstotzka Credit"
 	icon_state = "arstotzkacredit"
@@ -174,6 +210,7 @@
 	return ..()
 
 /obj/item/stack/money/fictional/update_icon()
+	if (novariants) return // Safety check.
 	var/icon_suffix = ""
 	switch(amount)
 		if (1 to 49)
@@ -193,7 +230,7 @@
 // -------------------------------------------------
 
 /obj/item/stack/money/asian/fengshui
-	name = "Feng Shui Coin"
+	name = "\improper Feng Shui Coin"
 	desc = "An ancient chinese currency, adopting a unique design as it is quite larger than more conventional currency and features a square-shaped hole in the middle, as well as chinese writing embedded in its design. Typically made of copper alloys."
 	singular_name = "coin"
 	icon_state = "fengshui"
@@ -205,6 +242,7 @@
 	return ..()
 
 /obj/item/stack/money/asian/update_icon()
+	if (novariants) return // Safety check.
 	var/icon_suffix = ""
 	switch(amount)
 		if (1 to 49)
@@ -227,7 +265,7 @@
 	name = "1 British Pound"
 	desc = "A coin representing the 1 British Pound Sterling, its outer ring made of gold coloured nickel-brass, and its inner ring a silver coloured nickel-plated alloy. Engraved upon it is a side-view of the British monarch."
 	singular_name = "coin"
-	icon_state = "britpound" 
+	icon_state = "britpound"
 	amount = 1
 	value = 1
 
@@ -235,7 +273,7 @@
 	name = "5 British Pound"
 	desc = "A 5 British Pound Sterling banknote, with the British monarch's face imprinted upon it, and coined by the Bank of England."
 	singular_name = "5 Pound note"
-	icon_state = "5britpound" 
+	icon_state = "5britpound"
 	amount = 1
 	value = 5
 
@@ -243,7 +281,7 @@
 	name = "10 British Pound"
 	desc = "A 10 British Pound Sterling banknote, with the British monarch's face imprinted upon it, and coined by the Bank of England."
 	singular_name = "10 Pound note"
-	icon_state = "10britpound" 
+	icon_state = "10britpound"
 	amount = 1
 	value = 10
 
@@ -251,7 +289,7 @@
 	name = "20 British Pound"
 	desc = "A 20 British Pound Sterling banknote, with the British monarch's face imprinted upon it, and coined by the Bank of England."
 	singular_name = "20 Pound note"
-	icon_state = "20britpound" 
+	icon_state = "20britpound"
 	amount = 1
 	value = 20
 
@@ -271,7 +309,7 @@
 	name = "1 Euro Coin"
 	desc = "A 1 Euro coin, with a symbol of one of the member states engraved upon it, its silver-coloured inner ring made of a cooper-nickel alloy, and its gold-coloured outer ring made of a copper-zinc-nickel alloy"
 	singular_name = "coin"
-	icon_state = "euro" 
+	icon_state = "euro"
 	amount = 1
 	value = 1
 
@@ -279,7 +317,7 @@
 	name = "2 Euro Coin"
 	desc = "A 2 Euro coin, with a symbol of one of the member states engraved upon it, its gold-coloured inner ring made of a copper-zinc-nickel alloy, and its silver-coloured outer ring made of a cooper-nickel alloy"
 	singular_name = "coin"
-	icon_state = "2euro" 
+	icon_state = "2euro"
 	amount = 1
 	value = 2
 
@@ -287,7 +325,7 @@
 	name = "5 Euro Note"
 	desc = "A 5 Euro banknote, depicting bridges and arches/doorways in Classical architecture with a mixture of green, blue and a touch of yellow. Imprinted upon it is the flag of the European Union"
 	singular_name = "5 Euro note"
-	icon_state = "5euro" 
+	icon_state = "5euro"
 	amount = 1
 	value = 5
 
@@ -295,7 +333,7 @@
 	name = "10 Euro Note"
 	desc = "A 10 Euro banknote, depicting bridges and arches/doorways in Romanesque architecture with a mixture of various shades of red. Imprinted upon it is the flag of the European Union"
 	singular_name = "10 Euro note"
-	icon_state = "10euro" 
+	icon_state = "10euro"
 	amount = 1
 	value = 10
 
@@ -303,7 +341,7 @@
 	name = "20 Euro Note"
 	desc = "A 20 Euro banknote, depicting bridges and arches/doorways in Gothic architecture with a mixture of shades of blue, some red and a touch of green. Imprinted upon it is the flag of the European Union"
 	singular_name = "20 Euro note"
-	icon_state = "20euro" 
+	icon_state = "20euro"
 	amount = 1
 	value = 20
 
@@ -311,7 +349,7 @@
 	name = "50 Euro Note"
 	desc = "A 50 Euro banknote, depicting bridges and arches/doorways in the Rennaissance era with a mixture of yellow, orange and a touch of brown. Imprinted upon it is the flag of the European Union"
 	singular_name = "50 Euro note"
-	icon_state = "50euro" 
+	icon_state = "50euro"
 	amount = 1
 	value = 50
 
@@ -319,7 +357,7 @@
 	name = "100 Euro Note"
 	desc = "A 100 Euro banknote, depicting bridges and arches/doorways in the Baroque and Rococo style with a mixture of green and yellow. Imprinted upon it is the flag of the European Union"
 	singular_name = "100 Euro note"
-	icon_state = "100euro" 
+	icon_state = "100euro"
 	amount = 1
 	value = 100
 
@@ -327,7 +365,7 @@
 	name = "200 Euro Note"
 	desc = "A 200 Euro banknote, depicting bridges and arches/doorways in Art Noveau style with a mixture of ywllow, some blue and some brown. Imprinted upon it is the flag of the European Union"
 	singular_name = "200 Euro note"
-	icon_state = "200euro" 
+	icon_state = "200euro"
 	amount = 1
 	value = 200
 
@@ -335,7 +373,7 @@
 	name = "500 Euro Note"
 	desc = "A 500 Euro banknote, depicting bridges and arches/doorways in Modern architecture with a mixture of purple and a touch of gold. Imprinted upon it is the flag of the European Union"
 	singular_name = "500 Euro note"
-	icon_state = "500euro" 
+	icon_state = "500euro"
 	amount = 1
 	value = 500
 
@@ -344,6 +382,7 @@
 	return ..()
 
 /obj/item/stack/money/european/update_icon()
+	if (novariants) return // Safety check.
 	var/icon_suffix = ""
 	switch(amount)
 		if (1 to 49)
@@ -371,12 +410,14 @@
 	value = 0.01
 	max_amount = 2500
 	flags = CONDUCT
+	novariants = FALSE
 
 /obj/item/stack/money/yen/New()
 	update_icon()
 	return ..()
 
 /obj/item/stack/money/yen/update_icon()
+	if (novariants) return // Safety check.
 	var/icon_suffix = ""
 	switch(amount)
 		if (2)
@@ -421,6 +462,7 @@
 	amount = 1
 	value = 8
 	flags = CONDUCT
+	novariants = FALSE
 
 /obj/item/stack/money/dollar/New()
 	if (map && map.ordinal_age >= 4)
@@ -469,12 +511,14 @@
 	icon_state = "100dollar"
 	value = 100
 	amount = 1
+	novariants = FALSE
 
 /obj/item/stack/money/dollar100/New()
 	update_icon()
 	return ..()
 
 /obj/item/stack/money/dollar100/update_icon()
+	if (novariants) return // Safety check.
 	var/icon_suffix = ""
 	switch(amount)
 		if (1 to 49)
@@ -497,17 +541,21 @@
 /obj/item/stack/money/escudo
 	name = "spanish escudos"
 	desc = "A gold coin. Worth 16 reales."
-	singular_name = "escudo"
-	icon_state = "20dollar"
+	singular_name = "coin"
+	icon_state = "escudo"
 	amount = 1
 	value = 16
-
 	flags = CONDUCT
+	novariants = FALSE
+	var/base_icon_state = "escudo" // A variable to store the base icon state for over-writing.
+
 /obj/item/stack/money/escudo/New()
+	update_icon()
 	if (map.ordinal_age >= 4) //Not being called
 		name = "20 Dollar Bill"
 		desc = "Paper bank note valued at twenty dollars."
 		icon_state = "20dollar"
+		base_icon_state = "20dollar"
 		value = 80
 		novariants = FALSE
 		flags = FALSE
@@ -518,6 +566,7 @@
 		desc = "A gold coin. Worth 16 reales."
 		singular_name = "escudo"
 		icon_state = "goldcoin_pile"
+		base_icon_state = "goldcoin_pile"
 		value = 16
 		return ..()
 	else
@@ -525,8 +574,25 @@
 		desc = "A gold coin, worth 60 kreuzers or 240 pfennige."
 		singular_name = "gulden"
 		icon_state = "goldcoin_pile"
+		base_icon_state = "goldcoin_pile"
 		value = 60
 		return ..()
+
+/obj/item/stack/money/escudo/update_icon()
+	if (novariants) return // Safety check.
+	var/icon_suffix = ""
+	switch(amount)
+		if (1 to 49)
+			icon_suffix = ""
+		if (50 to 99)
+			icon_suffix = "_2"
+		if (100 to 299)
+			icon_suffix = "_3"
+		if (300 to 499)
+			icon_suffix = "_4"
+		if (500 to INFINITY)
+			icon_suffix = "_5"
+	icon_state = "[base_icon_state][icon_suffix]"
 
 // -------------------------------------------------
 // SPANISH DOUBLOONS
@@ -535,11 +601,12 @@
 /obj/item/stack/money/doubloon
 	name = "spanish doubloons"
 	desc = "A large gold coin, the largest in circulation. Worth 32 reales."
-	singular_name = "doubloon"
-	icon_state = "50dollar"
+	singular_name = "coin"
+	icon_state = "doubloon"
 	amount = 1
 	value = 32
 	flags = CONDUCT
+	novariants = FALSE
 
 /obj/item/stack/money/doubloon/New()
 	if (map.ordinal_age >= 4)
@@ -566,6 +633,23 @@
 		icon_state = "goldcoin_pile"
 		value = 120
 		return ..()
+
+/obj/item/stack/money/doubloon/update_icon()
+	if (novariants) return // Safety check.
+	var/icon_suffix = ""
+	switch(amount)
+		if (1 to 49)
+			icon_suffix = ""
+		if (50 to 99)
+			icon_suffix = "_2"
+		if (100 to 299)
+			icon_suffix = "_3"
+		if (300 to 499)
+			icon_suffix = "_4"
+		if (500 to INFINITY)
+			icon_suffix = "_5"
+	var/original_icon_state = icon_state // So we don't over-write the old icon state; to prevent doubloon_1_3_4_5 [error].
+	icon_state = "[original_icon_state][icon_suffix]"
 
 // -------------------------------------------------
 // MISCELLANIOUS
@@ -641,7 +725,7 @@
 		storedvalue += BB.reagents.get_reagent_amount("petroleum")
 	if (faction)
 		desc = "Belongs to the [faction]. Stored oil: [storedvalue]."
-	spawn(600) // 1 minute 
+	spawn(600) // 1 minute
 		check_value()
 
 /obj/structure/oil_deposits/attack_hand(mob/living/human/user as mob)
@@ -708,7 +792,7 @@
 	..()
 	icon_state = "pearls[rand(1,2)]"
 
-/obj/item/stack/money/coppercoin
+/obj/item/stack/money/coin/copper
 	name = "copper coins"
 	desc = "A small copper coin. Worth 1/10th of a silver coin or 1/40th of a gold coin."
 	singular_name = "copper coin"
@@ -717,10 +801,28 @@
 	value = 0.1
 	flags = CONDUCT
 
-/obj/item/stack/money/coppercoin/twohundred
-	amount = 20
+/obj/item/stack/money/coin/copper/twohundred
+	amount = 200
 
-/obj/item/stack/money/silvercoin
+/obj/item/stack/money/coin/copper/New()
+	update_icon()
+	return ..()
+
+/obj/item/stack/money/coin/copper/update_icon()
+	if (novariants) return // Safety check.
+	var/icon_suffix = ""
+	switch(amount)
+		if (1 to 124)
+			icon_suffix = ""
+		if (125 to 249)
+			icon_suffix = "_2"
+		if (250 to 374)
+			icon_suffix = "_3"
+		if (375 to INFINITY)
+			icon_suffix = "_4"
+	icon_state = "coppercoin_pile[icon_suffix]"
+
+/obj/item/stack/money/coin/silver
 	name = "silver coins"
 	desc = "A small silver coin. Worth 1/4th of a gold coin or 10 copper coins."
 	singular_name = "silver coin"
@@ -729,17 +831,52 @@
 	value = 1
 	flags = CONDUCT
 
-/obj/item/stack/money/silvercoin/twohundred
-	amount = 20
+/obj/item/stack/money/coin/silver/twohundred
+	amount = 200
 
-/obj/item/stack/money/goldcoin
+/obj/item/stack/money/coin/silver/New()
+	update_icon()
+	return ..()
+
+/obj/item/stack/money/coin/silver/update_icon()
+	if (novariants) return // Safety check.
+	var/icon_suffix = ""
+	switch(amount)
+		if (1 to 124)
+			icon_suffix = ""
+		if (125 to 249)
+			icon_suffix = "_2"
+		if (250 to 374)
+			icon_suffix = "_3"
+		if (375 to INFINITY)
+			icon_suffix = "_4"
+	icon_state = "silvercoin_pile[icon_suffix]"
+
+/obj/item/stack/money/coin/gold
 	name = "gold coins"
-	desc = "A small gold coin. Worth 4 silver coins or 40 copper coins."
+	desc = "Some small coin. Worth 4 silver coins or 40 copper coins. Shiny."
 	singular_name = "gold coin"
 	icon_state = "goldcoin_pile"
 	amount = 1
 	value = 4
-	flags = CONDUCT
+
+/obj/item/stack/money/coin/gold/New()
+	update_icon()
+	return ..()
+
+/obj/item/stack/money/coin/gold/update_icon()
+	if (novariants) return // Safety check.
+	var/icon_suffix = ""
+	switch(amount)
+		if (1 to 124)
+			icon_suffix = ""
+		if (125 to 249)
+			icon_suffix = "_2"
+		if (250 to 374)
+			icon_suffix = "_3"
+		if (375 to INFINITY)
+			icon_suffix = "_4"
+	icon_state = "goldcoin_pile[icon_suffix]"
 
 /obj/item/stack/money/bitcoin
 	name = "bitcoin"
@@ -779,39 +916,19 @@
 	name = "septim"
 	desc = "A single septim coin."
 	singular_name = "septim"
-	icon_state = "septim" 
+	icon_state = "septim"
 	amount = 1
 	value = 1
 	max_amount = 500
 	flags = CONDUCT
+	novariants = FALSE
 
 /obj/item/stack/money/septim/New()
-	if(amount == 2)
-		icon_state = "septim_2"
-	if(amount == 3)
-		icon_state = "septim_3"
-	if(amount == 4)
-		icon_state = "septim_4"
-	if(amount == 5)
-		icon_state = "septim_5"
-	if(amount == 6)
-		icon_state = "septim_6"
-	if(amount >= 7)
-		icon_state = "septim_7"
-	if(amount >= 10)
-		icon_state = "septim_10"
-	if(amount >= 50)
-		icon_state = "septim_50"
-	if(amount >= 100)
-		icon_state = "septim_100"
-	if(amount == 500)
-		icon_state = "septim_500"
-	if(amount > 500)
-		icon_state = "septim_500+"
 	update_icon()
 	return ..()
 
 /obj/item/stack/money/septim/update_icon()
+	if (novariants) return // Safety check.
 	if(amount == 2)
 		icon_state = "septim_2"
 	if(amount == 3)

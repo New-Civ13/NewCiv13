@@ -22,7 +22,7 @@
 "qc" = (/obj/covers/repairedfloor/ship,/obj/structure/closet/crate/rations/ale,/turf/floor/beach/water/deep/saltwater,/area/caribbean/sea/bottom/roofed)
 "ru" = (/obj/structure/barricade/ship/wood/a3,/obj/covers/repairedfloor/ship,/turf/floor/beach/water/deep/saltwater,/area/caribbean/sea/bottom/roofed)
 "sh" = (/obj/covers/repairedfloor/ship,/obj/structure/table/fancy,/obj/item/weapon/reagent_containers/food/snacks/applepie,/turf/floor/beach/water/deep/saltwater,/area/caribbean/sea/bottom/roofed)
-"sE" = (/obj/covers/repairedfloor/ship,/obj/item/stack/money/goldcoin,/obj/structure/closet/crate/chest,/turf/floor/beach/water/deep/saltwater,/area/caribbean/sea/bottom/roofed)
+"sE" = (/obj/covers/repairedfloor/ship,/obj/item/stack/money/coin/gold,/obj/structure/closet/crate/chest,/turf/floor/beach/water/deep/saltwater,/area/caribbean/sea/bottom/roofed)
 "tV" = (/obj/covers/repairedfloor/ship,/obj/structure/bed/chair/comfy/blue{dir = 8},/turf/floor/beach/water/deep/saltwater,/area/caribbean/sea/bottom/roofed)
 "ub" = (/obj/structure/barricade/ship/wood/a5,/obj/covers/repairedfloor/ship,/turf/floor/beach/water/deep/saltwater,/area/caribbean/sea/bottom/roofed)
 "vh" = (/obj/structure/barricade/ship/wood/a2,/obj/covers/repairedfloor/ship,/turf/floor/beach/water/deep/saltwater,/area/caribbean/sea/bottom/roofed)

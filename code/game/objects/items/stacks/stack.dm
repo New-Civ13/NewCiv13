@@ -36,7 +36,7 @@
 	if(merge)
 		//For every stack in location, repeat the code.
 		for(var/obj/item/stack/S in loc)
-			if(istype(S, src)) // If stack types match, we merge.
+			if(istype(S, src))// If stack types match, we merge. (Does not work for different paths (real/five || real/twenty) - do not merge.) TODO
 				merge(S)
 	return
 
@@ -1854,11 +1854,11 @@
 		produced = 3
 	else if (recipe.result_type == /obj/item/stack/ammopart/blunderbuss)
 		produced = 2
-	else if (recipe.result_type == /obj/item/stack/money/silvercoin)
+	else if (recipe.result_type == /obj/item/stack/money/coin/silver)
 		produced = 10
-	else if (recipe.result_type == /obj/item/stack/money/goldcoin)
+	else if (recipe.result_type == /obj/item/stack/money/coin/gold)
 		produced = 5
-	else if (recipe.result_type == /obj/item/stack/money/coppercoin)
+	else if (recipe.result_type == /obj/item/stack/money/coin/copper)
 		produced = 5
 	else if (recipe.result_type == /obj/item/stack/material/barbwire)
 		produced = 2

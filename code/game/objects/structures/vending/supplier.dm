@@ -102,13 +102,13 @@
 					else
 						WS.forceMove(src)
 					if (orderprice*WS.amount > 0 && orderprice*WS.amount <= 3)
-						var/obj/item/stack/money/coppercoin/NM = new/obj/item/stack/money/coppercoin(loc)
+						var/obj/item/stack/money/coin/copper/NM = new/obj/item/stack/money/coin/copper(loc)
 						NM.amount = (orderprice*WS.amount)/NM.value
 					else if (orderprice*WS.amount > 3 && orderprice*WS.amount <= 40)
-						var/obj/item/stack/money/silvercoin/NM = new/obj/item/stack/money/silvercoin(loc)
+						var/obj/item/stack/money/coin/silver/NM = new/obj/item/stack/money/coin/silver(loc)
 						NM.amount = (orderprice*WS.amount)/NM.value
 					else
-						var/obj/item/stack/money/goldcoin/NM = new/obj/item/stack/money/goldcoin(loc)
+						var/obj/item/stack/money/coin/gold/NM = new/obj/item/stack/money/coin/gold(loc)
 						NM.amount = (orderprice*WS.amount)/NM.value
 					moneyin -= orderprice*WS.amount
 					orderamount -= WS.amount
@@ -125,13 +125,13 @@
 					user.drop_from_inventory(W)
 					W.forceMove(src)
 					if (orderprice > 0 && orderprice <= 3)
-						var/obj/item/stack/money/coppercoin/NM = new/obj/item/stack/money/coppercoin(loc)
+						var/obj/item/stack/money/coin/copper/NM = new/obj/item/stack/money/coin/copper(loc)
 						NM.amount = orderprice/NM.value
 					else if (orderprice > 3 && orderprice <= 40)
-						var/obj/item/stack/money/silvercoin/NM = new/obj/item/stack/money/silvercoin(loc)
+						var/obj/item/stack/money/coin/silver/NM = new/obj/item/stack/money/coin/silver(loc)
 						NM.amount = orderprice/NM.value
 					else
-						var/obj/item/stack/money/goldcoin/NM = new/obj/item/stack/money/goldcoin(loc)
+						var/obj/item/stack/money/coin/gold/NM = new/obj/item/stack/money/coin/gold(loc)
 						NM.amount = orderprice/NM.value
 					moneyin -= orderprice
 					orderamount -= 1
@@ -161,13 +161,13 @@
 				return TRUE
 		else if (choice == "Remove Money")
 			if (moneyin > 0 && moneyin <= 3)
-				var/obj/item/stack/money/coppercoin/NM = new/obj/item/stack/money/coppercoin(loc)
+				var/obj/item/stack/money/coin/copper/NM = new/obj/item/stack/money/coin/copper(loc)
 				NM.amount = moneyin/NM.value
 			else if (moneyin > 3 && moneyin <= 40)
-				var/obj/item/stack/money/silvercoin/NM = new/obj/item/stack/money/silvercoin(loc)
+				var/obj/item/stack/money/coin/silver/NM = new/obj/item/stack/money/coin/silver(loc)
 				NM.amount = moneyin/NM.value
 			else
-				var/obj/item/stack/money/goldcoin/NM = new/obj/item/stack/money/goldcoin(loc)
+				var/obj/item/stack/money/coin/gold/NM = new/obj/item/stack/money/coin/gold(loc)
 				NM.amount = moneyin/NM.value
 			moneyin = 0
 			return

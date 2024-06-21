@@ -56,7 +56,7 @@
 		else if (choicefac == "Withdraw Taxes")
 			if (map.custom_civs[user.civilization][4] == user)
 				if (map.custom_civs[user.civilization][5]>0)
-					var/obj/item/stack/money/goldcoin/GC = new/obj/item/stack/money/goldcoin(loc)
+					var/obj/item/stack/money/coin/gold/GC = new/obj/item/stack/money/coin/gold(loc)
 					GC.amount = map.custom_civs[user.civilization][5]/4
 					map.custom_civs[user.civilization][5]=0
 					user << "You withdraw [GC.amount] gold coins in faction funds."
@@ -111,7 +111,7 @@
 						businesstax = (map.custom_civs[user.civilization][10]/100)*j[3]
 						price_without_tax = j[3]-businesstax
 						map.custom_civs[user.civilization][5] += businesstax
-					var/obj/item/stack/money/goldcoin/GC = new/obj/item/stack/money/goldcoin(loc)
+					var/obj/item/stack/money/coin/gold/GC = new/obj/item/stack/money/coin/gold(loc)
 					GC.amount = price_without_tax/4
 					j[3] = 0
 					user << "<span class='notice'>You withdraw [GC.amount*4] silver coins in profit, paying [businesstax] silver coins ([map.custom_civs[user.civilization][10]]%) in Business Tax to your faction.</span>"
@@ -151,7 +151,7 @@
 								var/tmb = ord_price
 								var/tmc = (tma - tmb)/4
 								qdel(M)
-								var/obj/item/stack/money/goldcoin/GC = new/obj/item/stack/money/goldcoin(loc)
+								var/obj/item/stack/money/coin/gold/GC = new/obj/item/stack/money/coin/gold(loc)
 								GC.amount = tmc
 								if (GC.amount <= 0)
 									qdel(GC)
