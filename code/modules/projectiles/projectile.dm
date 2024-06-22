@@ -78,9 +78,6 @@
 
 	var/datum/plot_vector/trajectory	// used to plot the path of the projectile
 	var/datum/vector_loc/location		// current location of the projectile in pixel space
-	var/matrix/effect_transform			// matrix to rotate and scale projectile effects - putting it here so it doesn't
-										// have to be recreated multiple times
-
 	armor_penetration = 90
 
 	/* since a lot of WW2 guns use similar ammo, this is calculated during runtime
@@ -838,10 +835,6 @@
 	// plot the initial trajectory
 	trajectory = new()
 	trajectory.setup(starting_loc, original, pixel_x, pixel_y, dispersion)
-
-	// generate this now since all visual effects the projectile makes can use it
-	effect_transform = new()
-	effect_transform.Turn(-trajectory.return_angle())		//no idea why this has to be inverted, but it works
 
 	transform = turn(transform, -(trajectory.return_angle() + 90)) //no idea why 90 needs to be added, but it works
 
