@@ -576,7 +576,7 @@
 	tracer_type = /obj/effect/projectile/tracer/red
 
 /obj/item/projectile/bullet/rifle/a50cal_he/on_impact(var/atom/A)
-	impact_effect(effect_transform)
+	impact_effect()
 	playsound(src, "ric_sound", 50, TRUE, -2)
 	if (istype(A, /turf))
 		var/turf/T = A
@@ -637,7 +637,7 @@
 	tracer_type = /obj/effect/projectile/tracer
 
 /obj/item/projectile/bullet/rifle/a15115_aphe/on_impact(var/atom/A)
-	impact_effect(effect_transform)
+	impact_effect()
 	playsound(src, "ric_sound", 50, TRUE, -2)
 	if (istype(A, /turf))
 		var/turf/T = A
