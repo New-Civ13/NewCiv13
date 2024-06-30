@@ -158,7 +158,7 @@
 				salting()
 			return
 	if (!producttype && !contents.len)
-		if (istype(W, /obj/item/weapon/pigleg))
+		if (W.type == /obj/item/weapon/pigleg) // Direct compare to prevent [/salted sub-types] from re-salting. (Quality of Life).
 			user.drop_from_inventory(W, src, FALSE)
 			W.forceMove(src)
 			max_capacity = 3
@@ -167,7 +167,7 @@
 			user.visible_message(SPAN_NOTICE("[user] adds \the [W] to the salting container"), SPAN_NOTICE("You add \the [W] to the salting container."))
 			icon_state = "salting_container_[producttype_name]_[contents.len]"
 			return
-		else if (istype(W, /obj/item/weapon/reagent_containers/food/snacks/rawfish/cod))
+		else if (W.type == /obj/item/weapon/reagent_containers/food/snacks/rawfish/cod)
 			user.drop_from_inventory(W, src, FALSE)
 			W.forceMove(src)
 			max_capacity = 3
@@ -176,7 +176,7 @@
 			user.visible_message(SPAN_NOTICE("[user] adds \the [W] to the salting container"), SPAN_NOTICE("You add \the [W] to the salting container."))
 			icon_state = "salting_container_[producttype_name]_[contents.len]"
 			return
-		else if (istype(W, /obj/item/weapon/reagent_containers/food/snacks/sausage))
+		else if (W.type == /obj/item/weapon/reagent_containers/food/snacks/sausage)
 			user.drop_from_inventory(W, src, FALSE)
 			W.forceMove(src)
 			max_capacity = 5
@@ -184,6 +184,9 @@
 			producttype_name = "sausage"
 			user.visible_message(SPAN_NOTICE("[user] adds \the [W] to the salting container"), SPAN_NOTICE("You add \the [W] to the salting container."))
 			icon_state = "salting_container_[producttype_name]_[contents.len]"
+			return
+		else
+			to_chat(user, SPAN_WARNING("You can't seem to salt this."))
 			return
 	else if (producttype == W.type && contents.len < max_capacity && !salting)
 		user.drop_from_inventory(W, src, FALSE)
@@ -215,11 +218,11 @@
 			switch(producttype_name)
 				if("ham")
 					new/obj/item/weapon/pigleg/salted(loc)
-				else if("cod")
+				if("cod")
 					new/obj/item/weapon/reagent_containers/food/snacks/rawfish/cod/salted(loc)
-				else if("sausage")
+				if("sausage")
 					new/obj/item/weapon/reagent_containers/food/snacks/sausage/salted(loc)
-		producttype = null // Reset the product type variable to allow the next cycle of salting.
+		producttype = null // Reset the product type variable to allow the next cycle of contents.
 
 ///////////////////////////////LARGE/DEHYDRATOR///////////////////////////////
 /obj/structure/drying_rack
