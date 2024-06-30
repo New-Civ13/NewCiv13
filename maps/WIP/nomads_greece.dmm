@@ -33,7 +33,7 @@
 "G" = (/obj/structure/oil_spring,/turf/floor/dirt,/area/caribbean/forest)
 "H" = (/obj/structure/oil_spring,/turf/floor/grass,/area/caribbean/sea)
 "I" = (/turf/floor/dirt/underground,/area/caribbean/sea)
-"J" = (/obj/item/stack/ore/fossilbone1,/turf/floor/dirt/underground,/area/caribbean)
+"J" = (/obj/item/stack/ore/fossil/bone1,/turf/floor/dirt/underground,/area/caribbean)
 "K" = (/obj/structure/oil_spring,/turf/floor/dirt/underground,/area/caribbean)
 "L" = (/turf/wall/indestructable,/area/caribbean)
 

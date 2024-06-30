@@ -12,7 +12,7 @@
 "al" = (/obj/structure/brazier/stone{fuel = 3000; on = 0},/obj/covers/roads/dirt,/turf/floor/dirt/dust,/area/caribbean/forest)
 "am" = (/obj/structure/wild/bush,/turf/floor/grass,/area/caribbean/forest)
 "an" = (/obj/structure/brazier/stone{fuel = 3000; on = 0},/turf/floor/grass,/area/caribbean/forest)
-"ao" = (/obj/item/stack/ore/fossilshell3,/turf/floor/grass,/area/caribbean/forest)
+"ao" = (/obj/item/stack/ore/fossil/shell3,/turf/floor/grass,/area/caribbean/forest)
 "ap" = (/turf/floor/beach/water/shallowsaltwater,/area/caribbean/island/river)
 "aq" = (/obj/structure/window/barrier/railing/stone,/turf/floor/grass,/area/caribbean/forest)
 "ar" = (/obj/structure/wild/tree/live_tree/pine,/obj/structure/window/barrier/railing/stone,/turf/floor/grass,/area/caribbean/forest)

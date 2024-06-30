@@ -50,7 +50,7 @@
 "rO" = (/obj/item/stack/medical/advanced/herbs,/turf/floor/dirt/burned,/area/caribbean/sea/bottom/roofed)
 "sb" = (/obj/item/weapon/reagent_containers/food/drinks/clay/claybowl,/turf/floor/plating/stone_old,/area/caribbean/sea/bottom/roofed)
 "sn" = (/turf/floor/plating/stone_old,/area/caribbean/sea/bottom/roofed)
-"sR" = (/obj/item/stack/ore/fossilbone1,/turf/floor/plating/stone_old,/area/caribbean/sea/bottom/roofed)
+"sR" = (/obj/item/stack/ore/fossil/bone1,/turf/floor/plating/stone_old,/area/caribbean/sea/bottom/roofed)
 "tm" = (/obj/effect/decal/cleanable/blood/gibs,/turf/floor/dirt/jungledirt,/area/caribbean/sea/bottom/roofed)
 "tu" = (/obj/effect/decal/cleanable/cobweb2{dir = 8; icon_state = "cobweb2"},/mob/living/simple_animal/blackbat,/turf/floor/plating/stone_old,/area/caribbean/sea/top/roofed)
 "tB" = (/obj/structure/multiz/ladder/ww2/tunneltop,/mob/living/simple_animal/blackbat,/turf/floor/plating/stone_old,/area/caribbean/sea/top/roofed)

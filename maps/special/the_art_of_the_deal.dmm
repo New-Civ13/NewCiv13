@@ -1365,7 +1365,7 @@
 "lcK" = (/obj/item/stack/farming/seeds/tea,/turf/floor/dirt,/area/caribbean/nomads/forest)
 "ldQ" = (/obj/structure/bed/chair/wood/bleacher/l,/turf/floor/plating/steel,/area/caribbean/prison/jail/processing)
 "lee" = (/obj/structure/noticeboard{layer = 4; pixel_y = 32},/obj/structure/lamp/lamp_big/alwayson/white{dir = 1; icon_state = "tube"},/turf/floor/plating/steel,/area/caribbean/roofed/temperate)
-"leZ" = (/obj/item/stack/ore/fossilskull1,/turf/floor/beach/sand/dark,/area/caribbean/nomads/forest)
+"leZ" = (/obj/item/stack/ore/fossil/skull1,/turf/floor/beach/sand/dark,/area/caribbean/nomads/forest)
 "lfo" = (/obj/structure/lamp/lamp_big/alwayson,/obj/covers/steelplating/white{color = "#dfaf9b"; name = "tiled floor"},/turf/floor/plating/concrete,/area/caribbean/roofed/temperate)
 "lfs" = (/obj/structure/lamp/lamp_big/alwayson{dir = 8; icon_state = "tube"},/obj/effect/floor_decal/corner/paleblue/border{dir = 8},/turf/floor/plating/white,/area/caribbean/roofed/temperate)
 "lfT" = (/obj/structure/barricade/construction{dir = 1},/turf/floor/dirt,/area/caribbean/nomads/forest)

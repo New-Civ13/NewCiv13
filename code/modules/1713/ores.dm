@@ -10,11 +10,13 @@
 	value = 1
 	var/radioactive = FALSE
 	var/radioactive_amt = 0
+	var/novariants
 
 /obj/item/stack/ore/New()
 	pixel_x = rand(0,16)-8
 	pixel_y = rand(0,8)-8
 	process_radioactivity()
+	update_icon()
 	..()
 
 /obj/item/stack/ore/proc/process_radioactivity()
@@ -25,6 +27,20 @@
 
 	spawn(100)
 		process_radioactivity()
+
+/obj/item/stack/ore/update_icon()
+	if(novariants) return
+	var/icon_suffix = ""
+	switch(amount)
+		if (1 to 12)
+			icon_suffix = ""
+		if (13 to 24)
+			icon_suffix = "_2"
+		if (25 to 36)
+			icon_suffix = "_3"
+		if (37 to INFINITY)
+			icon_suffix = "_4"
+	icon_state = "[initial(icon_state)][icon_suffix]"
 
 /obj/item/stack/ore/iron
 	name = "iron ore"
@@ -187,6 +203,7 @@
 	name = "diamonds"
 	icon_state = "ore_diamond"
 	value = 10
+	novariants = TRUE
 /obj/item/stack/ore/obsidian
 	name = "obsidian"
 	desc = "A sort of volcanic glass."
@@ -381,73 +398,40 @@
 						qdel(src)
 		else
 			..()
-/obj/item/stack/ore/fossilskull1
+
+/obj/item/stack/ore/fossil
 	name = "Fossils"
 	desc = "An ancient fossil... must be from ages ago!"
+	singular_name = "fossil"
+	flammable = FALSE
+	novariants = TRUE
+
+/obj/item/stack/ore/fossil/skull1
 	icon_state = "fossil_skull1"
-	singular_name = "fossil"
-	flammable = FALSE
 
-/obj/item/stack/ore/fossilskull2
-	name = "Fossils"
-	desc = "An ancient fossil... must be from ages ago!"
+/obj/item/stack/ore/fossil/skull2
 	icon_state = "fossil_skulll2"
-	singular_name = "fossil"
-	flammable = FALSE
 
-/obj/item/stack/ore/fossilskull3
-	name = "Fossils"
-	desc = "An ancient fossil... must be from ages ago!"
+/obj/item/stack/ore/fossil/skull3
 	icon_state = "fossil_skull3"
-	singular_name = "fossil"
-	flammable = FALSE
 
-/obj/item/stack/ore/fossilleaf1
-	name = "Fossils"
-	desc = "An ancient fossil... must be from ages ago!"
+/obj/item/stack/ore/fossil/leaf1
 	icon_state = "fossil_leaf1"
-	singular_name = "fossil"
-	flammable = FALSE
 
-
-/obj/item/stack/ore/fossilleaf2
-	name = "Fossils"
-	desc = "An ancient fossil... must be from ages ago!"
+/obj/item/stack/ore/fossil/leaf2
 	icon_state = "fossil_leaf2"
-	singular_name = "fossil"
-	flammable = FALSE
 
-/obj/item/stack/ore/fossilleaf3
-	name = "Fossils"
-	desc = "An ancient fossil... must be from ages ago!"
+/obj/item/stack/ore/fossil/leaf3
 	icon_state = "fossil_leaf3"
-	singular_name = "fossil"
-	flammable = FALSE
 
-/obj/item/stack/ore/fossilshell1
-	name = "Fossils"
-	desc = "An ancient fossil... must be from ages ago!"
+/obj/item/stack/ore/fossil/shell1
 	icon_state = "fossil_shell1"
-	singular_name = "fossil"
-	flammable = FALSE
 
-/obj/item/stack/ore/fossilshell2
-	name = "Fossils"
-	desc = "An ancient fossil... must be from ages ago!"
+/obj/item/stack/ore/fossil/shell2
 	icon_state = "fossil_shell2"
-	singular_name = "fossil"
-	flammable = FALSE
 
-/obj/item/stack/ore/fossilshell3
-	name = "Fossils"
-	desc = "An ancient fossil... must be from ages ago!"
+/obj/item/stack/ore/fossil/shell3
 	icon_state = "fossil_shell3"
-	singular_name = "fossil"
-	flammable = FALSE
 
-/obj/item/stack/ore/fossilbone1
-	name = "Fossils"
-	desc = "An ancient fossil... must be from ages ago!"
+/obj/item/stack/ore/fossil/bone1
 	icon_state = "fossil_bone1"
-	singular_name = "fossil"
-	flammable = FALSE
