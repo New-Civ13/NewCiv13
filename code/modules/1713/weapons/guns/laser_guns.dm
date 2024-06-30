@@ -52,7 +52,6 @@
 
 /obj/item/weapon/gun/projectile/semiautomatic/laser/handle_post_fire()
 	..()
-	jamcheck = 0
 	last_fire = world.time
 
 /obj/item/weapon/gun/projectile/semiautomatic/laser/dc15
@@ -271,9 +270,9 @@
 		icon_state = "[base_icon]_empty"
 	update_held_icon()
 	return
+
 /obj/item/weapon/gun/projectile/automatic/stationary/laser/handle_post_fire()
 	..()
-	jamcheck = 0
 	last_fire = world.time
 
 /obj/item/weapon/gun/projectile/automatic/stationary/laser/repeating_laser
@@ -332,9 +331,9 @@
 		icon_state = "[base_icon]_open"
 	update_held_icon()
 	return
+
 /obj/item/weapon/gun/projectile/automatic/laser/handle_post_fire()
 	..()
-	jamcheck = 0
 	last_fire = world.time
 
 /obj/item/weapon/gun/projectile/automatic/laser/z6

@@ -75,8 +75,6 @@
 	firemodes = list(
 		list(name = "automatic",	burst=1, burst_delay=0.8, move_delay=8),)
 
-	jammed_until = -1
-	jamcheck = 0
 	last_fire = -1
 
 /obj/item/weapon/gun/projectile/automatic/hopper/New()
@@ -126,9 +124,6 @@
 		return FALSE
 	if (!user.has_empty_hand(both = FALSE))
 		user << "<span class='warning'>You need both hands to fire \the [src]!</span>"
-		return FALSE
-	if (jammed_until > world.time)
-		user << "<span class = 'danger'>\The [src] has jammed! You can't fire it until it has unjammed.</span>"
 		return FALSE
 	return TRUE
 
