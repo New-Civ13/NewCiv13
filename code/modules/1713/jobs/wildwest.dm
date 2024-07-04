@@ -112,7 +112,9 @@
 	uniform.attackby(holsterh, H)
 	H.equip_to_slot_or_del(new /obj/item/weapon/gun/projectile/revolver/peacemaker(H), slot_l_hand)
 	H.equip_to_slot_or_del(new /obj/item/weapon/handcuffs(H), slot_r_store)
-	H.equip_to_slot_or_del(new/obj/item/stack/money/real/five(H), slot_l_store)
+	var/obj/item/stack/money/real/fiver = new (null)
+	fiver.amount = 5
+	H.equip_to_slot_or_del(fiver, slot_l_store)
 
 	give_random_name(H)
 	H.add_note("Role", "You are a <b>[title]</b>, a subordinate of the <b>Sheriff</b>. Follow his orders and prevent the <b>Outlaws</b> from robbing the bank!")
@@ -173,7 +175,9 @@
 	uniform.attackby(holsterh, H)
 	H.equip_to_slot_or_del(new /obj/item/weapon/gun/projectile/revolver/peacemaker(H), slot_l_hand)
 	H.equip_to_slot_or_del(new /obj/item/weapon/handcuffs(H), slot_r_store)
-	H.equip_to_slot_or_del(new/obj/item/stack/money/real/five(H), slot_l_store)
+	var/obj/item/stack/money/real/fiver = new (null)
+	fiver.amount = 5
+	H.equip_to_slot_or_del(fiver, slot_l_store)
 
 	give_random_name(H)
 	H.add_note("Role", "You are a <b>[title]</b>, a subordinate of the <b>Sheriff</b>. Follow his orders and prevent the <b>Outlaws</b> from robbing the bank!")
@@ -210,7 +214,9 @@
 	H.equip_to_slot_or_del(new /obj/item/clothing/head/bowler_hat(H), slot_head)
 
 	H.equip_to_slot_or_del(new /obj/item/weapon/key/civ/bank(H), slot_r_store)
-	H.equip_to_slot_or_del(new/obj/item/stack/money/real/five(H), slot_l_store)
+	var/obj/item/stack/money/real/fiver = new (null)
+	fiver.amount = 5
+	H.equip_to_slot_or_del(fiver, slot_l_store)
 	H.equip_to_slot_or_del(new /obj/item/clothing/accessory/storage/coinpouch/wallet(H), slot_wear_id)
 	var/obj/item/clothing/accessory/armband/british/red_a = new /obj/item/clothing/accessory/armband/british(null)
 	var/obj/item/clothing/under/uniform = H.w_uniform
@@ -298,7 +304,9 @@
 			var/obj/item/clothing/accessory/suspenders/dark/red_a = new /obj/item/clothing/accessory/suspenders/dark(null)
 			var/obj/item/clothing/under/uniform = H.w_uniform
 			uniform.attackby(red_a, H)
-	H.equip_to_slot_or_del(new/obj/item/stack/money/real/five(H), slot_l_store)
+	var/obj/item/stack/money/real/fiver = new (null)
+	fiver.amount = 5
+	H.equip_to_slot_or_del(fiver, slot_l_store)
 	H.equip_to_slot_or_del(new /obj/item/weapon/gun/projectile/revolver/peacemaker(H), slot_belt)
 
 	give_random_name(H)
@@ -365,7 +373,9 @@
 		var/obj/item/clothing/accessory/suspenders/dark/red_a = new /obj/item/clothing/accessory/suspenders/dark(null)
 		var/obj/item/clothing/under/uniform = H.w_uniform
 		uniform.attackby(red_a, H)
-	H.equip_to_slot_or_del(new/obj/item/stack/money/real/five(H), slot_l_store)
+	var/obj/item/stack/money/real/fiver = new (null)
+	fiver.amount = 5
+	H.equip_to_slot_or_del(fiver, slot_l_store)
 	H.equip_to_slot_or_del(new /obj/item/clothing/accessory/storage/coinpouch/wallet(H), slot_wear_id)
 	H.equip_to_slot_or_del(new /obj/item/weapon/gun/projectile/revolver/derringer(H), slot_belt)
 
@@ -403,7 +413,9 @@
 	H.equip_to_slot_or_del(new /obj/item/clothing/head/bowler_hat(H), slot_head)
 
 	H.equip_to_slot_or_del(new /obj/item/weapon/gun/projectile/revolver/derringer(H), slot_l_store)
-	H.equip_to_slot_or_del(new/obj/item/stack/money/real/ten(H), slot_r_store)
+	var/obj/item/stack/money/real/tenner = new (null)
+	tenner.amount = 10
+	H.equip_to_slot_or_del(tenner, slot_r_store)
 	H.equip_to_slot_or_del(new /obj/item/clothing/accessory/storage/coinpouch/wallet(H), slot_wear_id)
 
 	give_random_name(H)
@@ -466,7 +478,9 @@
 	H.equip_to_slot_or_del(new/obj/item/weapon/storage/belt/leather/farmer(H), slot_belt)
 	H.equip_to_slot_or_del(new/obj/item/weapon/plough(H), slot_l_hand)
 	H.equip_to_slot_or_del(new/obj/item/weapon/material/kitchen/utensil/knife(H), slot_r_store)
-	H.equip_to_slot_or_del(new/obj/item/stack/money/real/five(H), slot_l_store)
+	var/obj/item/stack/money/real/fiver = new (null)
+	fiver.amount = 5
+	H.equip_to_slot_or_del(fiver, slot_l_store)
 	H.equip_to_slot_or_del(new /obj/item/weapon/gun/projectile/revolver/peacemaker(H), slot_l_hand)
 
 	give_random_name(H)
@@ -527,7 +541,9 @@
 	H.equip_to_slot_or_del(new /obj/item/weapon/gun/projectile/revolver/peacemaker(H), slot_l_hand)
 	H.equip_to_slot_or_del(new/obj/item/weapon/material/pickaxe(H), slot_belt)
 	H.equip_to_slot_or_del(new/obj/item/weapon/material/shovel(H), slot_back)
-	H.equip_to_slot_or_del(new/obj/item/stack/money/real/five(H), slot_l_store)
+	var/obj/item/stack/money/real/fiver = new (null)
+	fiver.amount = 5
+	H.equip_to_slot_or_del(fiver, slot_l_store)
 
 	give_random_name(H)
 	H.add_note("Role", "You are a <b>Prospector</b>, living in Little Creek. Mine and keep the town supplied with raw materials.")
@@ -627,7 +643,9 @@
 			var/obj/item/clothing/accessory/suspenders/dark/red_a = new /obj/item/clothing/accessory/suspenders/dark(null)
 			var/obj/item/clothing/under/uniform = H.w_uniform
 			uniform.attackby(red_a, H)
-	H.equip_to_slot_or_del(new/obj/item/stack/money/real/ten(H), slot_l_store)
+	var/obj/item/stack/money/real/tenner = new (null)
+	tenner.amount = 10
+	H.equip_to_slot_or_del(tenner, slot_l_store)
 	H.equip_to_slot_or_del(new/obj/item/weapon/material/shovel/spade/wood(H), slot_r_store)
 	H.equip_to_slot_or_del(new /obj/item/weapon/gun/projectile/revolver/peacemaker(H), slot_l_hand)
 

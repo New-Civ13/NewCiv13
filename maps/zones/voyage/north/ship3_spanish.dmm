@@ -4,7 +4,7 @@
 "ad" = (/obj/covers/wood_ship,/obj/structure/cannon/modern/tank/voyage/autofire{dir = 1; icon_state = "cannon"},/turf/floor/beach/water/deep/saltwater,/area/caribbean/sea/top/roofed)
 "ae" = (/obj/covers/wood_ship,/obj/item/flashlight/lantern/on/anchored,/turf/floor/beach/water/deep/saltwater,/area/caribbean/sea/top/roofed)
 "af" = (/obj/covers/wood_ship,/obj/structure/closet/crate/cannonball,/turf/floor/beach/water/deep/saltwater,/area/caribbean/sea/top/roofed)
-"ag" = (/obj/structure/closet/crate/chest{code = 1999; locked = 1},/obj/covers/wood_ship,/obj/item/stack/money/real/fifty,/turf/floor/beach/water/deep/saltwater,/area/caribbean/sea/top/roofed)
+"ag" = (/obj/structure/closet/crate/chest{code = 1999; locked = 1},/obj/covers/wood_ship,/obj/item/stack/money/real{amount = 50},/turf/floor/beach/water/deep/saltwater,/area/caribbean/sea/top/roofed)
 "ai" = (/obj/covers/wood_ship,/obj/structure/bed/hammock,/turf/floor/beach/water/deep/saltwater,/area/caribbean/sea/top/roofed)
 "aj" = (/obj/covers/wood_ship,/turf/floor/beach/water/deep/saltwater,/area/caribbean/sea/top/roofed)
 "ak" = (/obj/covers/wood_ship,/obj/structure/closet/crate/cannonball/chainshot,/turf/floor/beach/water/deep/saltwater,/area/caribbean/sea/top/roofed)

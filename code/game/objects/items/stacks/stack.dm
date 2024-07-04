@@ -36,7 +36,7 @@
 	if(merge)
 		//For every stack in location, repeat the code.
 		for(var/obj/item/stack/S in loc)
-			if(istype(S, src))// If stack types match, we merge. (Does not work for different paths (real/five || real/twenty) - do not merge.) TODO
+			if(istype(S, src))// If stack types match, we merge.
 				merge(S)
 	return
 

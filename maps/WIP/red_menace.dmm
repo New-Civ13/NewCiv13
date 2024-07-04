@@ -184,7 +184,7 @@
 "fZ" = (/obj/covers/stone_wall/brick,/turf/wall/stone/stonebrick,/area/caribbean/roofed)
 "gc" = (/obj/structure/window/classic/stonefull,/obj/covers/cobblestone,/turf/floor/dirt,/area/caribbean/roofed)
 "gg" = (/obj/covers/fancywood,/obj/structure/table/modern/table,/obj/structure/computer/nopower{icon_state = "ibm_on"; layer = 5; pixel_y = 8},/turf/floor/dirt,/area/caribbean/roofed)
-"gh" = (/obj/covers/concretefloor,/obj/item/stack/money/goldvaluables,/obj/item/trash/money,/obj/item/stack/money/coin/silver,/obj/item/stack/money/real/twenty,/obj/structure/lamp/lamp_big/alwayson,/turf/floor/dirt,/area/caribbean/roofed)
+"gh" = (/obj/covers/concretefloor,/obj/item/stack/money/goldvaluables,/obj/item/trash/money,/obj/item/stack/money/coin/silver,/obj/item/stack/money/real{amount = 20},/obj/structure/lamp/lamp_big/alwayson,/turf/floor/dirt,/area/caribbean/roofed)
 "gj" = (/obj/covers/stone_wall/brick,/turf/wall/stone/stonebrick,/area/caribbean/german/inside/roof/objective)
 "gl" = (/obj/covers/marbletile,/obj/structure/table/modern/table,/obj/item/weapon/paper_bin,/obj/structure/lamp/lamp_big/alwayson{icon_state = "tube"; dir = 8},/turf/floor/plating/white,/area/caribbean/roofed)
 "go" = (/obj/covers/fancywood,/obj/structure/bed/chair/wood/red{dir = 1},/turf/floor/broken_floor,/area/caribbean/roofed)

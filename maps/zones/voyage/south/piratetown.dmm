@@ -113,7 +113,7 @@
 "ci" = (/obj/covers/wood,/obj/effect/decal/cleanable/flour,/turf/floor/beach/sand,/area/caribbean/sea/bottom/roofed)
 "cj" = (/obj/covers/wood,/obj/structure/table/wood,/obj/item/weapon/reagent_containers/food/drinks/bottle/patron,/obj/item/weapon/reagent_containers/food/drinks/bottle/small/beer,/obj/item/weapon/reagent_containers/food/drinks/bottle/whiskey,/turf/floor/beach/sand,/area/caribbean/sea/bottom/roofed)
 "ck" = (/obj/covers/wood,/obj/structure/curtain/closed/red,/turf/floor/beach/sand,/area/caribbean/sea/bottom/roofed)
-"cl" = (/obj/covers/wood,/obj/structure/closet/crate/chest,/obj/item/stack/money/real/fifty,/turf/floor/beach/sand,/area/caribbean/sea/bottom/roofed)
+"cl" = (/obj/covers/wood,/obj/structure/closet/crate/chest,/obj/item/stack/money/real{amount = 50},/turf/floor/beach/sand,/area/caribbean/sea/bottom/roofed)
 "cm" = (/obj/covers/wood,/obj/structure/table/rack/coatrack,/obj/item/clothing/suit/storage/coat/fancy_fur_coat,/turf/floor/beach/sand,/area/caribbean/sea/bottom/roofed)
 "cn" = (/obj/covers/wood,/obj/structure/mill/large,/obj/effect/decal/cleanable/flour,/turf/floor/beach/sand,/area/caribbean/sea/bottom/roofed)
 "co" = (/obj/covers/wood,/obj/covers/saloon_door{dir = 8},/turf/floor/beach/sand,/area/caribbean/sea/bottom/roofed)

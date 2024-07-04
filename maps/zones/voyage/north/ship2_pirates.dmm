@@ -1,7 +1,7 @@
 "aa" = (/turf/floor/beach/water/deep/saltwater,/area/caribbean/sea/top)
 "ab" = (/obj/structure/barricade/ship/wood/a7,/obj/item/flashlight/lantern/on/anchored,/turf/floor/beach/water/deep/saltwater,/area/caribbean/sea/top/roofed)
 "ac" = (/obj/structure/barricade/ship/wood/a10,/obj/item/flashlight/lantern/on/anchored,/turf/floor/beach/water/deep/saltwater,/area/caribbean/sea/top/roofed)
-"ad" = (/obj/covers/wood_ship,/obj/structure/closet/crate/chest,/obj/item/stack/money/real/fifty,/turf/floor/beach/water/deep/saltwater,/area/caribbean/sea/top/roofed)
+"ad" = (/obj/covers/wood_ship,/obj/structure/closet/crate/chest,/obj/item/stack/money/real{amount = 50},/turf/floor/beach/water/deep/saltwater,/area/caribbean/sea/top/roofed)
 "ae" = (/obj/covers/wood_ship,/mob/living/simple_animal/hostile/human/voyage/pirate/ranged,/turf/floor/beach/water/deep/saltwater,/area/caribbean/sea/top/roofed)
 "af" = (/obj/structure/barricade/ship/wood/a12,/turf/floor/beach/water/deep/saltwater,/area/caribbean/sea/top/roofed)
 "ag" = (/obj/covers/wood_ship,/obj/structure/closet/crate/musketball_pistol,/turf/floor/beach/water/deep/saltwater,/area/caribbean/sea/top/roofed)

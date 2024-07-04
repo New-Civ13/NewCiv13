@@ -4,7 +4,7 @@
 "ad" = (/obj/structure/barricade/ship/wood/a9,/turf/floor/beach/water/deep/saltwater,/area/caribbean/sea/top/roofed)
 "ae" = (/obj/structure/barricade/ship/wood/a7,/obj/item/flashlight/lantern/on/anchored,/turf/floor/beach/water/deep/saltwater,/area/caribbean/sea/top/roofed)
 "af" = (/obj/structure/barricade/ship/wood/a10,/obj/item/flashlight/lantern/on/anchored,/turf/floor/beach/water/deep/saltwater,/area/caribbean/sea/top/roofed)
-"ag" = (/obj/covers/wood_ship,/obj/structure/closet/crate/chest,/obj/item/stack/money/real/fifty,/turf/floor/beach/water/deep/saltwater,/area/caribbean/sea/top/roofed)
+"ag" = (/obj/covers/wood_ship,/obj/structure/closet/crate/chest,/obj/item/stack/money/real{amount = 50},/turf/floor/beach/water/deep/saltwater,/area/caribbean/sea/top/roofed)
 "ah" = (/obj/structure/barricade/ship/wood/a12,/turf/floor/beach/water/deep/saltwater,/area/caribbean/sea/top/roofed)
 "ai" = (/obj/covers/wood_ship,/obj/structure/closet/crate/musketball_pistol,/turf/floor/beach/water/deep/saltwater,/area/caribbean/sea/top/roofed)
 "aj" = (/obj/covers/wood_ship,/turf/floor/beach/water/deep/saltwater,/area/caribbean/sea/top/roofed)

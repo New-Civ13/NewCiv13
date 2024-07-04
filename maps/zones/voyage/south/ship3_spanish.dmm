@@ -3,7 +3,7 @@
 "ad" = (/obj/structure/barricade/ship{dir = 1},/turf/floor/beach/water/deep/saltwater,/area/caribbean/sea/bottom/roofed)
 "ae" = (/obj/covers/wood_ship,/obj/item/weapon/reagent_containers/glass/barrel/fat_oil,/turf/floor/beach/water/deep/saltwater,/area/caribbean/sea/bottom/roofed)
 "af" = (/obj/structure/barricade/ship/aport0/north,/turf/floor/beach/water/deep/saltwater,/area/caribbean/sea/bottom/roofed)
-"ag" = (/obj/structure/closet/crate/chest{code = 1999; locked = 1},/obj/covers/wood_ship,/obj/item/stack/money/real/fifty,/turf/floor/beach/water/deep/saltwater,/area/caribbean/sea/bottom/roofed)
+"ag" = (/obj/structure/closet/crate/chest{code = 1999; locked = 1},/obj/covers/wood_ship,/obj/item/stack/money/real{amount = 50},/turf/floor/beach/water/deep/saltwater,/area/caribbean/sea/bottom/roofed)
 "ah" = (/obj/covers/wood_ship,/obj/structure/barricade/ship/wall2/doorway,/turf/floor/beach/water/deep/saltwater,/area/caribbean/sea/bottom/roofed)
 "ai" = (/obj/covers/wood_ship,/obj/structure/bed/hammock,/turf/floor/beach/water/deep/saltwater,/area/caribbean/sea/bottom/roofed)
 "aj" = (/obj/covers/wood_ship,/turf/floor/beach/water/deep/saltwater,/area/caribbean/sea/bottom/roofed)

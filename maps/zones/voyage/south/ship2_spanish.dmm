@@ -12,7 +12,7 @@
 "al" = (/obj/covers/wood_ship,/turf/floor/beach/water/deep/saltwater,/area/caribbean/sea/bottom/roofed)
 "am" = (/obj/structure/barricade/ship/wood/a10,/obj/item/flashlight/lantern/on/anchored,/turf/floor/beach/water/deep/saltwater,/area/caribbean/sea/bottom/roofed)
 "an" = (/obj/covers/wood_ship,/mob/living/simple_animal/hostile/human/voyage/spanish,/turf/floor/beach/water/deep/saltwater,/area/caribbean/sea/bottom/roofed)
-"ao" = (/obj/covers/wood_ship,/obj/structure/closet/crate/chest,/obj/item/stack/money/real/fifty,/turf/floor/beach/water/deep/saltwater,/area/caribbean/sea/bottom/roofed)
+"ao" = (/obj/covers/wood_ship,/obj/structure/closet/crate/chest,/obj/item/stack/money/real{amount = 50},/turf/floor/beach/water/deep/saltwater,/area/caribbean/sea/bottom/roofed)
 "ap" = (/obj/structure/barricade/ship/wood/a2,/turf/floor/beach/water/deep/saltwater,/area/caribbean/sea/bottom/roofed)
 "aq" = (/obj/structure/barricade/ship/blue/b20,/obj/item/flashlight/lantern/on/anchored,/turf/floor/beach/water/deep/saltwater,/area/caribbean/sea/bottom/roofed)
 "ar" = (/obj/covers/wood_ship,/obj/structure/simple_door/key_door/anyone,/turf/floor/beach/water/deep/saltwater,/area/caribbean/sea/bottom/roofed)

@@ -1617,7 +1617,9 @@
 
 	H.equip_to_slot_or_del(new/obj/item/weapon/material/pickaxe(H), slot_belt)
 	H.equip_to_slot_or_del(new/obj/item/weapon/material/shovel(H), slot_back)
-	H.equip_to_slot_or_del(new/obj/item/stack/money/real/fifty(H), slot_l_store)
+	var/obj/item/stack/money/real/fifty = new (null)
+	fifty.amount = 50
+	H.equip_to_slot_or_del(fifty, slot_l_store)
 	H.add_note("Role", "You are a <b>[title]</b>, a miner who is tasked with collecting metals for the local lord and smithy. Explore the area, mine, and sell to the <b>Merchant or Blacksmith</b> what you find!")
 	H.setStat("strength", STAT_HIGH)
 	H.setStat("crafting", STAT_MEDIUM_HIGH)
@@ -1677,7 +1679,9 @@
 	H.equip_to_slot_or_del(new/obj/item/weapon/storage/belt/leather/farmer(H), slot_belt)
 	H.equip_to_slot_or_del(new/obj/item/weapon/plough(H), slot_l_hand)
 	H.equip_to_slot_or_del(new/obj/item/weapon/material/kitchen/utensil/knife(H), slot_r_store)
-	H.equip_to_slot_or_del(new/obj/item/stack/money/real/fifty(H), slot_l_store)
+	var/obj/item/stack/money/real/fifty = new (null)
+	fifty.amount = 50
+	H.equip_to_slot_or_del(fifty, slot_l_store)
 
 	H.add_note("Role", "You are a <b>[title]</b>, specialized in plant growth, animal husbandry, and cooking. Keep the colony fed!")
 	H.setStat("strength", STAT_MEDIUM_HIGH)
@@ -1798,7 +1802,9 @@
 			H.equip_to_slot_or_del(new /obj/item/clothing/under/civf3(H), slot_w_uniform)
 		H.equip_to_slot_or_del(new /obj/item/clothing/head/kerchief(H), slot_head)
 
-	H.equip_to_slot_or_del(new/obj/item/stack/money/real/fifty(H), slot_l_store)
+	var/obj/item/stack/money/real/fifty = new (null)
+	fifty.amount = 50
+	H.equip_to_slot_or_del(fifty, slot_l_store)
 	H.equip_to_slot_or_del(new/obj/item/weapon/key/civ/inn(H), slot_r_store)
 	H.equip_to_slot_or_del(new/obj/item/weapon/material/kitchen/utensil/knife/butcher(H), slot_belt)
 
@@ -1857,7 +1863,9 @@
 		else if (randcloth == 3)
 			H.equip_to_slot_or_del(new /obj/item/clothing/under/civf3(H), slot_w_uniform)
 		H.equip_to_slot_or_del(new /obj/item/clothing/head/kerchief(H), slot_head)
-	H.equip_to_slot_or_del(new/obj/item/stack/money/real/fifty(H), slot_l_store)
+	var/obj/item/stack/money/real/fifty = new (null)
+	fifty.amount = 50
+	H.equip_to_slot_or_del(fifty, slot_l_store)
 	H.equip_to_slot_or_del(new/obj/item/weapon/key/civ/inn(H), slot_r_store)
 	H.equip_to_slot_or_del(new/obj/item/weapon/material/kitchen/utensil/knife/butcher(H), slot_belt)
 
@@ -1918,7 +1926,9 @@
 		else if (randcloth == 3)
 			H.equip_to_slot_or_del(new /obj/item/clothing/under/civf3(H), slot_w_uniform)
 		H.equip_to_slot_or_del(new /obj/item/clothing/head/kerchief(H), slot_head)
-	H.equip_to_slot_or_del(new/obj/item/stack/money/real/fifty(H), slot_l_store)
+	var/obj/item/stack/money/real/fifty = new (null)
+	fifty.amount = 50
+	H.equip_to_slot_or_del(fifty, slot_l_store)
 
 	H.add_note("Role", "You are a simple <b>Peasant</b>. Live your life!")
 	H.setStat("strength", STAT_MEDIUM_HIGH)

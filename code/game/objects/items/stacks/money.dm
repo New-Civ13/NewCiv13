@@ -886,17 +886,6 @@
 	amount = 1
 	value = 5000
 
-/obj/item/stack/money/real/five
-	amount = 5
-/obj/item/stack/money/real/ten
-	amount = 10
-/obj/item/stack/money/real/fifteen
-	amount = 15
-/obj/item/stack/money/real/twenty
-	amount = 20
-/obj/item/stack/money/real/fifty
-	amount = 50
-
 /obj/item/stack/money/dollar/twenty
 	amount = 20
 /obj/item/stack/money/dollar/ten
