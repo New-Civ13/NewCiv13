@@ -1463,7 +1463,9 @@
 	H.equip_to_slot_or_del(new /obj/item/weapon/material/sword/longsword(H), slot_belt)
 	H.equip_to_slot_or_del(new /obj/item/weapon/shield/iron/semioval(H), slot_back)
 	H.equip_to_slot_or_del(new/obj/item/weapon/key/civ/hall(H), slot_r_store)
-	H.equip_to_slot_or_del(new/obj/item/stack/money/escudo/ten(H), slot_l_store)
+	var/obj/item/stack/money/escudo/ten = new (null)
+	ten.amount = 10
+	H.equip_to_slot_or_del(ten, slot_l_store)
 
 	H.add_note("Role", "You are a <b>[title]</b>, a landed citizen of the Realm. You are a heavy soldier, so protect the Lord!")
 	H.setStat("strength", STAT_MEDIUM_HIGH)
@@ -1510,7 +1512,9 @@
 	else
 		H.equip_to_slot_or_del(new /obj/item/clothing/head/helmet/medieval/helmet1(H), slot_head)
 
-	H.equip_to_slot_or_del(new/obj/item/stack/money/dollar/twenty(H), slot_l_store)
+	var/obj/item/stack/money/dollar/twenty = new (null)
+	twenty.amount = 20
+	H.equip_to_slot_or_del(twenty, slot_l_store)
 
 	H.equip_to_slot_or_del(new/obj/item/weapon/key/civ/hall(H), slot_r_store)
 
@@ -1557,7 +1561,9 @@
 		H.equip_to_slot_or_del(new /obj/item/clothing/under/nun(H), slot_w_uniform)
 		H.equip_to_slot_or_del(new /obj/item/clothing/head/nun_hood(H), slot_head)
 
-	H.equip_to_slot_or_del(new/obj/item/stack/money/dollar/twenty(H), slot_l_store)
+	var/obj/item/stack/money/dollar/twenty = new (null)
+	twenty.amount = 20
+	H.equip_to_slot_or_del(twenty, slot_l_store)
 
 	H.add_note("Role", "You are a <b>[title]</b>, in charge of the colony's religious affairs, assisting the doctor, and if possible, of converting the natives...")
 	H.setStat("strength", STAT_MEDIUM_LOW)
@@ -1743,7 +1749,9 @@
 
 	H.equip_to_slot_or_del(new 	/obj/item/weapon/hammer(H), slot_belt)
 	H.equip_to_slot_or_del(new 	/obj/item/stack/material/iron/twentyfive(H), slot_l_hand)
-	H.equip_to_slot_or_del(new/obj/item/stack/money/dollar/twenty(H), slot_l_store)
+	var/obj/item/stack/money/dollar/twenty = new (null)
+	twenty.amount = 20
+	H.equip_to_slot_or_del(twenty, slot_l_store)
 
 	H.add_note("Role", "You are a <b>[title]</b>. Your job is to craft weapons and guns. However, you probably should follow the <b>Governor's</b> orders!")
 	H.setStat("strength", STAT_VERY_HIGH)
@@ -1988,8 +1996,10 @@
 		else if (randcloth == 3)
 			H.equip_to_slot_or_del(new /obj/item/clothing/under/civf3(H), slot_w_uniform)
 		H.equip_to_slot_or_del(new /obj/item/clothing/head/kerchief(H), slot_head)
-	H.equip_to_slot_or_del(new/obj/item/stack/money/dollar/twenty(H), slot_l_store)
-	H.equip_to_slot_or_del(new/obj/item/stack/money/dollar/twenty(H), slot_r_store)
+	var/obj/item/stack/money/dollar/twenty = new (null)
+	twenty.amount = 20
+	H.equip_to_slot_or_del(twenty, slot_l_store)
+	H.equip_to_slot_or_del(twenty, slot_r_store)
 
 	H.add_note("Role", "You are a <b>[title]</b>, a trader who decided to move in to the new colony to get rich. Establish your trading post and deal with both the Natives and the Colonists!")
 	H.setStat("strength", STAT_NORMAL)
@@ -2051,7 +2061,9 @@
 //head
 	H.equip_to_slot_or_del(new /obj/item/weapon/storage/firstaid/surgery(H), slot_l_hand)
 	H.equip_to_slot_or_del(new /obj/item/weapon/doctor_handbook(H), slot_l_store)
-	H.equip_to_slot_or_del(new/obj/item/stack/money/dollar/twenty(H), slot_r_store)
+	var/obj/item/stack/money/dollar/twenty = new (null)
+	twenty.amount = 20
+	H.equip_to_slot_or_del(twenty, slot_r_store)
 
 	H.add_note("Role", "You are a <b>[title]</b>, in charge of keeping the people and peasants healthy.")
 	H.setStat("strength", STAT_NORMAL)

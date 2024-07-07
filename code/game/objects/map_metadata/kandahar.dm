@@ -445,10 +445,12 @@
 			if (!W)
 				return
 			user << "Here's your payment, pleasure doing business with you, brother."
-			new/obj/item/stack/money/dollar/five(loc)
+			var/obj/item/stack/money/dollar/five = new (loc)
+			five.amount = 5
 			if (prob(5))
 				user << "Here's also a little extra to get you going."
-				new/obj/item/stack/money/dollar/five(loc)
+				var/obj/item/stack/money/dollar/five = new (loc)
+				five.amount = 5
 			if (prob(5))
 				var/obj/map_metadata/kandahar/MP = map
 				var/randevent = rand(1,2)
@@ -472,7 +474,8 @@
 			new/obj/item/stack/money/dollar(loc)
 			if (prob(5))
 				user << "Here's also a little extra to get you going."
-				new/obj/item/stack/money/dollar/five(loc)
+				var/obj/item/stack/money/dollar/five = new (loc)
+				five.amount = 5
 			qdel(W)
 			return
 	else

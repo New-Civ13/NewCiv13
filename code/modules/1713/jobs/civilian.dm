@@ -1179,7 +1179,9 @@
 	H.equip_to_slot_or_del(fifty, slot_r_store)
 
 	H.equip_to_slot_or_del(new /obj/item/weapon/key/civ/hall(H), slot_l_hand)
-	H.equip_to_slot_or_del(new/obj/item/stack/money/dollar/ten(H), slot_l_store)
+	var/obj/item/stack/money/dollar/ten = new (null)
+	ten.amount = 10
+	H.equip_to_slot_or_del(ten, slot_l_store)
 	H.equip_to_slot_or_del(new /obj/item/clothing/accessory/storage/coinpouch/wallet(H), slot_wear_id)
 
 	H.add_note("Role", "You are a <b>[title]</b>, the leader of this colony's funds. Organize your men and tax the poor!")
@@ -1240,7 +1242,7 @@
 	var/obj/item/stack/money/real/twenty = new (null)
 	twenty.amount = 20
 	H.equip_to_slot_or_del(twenty, slot_l_store)
-	H.equip_to_slot_or_del(new/obj/item/stack/money/dollar/five(H), slot_l_store)
+	//H.equip_to_slot_or_del(new/obj/item/stack/money/dollar{amount = 5}(H), slot_l_store) - seems to be two slot_l_stores... other bank tellers use money/real 
 	H.equip_to_slot_or_del(new /obj/item/weapon/key/civ/hall(H), slot_r_store)
 	H.equip_to_slot_or_del(new /obj/item/clothing/accessory/storage/coinpouch/wallet(H), slot_wear_id)
 
@@ -2066,7 +2068,9 @@
 			var/obj/item/clothing/accessory/suspenders/dark/ysuspenders = new /obj/item/clothing/accessory/suspenders/dark(null)
 			uniform.attackby(ysuspenders, H)
 
-	H.equip_to_slot_or_del(new /obj/item/stack/money/dollar/ten(H), slot_r_hand)
+	var/obj/item/stack/money/dollar/ten = new (null)
+	ten.amount = 10
+	H.equip_to_slot_or_del(ten, slot_r_hand)
 //hats
 	var/randhat = pick(1,2,3)
 	if (randhat == 1)
@@ -2400,7 +2404,9 @@
 				H.equip_to_slot_or_del(new /obj/item/clothing/head/caubeen(H), slot_head)
 
 //other
-	H.equip_to_slot_or_del(new /obj/item/stack/money/dollar/ten(H), slot_l_store)
+	var/obj/item/stack/money/dollar/ten = new (null)
+	ten.amount = 10
+	H.equip_to_slot_or_del(ten, slot_l_store)
 	H.equip_to_slot_or_del(new /obj/item/weapon/key/civ/mckellen(H), slot_r_store)
 
 	H.name = H.species.get_random_irish_name(H.gender)
@@ -2714,7 +2720,9 @@
 				H.equip_to_slot_or_del(new /obj/item/clothing/head/countysheriff_cap(H), slot_head)
 	H.equip_to_slot_or_del(new /obj/item/weapon/storage/belt/police/modern(H), slot_belt)
 	H.equip_to_slot_or_del(new /obj/item/gunbox/police(H), slot_l_hand)
-	H.equip_to_slot_or_del(new /obj/item/stack/money/dollar/ten(H), slot_r_hand)
+	var/obj/item/stack/money/dollar/ten = new (null)
+	ten.amount = 10
+	H.equip_to_slot_or_del(ten, slot_r_hand)
 	H.add_note("Role", "You are a member of the local Sheriff Department. Your objectives are to arrest as many businessmen as possible and aprehend money and disks!")
 	H.add_note("Undercover", "If you need to go undercover and conceal your law enforcement officer status, toggle it under the IC tab.")
 	H.add_note("Police Codes", "As an LEO, you can use police codes for faster broadcasting. It will be automatically converted to plaintext. Just use the radio prefix followed by the code, for example, \";10-4\" for affirmative.")
@@ -2806,7 +2814,9 @@
 				H.equip_to_slot_or_del(new /obj/item/clothing/head/countysheriff_cap(H), slot_head)
 	H.equip_to_slot_or_del(new /obj/item/weapon/storage/belt/police/modern(H), slot_belt)
 	H.equip_to_slot_or_del(new /obj/item/gunbox/police(H), slot_l_hand)
-	H.equip_to_slot_or_del(new /obj/item/stack/money/dollar/ten(H), slot_r_hand)
+	var/obj/item/stack/money/dollar/ten = new (null)
+	ten.amount = 10
+	H.equip_to_slot_or_del(ten, slot_r_hand)
 	H.add_note("Role", "You are a detective of the local Sheriff Department. Your objectives are to investigate as many crimes as possible and help your fellow deputies to aprehend criminals and contraband!")
 	H.add_note("Undercover", "If you need to go undercover and conceal your law enforcement officer status, toggle it under the IC tab.")
 	H.add_note("Police Codes", "As an LEO, you can use police codes for faster broadcasting. It will be automatically converted to plaintext. Just use the radio prefix followed by the code, for example, \";10-4\" for affirmative.")
@@ -2871,7 +2881,9 @@
 	H.equip_to_slot_or_del(new /obj/item/clothing/head/countysheriff_hat(H), slot_head)
 	H.equip_to_slot_or_del(new /obj/item/weapon/storage/belt/police/modern(H), slot_belt)
 	H.equip_to_slot_or_del(new /obj/item/gunbox/police(H), slot_l_hand)
-	H.equip_to_slot_or_del(new /obj/item/stack/money/dollar/ten(H), slot_r_hand)
+	var/obj/item/stack/money/dollar/ten = new (null)
+	ten.amount = 10
+	H.equip_to_slot_or_del(ten, slot_r_hand)
 	H.add_note("Role", "You are the chief of the local Sheriff Department. Your objectives are to coordinate your fellow deputies in order to arrest as many criminal businessmen as possible and seize illegal money and disks!")
 	H.add_note("Police Codes", "As a sheriff, you can use police codes for fast broadcasting. It will be automatically converted to plaintext. Just use the radio prefix followed by the code, for example, \";10-4\" for affirmative.")
 	H.add_note("List of Police Codes", "<b>10-0:</b> On my way (shows current location)<br><br> \
@@ -2932,7 +2944,9 @@
 	scarf.uncolored = FALSE
 	scarf.update_icon()
 	uniform.attackby(scarf, H)
-	H.equip_to_slot_or_del(new /obj/item/stack/money/dollar/twenty(H), slot_r_store)
+	var/obj/item/stack/money/dollar/twenty = new (null)
+	twenty.amount = 20
+	H.equip_to_slot_or_del(twenty, slot_r_store)
 	H.equip_to_slot_or_del(new /obj/item/weapon/radio/walkietalkie/factionpolice(H), slot_l_store)
 	H.equip_to_slot_or_del(new /obj/item/weapon/storage/briefcase(H), slot_l_hand)
 
@@ -2988,7 +3002,9 @@
 	H.setStat("medical", STAT_VERY_HIGH)
 	give_random_name(H)
 	if (map.ID == MAP_THE_ART_OF_THE_DEAL)
-		H.equip_to_slot_or_del(new /obj/item/stack/money/dollar/ten(H), slot_l_hand)
+		var/obj/item/stack/money/dollar/ten = new (null)
+		ten.amount = 10
+		H.equip_to_slot_or_del(ten, slot_r_hand)
 		H.equip_to_slot_or_del(new /obj/item/weapon/map(H), slot_r_store)
 		H.equip_to_slot_or_del(new /obj/item/weapon/key/civ/paramedics(H), slot_l_store)
 		spawn(50)
@@ -3017,7 +3033,9 @@
 	H.equip_to_slot_or_del(new /obj/item/weapon/radio/walkietalkie/factionpolice(H), slot_wear_id)
 	H.equip_to_slot_or_del(new /obj/item/clothing/gloves/color/white(H), slot_gloves)
 	H.equip_to_slot_or_del(new /obj/item/clothing/shoes/color/white(H), slot_shoes)
-	H.equip_to_slot_or_del(new /obj/item/stack/money/dollar/twenty(H), slot_l_hand)
+	var/obj/item/stack/money/dollar/twenty = new (null)
+	twenty.amount = 20
+	H.equip_to_slot_or_del(twenty, slot_l_hand)
 	var/obj/item/clothing/accessory/stethoscope/stet = new /obj/item/clothing/accessory/stethoscope(null)
 	var/obj/item/clothing/under/uniform = H.w_uniform
 	uniform.attackby(stet, H)
@@ -3052,7 +3070,9 @@
 	H.equip_to_slot_or_del(new /obj/item/clothing/mask/sterile(H), slot_wear_mask)
 	H.equip_to_slot_or_del(new /obj/item/clothing/gloves/color/white(H), slot_gloves)
 	H.equip_to_slot_or_del(new /obj/item/clothing/shoes/color/white(H), slot_shoes)
-	H.equip_to_slot_or_del(new /obj/item/stack/money/dollar/twenty(H), slot_l_hand)
+	var/obj/item/stack/money/dollar/twenty = new (null)
+	twenty.amount = 20
+	H.equip_to_slot_or_del(twenty, slot_l_hand)
 	var/obj/item/clothing/accessory/stethoscope/stet = new /obj/item/clothing/accessory/stethoscope(null)
 	var/obj/item/clothing/under/uniform = H.w_uniform
 	uniform.attackby(stet, H)
@@ -3088,7 +3108,9 @@
 	H.equip_to_slot_or_del(new /obj/item/clothing/accessory/storage/coinpouch/wallet(H), slot_wear_id)
 	H.equip_to_slot_or_del(new /obj/item/clothing/gloves/thick/leather/black(H), slot_gloves)
 	H.equip_to_slot_or_del(new /obj/item/clothing/shoes/blackboots(H), slot_shoes)
-	H.equip_to_slot_or_del(new /obj/item/stack/money/dollar/ten(H), slot_l_hand)
+	var/obj/item/stack/money/dollar/ten = new (null)
+	ten.amount = 10
+	H.equip_to_slot_or_del(ten, slot_l_hand)
 	H.add_note("Role", "You are a Mechanic. You can be payed to repair vehicles that have broken down in the middle of the road. If you're feeling sneaky, maybe help dispose of bodies for some extra cash on the side.")
 	H.setStat("strength", STAT_HIGH)
 	H.setStat("crafting", STAT_VERY_HIGH)
@@ -3176,7 +3198,9 @@
 /datum/job/civilian/businessman/legitimate/equip(var/mob/living/human/H)
 	if (!H)	return FALSE
 	H.equip_to_slot_or_del(new /obj/item/clothing/under/modern2(H), slot_w_uniform)
-	H.equip_to_slot_or_del(new /obj/item/stack/money/dollar/onehundy(H), slot_l_store)
+	var/obj/item/stack/money/dollar/onehundy = new (null)
+	onehundy.amount = 100
+	H.equip_to_slot_or_del(new onehundy, slot_l_store)
 	H.equip_to_slot_or_del(new /obj/item/weapon/telephone/mobile(H), slot_r_store)
 	H.add_note("Role", "You are a legitimate business person. Find a business to invest in or start your own.")
 //shoes
@@ -3204,7 +3228,9 @@
 			var/obj/item/clothing/accessory/suspenders/dark/ysuspenders = new /obj/item/clothing/accessory/suspenders/dark(null)
 			uniform.attackby(ysuspenders, H)
 
-	H.equip_to_slot_or_del(new /obj/item/stack/money/dollar/ten(H), slot_r_hand)
+	var/obj/item/stack/money/dollar/ten = new (null)
+	ten.amount = 10
+	H.equip_to_slot_or_del(ten, slot_r_hand)
 
 //hats
 	var/randhat = pick(1,2,3)

@@ -191,7 +191,7 @@
 "yf" = (/obj/structure/grille/chainlinkfence{dir = 8},/obj/structure/barbwire{dir = 4; icon_state = "barbwire"},/turf/floor/grass,/area/caribbean/no_mans_land/invisible_wall)
 "yh" = (/obj/structure/bed/custsofa/right{dir = 4},/obj/structure/lamp/lamp_big/alwayson{dir = 8},/turf/floor/wood,/area/caribbean/british/land/inside)
 "yi" = (/obj/structure/vehicleparts/frame/car/falcon/rb{icon_state = "frame_steel_corner_rb"; dir = 1; w_back = list("smc_falcon_back_rightU",1,1,0,0.1,1,1)},/obj/structure/table/carboot{dir = 1},/obj/structure/vehicleparts/movement/reversed{dir = 1},/obj/item/ammo_magazine/m16,/obj/item/ammo_magazine/m16,/obj/item/ammo_magazine/m16,/obj/item/ammo_magazine/m16,/obj/item/weapon/gun/projectile/submachinegun/m16/ar15,/obj/item/clothing/suit/police,/turf/floor/plating/road,/area/caribbean)
-"yv" = (/obj/structure/table/modern/table,/obj/item/stack/money/dollar/five,/turf/floor/plating/steel,/area/caribbean/british/land/inside)
+"yv" = (/obj/structure/table/modern/table,/obj/item/stack/money/dollar{amount = 5},/turf/floor/plating/steel,/area/caribbean/british/land/inside)
 "yA" = (/obj/structure/closet/crate/empty/large{name = "shipping crate"; desc = "A hefty wooden crate for shipping item's oversea's."; w_class = 20; anchored = 1},/obj/item/weapon/reagent_containers/cocaineblocks/three,/obj/effect/floor_decal/industrial/outline/yellow,/turf/floor/plating/steel,/area/caribbean/british/land/inside/objective{name = "Storage Depot"})
 "yG" = (/obj/structure/table/rack/shelf/wooden,/obj/item/weapon/reagent_containers/pill/cocaine,/turf/floor/plating/steel,/area/caribbean/british/land/inside)
 "yP" = (/obj/effect/decal/cleanable/vomit,/turf/floor/grass,/area/caribbean)

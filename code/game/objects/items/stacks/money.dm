@@ -886,19 +886,6 @@
 	amount = 1
 	value = 5000
 
-/obj/item/stack/money/dollar/twenty
-	amount = 20
-/obj/item/stack/money/dollar/ten
-	amount = 10
-/obj/item/stack/money/escudo/ten
-	amount = 10
-/obj/item/stack/money/doubloon/ten
-	amount = 10
-/obj/item/stack/money/dollar/onehundy
-	amount = 100
-/obj/item/stack/money/dollar/five
-	amount = 5
-
 /////////////////////////SKYRIM/////////////////////////////
 
 /obj/item/stack/money/septim

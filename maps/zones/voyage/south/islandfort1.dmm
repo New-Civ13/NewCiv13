@@ -44,7 +44,7 @@
 "R" = (/obj/covers/cobblestone,/mob/living/simple_animal/hostile/human/voyage/spanish/ranged,/turf/floor/beach/sand,/area/caribbean/sea/bottom)
 "S" = (/obj/structure/flag/spanish,/turf/floor/beach/water/shallowsaltwater,/area/caribbean/sea/bottom)
 "T" = (/obj/structure/flag/spanish,/turf/floor/beach/sand,/area/caribbean/sea/bottom)
-"U" = (/obj/covers/cobblestone,/obj/structure/closet/crate/chest,/obj/item/stack/money/doubloon/ten,/obj/item/stack/money/doubloon/ten,/obj/item/stack/money/doubloon/ten,/obj/item/stack/money/doubloon/ten,/turf/floor/beach/sand,/area/caribbean/sea/bottom/roofed)
+"U" = (/obj/covers/cobblestone,/obj/structure/closet/crate/chest,/obj/item/stack/money/doubloon{amount = 10},/obj/item/stack/money/doubloon{amount = 10},/obj/item/stack/money/doubloon{amount = 10},/obj/item/stack/money/doubloon{amount = 10},/turf/floor/beach/sand,/area/caribbean/sea/bottom/roofed)
 "V" = (/obj/covers/stone_wall/fortress{opacity = 0},/turf/floor/beach/sand,/area/caribbean/sea/bottom)
 "W" = (/obj/covers/stone_wall/fortress{opacity = 0},/obj/item/flashlight/lantern/on/anchored,/turf/floor/beach/sand,/area/caribbean/sea/bottom)
 "X" = (/obj/covers/cobblestone,/obj/structure/flag/spanish,/turf/floor/beach/sand,/area/caribbean/sea/bottom)

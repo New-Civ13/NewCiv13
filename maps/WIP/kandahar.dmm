@@ -1323,7 +1323,7 @@
 "Oo" = (/obj/structure/railing/steel{dir = 4},/obj/structure/wild/smallbush{icon_state = "smallbush21"},/turf/floor/grass/jungle/savanna,/area/caribbean/desert)
 "Op" = (/obj/structure/vehicleparts/frame/car/umek/rfc{dir = 1; doorcode = 11311},/obj/structure/bed/chair/carseat/right{dir = 1},/turf/floor/plating/road,/area/caribbean/desert)
 "Ou" = (/obj/item/kitchen/snack_bowl,/turf/floor/dirt/dust,/area/caribbean/arab/caves/prison)
-"Ov" = (/obj/structure/closet/cabinet/ceiling{layer = 3.1; pixel_y = 24},/obj/item/stack/money/dollar/five,/obj/item/stack/money/dollar/five,/obj/item/weapon/reagent_containers/pill/opium,/obj/item/weapon/reagent_containers/pill/opium,/obj/item/weapon/material/sword/sabre,/turf/floor/wood/fancywood,/area/caribbean/desert/buildings{name = "Buildings"})
+"Ov" = (/obj/structure/closet/cabinet/ceiling{layer = 3.1; pixel_y = 24},/obj/item/stack/money/dollar{amount = 5},/obj/item/stack/money/dollar{amount = 5},/obj/item/weapon/reagent_containers/pill/opium,/obj/item/weapon/reagent_containers/pill/opium,/obj/item/weapon/material/sword/sabre,/turf/floor/wood/fancywood,/area/caribbean/desert/buildings{name = "Buildings"})
 "Ow" = (/obj/structure/window/barrier/sandbag,/turf/floor/dirt/dust,/area/caribbean/no_mans_land/capturable/two{name = "Border Outpost"; location = 1; climate = "desert"})
 "Oz" = (/obj/structure/lamp/lamp_big/alwayson{dir = 8},/obj/item/weapon/reagent_containers/glass/barrel/modern,/turf/floor/plating/cobblestone/vertical,/area/caribbean/desert/buildings{name = "Buildings"})
 "OD" = (/obj/structure/closet/crate/rations/vegetables,/turf/floor/dirt/dust,/area/caribbean/desert)

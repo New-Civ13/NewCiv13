@@ -437,7 +437,7 @@
 /obj/structure/closet/crate/cash_register{
 	dir = 4
 	},
-/obj/item/stack/money/dollar/ten,
+/obj/item/stack/money/dollar{amount = 10},
 /turf/floor/plating/marble/tile,
 /area/caribbean/roofed/temperate)
 "ou" = (
@@ -682,7 +682,7 @@
 	},
 /area/caribbean)
 "xK" = (
-/obj/item/stack/money/dollar/five,
+/obj/item/stack/money/dollar{amount = 5},
 /obj/item/weapon/dice{
 	pixel_y = 3;
 	pixel_x = -4
@@ -781,7 +781,7 @@
 /obj/structure/closet/crate/cash_register{
 	dir = 4
 	},
-/obj/item/stack/money/dollar/ten,
+/obj/item/stack/money/dollar{amount = 10},
 /obj/item/stack/money/dollar,
 /obj/item/stack/money/dollar,
 /turf/floor/plating/marble/tile,
@@ -1081,9 +1081,10 @@
 /turf/floor/dirt,
 /area/caribbean)
 "IT" = (
-/obj/item/stack/money/real/fifty{
+/obj/item/stack/money/real{
 	name = "dollars";
-	desc = "Dollar bills."
+	desc = "Dollar bills.";
+	amount = 50
 	},
 /turf/floor/plating/cobblestone/vertical,
 /area/caribbean)
@@ -1346,9 +1347,10 @@
 /turf/floor/grass,
 /area/caribbean)
 "RJ" = (
-/obj/item/stack/money/real/fifty{
+/obj/item/stack/money/real{
 	name = "dollars";
-	desc = "Dollar bills."
+	desc = "Dollar bills.";
+	amount = 50
 	},
 /turf/floor/plating/cobblestone/vertical/dark,
 /area/caribbean)
