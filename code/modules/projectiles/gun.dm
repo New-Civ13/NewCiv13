@@ -447,7 +447,7 @@
 			recoil_range -= sqrt(dt) * 1.5
 
 	if(user.lying || user.prone)
-		recoil_range /= 2
+		recoil_range *= 0.5
 
 	if(dt_movement <= 6)
 		accuracy_range = 30
@@ -484,7 +484,7 @@
 			shot_recoil = 0
 
 	if(user.lying || user.prone)
-		shot_recoil /= 2
+		shot_recoil *= 0.5
 
 	var/shot_accuracy
 	var/dt_movement = world.time - user.last_movement
