@@ -449,8 +449,7 @@
 			five.amount = 5
 			if (prob(5))
 				user << "Here's also a little extra to get you going."
-				var/obj/item/stack/money/dollar/five = new (loc)
-				five.amount = 5
+				new five(loc)
 			if (prob(5))
 				var/obj/map_metadata/kandahar/MP = map
 				var/randevent = rand(1,2)

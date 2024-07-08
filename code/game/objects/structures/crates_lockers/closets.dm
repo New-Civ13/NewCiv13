@@ -465,7 +465,8 @@
 		custom_code = REDCODE
 		locked = TRUE
 		faction = "Rednikov Industries"
-		new /obj/item/stack/money/dollar/twenty(src)
+		var/obj/item/stack/money/dollar/twenty = new (src)
+		twenty.amount = 20
 /*
 		new /obj/item/weapon/disk/red(src)
 		new /obj/item/weapon/disk/red(src)
@@ -480,7 +481,8 @@
 		custom_code = BLUECODE
 		locked = TRUE
 		faction = "Giovanni Blu Stocks"
-		new /obj/item/stack/money/dollar/twenty(src)
+		var/obj/item/stack/money/dollar/twenty = new (src)
+		twenty.amount = 20
 /*
 		new /obj/item/weapon/disk/blue(src)
 		new /obj/item/weapon/disk/blue(src)
@@ -495,7 +497,8 @@
 		custom_code = YELLOWCODE
 		locked = TRUE
 		faction = "Goldstein Solutions"
-		new /obj/item/stack/money/dollar/twenty(src)
+		var/obj/item/stack/money/dollar/twenty = new (src)
+		twenty.amount = 20
 /*
 		new /obj/item/weapon/disk/yellow(src)
 		new /obj/item/weapon/disk/yellow(src)
@@ -510,7 +513,8 @@
 		custom_code = GREENCODE
 		locked = TRUE
 		faction = "Kogama Kraftsmen"
-		new /obj/item/stack/money/dollar/twenty(src)
+		var/obj/item/stack/money/dollar/twenty = new (src)
+		twenty.amount = 20
 /*
 		new /obj/item/weapon/disk/green(src)
 		new /obj/item/weapon/disk/green(src)
