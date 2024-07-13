@@ -857,21 +857,50 @@ proc/get_mob_with_client_list()
 			mobs += M
 	return mobs
 
-
 /proc/parse_zone(zone)
-	if (zone == "r_hand") return "right hand"
-	else if (zone == "l_hand") return "left hand"
-	else if (zone == "l_arm") return "left arm"
-	else if (zone == "r_arm") return "right arm"
-	else if (zone == "l_leg") return "left leg"
-	else if (zone == "r_leg") return "right leg"
-	else if (zone == "l_foot") return "left foot"
-	else if (zone == "r_foot") return "right foot"
-	else if (zone == "l_hand") return "left hand"
-	else if (zone == "r_hand") return "right hand"
-	else if (zone == "l_foot") return "left foot"
-	else if (zone == "r_foot") return "right foot"
-	else return zone
+    switch(zone) // Switch is twice as fast than an else-if chain. (note: switch and list assoc-lookup are the exact same.)
+        if("r_hand")
+            return "right hand"
+        if("l_hand")
+            return "left hand"
+        if("l_arm")
+            return "left arm"
+        if("r_arm")
+            return "right arm"
+        if("l_leg")
+            return "left leg"
+        if("r_leg")
+            return "right leg"
+        if("l_foot")
+            return "left foot"
+        if("r_foot")
+            return "right foot"
+        else
+            return zone
+
+/* EXAMPLE for LIST_ASSOC, expandable and faster to do.
+/proc/parse_zone_list_assoc(zone)
+    var/static/list/zone_map = list(
+        "r_hand" = "right hand",
+        "l_hand" = "left hand",
+        "l_arm" = "left arm",
+        "r_arm" = "right arm",
+        "l_leg" = "left leg",
+        "r_leg" = "right leg",
+        "l_foot" = "left foot",
+        "r_foot" = "right foot",
+        "l_hand" = "left hand",
+        "r_hand" = "right hand",
+        "l_foot" = "left foot",
+        "r_foot" =  "right foot",
+    )
+    return zone_map[zone] || zone
+
+and now you can just macro it to save on procedure call, 
+#define parse_zone(zone) zone_to_descriptor_mapping[zone] || zone
+just need to declare as global, because the static list is in a proc and not global.
+
+*/
 
 //gets the turf the atom is located in (or itself, if it is a turf).
 //returns null if the atom is not in a turf.
