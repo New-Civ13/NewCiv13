@@ -43,23 +43,23 @@
 				else
 					current_res = map.custom_civs[user.civilization]
 			else
-				if (civ == "Civilization A Citizen")
-					current_res = map.civa_research
-				else if (civ == "Civilization B Citizen")
-					current_res = map.civb_research
-				else if (civ == "Civilization C Citizen")
-					current_res = map.civc_research
-				else if (civ == "Civilization D Citizen")
-					current_res = map.civd_research
-				else if (civ == "Civilization E Citizen")
-					current_res = map.cive_research
-				else if (civ == "Civilization F Citizen")
-					current_res = map.civf_research
-					
-				else if (civ == "Redmenian Civilian")
-					current_res = map.civa_research
-				else if (civ == "Blugoslavian Civilian")
-					current_res = map.civb_research
+				switch(civ)
+					if("Civilization A Citizen") // A
+						current_res = map.civa_research
+					if ("Civilization B Citizen") // B
+						current_res = map.civb_research
+					if ("Civilization C Citizen") // C
+						current_res = map.civc_research
+					if ("Civilization D Citizen") // D
+						current_res = map.civd_research
+					if ("Civilization E Citizen") // E
+						current_res = map.cive_research
+					if ("Civilization F Citizen") // F
+						current_res = map.civf_research
+					if ("Redmenian Civilian") // REDMENIAN
+						current_res = map.civa_research
+					if ("Blugoslavian Civilian") // BLUGOSLAVIAN
+						current_res = map.civb_research
 			if (user.s_tone <= -175 && map.ID == MAP_NOMADS_AFRICA)
 				faction = "pygmy"
 			generate_recipes_civs(current_res,faction)
