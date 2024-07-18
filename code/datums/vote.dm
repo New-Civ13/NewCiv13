@@ -183,17 +183,18 @@ var/global/list/round_voters = list() //Keeps track of the individuals voting fo
 					processes.gamemode.swap(.)
 				if ("ship selection")
 					var/obj/map_metadata/battle_ships/battle_ships = map
-					if (faction == 3)
-						return .
-					else if (faction == 0)
-						faction = 1
-						ship_size = .
-					else if (faction == 1)
-						faction = 2
-						battle_ships.load_map(lowertext(replacetext(., " ", "_")), "south")
-					else if (faction == 2)
-						faction = 3
-						battle_ships.load_map(lowertext(replacetext(., " ", "_")), "north")
+					switch(faction)
+						if(3)
+							return .
+						if(0)
+							faction = 1
+							ship_size = .
+						if(1)
+							faction = 2
+							battle_ships.load_map(lowertext(replacetext(., " ", "_")), "south")
+						if(2)
+							faction = 3
+							battle_ships.load_map(lowertext(replacetext(., " ", "_")), "north")
 		return .
 
 	proc/submit_vote(var/ckey, var/vote)
