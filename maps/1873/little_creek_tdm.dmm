@@ -428,7 +428,7 @@
 "il" = (/obj/structure/simple_door/key_door/anyone/wood,/turf/floor/wood,/area/caribbean/desert/buildings{icon_state = "red5"; name = "Brewery"})
 "im" = (/obj/structure/sign/custom{desc = "Also blacksmith!"; name = "Stables"},/turf/wall/wood,/area/caribbean/desert/buildings{icon_state = "red5"; name = "Stables"})
 "in" = (/obj/structure/oven,/turf/floor/wood,/area/caribbean/desert/buildings{icon_state = "red5"; name = "Stables"})
-"io" = (/obj/structure/furnace,/turf/floor/wood,/area/caribbean/desert/buildings{icon_state = "red5"; name = "Stables"})
+"io" = (/obj/structure/furnace/bloomery,/turf/floor/wood,/area/caribbean/desert/buildings{icon_state = "red5"; name = "Stables"})
 "ip" = (/obj/item/flashlight/lantern/on/anchored,/turf/floor/wood,/area/caribbean/desert/buildings{icon_state = "red5"; name = "General Store"})
 "iq" = (/obj/structure/table/wood,/obj/item/weapon/paper,/obj/item/weapon/pen,/turf/floor/wood,/area/caribbean/desert/buildings{icon_state = "red5"; name = "General Store"})
 "ir" = (/obj/structure/closet/crate/chest,/turf/floor/wood,/area/caribbean/desert/buildings{icon_state = "red5"; name = "General Store"})

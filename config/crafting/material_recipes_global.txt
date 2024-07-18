@@ -240,8 +240,8 @@ RECIPE: /material/clay/,unfired cement bricks,/obj/item/weapon/clay/advclaybrick
 
 RECIPE: /material/clay/,concrete floor,/obj/covers/concretefloor,0.5,15,1,1,none,103,0,0,8,null
 
-RECIPE: /material/clay/,clay brick bloomery,/obj/structure/furnace,10,150,1,1,none,26,0,0,8,null
-RECIPE: /material/clay/,clay kiln,/obj/structure/furnace/kiln,10,150,1,1,none,26,0,0,8,null
+RECIPE: /material/clay/,clay brick bloomery,/obj/structure/furnace/bloomery,10,150,1,1,none,26,0,0,8,null
+RECIPE: /material/clay/,clay kiln,/obj/structure/furnace/kiln/clay,10,150,1,1,none,26,0,0,8,null
 
 RECIPE: /material/clay/,concrete pillar,/obj/structure/mine_support/stone/concrete,2,20,0,1,none,103,0,0,8,null
 
@@ -1607,7 +1607,7 @@ RECIPE: /material/steel/,shopping cart,/obj/structure/shopping_cart,30,190,1,1,l
 //***********************COINSMELTER****************************
 
 //MID BRONZE AGE//
-RECIPE: /material/steel/,coin smelter,/obj/structure/machinery/factory/coinsmelter,50,190,1,1,none,25,0,0,9,null
+RECIPE: /material/steel/,coin smelter,/obj/structure/factory/coinsmelter,50,190,1,1,none,25,0,0,9,null
 //MID BRONZE AGE//
 
 //**************************************************************

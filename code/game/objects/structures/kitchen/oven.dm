@@ -15,6 +15,7 @@
 	var/consume_itself = FALSE
 	var/looping = FALSE //for campfires
 	var/cooking_time = 50
+
 /obj/structure/oven/update_icon()
 	if (on)
 		icon_state = "[base_state]_on"
@@ -27,64 +28,28 @@
 
 	if (istype(I, /obj/item/weapon/reagent_containers/glass/small_pot))
 		var/obj/item/weapon/reagent_containers/glass/small_pot/POT = I
-		H << "You place the [POT] on top of the [src]."
+		H.visible_message(SPAN_NOTICE("[H] places \the [POT] on top of \the [src]"), SPAN_NOTICE("You place the [POT] on top of \the [src]."))
 		H.remove_from_mob(POT)
 		POT.loc = src.loc
 		POT.on_stove = TRUE
 		return TRUE
 
-	if (istype(I, /obj/item/stack/material/wood))	//FUEL NORMAL (without * multiplication or + addition, only input)
-		fuel += I.amount
-		H << "You place \the [I] in \the [src], refueling it."
-		qdel(I)
-		return
-	else if (istype(I, /obj/item/stack/material/bamboo))
-		fuel += I.amount
-		H << "You place \the [I] in \the [src], refueling it."
-		qdel(I)
-		return
-	else if (istype(I, /obj/item/weapon/branch))	// FUEL +0.5 (adds a flat numerical addition ontop of the input reagent's baseline fuel, recommended for non stack objects)
-		fuel += I.amount+0.5
-		H << "You place \the [I] in \the [src], refueling it."
-		qdel(I)
-		return
-	else if (istype(I, /obj/item/stack/material/leaf))
-		fuel += I.amount+0.5
-		H << "You place \the [I] in \the [src], refueling it."
-		qdel(I)
-		return
-	else if (istype(I, /obj/item/stack/dung))	// FUEL +1
-		fuel += I.amount+1
-		H << "You place \the [I] in \the [src], refueling it."
-		qdel(I)
-		return
-	else if (istype(I, /obj/item/stack/ore/charcoal))	//FUEL *2.5 (multiplies it by 2 and a half)
-		fuel += I.amount*2.5
-		H << "You place \the [I] in \the [src], refueling it."
-		qdel(I)
-		return
-	else if (istype(I, /obj/item/stack/ore/coal))	//FUEL *3
-		fuel += I.amount*3
-		H << "You place \the [I] in \the [src], refueling it."
-		qdel(I)
-		return
+	else if (istype(I, /obj/item/weapon/wrench))
+		H.visible_message(SPAN_WARNING("[H] starts to [anchored ? "unsecure" : "secure"] \the [src] [anchored ? "from" : "to"] the ground."), SPAN_WARNING("You start to [anchored ? "unsecure" : "secure"] \the [src] [anchored ? "from" : "to"] the ground."))
+		playsound(src, 'sound/items/Ratchet.ogg', 100, TRUE)
+		if (do_after(H, 50, src))
+			H.visible_message(SPAN_WARNING("[H] [anchored ? "unsecures" : "secures"] \the [src] [anchored ? "from" : "to"] the ground."), SPAN_WARNING("You [anchored ? "unsecure" : "secure"] \the [src] [anchored ? "from" : "to"] the ground."))
+			anchored = !anchored
+			return
 
-	if (istype(I, /obj/item/weapon/wrench) || (istype(I, /obj/item/weapon/hammer)))
-		if (istype(I, /obj/item/weapon/wrench))
-			visible_message("<span class='warning'>[H] starts to [anchored ? "unsecure" : "secure"] \the [src] [anchored ? "from" : "to"] the ground.</span>")
-			playsound(src, 'sound/items/Ratchet.ogg', 100, TRUE)
-			if (do_after(H,50,src))
-				visible_message("<span class='warning'>[H] [anchored ? "unsecures" : "secures"] \the [src] [anchored ? "from" : "to"] the ground.</span>")
-				anchored = !anchored
-				return
-		else if (istype(I, /obj/item/weapon/hammer))
-			visible_message("<span class='warning'>[H] starts to deconstruct \the [src].</span>")
-			playsound(src, 'sound/items/Ratchet.ogg', 100, TRUE)
-			if (do_after(H,50,src))
-				visible_message("<span class='warning'>[H] deconstructs \the [src].</span>")
-				empty()
-				qdel(src)
-				return
+	else if (istype(I, /obj/item/weapon/hammer))
+		H.visible_message(SPAN_WARNING("[H] starts to deconstruct \the [src]."), SPAN_WARNING("You start to deconstruct \the [src]."))
+		playsound(src, 'sound/items/Ratchet.ogg', 100, TRUE)
+		if (do_after(H,50,src))
+			H.visible_message(SPAN_WARNING("[H] deconstructs \the [src]."), SPAN_WARNING("You deconstruct \the [src]."))
+			empty()
+			qdel(src)
+			return
 
 	var/space = max_space
 	for (var/obj/item/II in contents)
@@ -103,7 +68,7 @@
 		on = TRUE
 		fire_loop()
 	else
-		H << "<span class = 'warning'>The [name] doesn't have enough fuel! Fill it with wood or coal.</span>"
+		to_chat(H, SPAN_WARNING("\The [src] is out of fuel!"))
 
 /obj/structure/oven/proc/fire_loop()
 	if (on && fuel > 0)

@@ -16,8 +16,8 @@
 	pixel_x = rand(0,16)-8
 	pixel_y = rand(0,8)-8
 	process_radioactivity()
-	update_icon()
 	..()
+	update_icon() // Ores update after the parent call so that we can create new instances using New() and so it will properly update. It isn't updating `50` amount stacks because they are `50`, which is the max_amount, so it returns early on the parent stack/proc/merge.
 
 /obj/item/stack/ore/proc/process_radioactivity()
 	if (!src || !radioactive || radioactive_amt <= 0)
@@ -301,6 +301,10 @@
 
 		else
 			..()
+
+/obj/item/stack/ore/coal/get_fuel()
+	return amount*3
+
 /obj/item/stack/ore/coal/twentyfive
 	amount = 25
 
@@ -327,6 +331,10 @@
 						qdel(src)
 		else
 			..()
+
+/obj/item/stack/ore/charcoal/get_fuel()
+	return amount*2.5
+
 /obj/item/stack/ore/sulphur
 	name = "sulphur rock"
 	desc = "Yellow and smelly."

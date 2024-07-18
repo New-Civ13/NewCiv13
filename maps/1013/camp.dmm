@@ -320,7 +320,7 @@
 "gh" = (/obj/structure/bed/chair/comfy/red,/turf/floor/wood,/area/caribbean/island{base_turf = /turf/floor/dirt; location = 0; name = "Castle"})
 "gi" = (/obj/structure/potted_plant,/turf/floor/wood,/area/caribbean/island{base_turf = /turf/floor/dirt; location = 0; name = "Castle"})
 "gj" = (/obj/structure/table/wood,/obj/item/weapon/storage/bible,/turf/floor/wood,/area/caribbean/island{base_turf = /turf/floor/dirt; location = 0; name = "Castle"})
-"gk" = (/obj/structure/furnace,/turf/floor/dirt,/area/caribbean/island{base_turf = /turf/floor/dirt; name = "Castle"})
+"gk" = (/obj/structure/furnace/bloomery,/turf/floor/dirt,/area/caribbean/island{base_turf = /turf/floor/dirt; name = "Castle"})
 "gl" = (/obj/structure/bed/chair/wood/wings{dir = 4},/turf/floor/wood,/area/caribbean/island{base_turf = /turf/floor/dirt; location = 0; name = "Castle"})
 "gm" = (/obj/structure/table/wood,/obj/item/weapon/reagent_containers/food/drinks/drinkingglass/wine,/turf/floor/wood,/area/caribbean/island{base_turf = /turf/floor/dirt; location = 0; name = "Castle"})
 "gn" = (/obj/structure/bed/chair/wood/wings{dir = 8},/turf/floor/wood,/area/caribbean/island{base_turf = /turf/floor/dirt; location = 0; name = "Castle"})

@@ -257,7 +257,7 @@
 "eW" = (/obj/structure/bed{material = "wood"},/obj/item/weapon/bedsheet/rd,/turf/floor/wood,/area/caribbean/no_mans_land/battleroyale/four/inside)
 "eX" = (/obj/covers/wood_wall,/obj/structure/sign/flag/blue2,/turf/floor/wood,/area/caribbean/no_mans_land/battleroyale/four/inside)
 "eY" = (/obj/structure/simple_door/wood{name = "room"},/turf/floor/wood,/area/caribbean/no_mans_land/battleroyale/four/inside)
-"eZ" = (/obj/structure/furnace,/turf/floor/dirt,/area/caribbean/no_mans_land/battleroyale/four)
+"eZ" = (/obj/structure/furnace/bloomery,/turf/floor/dirt,/area/caribbean/no_mans_land/battleroyale/four)
 "fa" = (/obj/structure/barricade/stone_v/crenelated,/obj/structure/boiling_oil/east,/turf/floor/dirt,/area/caribbean/no_mans_land/battleroyale/four)
 "fb" = (/obj/covers/wood,/obj/structure/railing,/turf/floor/dirt,/area/caribbean/no_mans_land/battleroyale/three)
 "fc" = (/obj/covers/wood,/obj/structure/railing,/turf/floor/beach/sand/dark,/area/caribbean/no_mans_land/battleroyale/three)

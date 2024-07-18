@@ -413,6 +413,9 @@
 	var/decaytimer = 0
 	decay = 80*600
 
+/obj/item/stack/material/leaf/get_fuel()
+	return amount
+
 /obj/item/stack/material/leaf/New()
 	..()
 	food_decay()
@@ -647,6 +650,9 @@
 	var/ash_production = FALSE
 	var/splitting_in_progress = FALSE
 
+/obj/item/stack/material/wood/get_fuel()
+	return amount * rand(1,2)
+
 /obj/item/stack/material/wood/twentyfive
 	amount = 25
 
@@ -758,6 +764,9 @@
 	var/onfire = FALSE
 	var/ash_production = FALSE
 
+/obj/item/stack/material/woodplank/get_fuel()
+	return amount * rand(1,2)
+
 /obj/item/stack/material/woodplank/twentyfive
 	amount = 25
 
@@ -809,12 +818,18 @@
 	value = 1
 	flammable = TRUE
 
+/obj/item/stack/material/bamboo/get_fuel()
+	return amount
+
 /obj/item/stack/material/cotton
 	name = "cotton pile"
 	icon_state = "sheet-cotton"
 	default_type = "cotton"
 	value = 2
 	flammable = TRUE
+
+/obj/item/stack/material/cotton/get_fuel()
+	return amount * 2
 
 /obj/item/stack/material/cloth
 	name = "cloth"
@@ -827,6 +842,9 @@
 /obj/item/stack/material/cloth/New()
 	update_icon()
 	return ..()
+
+/obj/item/stack/material/cloth/get_fuel()
+	return amount * 1.5
 
 /obj/item/stack/material/cloth/update_icon()
 	var/icon_suffix = ""

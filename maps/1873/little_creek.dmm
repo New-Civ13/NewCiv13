@@ -270,7 +270,7 @@
 "fj" = (/obj/structure/table/modern,/obj/item/stack/ammopart/casing/pistol{amount = 15},/turf/floor/wood,/area/caribbean/desert/buildings{icon_state = "red5"; name = "Stables"})
 "fk" = (/obj/structure/oven,/turf/floor/wood,/area/caribbean/desert/buildings{icon_state = "red5"; name = "Stables"})
 "fl" = (/turf/floor/wood,/area/caribbean/desert/buildings{icon_state = "red5"; name = "Stables"})
-"fm" = (/obj/structure/furnace,/turf/floor/wood,/area/caribbean/desert/buildings{icon_state = "red5"; name = "Stables"})
+"fm" = (/obj/structure/furnace/bloomery,/turf/floor/wood,/area/caribbean/desert/buildings{icon_state = "red5"; name = "Stables"})
 "fn" = (/obj/structure/closet/crate/iron,/obj/item/stack/material/copper{amount = 20},/turf/floor/wood,/area/caribbean/desert/buildings{icon_state = "red5"; name = "Stables"})
 "fo" = (/obj/structure/bed/chair/wood/red,/turf/floor/wood,/area/caribbean/desert/buildings{icon_state = "blue2"; name = "Bank"})
 "fp" = (/turf/floor/wood,/area/caribbean/desert/buildings{icon_state = "red5"; name = "Inn"})

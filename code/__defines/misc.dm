@@ -88,3 +88,10 @@ GLOBAL_LIST_INIT(bitflags, list((1<<0), (1<<1), (1<<2), (1<<3), (1<<4), (1<<5), 
 //Fullscreen overlay resolution in tiles.
 #define FULLSCREEN_OVERLAY_RESOLUTION_X 11
 #define FULLSCREEN_OVERLAY_RESOLUTION_Y 11
+
+// Material defines.
+#define MATERIAL_IRON "iron"
+#define MATERIAL_COPPER "copper"
+#define MATERIAL_TIN "tin"
+#define MATERIAL_GOLD "gold"
+#define MATERIAL_SILVER "silver"

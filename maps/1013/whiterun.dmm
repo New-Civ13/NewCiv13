@@ -197,7 +197,7 @@
 "dO" = (/turf/floor/dirt/dust,/area/caribbean/roofed)
 "dP" = (/obj/structure/anvil/steel,/turf/floor/dirt/dust,/area/caribbean/roofed)
 "dQ" = (/obj/structure/furnace/blast_furnace,/turf/floor/dirt/dust,/area/caribbean/roofed)
-"dR" = (/obj/structure/furnace/kiln,/turf/floor/dirt/dust,/area/caribbean/roofed)
+"dR" = (/obj/structure/furnace/kiln/clay,/turf/floor/dirt/dust,/area/caribbean/roofed)
 "dS" = (/obj/structure/window/barrier/railing/stone{icon_state = "stone"; dir = 1; climbable = 0},/obj/structure/barricade/stone_v{health = 30000},/turf/floor/grass,/area/caribbean/nomads/forest)
 "dT" = (/obj/structure/window/barrier/railing/stone{icon_state = "stone"; dir = 1; climbable = 0},/turf/floor/plating/cobblestone/vertical,/area/caribbean/nomads/forest)
 "dU" = (/obj/structure/window/barrier/railing/stone{icon_state = "stone"; dir = 1; climbable = 0},/obj/structure/window/barrier/railing/stone{icon_state = "stone"; dir = 4; climbable = 0},/turf/floor/plating/cobblestone/vertical,/area/caribbean/nomads/forest)

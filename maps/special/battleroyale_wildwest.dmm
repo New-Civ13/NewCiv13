@@ -240,7 +240,7 @@
 "gm" = (/turf/floor/plating/cobblestone/vertical/dark,/area/caribbean/no_mans_land/battleroyale/three)
 "gn" = (/obj/structure/closet/crate/rations/ale,/turf/floor/wood,/area/caribbean/no_mans_land/battleroyale/four/inside)
 "gp" = (/obj/structure/oven,/turf/floor/wood,/area/caribbean/no_mans_land/battleroyale/four/inside)
-"gq" = (/obj/structure/furnace,/turf/floor/wood,/area/caribbean/no_mans_land/battleroyale/four/inside)
+"gq" = (/obj/structure/furnace/bloomery,/turf/floor/wood,/area/caribbean/no_mans_land/battleroyale/four/inside)
 "gr" = (/obj/structure/closet/crate/iron,/obj/item/stack/material/copper{amount = 20},/turf/floor/wood,/area/caribbean/no_mans_land/battleroyale/four/inside)
 "gs" = (/obj/item/weapon/reagent_containers/glass/barrel/water,/turf/floor/plating/cobblestone/vertical/dark,/area/caribbean/no_mans_land/battleroyale/three)
 "gt" = (/obj/structure/grille/fence,/turf/floor/beach/sand/desert,/area/caribbean/no_mans_land/battleroyale/four)

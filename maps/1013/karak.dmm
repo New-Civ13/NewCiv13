@@ -43,7 +43,7 @@
 "aQ" = (/turf/floor/dirt,/area/caribbean/forest/dirt{name = "Inner Fortress"})
 "aR" = (/obj/effect/decal/cleanable/blood/drip,/turf/floor/wood,/area/caribbean/crusader/sand{location = 0; name = "Crusader Camp Buildings"})
 "aS" = (/obj/structure/barricade/sandstone_v/crenelated,/obj/covers/sandstone,/obj/structure/boiling_oil/west,/turf/floor/dirt/dust,/area/caribbean/forest/dirt{name = "Walls"})
-"aT" = (/obj/structure/furnace,/turf/floor/dirt/dust,/area/caribbean/crusader/sand)
+"aT" = (/obj/structure/furnace/bloomery,/turf/floor/dirt/dust,/area/caribbean/crusader/sand)
 "aU" = (/obj/structure/window/barrier/railing{icon_state = "sandstone"; dir = 4; climbable = 0},/turf/floor/dirt/dust,/area/caribbean/crusader/sand)
 "aV" = (/obj/structure/wild/tallgrass2,/obj/structure/window/barrier/railing{icon_state = "sandstone"; dir = 4; climbable = 0},/turf/floor/dirt/dust,/area/caribbean/crusader/sand)
 "aW" = (/obj/structure/barricade/sandstone_h/crenelated,/turf/floor/dirt/dust,/turf/floor/beach/water/coastwater/layer,/area/caribbean/forest/dirt{name = "Walls"})

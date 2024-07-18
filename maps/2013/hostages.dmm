@@ -274,7 +274,7 @@
 "fn" = (/obj/structure/table,/obj/item/kitchen/snack_bowl,/obj/item/weapon/material/kitchen/utensil/spoon,/turf/floor/dirt,/area/caribbean/arab/caves)
 "fo" = (/obj/structure/lamp/lamp_small/alwayson,/obj/item/weapon/stool,/turf/floor/dirt,/area/caribbean/arab/caves)
 "fp" = (/obj/structure/oven,/turf/floor/dirt,/area/caribbean/arab/caves)
-"fq" = (/obj/structure/furnace,/turf/floor/dirt,/area/caribbean/arab/caves)
+"fq" = (/obj/structure/furnace/bloomery,/turf/floor/dirt,/area/caribbean/arab/caves)
 "fr" = (/obj/structure/closet/crate/rations/vegetables,/turf/floor/dirt,/area/caribbean/arab/caves)
 "fs" = (/obj/structure/closet/crate/rations/biscuits,/turf/floor/dirt,/area/caribbean/arab/caves)
 "ft" = (/obj/structure/table/wood,/obj/item/weapon/reagent_containers/food/drinks/drinkingglass,/obj/item/weapon/reagent_containers/food/drinks/drinkingglass,/turf/floor/dirt,/area/caribbean/arab/caves)

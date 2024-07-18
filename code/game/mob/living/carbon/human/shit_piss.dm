@@ -182,6 +182,9 @@
 	fertilizer_value = 20
 	max_amount = 40
 
+/obj/item/stack/dung/get_fuel()
+	return amount + rand(0,4)
+
 /obj/item/weapon/reagent_containers/food/snacks/poo/throw_impact(atom/hit_atom)
 	playsound(src.loc, "sound/effects/squishy.ogg", 40, 1)
 	var/turf/T = src.loc

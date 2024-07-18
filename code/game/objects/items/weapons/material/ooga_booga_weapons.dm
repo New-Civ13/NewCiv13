@@ -67,6 +67,9 @@
 
 	var/ants = FALSE
 
+/obj/item/weapon/branch/get_fuel()
+	return amount + rand(0,6) // Different branches have different sizes.
+
 /obj/item/weapon/branch/attack_self(mob/living/human/user as mob)
 	if (ants)
 		to_chat(user, SPAN_NOTICE("You start licking some ants off the stick..."))

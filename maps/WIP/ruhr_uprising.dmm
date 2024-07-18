@@ -2899,7 +2899,7 @@
 	name = "The Caves"
 	})
 "rm" = (
-/obj/structure/furnace,
+/obj/structure/furnace/bloomery,
 /turf/floor/wood,
 /area/caribbean/roofed)
 "ro" = (

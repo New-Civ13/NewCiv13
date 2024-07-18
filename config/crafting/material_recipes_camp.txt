@@ -216,8 +216,8 @@ RECIPE: /material/clay/,unfired clay cup,/obj/item/weapon/clay/claycup,4,30,0,1,
 RECIPE: /material/clay/,unfired clay cooking pot,/obj/item/weapon/clay/cookingpot,8,20,0,1,none,0,0,0,8,null
 RECIPE: /material/clay/,unfired very small clay pot,/obj/item/weapon/clay/verysmallclaypot,3,20,0,1,none,0,0,0,8,null
 RECIPE: /material/clay/,unfired small clay pot,/obj/item/weapon/clay/smallclaypot,5,30,0,1,none,0,0,0,8,null
-RECIPE: /material/clay/,clay brick bloomery,/obj/structure/furnace,35,150,1,1,none,26,0,0,8,null
-RECIPE: /material/clay/,clay kiln,/obj/structure/furnace/kiln,35,150,1,1,none,26,0,0,8,null
+RECIPE: /material/clay/,clay brick bloomery,/obj/structure/furnace/bloomery,35,150,1,1,none,26,0,0,8,null
+RECIPE: /material/clay/,clay kiln,/obj/structure/furnace/kiln/clay,35,150,1,1,none,26,0,0,8,null
 RECIPE: /material/clay/,unfired ingot mold,/obj/item/weapon/clay/mold,6,40,0,1,molds,0,0,0,8,null
 RECIPE: /material/clay/,unfired axehead mold,/obj/item/weapon/clay/mold/axehead,8,40,0,1,molds,0,0,0,8,null
 RECIPE: /material/clay/,unfired spearhead mold,/obj/item/weapon/clay/mold/spearhead,5,40,0,1,molds,0,0,0,8,null

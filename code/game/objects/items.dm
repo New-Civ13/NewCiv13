@@ -627,6 +627,9 @@ var/list/global/slot_flags_enumeration = list(
 /obj/item/proc/get_weight()
 	return weight
 
+// Over-ridden on specific items for refueling structures. Called on attackby procs to get fuel.
+/obj/item/proc/get_fuel()
+	return
 
 //Kicking an item
 /obj/item/kick_act(var/mob/living/user)

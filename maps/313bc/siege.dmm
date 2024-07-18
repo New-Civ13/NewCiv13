@@ -72,7 +72,7 @@
 "bt" = (/turf/floor/dirt,/area/caribbean/greek{name = "Greek Buildings"})
 "bu" = (/turf/floor/dirt,/area/caribbean/no_mans_land/invisible_wall)
 "bv" = (/obj/structure/wild/tallgrass2,/turf/floor/dirt/dust,/area/caribbean/greek{name = "Greek Buildings"})
-"bw" = (/obj/structure/furnace,/turf/floor/dirt,/area/caribbean/forest/dirt{name = "Inner Fortress"})
+"bw" = (/obj/structure/furnace/bloomery,/turf/floor/dirt,/area/caribbean/forest/dirt{name = "Inner Fortress"})
 "bx" = (/obj/structure/wild/tree/live_tree,/turf/floor/dirt,/area/caribbean/forest/dirt)
 "by" = (/obj/covers/wood,/obj/item/ammo_casing/arrow/bronze,/obj/item/ammo_casing/arrow/bronze,/obj/item/ammo_casing/arrow/bronze,/obj/item/ammo_casing/arrow/bronze,/obj/item/ammo_casing/arrow/bronze,/obj/item/ammo_casing/arrow/bronze,/obj/structure/table/rack,/obj/item/ammo_casing/arrow/bronze,/obj/item/ammo_casing/arrow/bronze,/obj/item/ammo_casing/arrow/bronze,/turf/floor/dirt,/area/caribbean/forest/dirt{name = "Walls"})
 "bz" = (/obj/covers/cobblestone,/turf/floor/dirt,/area/caribbean/greek{name = "Greek Buildings"})
