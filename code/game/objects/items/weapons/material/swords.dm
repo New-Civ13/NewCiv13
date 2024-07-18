@@ -57,29 +57,28 @@
 
 /obj/item/weapon/material/sword/attack_self(mob/user)
 	..()
-	if(atk_mode == SLASH)
-		atk_mode = STAB
-		user << "<span class='notice'>You will now stab.</span>"
-		edge = FALSE
-		sharp = TRUE
-		attack_verb = list("stabbed")
-		hitsound = "stab_sound"
-
-	else if(atk_mode == STAB)
-		atk_mode = BASH
-		user << "<span class='notice'>You will now bash.</span>"
-		edge = FALSE
-		sharp = FALSE
-		attack_verb = list("bashed", "smacked")
-		hitsound = "swing_hit"
-
-	else if(atk_mode == BASH)
-		atk_mode = SLASH
-		user << "<span class='notice'>You will now slash.</span>"
-		edge = TRUE
-		sharp = TRUE
-		attack_verb = list("slashed", "diced")
-		hitsound = "slash_sound"
+	switch(atk_mode)
+		if(SLASH)
+			atk_mode = STAB
+			user << "<span class='notice'>You will now stab.</span>"
+			edge = FALSE
+			sharp = TRUE
+			attack_verb = list("stabbed")
+			hitsound = "stab_sound"
+		if(STAB)
+			atk_mode = BASH
+			user << "<span class='notice'>You will now bash.</span>"
+			edge = FALSE
+			sharp = FALSE
+			attack_verb = list("bashed", "smacked")
+			hitsound = "swing_hit"
+		if(BASH)
+			atk_mode = SLASH
+			user << "<span class='notice'>You will now slash.</span>"
+			edge = TRUE
+			sharp = TRUE
+			attack_verb = list("slashed", "diced")
+			hitsound = "slash_sound"
 
 /obj/item/weapon/material/sword/training
 	name = "training sword"

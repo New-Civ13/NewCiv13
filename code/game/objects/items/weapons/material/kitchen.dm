@@ -136,23 +136,21 @@
 
 /obj/item/weapon/material/kitchen/utensil/knife/attack_self(mob/user)
 	..()
-	if(atk_mode == SLASH)
-		atk_mode = STAB
-		user << "<span class='notice'>You will now stab.</span>"
-		edge = FALSE
-		sharp = TRUE
-		attack_verb = list("stabbed")
-		hitsound = "stab_sound"
-		return
-
-	else if(atk_mode == STAB)
-		atk_mode = SLASH
-		user << "<span class='notice'>You will now slash.</span>"
-		attack_verb = list("slashed", "diced")
-		hitsound = "slash_sound"
-		edge = TRUE
-		sharp = TRUE
-		return
+	switch(atk_mode)
+		if(SLASH)
+			atk_mode = STAB
+			user << "<span class='notice'>You will now stab.</span>"
+			edge = FALSE
+			sharp = TRUE
+			attack_verb = list("stabbed")
+			hitsound = "stab_sound"
+		if(STAB)
+			atk_mode = SLASH
+			user << "<span class='notice'>You will now slash.</span>"
+			attack_verb = list("slashed", "diced")
+			hitsound = "slash_sound"
+			edge = TRUE
+			sharp = TRUE
 
 /obj/item/weapon/material/kitchen/utensil/knife/razorblade/attack(mob/living/human/M as mob, mob/living/user as mob)
 	if (user.a_intent == I_DISARM && user.targeted_organ == "head" && (M in range(user,1) || M == user) && ishuman(M) && ishuman(user))

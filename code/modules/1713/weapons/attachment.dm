@@ -170,23 +170,22 @@ Current Defines (_defines/attachment.dm)
 
 /obj/item/weapon/attachment/bayonet/attack_self(mob/user)
 	..()
-	if(atk_mode == SLASH)
-		atk_mode = STAB
-		user << "<span class='notice'>You will now stab.</span>"
-		edge = FALSE
-		sharp = TRUE
-		attack_verb = list("stabbed")
-		hitsound = "stab_sound"
-		return
+	switch(atk_mode)
+		if(SLASH)
+			atk_mode = STAB
+			user << "<span class='notice'>You will now stab.</span>"
+			edge = FALSE
+			sharp = TRUE
+			attack_verb = list("stabbed")
+			hitsound = "stab_sound"
+		if(STAB)
+			atk_mode = SLASH
+			user << "<span class='notice'>You will now slash.</span>"
+			attack_verb = list("slashed", "diced")
+			hitsound = "slash_sound"
+			edge = TRUE
+			sharp = TRUE
 
-	else if(atk_mode == STAB)
-		atk_mode = SLASH
-		user << "<span class='notice'>You will now slash.</span>"
-		attack_verb = list("slashed", "diced")
-		hitsound = "slash_sound"
-		edge = TRUE
-		sharp = TRUE
-		return
 /obj/item/weapon/attachment/bayonet/attached(var/mob/user = null, obj/item/weapon/gun/G, var/quick = FALSE)
 	if (quick)
 		if (user)
