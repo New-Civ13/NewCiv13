@@ -270,7 +270,7 @@
 	name = "rough stone wall"
 	desc = "A rough stone wall."
 	icon = 'icons/turf/walls.dmi'
-	icon_state = "b_stone_wall"
+	icon_state = "b_stone_wall" // TBD; replace with rough variant.
 	passable = FALSE
 	not_movable = TRUE
 	density = TRUE
@@ -285,106 +285,96 @@
 	material = "Stone"
 	hardness = 100
 	buildstack = /obj/item/stack/material/stone
-	adjusts=FALSE
-
-/obj/covers/stone_wall/attackby(obj/item/W as obj, mob/user as mob)
-	var/mob/living/human/H = user
-	if(istype(W, /obj/item/weapon/chisel))
-		if (istype(H.l_hand, /obj/item/weapon/hammer) && istype(H.r_hand, /obj/item/weapon/hammer))
-			to_chat(user, SPAN_WARNING("This surface is too rough to chisel upon."))
-			return
-	else
-		..()
-/obj/covers/stone_wall/attackby(var/obj/item/weapon/material/kitchen/utensil/I, var/mob/living/human/U)
-	if (istype(I,/obj/item/weapon/material/kitchen/utensil/spoon) || istype(I,/obj/item/weapon/material/kitchen/utensil/fork) || istype(I,/obj/item/weapon/material/kitchen/utensil/chopsticks))
-		if (I.shiv < 10)
-			I.shiv++
-			visible_message(SPAN_WARNING("[U] sharpens \the [I] on \the [src]!"))
-			if (I.shiv >= 10)
-				U.drop_from_inventory(I)
-				var/obj/item/weapon/material/kitchen/utensil/knife/shank/SHK = new /obj/item/weapon/material/kitchen/utensil/knife/shank(U,I.material.name)
-				U.put_in_hands(SHK)
-				to_chat(U, "\The [I] turns into a shank.")
-				qdel(I)
-	..()
+	adjusts = FALSE
+	var/in_progress // Used to keep track of on-going events like the WWinput, and prevent repeats until the original is over.
+	var/design = "Rough" // Where we store the current design of the wall. (for chisels)
 
 /obj/covers/stone_wall/plain
 	name = "smooth stone wall"
 	desc = "A smooth stone wall."
+	design = "Smooth"
 
-/obj/covers/stone_wall/plain/attackby(obj/item/W as obj, mob/user as mob)
-	var/mob/living/human/H = user
-	if(istype(W, /obj/item/weapon/chisel))
-		var design = "smooth"
-		if (!istype(H.l_hand, /obj/item/weapon/hammer) && !istype(H.r_hand, /obj/item/weapon/hammer))
+/obj/covers/stone_wall/attackby(obj/item/W as obj, mob/living/human/user as mob)
+	if (istype(W, /obj/item/weapon/chisel))
+		if (in_progress) return // Have we already began? ~Don't start WWinput if triggered.
+		else if (!istype(user.l_hand, /obj/item/weapon/hammer) && !istype(user.r_hand, /obj/item/weapon/hammer))
 			to_chat(user, SPAN_WARNING("You need to have a hammer in one of your hands to use a chisel."))
 			return
-		else
-			var/display = list("Smooth", "Cave", "Underground Cave", "Carved Brick", "Cobbled", "Tiled", "Cancel")
-			var/input =  WWinput(user, "What design do you want to carve?", "Carving", "Cancel", display)
-			if (input == "Cancel")
+
+		var/display = list("Smooth", "Brick", "Cobbled", "Tiled", "Rough", "Cancel") // Designs possible are "smooth", "brick", "cobbled", "tiled", "rough".
+		var/input =  WWinput(user, "What design do you want to carve?", "Carving", "Cancel", display)
+		if (!input) return // You cancelled!
+
+		else if (input == design)
+			to_chat(user, SPAN_WARNING("\The [src] is already carved into a [lowertext(input)] design!"))
+			return
+
+		else if (!in_progress) // Secondary check, in-case they spam the WWinput. (Prevents the do_after from cancelling.)
+			if(user in range(1, src)) // To prevent carving from afar, by delaying WWinput answer and then moving away.
+				in_progress = TRUE
+				user.visible_message(SPAN_NOTICE("[user] starts to carve out a design into \the [src]."), SPAN_NOTICE("You start to carve out a <b>[lowertext(input)]</b> design into \the [src]."))
+				playsound(src,'sound/effects/pickaxe.ogg',60,1)
+				if (!do_after(user, 6 SECONDS, src))
+					user.visible_message(SPAN_NOTICE("[user] changes their mind and stops carving into \the [src]."), SPAN_NOTICE("You change your mind and stop carving.")) // Niche interrupt msg.
+					in_progress = FALSE
+					return
+
+				user.visible_message(SPAN_NOTICE("[user] finishes carving out a [lowertext(input)] design into \the [src]."), SPAN_NOTICE("You finish carving out the [lowertext(input)] design into \the [src]."))
+
+				switch(input)
+					if("Smooth")
+						icon_state = "b_stone_wall" // TBD; replace with smooth variant.
+						name = "smooth stone wall"
+						desc = "A smooth stone wall."
+					if("Brick")
+						icon_state = "b_brick_stone_wall"
+						name = "stone brick wall"
+						desc = "A stone wall carved to look like its made of stone bricks."
+					if("Cobbled")
+						icon_state = "b_cobbled_stone_wall"
+						name = "cobbled stone wall"
+						desc = "A stone wall carved to look like piled up stones."
+					if("Tiled")
+						icon_state = "b_tiled_stone_wall"
+						name = "tiled stone wall"
+						desc = "A stone wall carved to have a tiled stone pattern."
+					if("Rough")
+						name = "rough stone wall"
+						desc = "A rough stone wall."
+						icon_state = "b_stone_wall" // TBD; replace with rough variant.
+
+				in_progress = FALSE
+				design = input // Store the design we just carved, to check if we will re-carve the same design next time.
 				return
-			else if  (input == "Smooth")
-				to_chat(user, SPAN_NOTICE("You will not carve the smooth design!"))
-				design = "smooth"
-			else if  (input == "Cave")
-				to_chat(user, SPAN_NOTICE("You will not carve the cave design!"))
-				design = "cave"
-			else if  (input == "Underground Cave")
-				to_chat(user, SPAN_NOTICE("You will not carve the cave design!"))
-				design = "undercave"
-			else if  (input == "Carved Brick")
-				to_chat(user, SPAN_NOTICE("You will not carve the brick design!"))
-				design = "carvedbrick"
-			else if  (input == "Cobbled")
-				to_chat(user, SPAN_NOTICE("You will not carve the cobbled design!"))
-				design = "cobbled"
-			else if  (input == "Tiled")
-				to_chat(user, SPAN_NOTICE("You will not carve the tiled design!"))
-				design = "tiled"
-			visible_message(SPAN_DANGER("[user] starts to chisel a design!"))
-			user.visible_message(SPAN_DANGER("You start chiseling a design."))
-			playsound(src,'sound/effects/pickaxe.ogg',60,1)
-			if (do_after(user, 60, src))
-			//Designs possible are "smooth", "cave", "carvedbrick", "cobbled", "tiled"
-				if(design == "smooth")
-					src.icon_state = "b_stone_wall"
-					base_icon_state = icon_state
-					src.name = "stone wall"
-					src.desc = "A stone wall carved smooth."
-				else if(design == "cave")
-					src.icon_state = "rocky"
-					base_icon_state = icon_state
-					src.name = "cave wall"
-					src.desc = "A cave wall."
-				else if(design == "undercave")
-					src.icon_state = "rock"
-					base_icon_state = icon_state
-					src.name = "underground cave wall"
-					src.desc = "A cave wall."
-				else if(design == "carvedbrick")
-					src.icon_state = "b_brick_stone_wall"
-					base_icon_state = icon_state
-					src.name = "stone brick wall"
-					src.desc = "A stone wall carved to look like its made of stone bricks."
-				else if(design == "cobbled")
-					src.icon_state = "b_cobbled_stone_wall"
-					base_icon_state = icon_state
-					src.name = "cobbled stone wall"
-					src.desc = "A stone wall carved to look like piled up stones."
-				else if(design == "tiled")
-					src.icon_state = "b_tiled_stone_wall"
-					base_icon_state = icon_state
-					src.name = "tiled stone wall"
-					src.desc = "A stone wall carved to have a tiled stone pattern."
-				return
-	..()
+
+	else if (istype(W, /obj/item/weapon/material/kitchen/utensil/spoon) || istype(W, /obj/item/weapon/material/kitchen/utensil/fork) || istype(W, /obj/item/weapon/material/kitchen/utensil/chopsticks))	
+		var/obj/item/weapon/material/kitchen/utensil/I = W // Typecast
+		user.setClickCooldown(rand(8,12))
+
+		if (I.shiv <= 10)
+			I.shiv += rand(1,3) // Min of 4 times to sharpen fully if lucky.
+			// playsound(src, ) - add a sound for sharpening. TODO.
+			var/sharpening_verb = pick("grind", "sharpen", "whittle away", "hone", "file", "polish", "whet") // So we get the same consistency in picking on both self_message and message.
+			user.visible_message(SPAN_WARNING("[user] [sharpening_verb]s \the [I] on \the [src]!"), 
+								SPAN_WARNING("You <b>[sharpening_verb]</b> \the [I] on \the [src]."),
+							)
+			return
+
+		else // var/shiv reaches past 10.
+			user.drop_from_inventory(I)
+			var/obj/item/weapon/material/kitchen/utensil/knife/shank/SHK = new /obj/item/weapon/material/kitchen/utensil/knife/shank(user, I.material.name)
+			user.put_in_hands(SHK)
+			to_chat(user, SPAN_NOTICE("\The [I] turns into a shank."))
+			qdel(I)
+			return
+	
+	else ..() // Anything else not caught by the checks goes straight to hitting.
 
 /obj/covers/marble_wall
 	name = "rough marble wall"
 	desc = "A rough marble wall."
 	icon = 'icons/turf/walls.dmi'
-	icon_state = "b_marble_wall"
+	icon_state = "b_marble_wall" // TBD; replace with rough variant.
 	passable = TRUE
 	not_movable = TRUE
 	density = TRUE
@@ -399,89 +389,96 @@
 	material = "Stone"
 	hardness = 100
 	buildstack = /obj/item/stack/material/marble
-	adjusts=FALSE
+	adjusts = FALSE
+	var/in_progress // Used to keep track of on-going events like the WWinput, and prevent repeats until the original is over. (Until we get a functional do_after system.)
+	var/design = "Rough" // Where we store the current design of the wall. (for chisels)
 
-/obj/covers/marble_wall/attackby(obj/item/W as obj, mob/user as mob)
-	var/mob/living/human/H = user
-	if(istype(W, /obj/item/weapon/chisel))
-		if (istype(H.l_hand, /obj/item/weapon/hammer) && istype(H.r_hand, /obj/item/weapon/hammer))
-			to_chat(user, SPAN_WARNING("This surface is too rough to chisel upon."))
+/obj/covers/marble_wall/attackby(obj/item/W as obj, mob/living/human/user as mob)
+	if (istype(W, /obj/item/weapon/chisel))
+		if (in_progress) return // Have we already began? ~Don't start WWinput if triggered.
+		else if (!istype(user.l_hand, /obj/item/weapon/hammer) && !istype(user.r_hand, /obj/item/weapon/hammer))
+			to_chat(user, SPAN_WARNING("You need to have a hammer in one of your hands to use a chisel."))
 			return
-	else
-		..()
+
+		var/display = list("Smooth", "Brick", "Cobbled", "Tiled", "Rough", "Cancel") // Designs possible are "smooth", "brick", "cobbled", "tiled", "rough".
+		var/input =  WWinput(user, "What design do you want to carve?", "Carving", "Cancel", display)
+		if (!input) return // You cancelled!
+
+		else if (input == design)
+			to_chat(user, SPAN_WARNING("\The [src] is already carved into a [lowertext(input)] design!"))
+			return
+
+		else if (!in_progress) // Secondary check, in-case they spam the WWinput. (Prevents the do_after from cancelling.)
+			if(user in range(1, src)) // To prevent carving from afar, by delaying WWinput answer and then moving away.
+				in_progress = TRUE
+				user.visible_message(SPAN_NOTICE("[user] starts to carve out a design into \the [src]."), SPAN_NOTICE("You start to carve out a <b>[lowertext(input)]</b> design into \the [src]."))
+				playsound(src, 'sound/effects/pickaxe.ogg', 60, TRUE)
+				if (!do_after(user, 6 SECONDS, src))
+					user.visible_message(SPAN_NOTICE("[user] changes their mind and stops carving into \the [src]."), SPAN_NOTICE("You change your mind and stop carving.")) // Niche interrupt msg.
+					in_progress = FALSE
+					return
+
+				user.visible_message(SPAN_NOTICE("[user] finishes carving out a [lowertext(input)] design into \the [src]."), SPAN_NOTICE("You finish carving out the [lowertext(input)] design into \the [src]."))
+
+				switch(input) // We put this after the visb_msg so that it says the original design name, without taking any additional processing/vars to do so.
+					if("Smooth")
+						icon_state = "b_marble_wall" // TBD; replace with smooth variant.
+						name = "smooth marble wall"
+						desc = "A smooth marble wall."
+					if("Brick")
+						icon_state = "b_brick_marble_wall"
+						name = "marble brick wall"
+						desc = "A marble wall carved to look like its made of marble bricks."
+					if("Cobbled")
+						icon_state = "b_cobbled_marble_wall"
+						name = "cobbled marble wall"
+						desc = "A marble wall carved to look like piled up stones."
+					if("Tiled")
+						icon_state = "b_tiled_marble_wall"
+						name = "tiled marble wall"
+						desc = "A marble wall carved to have a tiled marble pattern."
+					if("Rough")
+						name = "rough marble wall"
+						desc = "A rough marble wall."
+						icon_state = "b_marble_wall" // TBD; replace with rough variant.
+
+				in_progress = FALSE
+				design = input // Store the design we just carved, to check if we will re-carve the same design next time.
+				return
+
+	else if (istype(W, /obj/item/weapon/material/kitchen/utensil/spoon) || istype(W, /obj/item/weapon/material/kitchen/utensil/fork) || istype(W, /obj/item/weapon/material/kitchen/utensil/chopsticks))	
+		var/obj/item/weapon/material/kitchen/utensil/I = W // Typecast
+		user.setClickCooldown(rand(8,12))
+
+		if (I.shiv <= 10)
+			I.shiv += rand(1,3) // Min of 4 times to sharpen fully if lucky.
+			// playsound(src, ) - add a sound for sharpening. TODO.
+			var/sharpening_verb = pick("grind", "sharpen", "whittle away", "hone", "file", "polish", "whet") // So we get the same consistency in picking on both self_message and message.
+			user.visible_message(SPAN_WARNING("[user] [sharpening_verb]s \the [I] on \the [src]!"), 
+								SPAN_WARNING("You <b>[sharpening_verb]</b> \the [I] on \the [src]."),
+							)
+			return
+
+		else // var/shiv reaches past 10.
+			user.drop_from_inventory(I)
+			var/obj/item/weapon/material/kitchen/utensil/knife/shank/SHK = new /obj/item/weapon/material/kitchen/utensil/knife/shank(user, I.material.name)
+			user.put_in_hands(SHK)
+			to_chat(user, SPAN_NOTICE("\The [I] turns into a shank."))
+			qdel(I)
+			return
+	
+	else ..() // Anything else not caught by the checks goes straight to hitting.
+
 /obj/covers/marble_wall/plain
 	name = "smooth marble wall"
 	desc = "A smooth marble wall."
-
-/obj/covers/marble_wall/plain/attackby(obj/item/W as obj, mob/user as mob)
-	var/mob/living/human/H = user
-	if(istype(W, /obj/item/weapon/chisel))
-		var design = "smooth"
-		if (!istype(H.l_hand, /obj/item/weapon/hammer) && !istype(H.r_hand, /obj/item/weapon/hammer))
-			user << "<span class = 'warning'>You need to have a hammer in one of your hands to use a chisel.</span>"
-			return
-		else
-			var/display = list("Smooth", "Carved Brick", "Cobbled", "Tiled", "Cancel")
-			var/input =  WWinput(user, "What design do you want to carve?", "Carving", "Cancel", display)
-			if (input == "Cancel")
-				return
-			else if  (input == "Smooth")
-				user << "<span class='notice'>You will now carve the smooth design!</span>"
-				design = "smooth"
-			else if  (input == "Carved Brick")
-				user << "<span class='notice'>You will now carve the brick design!</span>"
-				design = "carvedbrick"
-			else if  (input == "Cobbled")
-				user << "<span class='notice'>You will now carve the cobbled design!</span>"
-				design = "cobbled"
-			else if  (input == "Tiled")
-				user << "<span class='notice'>You will now carve the tiled design!</span>"
-				design = "tiled"
-			visible_message("<span class='danger'>[user] starts to chisel a design!</span>", "<span class='danger'>You start chiseling a design.</span>")
-			playsound(src,'sound/effects/pickaxe.ogg',60,1)
-			if (do_after(user, 60, src))
-			//Designs possible are "smooth", "carvedbrick", "cobbled", "tiled"
-				if(design == "smooth")
-					src.icon_state = "b_marble_wall"
-					base_icon_state = icon_state
-					src.name = "marble wall"
-					src.desc = "A marble wall carved smooth."
-				else if(design == "carvedbrick")
-					src.icon_state = "b_brick_marble_wall"
-					base_icon_state = icon_state
-					src.name = "marble brick wall"
-					src.desc = "A marble wall carved to look like its made of stone bricks."
-				else if(design == "cobbled")
-					src.icon_state = "b_cobbled_marble_wall"
-					base_icon_state = icon_state
-					src.name = "cobbled marble wall"
-					src.desc = "A marble wall carved to look like piled up stones."
-				else if(design == "tiled")
-					src.icon_state = "b_tiled_marble_wall"
-					base_icon_state = icon_state
-					src.name = "tiled marble wall"
-					src.desc = "A marble wall carved to have a tiled stone pattern."
-				return
-	..()
-
-/obj/covers/marble_wall/plain/attackby(var/obj/item/weapon/material/kitchen/utensil/I, var/mob/living/human/U)
-	if (istype(I,/obj/item/weapon/material/kitchen/utensil/spoon) || istype(I,/obj/item/weapon/material/kitchen/utensil/fork) || istype(I,/obj/item/weapon/material/kitchen/utensil/chopsticks))
-		if (I.shiv < 10)
-			I.shiv++
-			visible_message("<span class='warning'>[U] sharpens \the [I] on \the [src]!</span>")
-			if (I.shiv >= 10)
-				U.drop_from_inventory(I)
-				var/obj/item/weapon/material/kitchen/utensil/knife/shank/SHK = new /obj/item/weapon/material/kitchen/utensil/knife/shank(U,I.material.name)
-				U.put_in_hands(SHK)
-				U << "\The [I] turns into a shank."
-				qdel(I)
-	..()
+	design = "Smooth"
 
 /obj/covers/sandstone_wall
 	name = "sandstone tiled wall"
 	desc = "A sandstone tiled wall."
 	icon = 'icons/turf/walls.dmi'
-	icon_state = "sandstone_brick"
+	icon_state = "sandstone_brick" // TBD; replace with `tiled` variant.
 	passable = TRUE
 	not_movable = TRUE
 	density = TRUE
@@ -497,24 +494,35 @@
 	hardness = 100
 	buildstack = /obj/item/stack/material/sandstone
 
-/obj/covers/sandstone_wall/attackby(var/obj/item/weapon/material/kitchen/utensil/I, var/mob/living/human/U)
-	if (istype(I,/obj/item/weapon/material/kitchen/utensil/spoon) || istype(I,/obj/item/weapon/material/kitchen/utensil/fork) || istype(I,/obj/item/weapon/material/kitchen/utensil/chopsticks))
-		if (I.shiv < 10)
-			I.shiv++
-			visible_message("<span class='warning'>[U] sharpens \the [I] on \the [src]!</span>")
-			if (I.shiv >= 10)
-				U.drop_from_inventory(I)
-				var/obj/item/weapon/material/kitchen/utensil/knife/shank/SHK = new /obj/item/weapon/material/kitchen/utensil/knife/shank(U,I.material.name)
-				U.put_in_hands(SHK)
-				U << "\The [I] turns into a shank."
-				qdel(I)
-	..()
+/obj/covers/sandstone_wall/attackby(obj/item/W as obj, mob/living/human/user as mob)
+	if (istype(W, /obj/item/weapon/material/kitchen/utensil/spoon) || istype(W, /obj/item/weapon/material/kitchen/utensil/fork) || istype(W, /obj/item/weapon/material/kitchen/utensil/chopsticks))	
+		var/obj/item/weapon/material/kitchen/utensil/I = W // Typecast
+		user.setClickCooldown(rand(8,12))
+
+		if (I.shiv <= 10)
+			I.shiv += rand(1,3) // Min of 4 times to sharpen fully if lucky.
+			// playsound(src, ) - add a sound for sharpening. TODO.
+			var/sharpening_verb = pick("grind", "sharpen", "whittle away", "hone", "file", "polish", "whet") // So we get the same consistency in picking on both self_message and message.
+			user.visible_message(SPAN_WARNING("[user] [sharpening_verb]s \the [I] on \the [src]!"), 
+								SPAN_WARNING("You <b>[sharpening_verb]</b> \the [I] on \the [src]."),
+							)
+			return
+
+		else // var/shiv reaches past 10.
+			user.drop_from_inventory(I)
+			var/obj/item/weapon/material/kitchen/utensil/knife/shank/SHK = new /obj/item/weapon/material/kitchen/utensil/knife/shank(user, I.material.name)
+			user.put_in_hands(SHK)
+			to_chat(user, SPAN_NOTICE("\The [I] turns into a shank."))
+			qdel(I)
+			return
+	
+	else ..() // Anything else not caught by the checks goes straight to hitting.
 
 /obj/covers/sandstone_smooth_wall //just a parent to the real smooth sandstone wall.
 	name = "rough sandstone wall"
 	desc = "A rough sandstone wall."
 	icon = 'icons/turf/walls.dmi'
-	icon_state = "sandstone_smooth"
+	icon_state = "sandstone_smooth" // TBD; replace with rough variant.
 	passable = TRUE
 	not_movable = TRUE
 	density = TRUE
@@ -529,66 +537,85 @@
 	material = "Stone"
 	hardness = 100
 	buildstack = /obj/item/stack/material/sandstone
-
-/obj/covers/sandstone_smooth_wall/attackby(var/obj/item/weapon/material/kitchen/utensil/I, var/mob/living/human/U)
-	if (istype(I,/obj/item/weapon/material/kitchen/utensil/spoon) || istype(I,/obj/item/weapon/material/kitchen/utensil/fork) || istype(I,/obj/item/weapon/material/kitchen/utensil/chopsticks))
-		if (I.shiv < 10)
-			I.shiv++
-			visible_message("<span class='warning'>[U] sharpens \the [I] on \the [src]!</span>")
-			if (I.shiv >= 10)
-				U.drop_from_inventory(I)
-				var/obj/item/weapon/material/kitchen/utensil/knife/shank/SHK = new /obj/item/weapon/material/kitchen/utensil/knife/shank(U,I.material.name)
-				U.put_in_hands(SHK)
-				U << "\The [I] turns into a shank."
-				qdel(I)
-	..()
+	var/in_progress // Used to keep track of on-going events like the WWinput, and prevent repeats until the original is over. (Until we get a functional do_after system.)
+	var/design = "Rough" // Where we store the current design of the wall. (for chisels)
 
 /obj/covers/sandstone_smooth_wall/plain
 	name = "smooth sandstone wall"
 	desc = "A smooth sandstone wall."
+	design = "Smooth"
 
-/obj/covers/sandstone_smooth_wall/plain/attackby(obj/item/W as obj, mob/user as mob)
-	var/mob/living/human/H = user
-	if(istype(W, /obj/item/weapon/chisel))
-		var design = "smooth"
-		if (!istype(H.l_hand, /obj/item/weapon/hammer) && !istype(H.r_hand, /obj/item/weapon/hammer))
-			user << "<span class = 'warning'>You need to have a hammer in one of your hands to use a chisel.</span>"
+/obj/covers/sandstone_smooth_wall/attackby(obj/item/W as obj, mob/user as mob)
+	if (istype(W, /obj/item/weapon/chisel))
+		if (in_progress) return // Have we already began? ~Don't start WWinput if triggered.
+		else if (!istype(user.l_hand, /obj/item/weapon/hammer) && !istype(user.r_hand, /obj/item/weapon/hammer))
+			to_chat(user, SPAN_WARNING("You need to have a hammer in one of your hands to use a chisel."))
 			return
-		else
-			var/display = list("Smooth", "Cobbled", "Tiled", "Cancel")
-			var/input =  WWinput(user, "What design do you want to carve?", "Carving", "Cancel", display)
-			if (input == "Cancel")
+
+		var/display = list("Smooth", "Brick", "Cobbled", "Rough", "Cancel") // Designs possible are "smooth", "cobbled", "tiled", "rough".
+		var/input =  WWinput(user, "What design do you want to carve?", "Carving", "Cancel", display)
+		if (!input) return // You cancelled!
+
+		else if (input == design)
+			to_chat(user, SPAN_WARNING("\The [src] is already carved into a [lowertext(input)] design!"))
+			return
+
+		else if (!in_progress) // Secondary check, in-case they spam the WWinput. (Prevents the do_after from cancelling.)
+			if(user in range(1, src)) // To prevent carving from afar, by delaying WWinput answer and then moving away.
+				in_progress = TRUE
+				user.visible_message(SPAN_NOTICE("[user] starts to carve out a design into \the [src]."), SPAN_NOTICE("You start to carve out a <b>[lowertext(input)]</b> design into \the [src]."))
+				playsound(src, 'sound/effects/pickaxe.ogg', 60, TRUE)
+				if (!do_after(user, 6 SECONDS, src))
+					user.visible_message(SPAN_NOTICE("[user] changes their mind and stops carving into \the [src]."), SPAN_NOTICE("You change your mind and stop carving.")) // Niche interrupt msg.
+					in_progress = FALSE
+					return
+
+				user.visible_message(SPAN_NOTICE("[user] finishes carving out a [lowertext(input)] design into \the [src]."), SPAN_NOTICE("You finish carving out the [lowertext(input)] design into \the [src]."))
+
+				switch(input) // We put this after the visb_msg so that it says the original design name, without taking any additional processing/vars to do so.
+					if("Smooth")
+						icon_state = "sandstone_smooth" // TBD; replace with smooth variant.
+						name = "smooth sandstone wall"
+						desc = "A smooth sandstone wall."
+					if("Brick")
+						icon_state = "sandstone_brick"
+						name = "sandstone brick wall"
+						desc = "A sandstone wall carved to look like its made out of sandstone bricks."
+					if("Cobbled")
+						icon_state = "sandstone_cobble" // TBD; replace with a same-color variant.
+						name = "cobbled sandstone wall"
+						desc = "A sandstone wall carved to have a cobbled sandstone pattern."
+					if("Rough")
+						name = "rough sandstone wall"
+						desc = "A rough sandstone wall."
+						icon_state = "sandstone_smooth" // TBD; replace with rough variant.
+
+				in_progress = FALSE
+				design = input // Store the design we just carved, to check if we will re-carve the same design next time.
 				return
-			else if  (input == "Smooth")
-				user << "<span class='notice'>You will now carve the smooth design!</span>"
-				design = "smooth"
-			else if  (input == "Cobbled")
-				user << "<span class='notice'>You will now carve the cobbled design!</span>"
-				design = "cobbled"
-			else if  (input == "Tiled")
-				user << "<span class='notice'>You will now carve the tiled design!</span>"
-				design = "tiled"
-			visible_message("<span class='danger'>[user] starts to chisel a design!</span>", "<span class='danger'>You start chiseling a design.</span>")
-			playsound(src,'sound/effects/pickaxe.ogg',60,1)
-			if (do_after(user, 60, src))
-			//Designs possible are "smooth", "cobbled", "tiled"
-				if(design == "smooth")
-					src.icon_state = "sandstone_smooth"
-					base_icon_state = icon_state
-					src.name = "smooth sandstone wall"
-					src.desc = "A sandstone wall carved smooth."
-				else if(design == "cobbled")
-					src.icon_state = "sandstone_brick"
-					base_icon_state = icon_state
-					src.name = "cobbled sandstone wall"
-					src.desc = "A sandstone wall carved to look like piled up stones."
-				else if(design == "tiled")
-					src.icon_state = "sandstone_cobble"
-					base_icon_state = icon_state
-					src.name = "tiled sandstone wall"
-					src.desc = "A sandstone wall carved to have a tiled stone pattern."
-				return
-	..()
+
+	else if (istype(W, /obj/item/weapon/material/kitchen/utensil/spoon) || istype(W, /obj/item/weapon/material/kitchen/utensil/fork) || istype(W, /obj/item/weapon/material/kitchen/utensil/chopsticks))
+		var/obj/item/weapon/material/kitchen/utensil/I = W // Typecast
+		user.setClickCooldown(rand(8,12))
+
+		if (I.shiv <= 10)
+			I.shiv += rand(1,3) // Min of 4 times to sharpen fully if lucky.
+			// playsound(src, ) - add a sound for sharpening. TODO.
+			var/sharpening_verb = pick("grind", "sharpen", "whittle away", "hone", "file", "polish", "whet") // So we get the same consistency in picking on both self_message and message.
+			user.visible_message(SPAN_WARNING("[user] [sharpening_verb]s \the [I] on \the [src]!"), 
+								SPAN_WARNING("You <b>[sharpening_verb]</b> \the [I] on \the [src]."),
+							)
+			return
+
+		else // var/shiv reaches past 10.
+			user.drop_from_inventory(I)
+			var/obj/item/weapon/material/kitchen/utensil/knife/shank/SHK = new /obj/item/weapon/material/kitchen/utensil/knife/shank(user, I.material.name)
+			user.put_in_hands(SHK)
+			to_chat(user, SPAN_NOTICE("\The [I] turns into a shank."))
+			qdel(I)
+			return
+	
+	else ..() // Anything else not caught by the checks goes straight to hitting.
 
 /obj/covers/sandstone_wall/classic
 	name = "sandstone block wall"
