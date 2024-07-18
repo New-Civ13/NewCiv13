@@ -786,63 +786,65 @@ var/redfaction_forceEnabled = FALSE
 	var/fact26 = "Blugoslavia"
 	var/fact27 = "Redmenia"
 
-	if (map.ID == MAP_WHITERUN)
-		fact3 = "Stormcloaks"
-		fact9 = "Imperials"
-	else if (map.ID == MAP_CLASH)
-		fact21 = "Bear Clan"
-		fact23 = "Raven Clan"
-	else if (map.ID == MAP_MISSIONARY_RIDGE)
-		fact3 = "Confederate Army"
-		fact15 = "Union Army"
-	else if (map.ID == MAP_RUHR_UPRISING)
-		fact3 = "Ruhr Red Army"
-	else if (map.ID == MAP_SIBERSYN || map.ID == MAP_TSARITSYN)
-		fact3 = "Red Army"
-		fact13 = "White Army"
-	else if (map.ID == MAP_KANDAHAR || map.ID == MAP_MAGISTRAL || map.ID == MAP_HILL_3234)
-		fact3 = "DRA and Civilians"
-		fact11 = "Mujahideen"
-	else if (map.ID == MAP_HOSTAGES || map.ID == MAP_ARAB_TOWN_2)
-		fact11 = "Insurgents"
-	else if (map.ID == MAP_ARAB_TOWN)
-		fact11 = "Hezbollah"
-		fact15 = "IDF"
-	else if (map.ID == MAP_CAPITOL_HILL)
-		fact3 = "Militia"
-		fact15 = "Government"
-	else if (map.ID == MAP_GROZNY)
-		fact13 = "Russian Federal Forces"
-	else if (map.ID == MAP_YELTSIN)
-		fact3 = "Militia"
-		fact13 = "Russian Army"
-	else if (map.ID == MAP_WACO)
-		fact3 = "Davidians"
-		fact15 = "ATF"
-	else if (map.ID == MAP_BANK_ROBBERY)
-		fact3 = "Police"
-		fact13 = "Robbers"
-	else if (map.ID == MAP_DRUG_BUST)
-		fact3 = "Police"
-		fact13 = "Rednikov"
-	else if (map.ID == MAP_TANTIVEIV)
-		fact3 = "Rebels"
-		fact15 = "Empire"
-	else if (map.ID == MAP_TADOJSVILLE)
-		fact3 = "UN Soldiers"
-		fact7 = "Mercenaries"
-	else if (map.ID == MAP_EFT_FACTORY)
-		fact3 = "Scavs"
-		fact13 = "BEAR"
-		fact15 = "USEC"
-	else if (map.ID == MAP_SYRIA)
-		fact11 = "Syrian Arab Republic"
-		fact15 = "Free Syrian Army"
-	else if (map.ID == MAP_EAST_LOS_SANTOS)
-		fact7 = "Ballas"
-		fact17 = "Grove Street"
-	else if (map.ordinal_age >= 6 && map.ordinal_age < 8)
-		fact13 = "Soviets"
+	switch(map.ID)
+		if (MAP_WHITERUN)
+			fact3 = "Stormcloaks"
+			fact9 = "Imperials"
+		if (MAP_CLASH)
+			fact21 = "Bear Clan"
+			fact23 = "Raven Clan"
+		if (MAP_MISSIONARY_RIDGE)
+			fact3 = "Confederate Army"
+			fact15 = "Union Army"
+		if (MAP_RUHR_UPRISING)
+			fact3 = "Ruhr Red Army"
+		if (MAP_SIBERSYN || MAP_TSARITSYN)
+			fact3 = "Red Army"
+			fact13 = "White Army"
+		if (MAP_KANDAHAR || MAP_MAGISTRAL || MAP_HILL_3234)
+			fact3 = "DRA and Civilians"
+			fact11 = "Mujahideen"
+		if (MAP_HOSTAGES || MAP_ARAB_TOWN_2)
+			fact11 = "Insurgents"
+		if (MAP_ARAB_TOWN)
+			fact11 = "Hezbollah"
+			fact15 = "IDF"
+		if (MAP_CAPITOL_HILL)
+			fact3 = "Militia"
+			fact15 = "Government"
+		if (MAP_GROZNY)
+			fact13 = "Russian Federal Forces"
+		if (MAP_YELTSIN)
+			fact3 = "Militia"
+			fact13 = "Russian Army"
+		if (MAP_WACO)
+			fact3 = "Davidians"
+			fact15 = "ATF"
+		if (MAP_BANK_ROBBERY)
+			fact3 = "Police"
+			fact13 = "Robbers"
+		if (MAP_DRUG_BUST)
+			fact3 = "Police"
+			fact13 = "Rednikov"
+		if (MAP_TANTIVEIV)
+			fact3 = "Rebels"
+			fact15 = "Empire"
+		if (MAP_TADOJSVILLE)
+			fact3 = "UN Soldiers"
+			fact7 = "Mercenaries"
+		if (MAP_EFT_FACTORY)
+			fact3 = "Scavs"
+			fact13 = "BEAR"
+			fact15 = "USEC"
+		if (MAP_SYRIA)
+			fact11 = "Syrian Arab Republic"
+			fact15 = "Free Syrian Army"
+		if (MAP_EAST_LOS_SANTOS)
+			fact7 = "Ballas"
+			fact17 = "Grove Street"
+		else
+			if(map.ordinal_age >= 6 && map.ordinal_age < 8)
+				fact13 = "Soviets"
 
 	var/msg1 = "[fact1]: [alive_british.len] alive, [heavily_injured_british.len] heavily injured or unconscious, [dead_british.len] deceased. Mortality rate: [mortality_british]%"
 	var/msg2 = "[fact2]: [alive_pirates.len] alive, [heavily_injured_pirates.len] heavily injured or unconscious, [dead_pirates.len] deceased. Mortality rate: [mortality_pirates]%"
@@ -921,60 +923,14 @@ var/redfaction_forceEnabled = FALSE
 		if (relpf_max > 0 && relpf != "")
 			msg_factions = "<b>Largest Faction:</b> [relpf]"
 
-	if (map && !map.faction_organization.Find(BRITISH))
-		msg1 = null
-	if (map && !map.faction_organization.Find(PIRATES))
-		msg2 = null
-	if (map && !map.faction_organization.Find(CIVILIAN))
-		msg3 = null
-	if (map && !map.faction_organization.Find(SPANISH))
-		msg4 = null
-	if (map && !map.faction_organization.Find(PORTUGUESE))
-		msg5 = null
-	if (map && !map.faction_organization.Find(FRENCH))
-		msg6 = null
-	if (map && !map.faction_organization.Find(INDIANS))
-		msg7 = null
-	if (map && !map.faction_organization.Find(DUTCH))
-		msg8 = null
-	if (map && !map.faction_organization.Find(ROMAN))
-		msg9 = null
-	if (map && !map.faction_organization.Find(GREEK))
-		msg10 = null
-	if (map && !map.faction_organization.Find(ARAB))
-		msg11 = null
-	if (map && !map.faction_organization.Find(JAPANESE))
-		msg12 = null
-	if (map && !map.faction_organization.Find(RUSSIAN))
-		msg13 = null
-	if (map && !map.faction_organization.Find(GERMAN))
-		msg14 = null
-	if (map && !map.faction_organization.Find(AMERICAN))
-		msg15 = null
-	if (map && !map.faction_organization.Find(VIETNAMESE))
-		msg16 = null
-	if (map && !map.faction_organization.Find(CHINESE))
-		msg17 = null
-	if (map && !map.faction_organization.Find(FILIPINO))
-		msg18 = null
-	if (map && !map.faction_organization.Find(CHECHEN))
-		msg19 = null
-	if (map && !map.faction_organization.Find(FINNISH))
-		msg20 = null
-	if (map && !map.faction_organization.Find(NORWEGIAN))
-		msg21 = null
-	if (map && !map.faction_organization.Find(SWEDISH))
-		msg22 = null
-	if (map && !map.faction_organization.Find(DANISH))
-		msg23 = null
-	if (map && !map.faction_organization.Find(POLISH))
-		msg24 = null
-	if (map && !map.faction_organization.Find(ITALIAN))
-		msg25 = null
-	if (map && !map.faction_organization.Find(BLUEFACTION))
-		msg26 = null
-	if (map && !map.faction_organization.Find(REDFACTION))
-		msg27 = null
+	// Setting the messages to null if we can't find the faction!
+	if(map)
+		var/list/factions = list(BRITISH, PIRATES, CIVILIAN, SPANISH, PORTUGUESE, FRENCH, INDIANS, DUTCH, ROMAN, GREEK, ARAB, JAPANESE, RUSSIAN, GERMAN, AMERICAN, VIETNAMESE, CHINESE, FILIPINO, CHECHEN, FINNISH, NORWEGIAN, SWEDISH, DANISH, POLISH, ITALIAN, BLUEFACTION, REDFACTION)
+		var/list/messages = list(msg1, msg2, msg3, msg4, msg5, msg6, msg7, msg8, msg9, msg10, msg11, msg12, msg13, msg14, msg15, msg16, msg17, msg18, msg19, msg20, msg21, msg22, msg23, msg24, msg25, msg26, msg27)
+
+		for (var/i = 1 to factions.len)
+			if (!map.faction_organization.Find(factions[i]))
+				messages[i] = null
 
 	var/public = "Yes"
 
@@ -984,127 +940,33 @@ var/redfaction_forceEnabled = FALSE
 		public = "No"
 
 	if (public == "Yes")
-		if (!shower || (input(shower, "Are you sure you want to show the battle report? Unless the Battle Controller Process died, it will happen automatically!", "Battle Report") in list ("Yes", "No")) == "Yes")
+		if (!shower || (input(shower, "Are you sure you want to show the battle report? Unless the Battle Controller Process died, it will happen automatically!", "Battle Report") in list("Yes", "No")) == "Yes")
 			world << "<font size=4>Status Report:</font>"
 
-			if (msg1)
-				world << "<font size=3>[msg1]</font>"
-			if (msg2)
-				world << "<font size=3>[msg2]</font>"
-			if (msg3)
-				world << "<font size=3>[msg3]</font>"
-			if (msg4)
-				world << "<font size=3>[msg4]</font>"
-			if (msg5)
-				world << "<font size=3>[msg5]</font>"
-			if (msg6)
-				world << "<font size=3>[msg6]</font>"
-			if (msg7)
-				world << "<font size=3>[msg7]</font>"
-			if (msg8)
-				world << "<font size=3>[msg8]</font>"
-			if (msg9)
-				world << "<font size=3>[msg9]</font>"
-			if (msg10)
-				world << "<font size=3>[msg10]</font>"
-			if (msg11)
-				world << "<font size=3>[msg11]</font>"
-			if (msg12)
-				world << "<font size=3>[msg12]</font>"
-			if (msg13)
-				world << "<font size=3>[msg13]</font>"
-			if (msg14)
-				world << "<font size=3>[msg14]</font>"
-			if (msg15)
-				world << "<font size=3>[msg15]</font>"
-			if (msg16)
-				world << "<font size=3>[msg16]</font>"
-			if (msg17)
-				world << "<font size=3>[msg17]</font>"
-			if (msg18)
-				world << "<font size=3>[msg18]</font>"
-			if (msg19)
-				world << "<font size=3>[msg19]</font>"
-			if (msg20)
-				world << "<font size=3>[msg20]</font>"
-			if (msg21)
-				world << "<font size=3>[msg21]</font>"
-			if (msg22)
-				world << "<font size=3>[msg22]</font>"
-			if (msg23)
-				world << "<font size=3>[msg23]</font>"
-			if (msg24)
-				world << "<font size=3>[msg24]</font>"
-			if (msg25)
-				world << "<font size=3>[msg25]</font>"
-			if (msg26)
-				world << "<font size=3>[msg26]</font>"
-			if (msg27)
-				world << "<font size=3>[msg27]</font>"
-			if (map.civilizations && msg_religions != "")
-				world << "<font size=3>[msg_religions]</font>"
-			if (map.civilizations && msg_factions != "")
-				world << "<font size=3>[msg_factions]</font>"
-			if (map.civilizations && msg_companies != "")
-				world << "<font size=3>[msg_companies]</font>"
+			var/list/messages = list(msg1, msg2, msg3, msg4, msg5, msg6, msg7, msg8, msg9, msg10, msg11, msg12, msg13, msg14, msg15, msg16, msg17, msg18, msg19, msg20, msg21, msg22, msg23, msg24, msg25, msg26, msg27)
+
+			for (var/msg in messages)
+				if (msg)
+					world << "<font size=3>[msg]</font>"
+
+			if (map.civilizations)
+				if (msg_religions != "")
+					world << "<font size=3>[msg_religions]</font>"
+				if (msg_factions != "")
+					world << "<font size=3>[msg_factions]</font>"
+				if (msg_companies != "")
+					world << "<font size=3>[msg_companies]</font>"
+
 			if (map.ID == MAP_IWO_JIMA)
 				world << "<font size=3>[msg_npcs]</font>"
+
 			if (shower)
 				message_admins("[key_name(shower)] showed everyone the battle report.", key_name(shower))
 			else
 				message_admins("the <b>Battle Controller Process</b> showed everyone the battle report.")
 	else
-		if (msg1)
-			shower << msg1
-		if (msg2)
-			shower << msg2
-		if (msg3)
-			shower << msg3
-		if (msg4)
-			shower << msg4
-		if (msg5)
-			shower << msg5
-		if (msg6)
-			shower << msg6
-		if (msg7)
-			shower << msg7
-		if (msg8)
-			shower << msg8
-		if (msg9)
-			shower << msg9
-		if (msg10)
-			shower << msg10
-		if (msg11)
-			shower << msg11
-		if (msg12)
-			shower << msg12
-		if (msg13)
-			shower << msg13
-		if (msg14)
-			shower << msg14
-		if (msg15)
-			shower << msg15
-		if (msg16)
-			shower << msg16
-		if (msg17)
-			shower << msg17
-		if (msg18)
-			shower << msg18
-		if (msg19)
-			shower << msg19
-		if (msg20)
-			shower << msg20
-		if (msg21)
-			shower << msg21
-		if (msg22)
-			shower << msg22
-		if (msg23)
-			shower << msg23
-		if (msg24)
-			shower << msg24
-		if (msg25)
-			shower << msg25
-		if (msg26)
-			shower << msg26
-		if (msg27)
-			shower << msg27
+		var/list/messages = list(msg1, msg2, msg3, msg4, msg5, msg6, msg7, msg8, msg9, msg10, msg11, msg12, msg13, msg14, msg15, msg16, msg17, msg18, msg19, msg20, msg21, msg22, msg23, msg24, msg25, msg26, msg27)
+
+		for (var/msg in messages)
+			if (msg)
+				shower << msg
