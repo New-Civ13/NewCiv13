@@ -1132,115 +1132,117 @@
 
 /mob/living/human/var/list/informed_starvation[4]
 
-/mob/living/human/proc/handle_starvation()//Making this it's own proc for my sanity's sake - Matt
+/mob/living/human/proc/handle_starvation() // Making this proc for my own sanity. - Matt
 
-	if (nutrition < 220 && nutrition >= 150)
-		if (prob(3))
-			src << "<span class = 'warning'>You're getting a bit hungry.</span>"
+	switch(nutrition)
+		if(150 to 219)
+			if (prob(3))
+				to_chat(src, SPAN_WARNING("You're getting a bit hungry."))
+		if(100 to 149)
+			if (prob(4))
+				to_chat(src, SPAN_WARNING("You're pretty hungry."))
+		if(20 to 99)
+			if (prob(5))
+				to_chat(src, SPAN_DANGER("You're getting really hungry!"))
+		if(0 to 19) // Nutrition below 20 == starvation.
 
-	else if (nutrition < 150 && nutrition >= 100)
-		if (prob(4))
-			src << "<span class = 'warning'>You're pretty hungry.</span>"
+			var/list/hunger_phrases = list(
+				"You feel weak and malnourished. You must find something to eat now!",
+				"You haven't eaten in ages, and your body feels weak! It's time to eat something.",
+				"You can barely remember the last time you had a proper, nutritional meal. Your body will shut down soon if you don't eat something!",
+				"Your body is running out of essential nutrients! You have to eat something soon.",
+				"If you don't eat something very soon, you're going to starve to death."
+				)
 
-	else if (nutrition < 100 && nutrition >= 20)
-		if (prob(5))
-			src << "<span class = 'danger'>You're getting really hungry!</span>"
+			informed_starvation[num2text(-STARVATION_NOTICE)] = FALSE
+			informed_starvation[num2text(-STARVATION_WEAKNESS)] = FALSE
+			informed_starvation[num2text(-STARVATION_NEARDEATH)] = FALSE
+			informed_starvation[num2text(-STARVATION_NEGATIVE_INFINITY)] = FALSE
 
-	else if (nutrition < 20) //Nutrition is below 20 = starvation
+			// When you're starving, the rate at which oxygen damage is healed is reduced by 80% (you only restore 1 oxygen damage per life tick, instead of 5)
 
-		var/list/hunger_phrases = list(
-			"You feel weak and malnourished. You must find something to eat now!",
-			"You haven't eaten in ages, and your body feels weak! It's time to eat something.",
-			"You can barely remember the last time you had a proper, nutritional meal. Your body will shut down soon if you don't eat something!",
-			"Your body is running out of essential nutrients! You have to eat something soon.",
-			"If you don't eat something very soon, you're going to starve to death."
-			)
+			switch(nutrition)
+				if (STARVATION_NOTICE to STARVATION_MIN) // -15 to 0.
+					if (sleeping) return
 
-		//When you're starving, the rate at which oxygen damage is healed is reduced by 80% (you only restore TRUE oxygen damage per life tick, instead of 5)
+					if (!informed_starvation[num2text(-STARVATION_NOTICE)])
+						to_chat(src, SPAN_WARNING("[pick("You're very hungry.", "You really could use a meal right now.")]"))
 
-		switch(nutrition)
-			if (STARVATION_NOTICE to STARVATION_MIN)
-				if (sleeping) return
+					informed_starvation[num2text(-STARVATION_NOTICE)] = TRUE
+					informed_starvation[num2text(-STARVATION_WEAKNESS)] = FALSE
+					informed_starvation[num2text(-STARVATION_NEARDEATH)] = FALSE
+					informed_starvation[num2text(-STARVATION_NEGATIVE_INFINITY)] = FALSE
 
-				if (!informed_starvation[num2text(-STARVATION_NOTICE)])
-					src << "<span class='warning'>[pick("You're very hungry.","You really could use a meal right now.")]</span>"
+					if (prob(10))
+						to_chat(src, SPAN_WARNING("[pick("Your limbs feel heavy and weak.", "You feel dizzy from hunger.")]"))
 
-				informed_starvation[num2text(-STARVATION_NOTICE)] = TRUE
-				informed_starvation[num2text(-STARVATION_WEAKNESS)] = FALSE
-				informed_starvation[num2text(-STARVATION_NEARDEATH)] = FALSE
-				informed_starvation[num2text(-STARVATION_NEGATIVE_INFINITY)] = FALSE
+				if (STARVATION_WEAKNESS to STARVATION_NOTICE) // -40 to -15.
+					if (sleeping) return
 
-				if (prob(10))
-					src << "<span class='warning'>[pick("You're very hungry.","You really could use a meal right now.")]</span>"
+					if (!informed_starvation[num2text(-STARVATION_WEAKNESS)])
+						to_chat(src, SPAN_DANGER("[pick(hunger_phrases)]"))
 
-			if (STARVATION_WEAKNESS to STARVATION_NOTICE)
-				if (sleeping) return
+					informed_starvation[num2text(-STARVATION_NOTICE)] = TRUE
+					informed_starvation[num2text(-STARVATION_WEAKNESS)] = TRUE
+					informed_starvation[num2text(-STARVATION_NEARDEATH)] = FALSE
+					informed_starvation[num2text(-STARVATION_NEGATIVE_INFINITY)] = FALSE
 
-				if (!informed_starvation[num2text(-STARVATION_WEAKNESS)])
-					src << "<span class='danger'>[pick(hunger_phrases)]</span>"
+					if (prob(6)) // There's a 6% chance of getting a tiny amount of toxin damage; (1-5).
 
-				informed_starvation[num2text(-STARVATION_NOTICE)] = TRUE
-				informed_starvation[num2text(-STARVATION_WEAKNESS)] = TRUE
-				informed_starvation[num2text(-STARVATION_NEARDEATH)] = FALSE
-				informed_starvation[num2text(-STARVATION_NEGATIVE_INFINITY)] = FALSE
+						adjustToxLoss(rand(1,5))
+						to_chat(src, SPAN_DANGER("[pick(hunger_phrases)]"))
 
-				if (prob(6)) //6% chance of a tiny amount of toxin damage (1-5)
+					else if (prob(5)) // There's a 5% chance of being weakened.
 
-					adjustToxLoss(rand(1,5))
-					src << "<span class='danger'>[pick(hunger_phrases)]</span>"
+						eye_blurry += 10
+						Weaken(10)
+						adjustToxLoss(rand(1, 15))
+						to_chat(src, SPAN_DANGER("You're starving! The lack of strength makes you black out for a few moments..."))
 
-				else if (prob(5)) //5% chance of being weakened
+				if (STARVATION_NEARDEATH to STARVATION_WEAKNESS) // -55 to -40. There's a 7% chance of getting weakened and 1-20 toxin/1-25 oxygen damage. 7% chance of a mini-seizure. 14% chance of dropping an item (due to weakens).
+					if (sleeping) return
 
-					eye_blurry += 10
-					Weaken(10)
-					adjustToxLoss(rand(1,15))
-					src << "<span class='danger'>You're starving! The lack of strength makes you black out for a few moments...</span>"
+					if (!informed_starvation[num2text(-STARVATION_NEARDEATH)])
+						to_chat(src, SPAN_DANGER("You're starving. You feel your life force slowly leaving your body..."))
 
-			if (STARVATION_NEARDEATH to STARVATION_WEAKNESS) //5-30, 5% chance of weakening and TRUE-230 oxygen damage. 5% chance of a seizure. 10% chance of dropping item
-				if (sleeping) return
+					informed_starvation[num2text(-STARVATION_NOTICE)] = TRUE
+					informed_starvation[num2text(-STARVATION_WEAKNESS)] = TRUE
+					informed_starvation[num2text(-STARVATION_NEARDEATH)] = TRUE
+					informed_starvation[num2text(-STARVATION_NEGATIVE_INFINITY)] = FALSE
 
-				if (!informed_starvation[num2text(-STARVATION_NEARDEATH)])
-					src << "<span class='danger'>You're starving. You feel your life force slowly leaving your body...</span>"
+					if (prob(7))
 
-				informed_starvation[num2text(-STARVATION_NOTICE)] = TRUE
-				informed_starvation[num2text(-STARVATION_WEAKNESS)] = TRUE
-				informed_starvation[num2text(-STARVATION_NEARDEATH)] = TRUE
-				informed_starvation[num2text(-STARVATION_NEGATIVE_INFINITY)] = FALSE
+						adjustToxLoss(rand(1,20))
+						to_chat(src, SPAN_DANGER("You're starving. You feel your life force slowly leaving your body..."))
+						eye_blurry += 20
+						if (weakened < 1) Weaken(20)
 
-				if (prob(7))
+					else if (paralysis < 1 && prob(7)) // Mini seizure~ (25% duration and strength of a normal seizure)
 
-					adjustToxLoss(rand(1,20))
-					src << "<span class='danger'>You're starving. You feel your life force slowly leaving your body...</span>"
-					eye_blurry += 20
-					if (weakened < 1) Weaken(20)
+						visible_message(SPAN_DANGER("\The [src] starts having a seizure!"), SPAN_WARNING("You have a seizure!"))
+						Paralyse(5)
+						make_jittery(500)	
+						adjustToxLoss(rand(1, 25))
+						eye_blurry += 20
 
-				else if (paralysis<1 && prob(7)) //Mini seizure (25% duration and strength of a normal seizure)
+				if (-INFINITY to STARVATION_NEARDEATH) // -INFINITY to -55. Fuck up the whole body at this point.
 
-					visible_message("<span class='danger'>\The [src] starts having a seizure!</span>", \
-							"<span class='warning'>You have a seizure!</span>")
-					Paralyse(5)
-					make_jittery(500)
-					adjustToxLoss(rand(1,25))
-					eye_blurry += 20
+					if (!informed_starvation[num2text(-STARVATION_NEGATIVE_INFINITY)])
+						to_chat(src, SPAN_DANGER("You are dying from starvation!"))
 
-			if (-INFINITY to STARVATION_NEARDEATH) //Fuck the whole body up at this point
+					informed_starvation[num2text(-STARVATION_NOTICE)] = TRUE
+					informed_starvation[num2text(-STARVATION_WEAKNESS)] = TRUE
+					informed_starvation[num2text(-STARVATION_NEARDEATH)] = TRUE
+					informed_starvation[num2text(-STARVATION_NEGATIVE_INFINITY)] = TRUE
 
-				if (!informed_starvation[num2text(-STARVATION_NEGATIVE_INFINITY)])
-					src << "<span class='danger'>You are dying from starvation!</span>"
+					if (prob(10))
+						to_chat(src, SPAN_DANGER("You are dying from starvation!"))
 
-				informed_starvation[num2text(-STARVATION_NOTICE)] = TRUE
-				informed_starvation[num2text(-STARVATION_WEAKNESS)] = TRUE
-				informed_starvation[num2text(-STARVATION_NEARDEATH)] = TRUE
-				informed_starvation[num2text(-STARVATION_NEGATIVE_INFINITY)] = TRUE
+					adjustToxLoss(STARVATION_TOX_DAMAGE) // 2.5
+					adjustBrainLoss(STARVATION_BRAIN_DAMAGE) // 2.5
 
-				if (prob(10))
-					src << "<span class='danger'>You are dying from starvation!</span>"
-
-				adjustToxLoss(STARVATION_TOX_DAMAGE)
-				adjustBrainLoss(STARVATION_BRAIN_DAMAGE)
-
-				if (prob(10))
-					Weaken(15)
+					if (prob(10))
+						Weaken(15)
 
 #define DEHYDRATION_MIN FALSE
 #define DEHYDRATION_NOTICE -15
