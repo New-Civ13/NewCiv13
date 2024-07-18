@@ -201,27 +201,26 @@
 
 //#####LIFE PROCS#####
 /mob/living/human/proc/print_excrement()
-    if(bowels >= 250)
-        switch(bowels)
-            if(250 to 400)
+	if(bowels >= 250)
+		switch(bowels)
+			if(250 to 400)
 				to_chat(src, SPAN_WARNING("<b>You need to poo.</b>"))
-            if(400 to 450)
+			if(400 to 450)
 				to_chat(src, SPAN_WARNING("<b>You really need to poo!</b>"))
-            if(450 to 500)
+			if(450 to 500)
 				to_chat(src, SPAN_DANGER("<b>You're about to shit yourself!</b>"))
-            if(500 to INFINITY)
+			if(500 to INFINITY)
 				to_chat(src, SPAN_DANGER("<b>OH MY GOD YOU HAVE TO SHIT!</b>"))
-    if(bladder >= 100)//Your bladder is smaller than your colon
-        switch(bladder)
-            if(100 to 250)
+	if(bladder >= 100)//Your bladder is smaller than your colon
+		switch(bladder)
+			if(100 to 250)
 				to_chat(src, SPAN_WARNING("<b>You need to pee.</b>"))
-            if(250 to 400)
+			if(250 to 400)
 				to_chat(src, SPAN_WARNING("<b>You really need to pee!</b>"))
-            if(400 to 500)
+			if(400 to 500)
 				to_chat(src, SPAN_DANGER("<b>You're about to piss yourself!</b>"))
-            if(500 to INFINITY)
+			if(500 to INFINITY)
 				to_chat(src, SPAN_DANGER("<b>OH MY GOD YOU HAVE TO PEE!</b>"))
-    return
 
 //poo and pee counters. This is called in human_life.
 /mob/living/human/proc/handle_excrement()
