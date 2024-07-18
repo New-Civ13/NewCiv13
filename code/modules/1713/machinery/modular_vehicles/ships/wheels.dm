@@ -268,25 +268,26 @@
 			var/ahead = "ahead"
 			if (reversed)
 				ahead = "astern"
-			if (ship.currentspeed == 1)
-				ship.moving = TRUE
-				user << "You set the speed to <b>slow [ahead]</b>."
-				playsound(loc, 'sound/effects/lever.ogg',40, TRUE)
-				ship.vehicle_m_delay = spd
-				ship.add_transporting()
-				ship.startmovementloop()
-			else if (ship.currentspeed == 2)
-				user << "You change the speed to <b>half-speed [ahead]</b>."
-				playsound(loc, 'sound/effects/lever.ogg',40, TRUE)
-				ship.vehicle_m_delay = spd
-				return
-			else if (ship.currentspeed == 3)
-				user << "You change the speed to <b>full-speed [ahead]</b>."
-				playsound(loc, 'sound/effects/lever.ogg',40, TRUE)
-				ship.vehicle_m_delay = spd
-				return
-			else
-				return
+			switch(ship.current_speed)
+				if (1)
+					ship.moving = TRUE
+					user << "You set the speed to <b>slow [ahead]</b>."
+					playsound(loc, 'sound/effects/lever.ogg',40, TRUE)
+					ship.vehicle_m_delay = spd
+					ship.add_transporting()
+					ship.startmovementloop()
+				if (2)
+					user << "You change the speed to <b>half-speed [ahead]</b>."
+					playsound(loc, 'sound/effects/lever.ogg',40, TRUE)
+					ship.vehicle_m_delay = spd
+					return
+				if (3)
+					user << "You change the speed to <b>full-speed [ahead]</b>."
+					playsound(loc, 'sound/effects/lever.ogg',40, TRUE)
+					ship.vehicle_m_delay = spd
+					return
+				else
+					return
 
 	if (href_list["decrease_speed"])
 		if (!ship || !ship.engine)
