@@ -268,7 +268,7 @@
 			var/ahead = "ahead"
 			if (reversed)
 				ahead = "astern"
-			switch(ship.current_speed)
+			switch(ship.currentspeed)
 				if (1)
 					ship.moving = TRUE
 					user << "You set the speed to <b>slow [ahead]</b>."
