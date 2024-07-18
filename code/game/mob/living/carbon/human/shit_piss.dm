@@ -201,27 +201,27 @@
 
 //#####LIFE PROCS#####
 /mob/living/human/proc/print_excrement()
-	if(bowels >= 250)
-		switch(bowels)
-			if(250 to 400)
-				to_chat(src, "<span class='info'><b>You need to poo.</b></span>")
-			if(400 to 450)
-				to_chat(src, "<span class='notice'><b>You really need to poo!</b></span>")
-			if(450 to 500)
-				to_chat(src, "<span class='warning'><b>You're about to shit yourself!</b></span>")
-			if(500 to INFINITY)
-				to_chat(src, "<span class='danger'><b>OH MY GOD YOU HAVE TO SHIT!</b></span>")
-	if(bladder >= 100)//Your bladder is smaller than your colon
-		switch(bladder)
-			if(100 to 250)
-				to_chat(src, "<span class='notice'><b>You need to pee.</b></span>")
-			if(250 to 400)
-				to_chat(src, "<span class='notice'><b>You really need to pee!</b></span>")
-			if(400 to 500)
-				to_chat(src, "<span class='warning'><b>You're about to piss yourself!</b></span>")
-			if(500 to INFINITY)
-				to_chat(src, "<span class='danger'><b>OH MY GOD YOU HAVE TO PEE!</b></span>")
-	return
+    if(bowels >= 250)
+        switch(bowels)
+            if(250 to 400)
+				to_chat(src, SPAN_WARNING("<b>You need to poo.</b>"))
+            if(400 to 450)
+				to_chat(src, SPAN_WARNING("<b>You really need to poo!</b>"))
+            if(450 to 500)
+				to_chat(src, SPAN_DANGER("<b>You're about to shit yourself!</b>"))
+            if(500 to INFINITY)
+				to_chat(src, SPAN_DANGER("<b>OH MY GOD YOU HAVE TO SHIT!</b>"))
+    if(bladder >= 100)//Your bladder is smaller than your colon
+        switch(bladder)
+            if(100 to 250)
+				to_chat(src, SPAN_WARNING("<b>You need to pee.</b>"))
+            if(250 to 400)
+				to_chat(src, SPAN_WARNING("<b>You really need to pee!</b>"))
+            if(400 to 500)
+				to_chat(src, SPAN_DANGER("<b>You're about to piss yourself!</b>"))
+            if(500 to INFINITY)
+				to_chat(src, SPAN_DANGER("<b>OH MY GOD YOU HAVE TO PEE!</b>"))
+    return
 
 //poo and pee counters. This is called in human_life.
 /mob/living/human/proc/handle_excrement()
