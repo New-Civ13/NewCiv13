@@ -563,73 +563,75 @@
 		if (!found_cover)
 			for(var/obj/covers/SB in view(7,src))
 				if (!found_cover && SB.density)
-					if (tdir == NORTH)
-						if (SB.y < tgt.y)
-							do_movement(get_step(SB,OPPOSITE_DIR(tdir)))
-							found_cover = TRUE
-							spawn(40)
-								walk(src,0)
-								do_movement(loc)
-							break
-					else if (tdir == SOUTH)
-						if (SB.y > tgt.y)
-							do_movement(get_step(SB,OPPOSITE_DIR(tdir)))
-							found_cover = TRUE
-							spawn(40)
-								walk(src,0)
-								do_movement(loc)
-							break
-					else if (tdir == EAST)
-						if (SB.x < tgt.x)
-							do_movement(get_step(SB,OPPOSITE_DIR(tdir)))
-							found_cover = TRUE
-							spawn(40)
-								walk(src,0)
-								do_movement(loc)
-							break
-					else if (tdir == WEST)
-						if (SB.x > tgt.x)
-							do_movement(get_step(SB,OPPOSITE_DIR(tdir)))
-							found_cover = TRUE
-							spawn(40)
-								walk(src,0)
-								do_movement(loc)
-							break
+					switch(tdir)
+						if(NORTH)
+							if (SB.y < tgt.y)
+								do_movement(get_step(SB,OPPOSITE_DIR(tdir)))
+								found_cover = TRUE
+								spawn(40)
+									walk(src,0)
+									do_movement(loc)
+								break
+						if(SOUTH)
+							if (SB.y > tgt.y)
+								do_movement(get_step(SB,OPPOSITE_DIR(tdir)))
+								found_cover = TRUE
+								spawn(40)
+									walk(src,0)
+									do_movement(loc)
+								break
+						if(EAST)
+							if (SB.x < tgt.x)
+								do_movement(get_step(SB,OPPOSITE_DIR(tdir)))
+								found_cover = TRUE
+								spawn(40)
+									walk(src,0)
+									do_movement(loc)
+								break
+						if(WEST)
+							if (SB.x > tgt.x)
+								do_movement(get_step(SB,OPPOSITE_DIR(tdir)))
+								found_cover = TRUE
+								spawn(40)
+									walk(src,0)
+									do_movement(loc)
+								break
 		if (!found_cover)
 			for(var/obj/structure/SB in view(7,src))
 				if (!found_cover && SB.density)
-					if (tdir == NORTH)
-						if (SB.y < tgt.y)
-							do_movement(get_step(SB,OPPOSITE_DIR(tdir)))
-							found_cover = TRUE
-							spawn(40)
-								walk(src,0)
-								do_movement(loc)
-							break
-					else if (tdir == SOUTH)
-						if (SB.y > tgt.y)
-							do_movement(get_step(SB,OPPOSITE_DIR(tdir)))
-							found_cover = TRUE
-							spawn(40)
-								walk(src,0)
-								do_movement(loc)
-							break
-					else if (tdir == EAST)
-						if (SB.x < tgt.x)
-							do_movement(get_step(SB,OPPOSITE_DIR(tdir)))
-							found_cover = TRUE
-							spawn(40)
-								walk(src,0)
-								do_movement(loc)
-							break
-					else if (tdir == WEST)
-						if (SB.x > tgt.x)
-							do_movement(get_step(SB,OPPOSITE_DIR(tdir)))
-							found_cover = TRUE
-							spawn(40)
-								walk(src,0)
-								do_movement(loc)
-							break
+					switch(tdir)
+						if(NORTH)
+							if (SB.y < tgt.y)
+								do_movement(get_step(SB,OPPOSITE_DIR(tdir)))
+								found_cover = TRUE
+								spawn(40)
+									walk(src,0)
+									do_movement(loc)
+								break
+						if(SOUTH)
+							if (SB.y > tgt.y)
+								do_movement(get_step(SB,OPPOSITE_DIR(tdir)))
+								found_cover = TRUE
+								spawn(40)
+									walk(src,0)
+									do_movement(loc)
+								break
+						if(EAST)
+							if (SB.x < tgt.x)
+								do_movement(get_step(SB,OPPOSITE_DIR(tdir)))
+								found_cover = TRUE
+								spawn(40)
+									walk(src,0)
+									do_movement(loc)
+								break
+						if(WEST)
+							if (SB.x > tgt.x)
+								do_movement(get_step(SB,OPPOSITE_DIR(tdir)))
+								found_cover = TRUE
+								spawn(40)
+									walk(src,0)
+									do_movement(loc)
+								break
 
 /mob/living/simple_animal/hostile/human/proc/charge(var/atom/objective = null)
 	if (!objective)
