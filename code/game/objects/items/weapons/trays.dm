@@ -146,12 +146,13 @@
 	var/val = FALSE // value to return
 
 	for (var/obj/item/I in carrying)
-		if (I.w_class == 1.0)
-			val ++
-		else if (I.w_class == 2.0)
-			val += 3
-		else
-			val += 5
+		switch(I.w_class)
+			if(1.0)
+				val++
+			if(2.0)
+				val += 3
+			else
+				val += 5
 
 	return val
 
@@ -163,12 +164,13 @@
 	for (var/obj/item/I in loc)
 		if ( I != src && !I.anchored && !istype(I, /obj/item/clothing/under) && !istype(I, /obj/item/clothing/suit) && !istype(I, /obj/item/projectile) )
 			var/add = FALSE
-			if (I.w_class == 1.0)
-				add = TRUE
-			else if (I.w_class == 2.0)
-				add = 3
-			else
-				add = 5
+			switch(I.w_class)
+				if(1.0)
+					add = TRUE
+				if(2.0)
+					add = 3
+				else
+					add = 5
 			if (calc_carry() + add >= max_carry)
 				break
 
