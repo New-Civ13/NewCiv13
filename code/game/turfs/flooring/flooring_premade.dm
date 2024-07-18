@@ -257,20 +257,21 @@
 
 /turf/floor/dirt/examine(mob/user)
 	if (get_dist(src, user) <= 1)
-		if (soil_nutrition >= 130)
-			user << "<span class='notice'>The soil looks very alive and the plants will grow very easily.</span>"
-		else if (soil_nutrition >= 80)
-			user << "<span class='notice'>The soil looks alive, plants would grow very well.</span>"
-		else if (soil_nutrition >= 25)
-			user << "<span class='notice'>The soil seems half dead and the plants would not develop as well as they should.</span>"
-		else if (soil_nutrition > 0)
-			user << "<span class='notice'>The soil looks pretty dead and the plants would have a tough time growing.</span>"
-		else
-			user << "<span class='notice'>The soil looks dead and plants would hardly grow.</span>"
+		switch(soil_nutrition)
+			if (130 to INFINITY)
+				to_chat(user, SPAN_NOTICE("The soil looks very alive and the plants will grow very easily."))
+			if (80 to 129)
+				to_chat(user, SPAN_NOTICE("The soil looks alive, plants would grow very well."))
+			if (25 to 79)
+				to_chat(user, SPAN_NOTICE("The soil seems half dead and the plants would not develop as well as they should."))
+			if (0 to 24)
+				to_chat(user, SPAN_NOTICE("The soil looks pretty dead and the plants would have a tough time growing."))
+			else
+				to_chat(user, SPAN_NOTICE("The soil looks dead and plants would hardly grow."))
 	if (ishuman(user))
 		var/mob/living/human/H = user
 		if (H.getStatCoeff("farming")>= 2.2)
-			user << "[src]'s nutrition level is at <b>[soil_nutrition]/[max_soil_nutrition]</b>."
+			to_chat(H, SPAN_NOTICE("You also note that \the [src]'s nutrition level is at <b>[soil_nutrition]/[max_soil_nutrition]</b>."))
 	return ..()
 
 /turf/floor/space
