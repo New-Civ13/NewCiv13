@@ -1255,115 +1255,117 @@
 
 /mob/living/human/var/list/informed_dehydration[4]
 
-/mob/living/human/proc/handle_dehydration()//Making this it's own proc for my sanity's sake - Matt
+/mob/living/human/proc/handle_dehydration() // Making this proc for my own sanity. - Matt
 
-	if (water < 200 && water >= 150)
-		if (prob(3))
-			src << "<span class = 'warning'>You're getting a bit thirsty.</span>"
+	switch(water)
+		if(150 to 199)
+			if (prob(3))
+				to_chat(src, SPAN_WARNING("You're getting a bit thirsty."))
+		if(100 to 149)
+			if (prob(4))
+				to_chat(src, SPAN_WARNING("You're pretty thirsty."))
+		if(20 to 99)
+			if (prob(5))
+				to_chat(src, SPAN_DANGER("You're really thirsty!"))
+		if(0 to 19) // Water below 20 == dehydration.
 
-	else if (water < 150 && water >= 100)
-		if (prob(4))
-			src << "<span class = 'warning'>You're pretty thirsty.</span>"
+			var/list/thirst_phrases = list(
+				"You feel weak and malnourished. You must find something to drink now!",
+				"You haven't drank in ages, and your body feels weak! It's time to drink something.",
+				"You can barely remember the last time you had something to drink!",
+				"Your body is starting to dehydrate! You have to drink something soon.",
+				"If you don't drink something very soon, you're going to dehydrate to death."
+				)
 
-	else if (water < 100 && water >= 20)
-		if (prob(5))
-			src << "<span class = 'danger'>You're really thirsty!</span>"
+			informed_dehydration[num2text(-DEHYDRATION_NOTICE)] = FALSE
+			informed_dehydration[num2text(-DEHYDRATION_WEAKNESS)] = FALSE
+			informed_dehydration[num2text(-DEHYDRATION_NEARDEATH)] = FALSE
+			informed_dehydration[num2text(-DEHYDRATION_NEGATIVE_INFINITY)] = FALSE
 
-	else if (water < 20) //Nutrition is below 20 = dehydration
+			// When you're dehydrating, the rate at which oxygen damage is healed is reduced by 80% (you only restore 1 oxygen damage per life tick, instead of 5)
 
-		var/list/thirst_phrases = list(
-			"You feel weak and malnourished. You must find something to drink now!",
-			"You haven't drank in ages, and your body feels weak! It's time to drink something.",
-			"You can barely remember the last time you had something to drink!",
-			"Your body is starting to dehydrate! You have to drink something soon.",
-			"If you don't drink something very soon, you're going to dehydrate to death."
-			)
+			switch(water)
+				if (DEHYDRATION_NOTICE to DEHYDRATION_MIN) // -15 to 0.
+					if (sleeping) return
 
-		//When you're starving, the rate at which oxygen damage is healed is reduced by 80% (you only restore TRUE oxygen damage per life tick, instead of 5)
+					if (!informed_dehydration[num2text(-DEHYDRATION_NOTICE)])
+						to_chat(src, SPAN_WARNING("[pick("You're very thirsty.", "You really could use some water right now.")]"))
 
-		switch(water)
-			if (DEHYDRATION_NOTICE to DEHYDRATION_MIN)
-				if (sleeping) return
+					informed_dehydration[num2text(-DEHYDRATION_NOTICE)] = TRUE
+					informed_dehydration[num2text(-DEHYDRATION_WEAKNESS)] = FALSE
+					informed_dehydration[num2text(-DEHYDRATION_NEARDEATH)] = FALSE
+					informed_dehydration[num2text(-DEHYDRATION_NEGATIVE_INFINITY)] = FALSE
 
-				if (!informed_dehydration[num2text(-DEHYDRATION_NOTICE)])
-					src << "<span class='warning'>[pick("You're very thirsty.","You really could use some water right now.")]</span>"
+					if (prob(10))
+						to_chat(src, SPAN_WARNING("[pick("A sip of water would be refreshing.", "You haven't had anything to drink in a while.")]"))
 
-				informed_dehydration[num2text(-DEHYDRATION_NOTICE)] = TRUE
-				informed_dehydration[num2text(-DEHYDRATION_WEAKNESS)] = FALSE
-				informed_dehydration[num2text(-DEHYDRATION_NEARDEATH)] = FALSE
-				informed_dehydration[num2text(-DEHYDRATION_NEGATIVE_INFINITY)] = FALSE
+				if (DEHYDRATION_WEAKNESS to DEHYDRATION_NOTICE) // -40 to -15.
+					if (sleeping) return
 
-				if (prob(10))
-					src << "<span class='warning'>[pick("You're very thirsty.","You really could use some water right now.")]</span>"
+					if (!informed_dehydration[num2text(-DEHYDRATION_WEAKNESS)])
+						to_chat(src, SPAN_DANGER("[pick(thirst_phrases)]"))
 
-			if (DEHYDRATION_WEAKNESS to DEHYDRATION_NOTICE)
-				if (sleeping) return
+					informed_dehydration[num2text(-DEHYDRATION_NOTICE)] = TRUE
+					informed_dehydration[num2text(-DEHYDRATION_WEAKNESS)] = TRUE
+					informed_dehydration[num2text(-DEHYDRATION_NEARDEATH)] = FALSE
+					informed_dehydration[num2text(-DEHYDRATION_NEGATIVE_INFINITY)] = FALSE
 
-				if (!informed_dehydration[num2text(-DEHYDRATION_WEAKNESS)])
-					src << "<span class='danger'>[pick(thirst_phrases)]</span>"
+					if (prob(6)) // There's a 6% chance of getting a tiny amount of toxin damage; (1-5)
 
-				informed_dehydration[num2text(-DEHYDRATION_NOTICE)] = TRUE
-				informed_dehydration[num2text(-DEHYDRATION_WEAKNESS)] = TRUE
-				informed_dehydration[num2text(-DEHYDRATION_NEARDEATH)] = FALSE
-				informed_dehydration[num2text(-DEHYDRATION_NEGATIVE_INFINITY)] = FALSE
+						adjustToxLoss(rand(1, 5))
+						to_chat(src, SPAN_DANGER("[pick(thirst_phrases)]"))
 
-				if (prob(6)) //6% chance of a tiny amount of toxin damage (1-5)
+					else if (prob(5)) // There's a 5% chance of being weakened
 
-					adjustToxLoss(rand(1,5))
-					src << "<span class='danger'>[pick(thirst_phrases)]</span>"
+						eye_blurry += 10
+						Weaken(10)
+						adjustToxLoss(rand(1,15))
+						to_chat(src, SPAN_DANGER("You're dehydrating! The lack of strength makes you black out for a few moments..."))
 
-				else if (prob(5)) //5% chance of being weakened
+				if (DEHYDRATION_NEARDEATH to DEHYDRATION_WEAKNESS) // -40 to -55. There's a 7% chance of getting weakened and 1-20 toxin/1-25 oxygen damage. 7% chance of a mini-seizure. 14% chance of dropping an item (due to weakens).
+					if (sleeping) return
 
-					eye_blurry += 10
-					Weaken(10)
-					adjustToxLoss(rand(1,15))
-					src << "<span class='danger'>You're dehydrating! The lack of strength makes you black out for a few moments...</span>"
+					if (!informed_dehydration[num2text(-DEHYDRATION_NEARDEATH)])
+						to_chat(src, SPAN_DANGER("You're dehydrating. You feel your life force slowly leaving your body..."))
 
-			if (DEHYDRATION_NEARDEATH to DEHYDRATION_WEAKNESS) //5-30, 5% chance of weakening and TRUE-230 oxygen damage. 5% chance of a seizure. 10% chance of dropping item
-				if (sleeping) return
+					informed_dehydration[num2text(-DEHYDRATION_NOTICE)] = TRUE
+					informed_dehydration[num2text(-DEHYDRATION_WEAKNESS)] = TRUE
+					informed_dehydration[num2text(-DEHYDRATION_NEARDEATH)] = TRUE
+					informed_dehydration[num2text(-DEHYDRATION_NEGATIVE_INFINITY)] = FALSE
 
-				if (!informed_dehydration[num2text(-DEHYDRATION_NEARDEATH)])
-					src << "<span class='danger'>You're dehydrating. You feel your life force slowly leaving your body...</span>"
+					if (prob(7))
 
-				informed_dehydration[num2text(-DEHYDRATION_NOTICE)] = TRUE
-				informed_dehydration[num2text(-DEHYDRATION_WEAKNESS)] = TRUE
-				informed_dehydration[num2text(-DEHYDRATION_NEARDEATH)] = TRUE
-				informed_dehydration[num2text(-DEHYDRATION_NEGATIVE_INFINITY)] = FALSE
+						adjustToxLoss(rand(1, 20))
+						to_chat(src, SPAN_DANGER("You're dehydrating. You feel your life force slowly leaving your body..."))
+						eye_blurry += 20
+						if (weakened < 1) Weaken(20)
 
-				if (prob(7))
+					else if (paralysis < 1 && prob(7)) // Mini seizure~ (25% duration and strength of a normal seizure)
 
-					adjustToxLoss(rand(1,20))
-					src << "<span class='danger'>You're dehydrating. You feel your life force slowly leaving your body...</span>"
-					eye_blurry += 20
-					if (weakened < 1) Weaken(20)
+						visible_message(SPAN_DANGER("\The [src] starts having a seizure!"), SPAN_WARNING("You have a seizure!"))
+						Paralyse(5)
+						make_jittery(500)
+						adjustToxLoss(rand(1,25))
+						eye_blurry += 20
 
-				else if (paralysis<1 && prob(7)) //Mini seizure (25% duration and strength of a normal seizure)
+				if (-INFINITY to DEHYDRATION_NEARDEATH) // -INFINITY to -55. Fuck up the whole body at this point.
 
-					visible_message("<span class='danger'>\The [src] starts having a seizure!</span>", \
-							"<span class='warning'>You have a seizure!</span>")
-					Paralyse(5)
-					make_jittery(500)
-					adjustToxLoss(rand(1,25))
-					eye_blurry += 20
+					if (!informed_dehydration[num2text(-DEHYDRATION_NEGATIVE_INFINITY)])
+						to_chat(src, SPAN_DANGER("You are dying from dehydration!"))
 
-			if (-INFINITY to DEHYDRATION_NEARDEATH) //Fuck the whole body up at this point
+					informed_dehydration[num2text(-DEHYDRATION_NOTICE)] = TRUE
+					informed_dehydration[num2text(-DEHYDRATION_WEAKNESS)] = TRUE
+					informed_dehydration[num2text(-DEHYDRATION_NEARDEATH)] = TRUE
+					informed_dehydration[num2text(-DEHYDRATION_NEGATIVE_INFINITY)] = TRUE
 
-				if (!informed_dehydration[num2text(-DEHYDRATION_NEGATIVE_INFINITY)])
-					src << "<span class='danger'>You are dying from dehydration!</span>"
+					if (prob(10))
+						to_chat(src, SPAN_DANGER("You are dying from dehydration!"))
 
-				informed_dehydration[num2text(-DEHYDRATION_NOTICE)] = TRUE
-				informed_dehydration[num2text(-DEHYDRATION_WEAKNESS)] = TRUE
-				informed_dehydration[num2text(-DEHYDRATION_NEARDEATH)] = TRUE
-				informed_dehydration[num2text(-DEHYDRATION_NEGATIVE_INFINITY)] = TRUE
+					adjustToxLoss(DEHYDRATION_TOX_DAMAGE) // 2.5
+					adjustBrainLoss(DEHYDRATION_BRAIN_DAMAGE) // 2.5
 
-				if (prob(10))
-					src << "<span class='danger'>You are dying from dehydration!</span>"
-
-				adjustToxLoss(DEHYDRATION_TOX_DAMAGE)
-				adjustBrainLoss(DEHYDRATION_BRAIN_DAMAGE)
-
-				if (prob(10))
-					Weaken(15)
+					if (prob(10))
+						Weaken(15)
 
 /mob/living/human/proc/handle_shock()
 	if(status_flags & GODMODE)	return FALSE // God-Mode.
