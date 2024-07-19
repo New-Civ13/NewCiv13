@@ -98,7 +98,7 @@
 			playsound(src, "ric_sound", 50, TRUE, -2) // Ricochet if the penetration is less than armor.
 			damage = P.damage * 0.07 // Armor impact when the armor is not penetrated. damage = `0` was apparently too buff.
 
-	H.damage_armor(def_zone, (P.damage - damage) * 0.01) // This is where the armor value takes the damage.
+	H.damage_armor(def_zone, (P.damage - damage) * 0.1) // This is where the armor value takes the damage.
 
 	if (ishuman(src))
 		if (H.takes_less_damage)
