@@ -706,7 +706,7 @@
 		--penetrating
 
 	if (istype(src, /obj/item/projectile/shell))
-		if (permutated.len > get_dist(starting, trajectory.target) + rand(-1, 1)) // rand(0,3) is very inaccurate ; this code handles where the shell explodes on the turf.
+		if (get_dist(starting, src) > get_dist(starting, trajectory.target) + rand(-1, 1)) // rand(0,3) is very inaccurate ; this code handles where the shell explodes on the turf. - The code uses get_dist to fix a bug when projectiles overshot the target too much.
 			var/obj/item/projectile/shell/S = src
 			on_impact(T)
 			S.initiate(loc)
