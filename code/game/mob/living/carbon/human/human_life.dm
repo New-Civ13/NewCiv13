@@ -2025,11 +2025,10 @@
 						return
 
 /mob/living/human/proc/instadeath_check()
-	if (getBrainLoss() > 60 || getTotalDmg() > 150)
+	if (getBrainLoss() > 60 || getTotalDmg() > 150) // Note: on OFFICIAL civ13; `getTotalDmg() > 150` is scrapped, and damage is only calculated via brain.
 		death()
 		return
-	else
-		return
+
 /mob/living/human/proc/handle_defib_timer()
 	var/obj/item/organ/brain/brain = internal_organs_by_name["brain"]
 	if(!brain)

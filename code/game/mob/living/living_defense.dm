@@ -78,18 +78,33 @@
 		stun_effect_act(P.stun, P.agony, def_zone, P)
 
 	//Armor
-	var/absorb = run_armor_check(def_zone, P.check_armor, P.armor_penetration, damage_source = P)
+	// var/absorb = run_armor_check(def_zone, P.check_armor, P.armor_penetration, damage_source = P)
+	var/armor = getarmor(def_zone, P.check_armor) // Instead of absorbing, let's just get the flat armor.
 	var/proj_sharp = is_sharp(P)
 	var/proj_edge = P.edge
-	if ((proj_sharp || proj_edge) && prob(getarmor(def_zone, P.check_armor)))
+
+	if ((proj_sharp || proj_edge) && armor) // Let's remove the `prob(getarmor(def_zone, P.check_armor)))` and replace it with `&& armor` for less chance.
 		proj_sharp = FALSE
 		proj_edge = FALSE
 
-	var/damage = P.damage
+	//Bullet
+	var/penetration = P.armor_penetration // Penetration value for the bullet, regarding armor.
+	var/damage = P.damage // Flat damage value.
+
+	if(armor > 0)
+		if(penetration > armor) // Have we penetrated the armor, if so apply damage.
+			damage *= (penetration / armor) // Multiply the flat damage value by penetration/armor. Armor value 'takes' most of the damage
+		else
+			playsound(src, "ric_sound", 50, TRUE, -2) // Ricochet if the penetration is less than armor.
+			damage = P.damage * 0.07 // Armor impact when the armor is not penetrated. damage = `0` was apparently too buff.
+
+	H.damage_armor(def_zone, (P.damage - damage) * 0.01) // This is where the armor value takes the damage.
 
 	if (ishuman(src))
 		if (H.takes_less_damage)
 			damage /= H.getStatCoeff("strength")
+
+/* No more instadeath! (For now!)
 		var/instadeath = 0
 		if (def_zone == "eyes")
 			instadeath = 10
@@ -100,13 +115,14 @@
 		if (instadeath > 0)
 			if (prob(instadeath))
 				adjustBrainLoss(rand(30,60))
-				H.instadeath_check()
+				H.instadeath_check() */
+
 	if (!P.nodamage)
-		apply_damage(damage, P.damage_type, def_zone, absorb, P, sharp=proj_sharp, edge=proj_edge)
+		apply_damage(damage, P.damage_type, def_zone, FALSE, P, sharp=proj_sharp, edge=proj_edge) // If we get here, nothing is getting blocked anymore. so FALSE
 
-	P.on_hit(src, absorb, def_zone)
+	P.on_hit(src, FALSE, def_zone) // If we get here, nothing is getting blocked anymore. so FALSE
 
-	return absorb
+	// return absorb (We aren't returning the blocked value anymore, it's armor based!)
 
 //Handles the effects of "stun" weapons
 /mob/living/proc/stun_effect_act(var/stun_amount, var/agony_amount, var/def_zone, var/used_weapon=null)

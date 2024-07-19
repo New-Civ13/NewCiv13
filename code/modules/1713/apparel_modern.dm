@@ -94,6 +94,7 @@
 	sharp = FALSE
 	edge = TRUE
 	w_class = ITEM_SIZE_SMALL
+	var/protection = 10 // Used in armor calculation. Adds+10 protection.
 
 /obj/item/weapon/armorplatesswimmer
 	name = "swimmer plate"

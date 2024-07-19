@@ -524,15 +524,20 @@ bullet_act
 			var/obj/item/clothing/C = gear
 			if (istype(C) && C.body_parts_covered & def_zone.body_part)
 				protection += C.armor[type]
-			if (C.accessories.len)
-				for (var/obj/item/clothing/accessory/AC in C.accessories)
-					if (AC.body_parts_covered & def_zone.body_part)
-						protection += AC.armor[type]
-						if (istype(AC, /obj/item/clothing/accessory/armor/coldwar/plates))
-							var/obj/item/clothing/accessory/armor/coldwar/plates/ACP = AC
-							for (var/obj/item/weapon/armorplates/plt in ACP.hold)
-								if (type == "melee" || type == "arrow" || type == "gun")
-									protection += 10
+				if (C.accessories.len)
+					for (var/obj/item/clothing/accessory/AC in C.accessories)
+						if (AC.body_parts_covered & def_zone.body_part)
+							protection += AC.armor[type]
+							if (istype(AC, /obj/item/clothing/accessory/armor/coldwar/plates))
+								var/obj/item/clothing/accessory/armor/coldwar/plates/ACP = AC
+								for (var/obj/item/weapon/armorplates/plt in ACP.hold)
+									if (type == "melee" || type == "arrow" || type == "gun")
+										protection += plt.protection
+				if(istype(C, /obj/item/clothing/suit/storage))
+					var/obj/item/clothing/suit/storage/S = C
+					for (var/obj/item/weapon/armorplates/P in S.pockets)
+						if (type == "melee" || type == "arrow" || type == "gun")
+							protection += P.protection // Handles adding var/protection to the actual types for armorplates.
 	return protection
 
 /mob/living/human/proc/damage_armor(var/obj/item/organ/external/def_zone, var/dmg = 0)
@@ -545,13 +550,18 @@ bullet_act
 		if (gear && istype(gear ,/obj/item/clothing))
 			var/obj/item/clothing/C = gear
 			if (istype(C) && C.body_parts_covered & affecting.body_part)
-				C.health -= dmg
-				C.check_health()
+				if(istype(C, /obj/item/clothing/head/helmet) || istype(C, /obj/item/clothing/suit/armor)) // Adds a type check for armor/helmets.
+					C.health -= dmg
+					C.check_health()
 			if (C.accessories.len)
 				for (var/obj/item/clothing/accessory/AC in C.accessories)
 					if (AC.body_parts_covered & affecting.body_part)
 						AC.health -= dmg
+						if(AC.health <= 0)
+							C.remove_accessory(src, AC) // Handles removing things like plates if their health is fully done for.
 						AC.check_health()
+			C.update_icon() // Potential damaged icon, so lets update the slot_icon and clothing_icon appearance.
+			C.update_clothing_icon()
 	return TRUE
 
 /mob/living/human/proc/check_head_coverage()
