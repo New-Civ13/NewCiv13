@@ -26,7 +26,9 @@
 	..()
 	var/armor_class = get_armor_class()
 	if(armor_class > 0)
-		desc += "This provides level-[armor_class] protection."
+		desc += "\nThis provides level-[armor_class] ballistic protection."
+	else
+		desc += "\nThis provides no ballistic protection."
 
 /obj/item/clothing/proc/get_armor_class()
 	return round(armor["gun"] / ARMOR_CLASS)
