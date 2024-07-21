@@ -257,7 +257,7 @@
 	worn_state = "leathercoat_c"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
 	cold_protection = UPPER_TORSO|LOWER_TORSO|LEG_LEFT|LEG_RIGHT|ARM_LEFT|ARM_RIGHT
-	armor = list(melee = 10, arrow = 0, gun = FALSE, energy = 15, bomb = 5, bio = 30, rad = 30)
+	armor = list(melee = 10, arrow = FALSE, gun = FALSE, energy = 15, bomb = 5, bio = 30, rad = 30)
 	value = 65
 
 /obj/item/clothing/under/kuban_cossak
@@ -275,7 +275,7 @@
 	worn_state = "kuban_cossak"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
 	cold_protection = UPPER_TORSO|LOWER_TORSO|LEG_LEFT|LEG_RIGHT|ARM_LEFT|ARM_RIGHT
-	armor = list(melee = 10, arrow = 0, gun = FALSE, energy = 15, bomb = 5, bio = 30, rad = 30)
+	armor = list(melee = 10, arrow = FALSE, gun = FALSE, energy = 15, bomb = 5, bio = 30, rad = 30)
 	value = 65
 
 
@@ -287,7 +287,7 @@
 	worn_state = "japcoat2"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
 	cold_protection = UPPER_TORSO|LOWER_TORSO|LEG_LEFT|LEG_RIGHT|ARM_LEFT|ARM_RIGHT
-	armor = list(melee = 10, arrow = 0, gun = FALSE, energy = 15, bomb = 5, bio = 30, rad = 30)
+	armor = list(melee = 10, arrow = FALSE, gun = FALSE, energy = 15, bomb = 5, bio = 30, rad = 30)
 	value = 65
 
 /obj/item/clothing/suit/storage/coat/japcoat
@@ -298,7 +298,7 @@
 	worn_state = "japcoat"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
 	cold_protection = UPPER_TORSO|LOWER_TORSO|LEG_LEFT|LEG_RIGHT|ARM_LEFT|ARM_RIGHT
-	armor = list(melee = 10, arrow = 0, gun = FALSE, energy = 15, bomb = 5, bio = 30, rad = 30)
+	armor = list(melee = 10, arrow = FALSE, gun = FALSE, energy = 15, bomb = 5, bio = 30, rad = 30)
 	value = 65
 	var/colorn = 1
 
@@ -314,7 +314,7 @@
 	worn_state = "priestwhite"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
 	cold_protection = UPPER_TORSO|LOWER_TORSO|LEG_LEFT|LEG_RIGHT|ARM_LEFT|ARM_RIGHT
-	armor = list(melee = 10, arrow = 0, gun = FALSE, energy = 15, bomb = 5, bio = 30, rad = 30)
+	armor = list(melee = 10, arrow = FALSE, gun = FALSE, energy = 15, bomb = 5, bio = 30, rad = 30)
 	value = 65
 	var/colorn = 1
 
@@ -326,7 +326,7 @@
 	worn_state = "japcoat2"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
 	cold_protection = UPPER_TORSO|LOWER_TORSO|LEG_LEFT|LEG_RIGHT|ARM_LEFT|ARM_RIGHT
-	armor = list(melee = 10, arrow = 0, gun = FALSE, energy = 15, bomb = 5, bio = 30, rad = 30)
+	armor = list(melee = 10, arrow = FALSE, gun = FALSE, energy = 15, bomb = 5, bio = 30, rad = 30)
 	value = 65
 	var/colorn = 1
 
@@ -338,7 +338,7 @@
 	worn_state = "ruscoat"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
 	cold_protection = UPPER_TORSO|LOWER_TORSO|LEG_LEFT|LEG_RIGHT|ARM_LEFT|ARM_RIGHT
-	armor = list(melee = 10, arrow = 0, gun = FALSE, energy = 15, bomb = 5, bio = 30, rad = 30)
+	armor = list(melee = 10, arrow = FALSE, gun = FALSE, energy = 15, bomb = 5, bio = 30, rad = 30)
 	value = 65
 	var/colorn = 1
 
@@ -362,7 +362,7 @@
 	worn_state = "rusoffcoat"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
 	cold_protection = UPPER_TORSO|LOWER_TORSO|LEG_LEFT|LEG_RIGHT|ARM_LEFT|ARM_RIGHT
-	armor = list(melee = 10, arrow = 0, gun = FALSE, energy = 15, bomb = 5, bio = 30, rad = 30)
+	armor = list(melee = 10, arrow = FALSE, gun = FALSE, energy = 15, bomb = 5, bio = 30, rad = 30)
 	value = 65
 	var/colorn = 1
 
@@ -679,7 +679,7 @@
 	worn_state = "constable"
 	body_parts_covered = HEAD
 	flags_inv = BLOCKHEADHAIR
-	armor = list(melee = 50, arrow = 60, gun = 5, energy = 15, bomb = 45, bio = 20, rad = FALSE)
+	armor = list(melee = 50, arrow = 60, gun = ARMOR_CLASS, energy = 15, bomb = 45, bio = 20, rad = FALSE)
 
 /obj/item/clothing/under/modern1
 	name = "light brown outfit"
@@ -1076,7 +1076,7 @@
 	worn_state = "pickelhaube"
 	body_parts_covered = HEAD
 	flags_inv = BLOCKHEADHAIR
-	armor = list(melee = 50, arrow = 40, gun = 10, energy = 15, bomb = 50, bio = 20, rad = FALSE)
+	armor = list(melee = 50, arrow = 40, gun = ARMOR_CLASS*2, energy = 15, bomb = 50, bio = 20, rad = FALSE)
 
 /obj/item/clothing/head/ww/budenovka
 	name = "budenovka"
@@ -1092,7 +1092,7 @@
 	worn_state = "stahlhelm"
 	body_parts_covered = HEAD
 	flags_inv = BLOCKHEADHAIR
-	armor = list(melee = 55, arrow = 45, gun = 15, energy = 15, bomb = 55, bio = 20, rad = FALSE)
+	armor = list(melee = 55, arrow = 45, gun = ARMOR_CLASS*2, energy = 15, bomb = 55, bio = 20, rad = FALSE)
 
 /obj/item/clothing/head/helmet/modern/brodie
 	name = "iron brodie"
@@ -1102,17 +1102,17 @@
 	worn_state = "brodie"
 	body_parts_covered = HEAD
 	flags_inv = BLOCKHEADHAIR
-	armor = list(melee = 45, arrow = 35, gun = 10, energy = 15, bomb = 45, bio = 20, rad = FALSE)
+	armor = list(melee = 45, arrow = 35, gun = ARMOR_CLASS*2, energy = 15, bomb = 45, bio = 20, rad = FALSE)
 
 /obj/item/clothing/head/helmet/modern/pith
-	name = "pith helmet"
+	name = "pith helmet" // Lightweight cloth-covered helmet.
 	desc = "A typical tropical helmet."
 	icon_state = "pith"
 	item_state = "pith"
 	worn_state = "pith"
 	body_parts_covered = HEAD
 	flags_inv = BLOCKHEADHAIR
-	armor = list(melee = 50, arrow = 40, gun = 10, energy = 15, bomb = 50, bio = 20, rad = FALSE)
+	armor = list(melee = 50, arrow = 40, gun = ARMOR_CLASS*2, energy = 15, bomb = 50, bio = 20, rad = FALSE)
 
 /obj/item/clothing/suit/storage/jacket/doctor
 	name = "white labcoat"

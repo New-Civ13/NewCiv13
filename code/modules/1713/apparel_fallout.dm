@@ -131,7 +131,7 @@
 	item_state = "ncr_armor"
 	worn_state = "ncr_armor"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO
-	armor = list(melee = 60, arrow = 40, gun = 20, energy = 15, bomb = 60, bio = 20, rad = FALSE)
+	armor = list(melee = 60, arrow = 40, gun = ARMOR_CLASS*2, energy = 15, bomb = 60, bio = 20, rad = FALSE)
 	flammable = TRUE
 	slowdown = 0.1
 
@@ -143,7 +143,7 @@
 	worn_state = "ncr_helmet"
 	body_parts_covered = HEAD
 	flags_inv = BLOCKHEADHAIR
-	armor = list(melee = 43, arrow = 33, gun = 10, energy = 15, bomb = 44, bio = 20, rad = FALSE)
+	armor = list(melee = 43, arrow = 33, gun = ARMOR_CLASS*2, energy = 15, bomb = 44, bio = 20, rad = FALSE)
 
 /obj/item/clothing/head/helmet/fallout/ncr/goggles
 	name = "Goggles Helmet"
@@ -237,7 +237,7 @@
 	icon_state = "legionaire"
 	item_state = "legionaire"
 	worn_state = "legionaire"
-	armor = list(melee = 35, arrow = 33, gun = 8, energy = 15, bomb = 35, bio = 20, rad = FALSE)
+	armor = list(melee = 35, arrow = 33, gun = ARMOR_CLASS, energy = 15, bomb = 35, bio = 20, rad = FALSE)
 
 /obj/item/clothing/shoes/heavyboots/wrappedboots/legion
 	name = "Legionaire armored boots"
@@ -258,4 +258,4 @@
 	worn_state = "legionaire"
 	body_parts_covered = HEAD
 	flags_inv = BLOCKHEADHAIR
-	armor = list(melee = 10, arrow = 2, gun = 0, energy = 15, bomb = 10, bio = 20, rad = FALSE)
+	armor = list(melee = 10, arrow = 2, gun = FALSE, energy = 15, bomb = 10, bio = 20, rad = FALSE)

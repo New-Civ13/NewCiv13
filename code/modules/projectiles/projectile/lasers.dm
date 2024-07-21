@@ -10,7 +10,7 @@
 	hitsound_wall = "laser_ric_sound"
 	damage = DAMAGE_LOW
 	penetrating = 8
-	armor_penetration = 0
+	armor_penetration = FALSE
 	light_color = "#ff0000"
 	light_range = 3
 	var/mob_passthrough_check = FALSE
@@ -78,15 +78,17 @@
 	icon_state = "greenbolt"
 	muzzle_type = /obj/effect/projectile/laser/muzzle/g
 	light_color = "#00bf00"
+
 /obj/item/projectile/laser/pistol
 	damage = 25
 	penetrating = 6
-	armor_penetration = 0
+	armor_penetration = FALSE
 
 /obj/item/projectile/laser/pistol/b
 	icon_state = "bluebolt"
 	muzzle_type = /obj/effect/projectile/laser/muzzle/b
 	light_color = "#3b719f"
+
 /obj/item/projectile/laser/pistol/g
 	icon_state = "greenbolt"
 	muzzle_type = /obj/effect/projectile/laser/muzzle/g

@@ -523,7 +523,7 @@ obj/item/clothing/under/confederate_uniform/New()
 	worn_state = "kozhanka"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
 	cold_protection = UPPER_TORSO|LOWER_TORSO|LEG_LEFT|LEG_RIGHT|ARM_LEFT|ARM_RIGHT
-	armor = list(melee = 10, arrow = 0, gun = FALSE, energy = 15, bomb = 5, bio = 30, rad = 30)
+	armor = list(melee = 10, arrow = FALSE, gun = FALSE, energy = 15, bomb = 5, bio = 30, rad = 30)
 	value = 65
 	var/colorn = 1
 	var/specific = FALSE

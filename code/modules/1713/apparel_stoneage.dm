@@ -206,7 +206,7 @@
 	icon_state = "bonearmor"
 	item_state = "bonearmor"
 	worn_state = "bonearmor"
-	armor = list(melee = 50, arrow = 15, gun = 0, energy = 0, bomb = 10, bio = 0, rad = FALSE)
+	armor = list(melee = 50, arrow = 15, gun = FALSE, energy = FALSE, bomb = 10, bio = FALSE, rad = FALSE)
 
 /obj/item/clothing/head/helmet/bone
 	name = "bone helmet"
@@ -214,7 +214,7 @@
 	icon_state = "bone_helmet"
 	item_state = "bone_helmet"
 	worn_state = "bone_helmet"
-	armor = list(melee = 25, arrow = 15, gun = 10, energy = 16, bomb = 16, bio = 16, rad = FALSE)
+	armor = list(melee = 25, arrow = 15, gun = ARMOR_CLASS, energy = 16, bomb = 16, bio = 16, rad = FALSE)
 
 /obj/item/clothing/suit/woodarmor
 	name = "primitive wood armor"
@@ -250,7 +250,7 @@
 	icon_state = "skull_mask"
 	item_state = "skull_mask"
 	body_parts_covered = FACE|EYES
-	armor = list(melee = 25, arrow = 10, gun = 0, energy = 0, bomb = 15, bio = 0, rad = FALSE)
+	armor = list(melee = 25, arrow = 10, gun = FALSE, energy = FALSE, bomb = 15, bio = FALSE, rad = FALSE)
 
 /obj/item/clothing/mask/wooden
 	name = "wooden mask"
@@ -258,7 +258,7 @@
 	icon_state = "woodenmask"
 	item_state = "woodenmask"
 	body_parts_covered = FACE|EYES
-	armor = list(melee = 15, arrow = 10, gun = 0, energy = 0, bomb = 10, bio = 0, rad = FALSE)
+	armor = list(melee = 15, arrow = 10, gun = FALSE, energy = FALSE, bomb = 10, bio = FALSE, rad = FALSE)
 	flags_inv = BLOCKHAIR
 
 /obj/item/clothing/mask/wooden/expressive
@@ -350,7 +350,7 @@
 	item_state = "iogplate"
 	body_parts_covered = FACE|EYES
 	flags = CONDUCT
-	armor = list(melee = 80, arrow = 70, gun = 90, energy = 20, bomb = 40, bio = 25, rad = FALSE)
+	armor = list(melee = 80, arrow = 70, gun = ARMOR_CLASS*2, energy = 20, bomb = 40, bio = 25, rad = FALSE)
 
 /obj/item/clothing/mask/salamon
 	name = "gold plated mask"
@@ -359,7 +359,7 @@
 	item_state = "salamon"
 	flags = CONDUCT
 	body_parts_covered = FACE|EYES
-	armor = list(melee = 5, arrow = 14, gun = 10, energy = 20, bomb = 10, bio = 10, rad = FALSE)
+	armor = list(melee = 5, arrow = 14, gun = ARMOR_CLASS, energy = 20, bomb = 10, bio = 10, rad = FALSE)
 
 /////////////////////////////
 

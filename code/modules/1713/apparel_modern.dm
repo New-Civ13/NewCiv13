@@ -94,7 +94,7 @@
 	sharp = FALSE
 	edge = TRUE
 	w_class = ITEM_SIZE_SMALL
-	var/protection = 10 // Used in armor calculation. Adds+10 protection.
+	var/protection = ARMOR_CLASS*0.5 // Used in armor calculation. Adds+10 protection.
 
 /obj/item/weapon/armorplatesswimmer
 	name = "swimmer plate"
@@ -162,7 +162,7 @@
 
 	attack_verb = list("bashed", "bludgeoned", "whacked")
 	body_parts_covered = LEGS
-	armor = list(melee = 75, arrow = 50, gun = 15, energy = 25, bomb = 55, bio = 20, rad = FALSE)
+	armor = list(melee = 75, arrow = 50, gun = ARMOR_CLASS*2, energy = 25, bomb = 55, bio = 20, rad = FALSE)
 	slowdown = 0.1
 	sharp = FALSE
 	edge = TRUE
@@ -183,7 +183,7 @@
 
 	attack_verb = list("bashed", "bludgeoned", "whacked")
 	body_parts_covered = LEGS
-	armor = list(melee = 75, arrow = 50, gun = 30, energy = 32, bomb = 55, bio = 20, rad = FALSE)
+	armor = list(melee = 75, arrow = 50, gun = ARMOR_CLASS*2, energy = 32, bomb = 55, bio = 20, rad = FALSE)
 	slowdown = 0.3
 	sharp = FALSE
 	edge = TRUE
@@ -204,7 +204,7 @@
 
 	attack_verb = list("bashed", "bludgeoned", "whacked")
 	body_parts_covered = ARMS
-	armor = list(melee = 65, arrow = 45, gun = 15, energy = 25, bomb = 55, bio = 20, rad = FALSE)
+	armor = list(melee = 65, arrow = 45, gun = ARMOR_CLASS*2, energy = 25, bomb = 55, bio = 20, rad = FALSE)
 	slowdown = 0.1
 	sharp = FALSE
 	edge = TRUE
@@ -225,7 +225,7 @@
 
 	attack_verb = list("bashed", "bludgeoned", "whacked")
 	body_parts_covered = ARMS
-	armor = list(melee = 75, arrow = 50, gun = 30, energy = 32, bomb = 55, bio = 20, rad = FALSE)
+	armor = list(melee = 75, arrow = 50, gun = ARMOR_CLASS*2, energy = 32, bomb = 55, bio = 20, rad = FALSE)
 	slowdown = 0.1
 	sharp = FALSE
 	edge = TRUE
@@ -233,29 +233,29 @@
 
 	/* Armored Plate Suits*/
 
-/obj/item/clothing/accessory/armor/coldwar/plates/interceptor
-	name = "black Interceptor Body Armor"
-	desc = "Wearable armor that can stop even some rifle rounds. Can be fitted with plates to increase protection."
+/obj/item/clothing/accessory/armor/coldwar/plates/interceptor // Usually the BA is made with kevlar...
+	name = "black Interceptor body-armor"
+	desc = "Some wearable body-armor designed to offer solid protection. It can stop even some rifle rounds when equipped with additional plates."
 	icon_state = "iba_black"
 	item_state = "iba_black"
 	worn_state = "iba_black"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO
-	armor = list(melee = 75, arrow = 100, gun = 65, energy = 25, bomb = 65, bio = 20, rad = FALSE)
+	armor = list(melee = 75, arrow = 100, gun = ARMOR_CLASS*2, energy = 25, bomb = 65, bio = 20, rad = FALSE) // Stops pistols unless fitted with 2 plates (+10 protection per plate), moves it to level 3 (stops rifle bullets.)
 	value = 120
 	slowdown = 0.4
 	w_class = ITEM_SIZE_LARGE
 	weight = 6
 
 /obj/item/clothing/accessory/armor/coldwar/plates/interceptor/ucp
-	name = "UCP Interceptor Body Armor"
-	desc = "Wearable armor that can stop even some rifle rounds. Can be fitted with plates to increase protection. This one has the Universal Camouflage Pattern."
+	name = "UCP Interceptor body-armor"
+	desc = "Some wearable body-armor designed to offer solid protection. It can stop even some rifle rounds when equipped with additional plates. This one has the Universal Camouflage Pattern."
 	icon_state = "iba_ucp"
 	item_state = "iba_ucp"
 	worn_state = "iba_ucp"
 
 /obj/item/clothing/accessory/armor/coldwar/plates/interceptor/ocp
-	name = "OCP Interceptor Body Armor"
-	desc = "Wearable armor that can stop even some rifle rounds. Can be fitted with plates to increase protection. This one has the Operational Camouflage Pattern."
+	name = "OCP Interceptor body-armor"
+	desc = "Some wearable body-armor designed to offer solid protection. It can stop even some rifle rounds when equipped with additional plates. This one has the Operational Camouflage Pattern."
 	icon_state = "iba_ocp"
 	item_state = "iba_ocp"
 	worn_state = "iba_ocp"
@@ -269,7 +269,7 @@
 	item_state = "platecarrier_tan"
 	worn_state = "platecarrier_tan"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO
-	armor = list(melee = 30, arrow = 20, gun = 40, energy = 20, bomb = 30, bio = 20, rad = FALSE)
+	armor = list(melee = 30, arrow = 20, gun = ARMOR_CLASS*2, energy = 20, bomb = 30, bio = 20, rad = FALSE)
 	value = 130
 	slowdown = 0.1
 	w_class = ITEM_SIZE_LARGE
@@ -282,7 +282,7 @@
 	item_state = "platecarrier_green"
 	worn_state = "platecarrier_green"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO
-	armor = list(melee = 30, arrow = 20, gun = 40, energy = 20, bomb = 30, bio = 20, rad = FALSE)
+	armor = list(melee = 30, arrow = 20, gun = ARMOR_CLASS*2, energy = 20, bomb = 30, bio = 20, rad = FALSE)
 	value = 130
 	slowdown = 0.1
 	w_class = ITEM_SIZE_LARGE
@@ -295,7 +295,7 @@
 	item_state = "platecarrier_black"
 	worn_state = "platecarrier_black"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO
-	armor = list(melee = 30, arrow = 20, gun = 40, energy = 20, bomb = 30, bio = 20, rad = FALSE)
+	armor = list(melee = 30, arrow = 20, gun = ARMOR_CLASS*2, energy = 20, bomb = 30, bio = 20, rad = FALSE)
 	value = 130
 	slowdown = 0.1
 	w_class = ITEM_SIZE_LARGE
@@ -308,7 +308,7 @@
 	item_state = "pcarrier_tan"
 	worn_state = "pcarrier_tan"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO
-	armor = list(melee = 65, arrow = 95, gun = 76, energy = 22, bomb = 60, bio = 20, rad = FALSE)
+	armor = list(melee = 65, arrow = 95, gun = ARMOR_CLASS*2, energy = 22, bomb = 60, bio = 20, rad = FALSE)
 	value = 90
 	slowdown = 0.35
 	w_class = ITEM_SIZE_LARGE
@@ -321,7 +321,7 @@
 	item_state = "pcarrier_black"
 	worn_state = "pcarrier_black"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO
-	armor = list(melee = 65, arrow = 95, gun = 76, energy = 22, bomb = 60, bio = 20, rad = FALSE)
+	armor = list(melee = 65, arrow = 95, gun = ARMOR_CLASS*2, energy = 22, bomb = 60, bio = 20, rad = FALSE)
 	value = 90
 	slowdown = 0.35
 	w_class = ITEM_SIZE_LARGE
@@ -334,7 +334,7 @@
 	item_state = "thickcarrier"
 	worn_state = "thickcarrier"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO
-	armor = list(melee = 30, arrow = 30, gun = 78, energy = 16, bomb = 30, bio = 15, rad = FALSE)
+	armor = list(melee = 30, arrow = 30, gun = ARMOR_CLASS*2, energy = 16, bomb = 30, bio = 15, rad = FALSE)
 	value = 90
 	slowdown = 0.10
 	w_class = ITEM_SIZE_NORMAL
@@ -347,7 +347,7 @@
 	item_state = "ukraine_armor"
 	worn_state = "ukraine_armor"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO
-	armor = list(melee = 40, arrow = 20, gun = 40, energy = 20, bomb = 30, bio = 20, rad = FALSE)
+	armor = list(melee = 40, arrow = 20, gun = ARMOR_CLASS*2, energy = 20, bomb = 30, bio = 20, rad = FALSE)
 	value = 130
 	slowdown = 0.1
 	w_class = ITEM_SIZE_LARGE
@@ -355,39 +355,39 @@
 	slots = 3
 
 /obj/item/clothing/accessory/armor/coldwar/plates/b45
-	name = "6B45 body armor"
-	desc = "A modern body armor of Russian origin."
+	name = "6B45 body-armor"
+	desc = "A modern body-armor of Russian origin."
 	icon_state = "6b45"
 	item_state = "6b45"
 	worn_state = "6b45"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO
-	armor = list(melee = 67, arrow = 95, gun = 52, energy = 22, bomb = 60, bio = 20, rad = FALSE)
+	armor = list(melee = 67, arrow = 95, gun = ARMOR_CLASS*3, energy = 22, bomb = 60, bio = 20, rad = FALSE)
 	value = 130
 	slowdown = 0.2
 	w_class = ITEM_SIZE_LARGE
 	weight = 3.8
 
 /obj/item/clothing/accessory/armor/coldwar/plates/b45/ext
-	name = "6B45 extended body armor"
-	desc = "A modern body armor of Russian origin."
+	name = "6B45 extended body-armor"
+	desc = "A modern body-armor of Russian origin."
 	icon_state = "6b45_ext"
 	item_state = "6b45_ext"
 	worn_state = "6b45_ext"
-	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
-	armor = list(melee = 70, arrow = 95, gun = 60, energy = 22, bomb = 65, bio = 20, rad = FALSE)
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS // Covers legs && arms. Hence "extended".
+	armor = list(melee = 70, arrow = 95, gun = ARMOR_CLASS*3, energy = 22, bomb = 65, bio = 20, rad = FALSE)
 	value = 130
 	slowdown = 0.4
 	w_class = ITEM_SIZE_LARGE
 	weight = 4.2
 
 /obj/item/clothing/accessory/armor/coldwar/plates/b46
-	name = "6B46 body armor"
+	name = "6B46 body-armor"
 	desc = "A modern plate carrier of Russian origin. This one is used by paratroopers and vehicle crewmen as it is a lighter version of the 6B45."
 	icon_state = "6b46"
 	item_state = "6b46"
 	worn_state = "6b46"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
-	armor = list(melee = 60, arrow = 95, gun = 50, energy = 22, bomb = 55, bio = 20, rad = FALSE)
+	armor = list(melee = 60, arrow = 95, gun = ARMOR_CLASS*2, energy = 22, bomb = 55, bio = 20, rad = FALSE)
 	value = 150
 	slowdown = 0.1
 	w_class = ITEM_SIZE_LARGE
@@ -407,7 +407,7 @@
 	worn_state = "pasgt_woodland"
 	body_parts_covered = HEAD
 	flags_inv = BLOCKHEADHAIR
-	armor = list(melee = 62, arrow = 75, gun = 55, energy = 15, bomb = 55, bio = 20, rad = FALSE)
+	armor = list(melee = 62, arrow = 75, gun = ARMOR_CLASS*3, energy = 15, bomb = 55, bio = 20, rad = FALSE)
 
 /obj/item/clothing/head/helmet/modern/pasgt/com
 	icon_state = "pasgt_woodland_com"
@@ -456,58 +456,58 @@
 		update_icon()
 
 /obj/item/clothing/accessory/armor/coldwar/pasgt
-	name = "woodland PASGT body armor"
+	name = "woodland PASGT body-armor"
 	desc = "Wearable armor that can stop most pistol rounds. This one is in U.S. Woodland pattern."
 	icon_state = "pasgt_woodland"
 	item_state = "pasgt_woodland"
 	worn_state = "pasgt_woodland"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO
-	armor = list(melee = 67, arrow = 95, gun = 52, energy = 22, bomb = 60, bio = 20, rad = FALSE)
+	armor = list(melee = 67, arrow = 95, gun = ARMOR_CLASS*2, energy = 22, bomb = 60, bio = 20, rad = FALSE) // PASGT not interceptor. So ARMOR_CLASS*2 (stops pistols)
 	value = 90
 	slowdown = 0.3
 	w_class = ITEM_SIZE_LARGE
 	weight = 3.8
 
 /obj/item/clothing/accessory/armor/coldwar/pasgt/khaki
-	name = "khaki PASGT body armor"
+	name = "khaki PASGT body-armor"
 	desc = "Wearable armor that can stop most pistol rounds. This one is khaki colored."
 	icon_state = "pasgt_khaki"
 	item_state = "pasgt_khaki"
 	worn_state = "pasgt_khaki"
 
 /obj/item/clothing/accessory/armor/coldwar/pasgt/green
-	name = "green PASGT body armor"
+	name = "green PASGT body-armor"
 	desc = "Wearable armor that can stop most pistol rounds. This one is green colored."
 	icon_state = "pasgt_green"
 	item_state = "pasgt_green"
 	worn_state = "pasgt_green"
 
 /obj/item/clothing/accessory/armor/coldwar/pasgt/blizzard
-	name = "blizzard PASGT body armor"
+	name = "blizzard PASGT body-armor"
 	desc = "Wearable armor that can stop most pistol rounds. This one has a blizzard pattern."
 	icon_state = "pasgt_blizzard"
 	item_state = "pasgt_blizzard"
 	worn_state = "pasgt_blizzard"
 
 /obj/item/clothing/accessory/armor/coldwar/rb23
-	name = "RB-23 body armor"
+	name = "RB-23 body-armor"
 	desc = "A modern ballistic vest of Redmenian origin."
 	icon_state = "rb23"
 	item_state = "rb23"
 	worn_state = "rb23"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
-	armor = list(melee = 70, arrow = 95, gun = 72, energy = 30, bomb = 70, bio = 20, rad = FALSE)
+	armor = list(melee = 70, arrow = 95, gun = ARMOR_CLASS*3, energy = 30, bomb = 70, bio = 20, rad = FALSE)
 	slowdown = 0.1
 	weight = 4.8
 
 /obj/item/clothing/accessory/armor/coldwar/plates/b5/n34
-	name = "N34-B body armor"
+	name = "N34-B body-armor"
 	desc = "A modern piece of Blugoslavian armor introduced in 2023, made fully out of kevlar while also having some space left for plate inserts"
 	icon_state = "n34bm"
 	item_state = "n34bm"
 	worn_state = "n34bm"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
-	armor = list(melee = 70, arrow = 95, gun = 72, energy = 30, bomb = 70, bio = 20, rad = FALSE)
+	armor = list(melee = 70, arrow = 95, gun = ARMOR_CLASS*3, energy = 30, bomb = 70, bio = 20, rad = FALSE)
 	ripable = FALSE
 	flags = CONDUCT
 	slots = 2
@@ -515,7 +515,7 @@
 	weight = 5.5
 
 /obj/item/clothing/accessory/armor/coldwar/plates/b5/n34/medical
-	name = "N34-BM body armor"
+	name = "N34-BM body-armor"
 	desc = "A Blugoslavian armor used by medics and doctors alike, comes with a white medical cross on the back."
 	icon_state = "n34bmm"
 	item_state = "n34bmm"
@@ -531,7 +531,7 @@
 	worn_state = "lwh_desert"
 	body_parts_covered = HEAD
 	flags_inv = BLOCKHEADHAIR
-	armor = list(melee = 68, arrow = 67, gun = 65, energy = 18, bomb = 65, bio = 20, rad = FALSE)
+	armor = list(melee = 68, arrow = 67, gun = ARMOR_CLASS*3, energy = 18, bomb = 65, bio = 20, rad = FALSE)
 
 /obj/item/clothing/head/helmet/modern/lwh/black
 	name = "black LWH helmet"
@@ -547,7 +547,7 @@
 	item_state = "ach_ocp"
 	worn_state = "ach_ocp"
 	body_parts_covered = HEAD
-	armor = list(melee = 75, arrow = 95, gun = 93, energy = 22, bomb = 60, bio = 20, rad = FALSE)
+	armor = list(melee = 75, arrow = 95, gun = ARMOR_CLASS*3, energy = 22, bomb = 60, bio = 20, rad = FALSE)
 
 /obj/item/clothing/head/helmet/modern/ach/green
 	name = "ACH helmet"
@@ -660,7 +660,7 @@
 	body_parts_covered = HANDS
 	slot_flags = SLOT_GLOVES
 	fingerprint_chance = 100
-	armor = list(melee = 25, arrow = 25, gun = 5, energy = 22, bomb = 45, bio = 20, rad = 5)
+	armor = list(melee = 25, arrow = 25, gun = ARMOR_CLASS, energy = 22, bomb = 45, bio = 20, rad = 5)
 
 /* US belts*/
 
@@ -699,7 +699,7 @@
 	worn_state = "sovietfacehelmet"
 	body_parts_covered = HEAD
 	flags_inv = BLOCKHEADHAIR
-	armor = list(melee = 90, arrow = 110, gun = 96, energy = 27, bomb = 76, bio = 30, rad = FALSE)
+	armor = list(melee = 90, arrow = 110, gun = ARMOR_CLASS*2, energy = 27, bomb = 76, bio = 30, rad = FALSE)
 
 /obj/item/clothing/head/helmet/modern/sovietfacehelmet/welding
 	name = "K6-3 helmet"
@@ -709,7 +709,7 @@
 	worn_state = "sovietfacehelmet"
 	body_parts_covered = HEAD
 	flags_inv = BLOCKHEADHAIR
-	armor = list(melee = 90, arrow = 110, gun = 96, energy = 27, bomb = 76, bio = 30, rad = FALSE)
+	armor = list(melee = 90, arrow = 110, gun = ARMOR_CLASS*2, energy = 27, bomb = 76, bio = 30, rad = FALSE)
 
 /obj/item/clothing/head/helmet/modern/sovietfacehelmet/nomads
 	name = "MASKA 1 helmet"
@@ -717,7 +717,7 @@
 	icon_state = "sovietfacehelmet_o"
 	item_state = "sovietfacehelmet_o"
 	worn_state = "sovietfacehelmet_o"
-	armor = list(melee = 85, arrow = 110, gun = 95, energy = 25, bomb = 75, bio = 30, rad = FALSE)
+	armor = list(melee = 85, arrow = 110, gun = ARMOR_CLASS*2, energy = 25, bomb = 75, bio = 30, rad = FALSE)
 	health = 80
 	slowdown = 0.45
 	var/toggled = FALSE
@@ -749,7 +749,7 @@
 			body_parts_covered = HEAD|FACE
 			flags_inv = BLOCKHAIR
 
-/obj/item/clothing/head/helmet/modern/sovietfacehelmet/welding/nomads //also known as the
+/obj/item/clothing/head/helmet/modern/sovietfacehelmet/welding/nomads
 	name = "K6-3 helmet"
 	desc = "A russian heavy armoured helmet with a welding visor facemask."
 	icon_state = "sovietface_weldhelmet"
@@ -757,7 +757,7 @@
 	worn_state = "sovietface_weldhelmet"
 	body_parts_covered = HEAD
 	flags_inv = BLOCKHEADHAIR
-	armor = list(melee = 85, arrow = 110, gun = 95, energy = 25, bomb = 75, bio = 30, rad = FALSE)
+	armor = list(melee = 85, arrow = 110, gun = ARMOR_CLASS*2, energy = 25, bomb = 75, bio = 30, rad = FALSE)
 	health = 80
 	slowdown = 0.45
 	var/toggled = FALSE
@@ -797,7 +797,7 @@
 	worn_state = "a6b47"
 	body_parts_covered = HEAD
 	flags_inv = BLOCKHEADHAIR
-	armor = list(melee = 62, arrow = 75, gun = 55, energy = 15, bomb = 55, bio = 20, rad = FALSE)
+	armor = list(melee = 62, arrow = 75, gun = ARMOR_CLASS*3, energy = 15, bomb = 55, bio = 20, rad = FALSE)
 
 /obj/item/clothing/head/helmet/modern/a6b47/emr
 	icon_state = "6b47_emr"
@@ -835,7 +835,7 @@
 	worn_state = "sfera_helmet"
 	body_parts_covered = HEAD
 	flags_inv = BLOCKHEADHAIR
-	armor = list(melee = 80, arrow = 100, gun = 95, energy = 36, bomb = 76, bio = 30, rad = FALSE)
+	armor = list(melee = 80, arrow = 100, gun = ARMOR_CLASS*3, energy = 36, bomb = 76, bio = 30, rad = FALSE)
 
 /obj/item/clothing/head/helmet/modern/zsh1 //1990's helmet for reference, specific date unknown.
 	name = "ZSh-1 helmet"
@@ -845,7 +845,7 @@
 	worn_state = "zsh1"
 	body_parts_covered = HEAD
 	flags_inv = BLOCKHEADHAIR
-	armor = list(melee = 80, arrow = 100, gun = 95, energy = 36, bomb = 76, bio = 30, rad = FALSE)
+	armor = list(melee = 80, arrow = 100, gun = ARMOR_CLASS*3, energy = 36, bomb = 76, bio = 30, rad = FALSE)
 
 /obj/item/clothing/head/helmet/modern/zsh2 //Post 2000 helmet like description suggests
 	name = "ZSh-2 helmet"
@@ -855,7 +855,7 @@
 	worn_state = "zsh2"
 	body_parts_covered = HEAD|EYES
 	flags_inv = BLOCKHEADHAIR
-	armor = list(melee = 84, arrow = 104, gun = 98, energy = 38, bomb = 79, bio = 34, rad = FALSE)
+	armor = list(melee = 84, arrow = 104, gun = ARMOR_CLASS*3, energy = 38, bomb = 79, bio = 34, rad = FALSE)
 
 /obj/item/clothing/head/ruscap_fed
 	name = "Russian Federal Forces service cap"
@@ -994,7 +994,7 @@
 	worn_state = "idf1"
 	body_parts_covered = HEAD
 	flags_inv = BLOCKHEADHAIR
-	armor = list(melee = 62, arrow = 55, gun = 51, energy = 15, bomb = 55, bio = 20, rad = FALSE)
+	armor = list(melee = 62, arrow = 55, gun = ARMOR_CLASS*3, energy = 15, bomb = 55, bio = 20, rad = FALSE)
 
 /obj/item/clothing/head/helmet/modern/idf/New()
 	..()
@@ -1008,7 +1008,7 @@
 	item_state = "greenkevlarvest"
 	worn_state = "greenkevlarvest"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO
-	armor = list(melee = 67, arrow = 95, gun = 52, energy = 22, bomb = 60, bio = 20, rad = FALSE)
+	armor = list(melee = 67, arrow = 95, gun = ARMOR_CLASS*3, energy = 22, bomb = 60, bio = 20, rad = FALSE)
 	value = 90
 	slowdown = 0.3
 	w_class = ITEM_SIZE_LARGE
@@ -1031,7 +1031,7 @@
 	item_state = "kevlarvest"
 	worn_state = "kevlarvest"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS|LEGS
-	armor = list(melee = 80, arrow = 95, gun = 65, energy = 35, bomb = 64, bio = 20, rad = FALSE)
+	armor = list(melee = 80, arrow = 95, gun = ARMOR_CLASS*2, energy = 35, bomb = 64, bio = 20, rad = FALSE)
 	value = 90
 	slowdown = 0.4
 	w_class = ITEM_SIZE_LARGE
@@ -1044,7 +1044,7 @@
 	item_state = "civilianvest"
 	worn_state = "civilianvest"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO
-	armor = list(melee = 60, arrow = 90, gun = 52, energy = 22, bomb = 60, bio = 20, rad = FALSE)
+	armor = list(melee = 60, arrow = 90, gun = ARMOR_CLASS*2, energy = 22, bomb = 60, bio = 20, rad = FALSE)
 	value = 90
 	slowdown = 0.30
 	w_class = ITEM_SIZE_LARGE
@@ -1073,8 +1073,9 @@
 	item_state = "kevlarhelmet"
 	worn_state = "kevlarhelmet"
 	body_parts_covered = HEAD
-	armor = list(melee = 65, arrow = 95, gun = 73, energy = 22, bomb = 60, bio = 20, rad = FALSE)
+	armor = list(melee = 65, arrow = 95, gun = ARMOR_CLASS*2, energy = 22, bomb = 60, bio = 20, rad = FALSE)
 	flags_inv = BLOCKHAIR
+	restricts_view = 1
 	health = 90
 
 /* Motorist*/
@@ -1086,8 +1087,9 @@
 	item_state = "motorcycle"
 	worn_state = "motorcycle"
 	body_parts_covered = FACE|EYES|HEAD
+	restricts_view = 1
 	flags_inv = HIDEMASK|BLOCKHAIR|BLOCKHEADHAIR
-	armor = list(melee = 55, arrow = 65, gun = 5, energy = 35, bomb = 35, bio = 30, rad = FALSE)
+	armor = list(melee = 55, arrow = 65, gun = ARMOR_CLASS, energy = 35, bomb = 35, bio = 30, rad = FALSE)
 
 /obj/item/clothing/under/motorist
 	name = "motorist outfit"
@@ -1132,7 +1134,7 @@
 	worn_state = "motorist_jacket"
 	body_parts_covered = UPPER_TORSO||ARMS
 	cold_protection = UPPER_TORSO|ARM_LEFT|ARM_RIGHT
-	armor = list(melee = 10, arrow = 0, gun = FALSE, energy = 15, bomb = 5, bio = 30, rad = 30)
+	armor = list(melee = 10, arrow = FALSE, gun = FALSE, energy = 15, bomb = 5, bio = 30, rad = 30)
 
 /obj/item/clothing/suit/storage/jacket/rus_winter_vsr93
 	name = "Russian Federal Forces winter jacket"
@@ -1142,7 +1144,7 @@
 	worn_state = "rus_winter_vsr93"
 	body_parts_covered = UPPER_TORSO||ARMS
 	cold_protection = UPPER_TORSO|ARM_LEFT|ARM_RIGHT
-	armor = list(melee = 10, arrow = 0, gun = FALSE, energy = 15, bomb = 5, bio = 30, rad = 30)
+	armor = list(melee = 10, arrow = FALSE, gun = FALSE, energy = 15, bomb = 5, bio = 30, rad = 30)
 
 /* Punk */
 
@@ -1181,7 +1183,7 @@
 	worn_state = "punk_vest"
 	body_parts_covered = UPPER_TORSO
 	cold_protection = UPPER_TORSO
-	armor = list(melee = 15, arrow = 0, gun = FALSE, energy = 15, bomb = 5, bio = 30, rad = 30)
+	armor = list(melee = 15, arrow = FALSE, gun = FALSE, energy = 15, bomb = 5, bio = 30, rad = 30)
 
 /* Emergency Services*/
 
@@ -1194,8 +1196,9 @@
 	item_state = "swat"
 	worn_state = "swat"
 	body_parts_covered = HEAD
-	armor = list(melee = 65, arrow = 95, gun = 85, energy = 27, bomb = 64, bio = 20, rad = FALSE)
+	armor = list(melee = 65, arrow = 95, gun = ARMOR_CLASS*3, energy = 27, bomb = 64, bio = 20, rad = FALSE)
 	flags_inv = BLOCKHAIR
+	restricts_view = 1
 	health = 90
 
 /obj/item/clothing/head/helmet/swat_new
@@ -1205,8 +1208,9 @@
 	item_state = "swat_new"
 	worn_state = "swat_new"
 	body_parts_covered = HEAD
-	armor = list(melee = 85, arrow = 95, gun = 85, energy = 27, bomb = 70, bio = 20, rad = FALSE)
+	armor = list(melee = 85, arrow = 95, gun = ARMOR_CLASS*3, energy = 27, bomb = 70, bio = 20, rad = FALSE)
 	flags_inv = BLOCKHAIR
+	restricts_view = 1
 	health = 100
 
 	/* Emergency Services Clothing*/
@@ -1503,7 +1507,7 @@
 	item_state = "bailyvest"
 	worn_state = "bailyvest"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS|LEGS
-	armor = list(melee = 40, arrow = 95, gun = 82, energy = 30, bomb = 35, bio = 20, rad = FALSE)
+	armor = list(melee = 40, arrow = 95, gun = ARMOR_CLASS*3, energy = 30, bomb = 35, bio = 20, rad = FALSE)
 	value = 90
 	slowdown = 0.2
 	w_class = ITEM_SIZE_NORMAL
@@ -1519,7 +1523,7 @@
 	item_state = "zgz1_armor"
 	worn_state = "zgz1_armor"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
-	armor = list(melee = 45, arrow = 90, gun = 78, energy = 50, bomb = 60, bio = 20, rad = FALSE)
+	armor = list(melee = 45, arrow = 90, gun = ARMOR_CLASS*3, energy = 50, bomb = 60, bio = 20, rad = FALSE)
 	value = 50
 	slowdown = 0.5
 	health = 60
@@ -1531,7 +1535,7 @@
 	item_state = "zgz1med_armor"
 	worn_state = "zgz1med_armor"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
-	armor = list(melee = 45, arrow = 90, gun = 78, energy = 50, bomb = 60, bio = 20, rad = FALSE)
+	armor = list(melee = 45, arrow = 90, gun = ARMOR_CLASS*3, energy = 50, bomb = 60, bio = 20, rad = FALSE)
 	value = 50
 	slowdown = 0.5
 	health = 60
@@ -1544,7 +1548,7 @@
 	worn_state = "ft1_helmet"
 	body_parts_covered = HEAD
 	flags_inv = BLOCKHEADHAIR
-	armor = list(melee = 35, arrow = 60, gun = 80, energy = 40, bomb = 30, bio = 30, rad = FALSE)
+	armor = list(melee = 35, arrow = 60, gun = ARMOR_CLASS*3, energy = 40, bomb = 30, bio = 30, rad = FALSE)
 
 
 /obj/item/clothing/head/helmet/ft1/med
@@ -1555,7 +1559,7 @@
 	worn_state = "ft1med_helmet"
 	body_parts_covered = HEAD
 	flags_inv = BLOCKHEADHAIR
-	armor = list(melee = 35, arrow = 60, gun = 80, energy = 40, bomb = 30, bio = 30, rad = FALSE)
+	armor = list(melee = 35, arrow = 60, gun = ARMOR_CLASS*3, energy = 40, bomb = 30, bio = 30, rad = FALSE)
 
 	/* Tactical*/
 
@@ -1566,7 +1570,7 @@
 	item_state = "tacticalhelmet"
 	worn_state = "tacticalhelmet"
 	body_parts_covered = HEAD
-	armor = list(melee = 75, arrow = 95, gun = 93, energy = 22, bomb = 60, bio = 20, rad = FALSE)
+	armor = list(melee = 75, arrow = 95, gun = ARMOR_CLASS*3, energy = 22, bomb = 60, bio = 20, rad = FALSE)
 	flags_inv = BLOCKHAIR
 	health = 90
 
@@ -1746,7 +1750,7 @@
 	item_state = "iogsuit"
 	worn_state = "iogsuit"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS|LEGS
-	armor = list(melee = 110, arrow = 100, gun = 130, energy = 50, bomb = 90, bio = 100, rad = FALSE)
+	armor = list(melee = 110, arrow = 100, gun = ARMOR_CLASS*4, energy = 50, bomb = 90, bio = 100, rad = FALSE)
 	value = 160
 	slowdown = 0.2
 	w_class = ITEM_SIZE_LARGE
@@ -1759,8 +1763,9 @@
 	item_state = "ioghelmet"
 	worn_state = "ioghelmet"
 	body_parts_covered = HEAD
-	armor = list(melee = 95, arrow = 100, gun = 110, energy = 50, bomb = 90, bio = 45, rad = FALSE)
+	armor = list(melee = 95, arrow = 100, gun = ARMOR_CLASS*4, energy = 50, bomb = 90, bio = 45, rad = FALSE)
 	flags_inv = BLOCKHAIR
+	restricts_view = 1
 	health = 200
 
 /obj/item/clothing/head/helmet/iogmask1 //too broad, this is meant to be some sort of extreme sports armorwear or something.
@@ -1770,8 +1775,9 @@
 	item_state = "iogmask1"
 	worn_state = "iogmask1"
 	body_parts_covered = HEAD
-	armor = list(melee = 95, arrow = 100, gun = 100, energy = 50, bomb = 90, bio = 45, rad = 100)
+	armor = list(melee = 95, arrow = 100, gun = ARMOR_CLASS*2, energy = 50, bomb = 90, bio = 45, rad = 100)
 	flags_inv = BLOCKHAIR
+	restricts_view = 1
 	health = 200
 
 	/* Scrap Armor*/
@@ -1783,7 +1789,7 @@
 	item_state = "scraparmor"
 	worn_state = "scraparmor"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
-	armor = list(melee = 70, arrow = 85, gun = 20, energy = 20, bomb = 50, bio = 10, rad = 40)
+	armor = list(melee = 70, arrow = 85, gun = ARMOR_CLASS*2, energy = 20, bomb = 50, bio = 10, rad = 40)
 	value = 50
 	slowdown = 1.5
 	health = 65
@@ -1795,10 +1801,10 @@
 	item_state = "scraphelmet"
 	worn_state = "scraphelmet"
 	body_parts_covered = HEAD|FACE
-	armor = list(melee = 70, arrow = 85, gun = 20, energy = 20, bomb = 50, bio = 10, rad = 40)
+	armor = list(melee = 70, arrow = 85, gun = ARMOR_CLASS*2, energy = 20, bomb = 50, bio = 10, rad = 40)
 	flags_inv = BLOCKHAIR
+	restricts_view = 1
 	health = 60
-
 
 //////////////////////////////////////Russo-Ukraine war/////////////////////////////////////////////////////////////////////
 /obj/item/clothing/head/helmet/modern/mk6
@@ -1809,7 +1815,7 @@
 	worn_state = "mk6"
 	body_parts_covered = HEAD
 	flags_inv = BLOCKHEADHAIR
-	armor = list(melee = 70, arrow = 67, gun = 73, energy = 18, bomb = 65, bio = 20, rad = FALSE)
+	armor = list(melee = 70, arrow = 67, gun = ARMOR_CLASS*3, energy = 18, bomb = 65, bio = 20, rad = FALSE)
 	var/adjusted = FALSE
 
 /obj/item/clothing/head/helmet/modern/mk6/verb/adjust_band()
@@ -2249,7 +2255,7 @@
 	item_state = "cg634"
 	worn_state = "cg634"
 	body_parts_covered = HEAD
-	armor = list(melee = 75, arrow = 95, gun = 93, energy = 22, bomb = 60, bio = 20, rad = FALSE)
+	armor = list(melee = 75, arrow = 95, gun = ARMOR_CLASS*3, energy = 22, bomb = 60, bio = 20, rad = FALSE)
 
 /obj/item/clothing/head/helmet/modern/cg634/arid
 	icon_state = "cg634_arid"
@@ -2304,7 +2310,7 @@
 	item_state = "mechanicalhelmet"
 	worn_state = "mechanicalhelmet"
 	body_parts_covered = HEAD
-	armor = list(melee = 175, arrow = 99, gun = 120, energy = 42, bomb = 185, bio = 35, rad = FALSE)
+	armor = list(melee = 175, arrow = 99, gun = ARMOR_CLASS*4, energy = 42, bomb = 185, bio = 35, rad = FALSE)
 
 /obj/item/clothing/suit/armor/mechanical
 	name = "mechanized armor"
@@ -2313,7 +2319,7 @@
 	item_state = "mechanicalarmor"
 	worn_state = "mechanicalarmor"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
-	armor = list(melee = 85, arrow = 150, gun = 150, energy = 55, bomb = 70, bio = 30, rad = FALSE)
+	armor = list(melee = 85, arrow = 150, gun = ARMOR_CLASS*4, energy = 55, bomb = 70, bio = 30, rad = FALSE)
 	value = 150
 	slowdown = 1.8
 	health = 175
@@ -2332,7 +2338,7 @@
 	item_state = "qgf03"
 	worn_state = "qgf03"
 	body_parts_covered = HEAD
-	armor = list(melee = 65, arrow = 80, gun = 65, energy = 15, bomb = 55, bio = 20, rad = FALSE)
+	armor = list(melee = 65, arrow = 80, gun = ARMOR_CLASS*3, energy = 15, bomb = 55, bio = 20, rad = FALSE)
 
 /obj/item/clothing/under/cartel
 	name = "floral shirt with light pants"
@@ -2364,4 +2370,4 @@
 	worn_state = "m95_dpm"
 	body_parts_covered = HEAD
 	flags_inv = BLOCKHEADHAIR
-	armor = list(melee = 62, arrow = 75, gun = 55, energy = 15, bomb = 55, bio = 20, rad = FALSE)
+	armor = list(melee = 62, arrow = 75, gun = ARMOR_CLASS*2, energy = 15, bomb = 55, bio = 20, rad = FALSE) // PASGT, so only pistol bullet defense (ARMOR_CLASS*2); like the body-armor.

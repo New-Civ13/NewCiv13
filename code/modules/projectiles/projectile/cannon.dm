@@ -10,7 +10,7 @@
 	hitsound_wall = "ric_sound"
 	var/mob_passthrough_check = FALSE
 	penetrating = 10
-	armor_penetration = 80
+	armor_penetration = ARMOR_CLASS*4
 	heavy_armor_penetration = 25
 	var/caliber = 75
 	atype = "HE"
