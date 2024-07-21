@@ -201,7 +201,7 @@
 	applies_material_colour = TRUE
 
 //blunt//
-/obj/item/weapon/material/sword/magic/mjolnir
+/obj/item/weapon/material/sword/magic/mjolnir // This is NOT a sword...
 	name = "Mjolnir"
 	default_material = "steel"
 	icon_state = "mjolnir"
@@ -220,6 +220,7 @@
 	shockpower = 150
 	cooldownw = 12
 	unbreakable = TRUE
+	sharp = FALSE
 
 /obj/item/weapon/material/sword/magic/mjolnir/lesser
 	name = "Mjolnir"
