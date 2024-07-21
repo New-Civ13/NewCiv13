@@ -62,6 +62,7 @@
 	icon_state = "stahlhelm_old"
 	item_state = "stahlhelm_old"
 	worn_state = "stahlhelm_old"
+	body_parts_covered = HEAD
 	flags_inv = BLOCKHEADHAIR
 	armor = list(melee = 45, arrow = 35, gun = ARMOR_CLASS*2, energy = 15, bomb = 45, bio = 20, rad = FALSE)
 
@@ -71,6 +72,7 @@
 	icon_state = "adrian_greek"
 	item_state = "adrian_greek"
 	worn_state = "adrian_greek"
+	body_parts_covered = HEAD
 	flags_inv = BLOCKHEADHAIR
 	armor = list(melee = 40, arrow = 30, gun = ARMOR_CLASS*2, energy = 15, bomb = 40, bio = 20, rad = FALSE)
 
@@ -84,6 +86,7 @@
 		icon_state = "adrian_greek"
 		item_state = "adrian_greek"
 		worn_state = "adrian_greek"
+		body_parts_covered = HEAD
 		item_state_slots["slot_wear_head"] = "adrian_greek"
 		usr.visible_message("<span class = 'notice'>[usr] puts down their helmet's strap.</span>", "<span class = 'notice'>You put down your helmet's strap.</span>")
 		update_icon()
@@ -93,6 +96,7 @@
 		icon_state = "adrian_greek_strap"
 		item_state = "adrian_greek_strap"
 		worn_state = "adrian_greek_strap"
+		body_parts_covered = HEAD
 		item_state_slots["slot_wear_head"] = "adrian_greek_strap"
 		usr.visible_message("<span class = 'notice'>[usr] puts up their helmet's strap.</span>", "<span class = 'notice'>You put up your helmet's strap.</span>")
 		update_icon()
@@ -105,6 +109,7 @@
 	icon_state = "adrian_standard"
 	item_state = "adrian_standard"
 	worn_state = "adrian_standard"
+	body_parts_covered = HEAD
 	flags_inv = BLOCKHEADHAIR
 	armor = list(melee = 40, arrow = 30, gun = ARMOR_CLASS*2, energy = 15, bomb = 40, bio = 20, rad = FALSE)
 
@@ -118,6 +123,7 @@
 		icon_state = "adrian_standard"
 		item_state = "adrian_standard"
 		worn_state = "adrian_standard"
+		body_parts_covered = HEAD
 		item_state_slots["slot_wear_head"] = "adrian_standard"
 		usr.visible_message("<span class = 'notice'>[usr] puts down their helmet's strap.</span>", "<span class = 'notice'>You put down your helmet's strap.</span>")
 		update_icon()
@@ -127,6 +133,7 @@
 		icon_state = "adrian_standard_strap"
 		item_state = "adrian_standard_strap"
 		worn_state = "adrian_standard_strap"
+		body_parts_covered = HEAD
 		item_state_slots["slot_wear_head"] = "adrian_standard_strap"
 		usr.visible_message("<span class = 'notice'>[usr] puts up their helmet's strap.</span>", "<span class = 'notice'>You put up your helmet's strap.</span>")
 		update_icon()
@@ -153,6 +160,7 @@
 	icon_state = "adrian_russian"
 	item_state = "adrian_russian"
 	worn_state = "adrian_russian"
+	body_parts_covered = HEAD
 	flags_inv = BLOCKHEADHAIR
 	armor = list(melee = 40, arrow = 30, gun = ARMOR_CLASS*2, energy = 15, bomb = 40, bio = 20, rad = FALSE)
 
@@ -166,6 +174,7 @@
 		icon_state = "adrian_russian"
 		item_state = "adrian_russian"
 		worn_state = "adrian_russian"
+		body_parts_covered = HEAD 
 		item_state_slots["slot_wear_head"] = "adrian_standard" 
 		usr.visible_message("<span class = 'notice'>[usr] puts down their helmet's strap.</span>", "<span class = 'notice'>You put down your helmet's strap.</span>")
 		update_icon()
@@ -175,6 +184,7 @@
 		icon_state = "adrian_russian_strap"
 		item_state = "adrian_russian_strap"
 		worn_state = "adrian_russian_strap"
+		body_parts_covered = HEAD
 		item_state_slots["slot_wear_head"] = "adrian_standard_strap"
 		usr.visible_message("<span class = 'notice'>[usr] puts up their helmet's strap.</span>", "<span class = 'notice'>You put up your helmet's strap.</span>")
 		update_icon()
@@ -187,6 +197,7 @@
 	icon_state = "m15_adrian_m"
 	item_state = "m15_adrian_m"
 	worn_state = "m15_adrian_m"
+	body_parts_covered = HEAD
 	flags_inv = BLOCKHEADHAIR
 	armor = list(melee = 40, arrow = 30, gun = ARMOR_CLASS*2, energy = 15, bomb = 40, bio = 20, rad = FALSE)
 
@@ -196,6 +207,7 @@
 	icon_state = "m26_adrian"
 	item_state = "m26_adrian"
 	worn_state = "m26_adrian"
+	body_parts_covered = HEAD
 	flags_inv = BLOCKHEADHAIR
 	armor = list(melee = 40, arrow = 30, gun = ARMOR_CLASS*2, energy = 15, bomb = 40, bio = 20, rad = FALSE)
 
@@ -209,6 +221,7 @@
 		icon_state = "m26_adrian"
 		item_state = "m26_adrian"
 		worn_state = "m26_adrian"
+		body_parts_covered = HEAD
 		item_state_slots["slot_wear_head"] = "m26_adrian"
 		usr.visible_message("<span class = 'notice'>[usr] puts down their helmet's strap.</span>", "<span class = 'notice'>You put down your helmet's strap.</span>")
 		update_icon()
@@ -218,6 +231,7 @@
 		icon_state = "m26_adrian_s"
 		item_state = "m26_adrian_s"
 		worn_state = "m26_adrian_s"
+		body_parts_covered = HEAD
 		item_state_slots["slot_wear_head"] = "m26_adrian_s"
 		usr.visible_message("<span class = 'notice'>[usr] puts up their helmet's strap.</span>", "<span class = 'notice'>You put up your helmet's strap.</span>")
 		update_icon()
@@ -230,6 +244,7 @@
 	icon_state = "m26_medic"
 	item_state = "m26_medic"
 	worn_state = "m26_medic"
+	body_parts_covered = HEAD
 	flags_inv = BLOCKHEADHAIR
 	armor = list(melee = 40, arrow = 30, gun = ARMOR_CLASS*2, energy = 15, bomb = 40, bio = 20, rad = FALSE)
 
@@ -239,6 +254,7 @@
 	icon_state = "brodie_mk1_deb"
 	item_state = "brodie_mk1_deb"
 	worn_state = "brodie_mk1_deb"
+	body_parts_covered = HEAD
 	flags_inv = BLOCKHEADHAIR
 	armor = list(melee = 40, arrow = 30, gun = ARMOR_CLASS*2, energy = 15, bomb = 40, bio = 20, rad = FALSE)
 
@@ -331,6 +347,7 @@
 	icon_state = "pickelhaube2"
 	item_state = "pickelhaube2"
 	worn_state = "pickelhaube2"
+	body_parts_covered = HEAD
 	flags_inv = BLOCKHEADHAIR
 	armor = list(melee = 30, arrow = 30, gun = ARMOR_CLASS, energy = 10, bomb = 35, bio = 20, rad = FALSE)
 
@@ -364,6 +381,7 @@
 	icon_state = "sakura_helm"
 	item_state = "sakura_helm"
 	worn_state = "sakura_helm"
+	body_parts_covered = HEAD
 	flags_inv = BLOCKHEADHAIR
 	armor = list(melee = 33, arrow = 25, gun = ARMOR_CLASS*2, energy = 15, bomb = 38, bio = 20, rad = FALSE)
 
@@ -373,6 +391,7 @@
 	icon_state = "japhelm"
 	item_state = "japhelm"
 	worn_state = "japhelm"
+	body_parts_covered = HEAD
 	flags_inv = BLOCKHEADHAIR
 	armor = list(melee = 43, arrow = 33, gun = ARMOR_CLASS*2, energy = 15, bomb = 44, bio = 20, rad = FALSE)
 	var/has_headband = FALSE
@@ -462,6 +481,7 @@
 	icon_state = "japhelm_snlf"
 	item_state = "japhelm_snlf"
 	worn_state = "japhelm_snlf"
+	body_parts_covered = HEAD
 	flags_inv = BLOCKHEADHAIR
 	armor = list(melee = 43, arrow = 33, gun = ARMOR_CLASS*2, energy = 15, bomb = 44, bio = 20, rad = FALSE)
 	var/has_havelock = FALSE
@@ -510,6 +530,7 @@
 	icon_state = "japhelm_medic"
 	item_state = "japhelm_medic"
 	worn_state = "japhelm_medic"
+	body_parts_covered = HEAD
 	flags_inv = BLOCKHEADHAIR
 	armor = list(melee = 43, arrow = 33, gun = ARMOR_CLASS*2, energy = 15, bomb = 44, bio = 20, rad = FALSE)
 	var/has_havelock = FALSE
@@ -556,6 +577,7 @@
 	icon_state = "japtanker"
 	item_state = "japtanker"
 	worn_state = "japtanker"
+	body_parts_covered = HEAD
 	flags_inv = BLOCKHEADHAIR
 	armor = list(melee = 40, arrow = 30, gun = ARMOR_CLASS*2, energy = 15, bomb = 40, bio = 20, rad = FALSE)
 
@@ -2571,6 +2593,7 @@ obj/item/clothing/accessory/storage/webbing/ww1/ww2/stormgroup/Scout
 	icon_state = "m1_mp_white"
 	item_state = "m1_mp_white"
 	worn_state = "m1_mp_white"
+	body_parts_covered = HEAD
 	flags_inv = BLOCKHEADHAIR
 	armor = list(melee = 40, arrow = 30, gun = ARMOR_CLASS*2, energy = 15, bomb = 40, bio = 20, rad = FALSE)
 
@@ -2594,6 +2617,7 @@ obj/item/clothing/accessory/storage/webbing/ww1/ww2/stormgroup/Scout
 	icon_state = "ustanker"
 	item_state = "ustanker"
 	worn_state = "ustanker"
+	body_parts_covered = HEAD
 	flags_inv = BLOCKHEADHAIR
 	armor = list(melee = 40, arrow = 30, gun = ARMOR_CLASS, energy = 15, bomb = 40, bio = 20, rad = FALSE)
 
@@ -2603,6 +2627,7 @@ obj/item/clothing/accessory/storage/webbing/ww1/ww2/stormgroup/Scout
 	icon_state = "gertanker"
 	item_state = "gertanker"
 	worn_state = "gertanker"
+	body_parts_covered = HEAD
 	flags_inv = BLOCKHEADHAIR
 	armor = list(melee = 40, arrow = 30, gun = FALSE, energy = 15, bomb = 40, bio = 20, rad = FALSE)
 
@@ -2612,6 +2637,7 @@ obj/item/clothing/accessory/storage/webbing/ww1/ww2/stormgroup/Scout
 	icon_state = "gertanker"
 	item_state = "gertanker"
 	worn_state = "gertanker"
+	body_parts_covered = HEAD
 	flags_inv = BLOCKHEADHAIR
 	armor = list(melee = 40, arrow = 30, gun = FALSE, energy = 15, bomb = 40, bio = 20, rad = FALSE)
 
@@ -2621,6 +2647,7 @@ obj/item/clothing/accessory/storage/webbing/ww1/ww2/stormgroup/Scout
 	icon_state = "sovtanker"
 	item_state = "sovtanker"
 	worn_state = "sovtanker"
+	body_parts_covered = HEAD
 	flags_inv = BLOCKHEADHAIR
 	armor = list(melee = 40, arrow = 30, gun = ARMOR_CLASS, energy = 15, bomb = 40, bio = 20, rad = FALSE)
 
@@ -2754,6 +2781,7 @@ obj/item/clothing/accessory/storage/webbing/ww1/ww2/stormgroup/Scout
 	icon_state = "stahlhelm"
 	item_state = "stahlhelm"
 	worn_state = "stahlhelm"
+	body_parts_covered = HEAD
 	flags_inv = BLOCKHEADHAIR
 	armor = list(melee = 40, arrow = 30, gun = ARMOR_CLASS*2, energy = 15, bomb = 40, bio = 20, rad = FALSE)
 
@@ -2778,6 +2806,7 @@ obj/item/clothing/accessory/storage/webbing/ww1/ww2/stormgroup/Scout
 	icon_state = "gerhelm_winter"
 	item_state = "gerhelm_winter"
 	worn_state = "gerhelm_winter"
+	body_parts_covered = HEAD
 	flags_inv = BLOCKHEADHAIR
 	armor = list(melee = 40, arrow = 30, gun = ARMOR_CLASS*2, energy = 15, bomb = 40, bio = 20, rad = FALSE)
 
@@ -2795,6 +2824,7 @@ obj/item/clothing/accessory/storage/webbing/ww1/ww2/stormgroup/Scout
 	icon_state = "gerhelm_medic"
 	item_state = "gerhelm_medic"
 	worn_state = "gerhelm_medic"
+	body_parts_covered = HEAD
 	flags_inv = BLOCKHEADHAIR
 	armor = list(melee = 40, arrow = 30, gun = ARMOR_CLASS*2, energy = 15, bomb = 40, bio = 20, rad = FALSE)
 
@@ -2804,6 +2834,7 @@ obj/item/clothing/accessory/storage/webbing/ww1/ww2/stormgroup/Scout
 	icon_state = "gerhelm_mp"
 	item_state = "gerhelm_mp"
 	worn_state = "gerhelm_mp"
+	body_parts_covered = HEAD
 	flags_inv = BLOCKHEADHAIR
 	armor = list(melee = 40, arrow = 30, gun = ARMOR_CLASS*2, energy = 15, bomb = 40, bio = 20, rad = FALSE)
 
@@ -2813,6 +2844,7 @@ obj/item/clothing/accessory/storage/webbing/ww1/ww2/stormgroup/Scout
 	icon_state = "roa_helmet"
 	item_state = "roa_helmet"
 	worn_state = "roa_helmet"
+	body_parts_covered = HEAD
 	flags_inv = BLOCKHEADHAIR
 	armor = list(melee = 40, arrow = 30, gun = ARMOR_CLASS*2, energy = 15, bomb = 40, bio = 20, rad = FALSE)
 
@@ -2822,6 +2854,7 @@ obj/item/clothing/accessory/storage/webbing/ww1/ww2/stormgroup/Scout
 	icon_state = "roa_helmet2"
 	item_state = "roa_helmet2"
 	worn_state = "roa_helmet2"
+	body_parts_covered = HEAD
 	flags_inv = BLOCKHEADHAIR
 	armor = list(melee = 40, arrow = 30, gun = ARMOR_CLASS*2, energy = 15, bomb = 40, bio = 20, rad = FALSE)
 
@@ -2831,6 +2864,7 @@ obj/item/clothing/accessory/storage/webbing/ww1/ww2/stormgroup/Scout
 	icon_state = "sshelm"
 	item_state = "sshelm"
 	worn_state = "sshelm"
+	body_parts_covered = HEAD
 	flags_inv = BLOCKHEADHAIR
 	armor = list(melee = 42, arrow = 32, gun = ARMOR_CLASS*2, energy = 15, bomb = 42, bio = 20, rad = FALSE)
 
@@ -2847,6 +2881,7 @@ obj/item/clothing/accessory/storage/webbing/ww1/ww2/stormgroup/Scout
 	icon_state = "sovhelm"
 	item_state = "sovhelm"
 	worn_state = "sovhelm"
+	body_parts_covered = HEAD
 	flags_inv = BLOCKHEADHAIR
 	armor = list(melee = 40, arrow = 30, gun = ARMOR_CLASS*2, energy = 15, bomb = 40, bio = 20, rad = FALSE)
 /obj/item/clothing/head/helmet/ww2/soviet/New()
@@ -2868,6 +2903,7 @@ obj/item/clothing/accessory/storage/webbing/ww1/ww2/stormgroup/Scout
 	icon_state = "m33_helm"
 	item_state = "m33_helm"
 	worn_state = "m33_helm"
+	body_parts_covered = HEAD
 	flags_inv = BLOCKHEADHAIR
 	weight = 1.0
 	armor = list(melee = 35, arrow = 25, gun = ARMOR_CLASS*2, energy = 15, bomb = 33, bio = 20, rad = FALSE)
@@ -2878,6 +2914,7 @@ obj/item/clothing/accessory/storage/webbing/ww1/ww2/stormgroup/Scout
 	icon_state = "m33_helm"
 	item_state = "m33_helm"
 	worn_state = "m33_helm"
+	body_parts_covered = HEAD
 	flags_inv = BLOCKHEADHAIR
 	weight = 1.2
 	armor = list(melee = 35, arrow = 25, gun = ARMOR_CLASS*2, energy = 15, bomb = 35, bio = 20, rad = FALSE)
@@ -2888,6 +2925,7 @@ obj/item/clothing/accessory/storage/webbing/ww1/ww2/stormgroup/Scout
 	icon_state = "m33_helm_med"
 	item_state = "m33_helm_med"
 	worn_state = "m33_helm_med"
+	body_parts_covered = HEAD
 	flags_inv = BLOCKHEADHAIR
 	weight = 1.2
 	armor = list(melee = 35, arrow = 25, gun = ARMOR_CLASS*2, energy = 15, bomb = 35, bio = 20, rad = FALSE)
@@ -2898,6 +2936,7 @@ obj/item/clothing/accessory/storage/webbing/ww1/ww2/stormgroup/Scout
 	icon_state = "m1_standard"
 	item_state = "m1_standard"
 	worn_state = "m1_standard"
+	body_parts_covered = HEAD
 	flags_inv = BLOCKHEADHAIR
 	armor = list(melee = 40, arrow = 30, gun = ARMOR_CLASS*2, energy = 15, bomb = 40, bio = 20, rad = FALSE)
 
@@ -2918,6 +2957,7 @@ obj/item/clothing/accessory/storage/webbing/ww1/ww2/stormgroup/Scout
 		icon_state = "m1_tan_netting"
 		item_state = "m1_tan_netting"
 		worn_state = "m1_tan_netting"
+		body_parts_covered = HEAD
 		item_state_slots["slot_wear_head"] = "m1_tan_netting"
 		usr << "<span class = 'danger'>You switch out your tan netting for green netting.</span>"
 		update_icon()
@@ -2927,6 +2967,7 @@ obj/item/clothing/accessory/storage/webbing/ww1/ww2/stormgroup/Scout
 		icon_state = "m1_green_netting"
 		item_state = "m1_green_netting"
 		worn_state = "m1_green_netting"
+		body_parts_covered = HEAD
 		item_state_slots["slot_wear_head"] = "m1_green_netting"
 		usr << "<span class = 'danger'>You switch out your green netting for tan netting.</span>"
 		update_icon()
@@ -2939,6 +2980,7 @@ obj/item/clothing/accessory/storage/webbing/ww1/ww2/stormgroup/Scout
 	icon_state = "m1_green_netting"
 	item_state = "m1_green_netting"
 	worn_state = "m1_green_netting"
+	body_parts_covered = HEAD
 	flags_inv = BLOCKHEADHAIR
 	armor = list(melee = 40, arrow = 30, gun = ARMOR_CLASS*2, energy = 15, bomb = 40, bio = 20, rad = FALSE)
 
@@ -2957,6 +2999,7 @@ obj/item/clothing/accessory/storage/webbing/ww1/ww2/stormgroup/Scout
 	icon_state = "m1_greennet_leaves"
 	item_state = "m1_greennet_leaves"
 	worn_state = "m1_greennet_leaves"
+	body_parts_covered = HEAD
 	flags_inv = BLOCKHEADHAIR
 	armor = list(melee = 40, arrow = 30, gun = ARMOR_CLASS*2, energy = 15, bomb = 40, bio = 20, rad = FALSE)
 
@@ -2966,6 +3009,7 @@ obj/item/clothing/accessory/storage/webbing/ww1/ww2/stormgroup/Scout
 	icon_state = "m1_tan_netting"
 	item_state = "m1_tan_netting"
 	worn_state = "m1_tan_netting"
+	body_parts_covered = HEAD
 	flags_inv = BLOCKHEADHAIR
 	armor = list(melee = 40, arrow = 30, gun = ARMOR_CLASS*2, energy = 15, bomb = 40, bio = 20, rad = FALSE)
 
@@ -2975,6 +3019,7 @@ obj/item/clothing/accessory/storage/webbing/ww1/ww2/stormgroup/Scout
 	icon_state = "m1_chaplain"
 	item_state = "m1_chaplain"
 	worn_state = "m1_chaplain"
+	body_parts_covered = HEAD
 	flags_inv = BLOCKHEADHAIR
 	armor = list(melee = 40, arrow = 30, gun = ARMOR_CLASS*2, energy = 15, bomb = 40, bio = 20, rad = FALSE)
 
@@ -2985,6 +3030,7 @@ obj/item/clothing/accessory/storage/webbing/ww1/ww2/stormgroup/Scout
 	icon_state = "m1_mp_black"
 	item_state = "m1_mp_black"
 	worn_state = "m1_mp_black"
+	body_parts_covered = HEAD
 	flags_inv = BLOCKHEADHAIR
 	armor = list(melee = 40, arrow = 30, gun = ARMOR_CLASS*2, energy = 15, bomb = 40, bio = 20, rad = FALSE)
 
@@ -2994,6 +3040,7 @@ obj/item/clothing/accessory/storage/webbing/ww1/ww2/stormgroup/Scout
 	icon_state = "m1_mp_green"
 	item_state = "m1_mp_green"
 	worn_state = "m1_mp_green"
+	body_parts_covered = HEAD
 	flags_inv = BLOCKHEADHAIR
 	armor = list(melee = 40, arrow = 30, gun = ARMOR_CLASS*2, energy = 15, bomb = 40, bio = 20, rad = FALSE)
 
@@ -3004,6 +3051,7 @@ obj/item/clothing/accessory/storage/webbing/ww1/ww2/stormgroup/Scout
 	icon_state = "m1_medic"
 	item_state = "m1_medic"
 	worn_state = "m1_medic"
+	body_parts_covered = HEAD
 	flags_inv = BLOCKHEADHAIR
 	armor = list(melee = 40, arrow = 30, gun = ARMOR_CLASS*2, energy = 15, bomb = 40, bio = 20, rad = FALSE)
 
@@ -3013,6 +3061,7 @@ obj/item/clothing/accessory/storage/webbing/ww1/ww2/stormgroup/Scout
 	icon_state = "m1_2nd_lt"
 	item_state = "m1_2nd_lt"
 	worn_state = "m1_2nd_lt"
+	body_parts_covered = HEAD
 	flags_inv = BLOCKHEADHAIR
 	armor = list(melee = 40, arrow = 30, gun = ARMOR_CLASS*2, energy = 15, bomb = 40, bio = 20, rad = FALSE)
 
@@ -3022,6 +3071,7 @@ obj/item/clothing/accessory/storage/webbing/ww1/ww2/stormgroup/Scout
 	icon_state = "m1_1st_lt"
 	item_state = "m1_1st_lt"
 	worn_state = "m1_1st_lt"
+	body_parts_covered = HEAD
 	flags_inv = BLOCKHEADHAIR
 	armor = list(melee = 40, arrow = 30, gun = ARMOR_CLASS*2, energy = 15, bomb = 40, bio = 20, rad = FALSE)
 
@@ -3031,6 +3081,7 @@ obj/item/clothing/accessory/storage/webbing/ww1/ww2/stormgroup/Scout
 	icon_state = "m1_cpt"
 	item_state = "m1_cpt"
 	worn_state = "m1_cpt"
+	body_parts_covered = HEAD
 	flags_inv = BLOCKHEADHAIR
 	armor = list(melee = 40, arrow = 30, gun = ARMOR_CLASS*2, energy = 15, bomb = 40, bio = 20, rad = FALSE)
 
@@ -3040,6 +3091,7 @@ obj/item/clothing/accessory/storage/webbing/ww1/ww2/stormgroup/Scout
 	icon_state = "ushelmet_mar"
 	item_state = "ushelmet_mar"
 	worn_state = "ushelmet_mar"
+	body_parts_covered = HEAD
 	flags_inv = BLOCKHEADHAIR
 	armor = list(melee = 40, arrow = 30, gun = ARMOR_CLASS*2, energy = 15, bomb = 40, bio = 20, rad = FALSE)
 
@@ -3049,6 +3101,7 @@ obj/item/clothing/accessory/storage/webbing/ww1/ww2/stormgroup/Scout
 	icon_state = "ushelmet_mar_nco"
 	item_state = "ushelmet_mar_nco"
 	worn_state = "ushelmet_mar_nco"
+	body_parts_covered = HEAD
 	flags_inv = BLOCKHEADHAIR
 	armor = list(melee = 40, arrow = 30, gun = ARMOR_CLASS*2, energy = 15, bomb = 40, bio = 20, rad = FALSE)
 
@@ -3058,6 +3111,7 @@ obj/item/clothing/accessory/storage/webbing/ww1/ww2/stormgroup/Scout
 	icon_state = "sovhelm_medic"
 	item_state = "sovhelm_medic"
 	worn_state = "sovhelm_medic"
+	body_parts_covered = HEAD
 	flags_inv = BLOCKHEADHAIR
 	armor = list(melee = 40, arrow = 30, gun = ARMOR_CLASS*2, energy = 15, bomb = 40, bio = 20, rad = FALSE)
 /////////////////////////////////////////UPA////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

@@ -134,4 +134,5 @@
 	icon_state = "dunce_cap"
 	item_state = "dunce_cap"
 	worn_state = "dunce_cap"
+	body_parts_covered = HEAD
 	flags_inv = BLOCKHAIR

@@ -405,6 +405,7 @@
 	icon_state = "pasgt_woodland"
 	item_state = "pasgt_woodland"
 	worn_state = "pasgt_woodland"
+	body_parts_covered = HEAD
 	flags_inv = BLOCKHEADHAIR
 	armor = list(melee = 62, arrow = 75, gun = ARMOR_CLASS*3, energy = 15, bomb = 55, bio = 20, rad = FALSE)
 
@@ -528,6 +529,7 @@
 	icon_state = "lwh_desert"
 	item_state = "lwh_desert"
 	worn_state = "lwh_desert"
+	body_parts_covered = HEAD
 	flags_inv = BLOCKHEADHAIR
 	armor = list(melee = 68, arrow = 67, gun = ARMOR_CLASS*3, energy = 18, bomb = 65, bio = 20, rad = FALSE)
 
@@ -544,6 +546,7 @@
 	icon_state = "ach_ocp"
 	item_state = "ach_ocp"
 	worn_state = "ach_ocp"
+	body_parts_covered = HEAD
 	armor = list(melee = 75, arrow = 95, gun = ARMOR_CLASS*3, energy = 22, bomb = 60, bio = 20, rad = FALSE)
 
 /obj/item/clothing/head/helmet/modern/ach/green
@@ -694,6 +697,7 @@
 	icon_state = "sovietfacehelmet"
 	item_state = "sovietfacehelmet"
 	worn_state = "sovietfacehelmet"
+	body_parts_covered = HEAD
 	flags_inv = BLOCKHEADHAIR
 	armor = list(melee = 90, arrow = 110, gun = ARMOR_CLASS*2, energy = 27, bomb = 76, bio = 30, rad = FALSE)
 
@@ -703,6 +707,7 @@
 	icon_state = "sovietfacehelmet" //wip
 	item_state = "sovietfacehelmet"
 	worn_state = "sovietfacehelmet"
+	body_parts_covered = HEAD
 	flags_inv = BLOCKHEADHAIR
 	armor = list(melee = 90, arrow = 110, gun = ARMOR_CLASS*2, energy = 27, bomb = 76, bio = 30, rad = FALSE)
 
@@ -731,6 +736,7 @@
 			usr << "<span class = 'danger'>You put up your helmet's visor.</span>"
 			toggled = FALSE
 			update_clothing_icon()
+			body_parts_covered = HEAD
 			flags_inv = BLOCKHEADHAIR
 		else if (!toggled)
 			item_state = "sovietfacehelmet"
@@ -740,7 +746,7 @@
 			usr << "<span class = 'danger'>You put down your helmet's visor.</span>"
 			toggled = TRUE
 			update_clothing_icon()
-			body_parts_covered = FACE
+			body_parts_covered = HEAD|FACE
 			flags_inv = BLOCKHAIR
 
 /obj/item/clothing/head/helmet/modern/sovietfacehelmet/welding/nomads
@@ -749,6 +755,7 @@
 	icon_state = "sovietface_weldhelmet"
 	item_state = "sovietface_weldhelmet"
 	worn_state = "sovietface_weldhelmet"
+	body_parts_covered = HEAD
 	flags_inv = BLOCKHEADHAIR
 	armor = list(melee = 85, arrow = 110, gun = ARMOR_CLASS*2, energy = 25, bomb = 75, bio = 30, rad = FALSE)
 	health = 80
@@ -769,6 +776,7 @@
 			usr << "<span class = 'danger'>You put up your helmet's visor.</span>"
 			toggled = FALSE
 			update_clothing_icon()
+			body_parts_covered = HEAD
 			flags_inv = BLOCKHEADHAIR
 		else if (!toggled)
 			item_state = "sovietface_weldhelmet"
@@ -778,7 +786,7 @@
 			usr << "<span class = 'danger'>You put down your helmet's visor.</span>"
 			toggled = TRUE
 			update_clothing_icon()
-			body_parts_covered = FACE|EYES
+			body_parts_covered = HEAD|FACE|EYES
 			flags_inv = BLOCKHAIR
 
 /obj/item/clothing/head/helmet/modern/a6b47 //Post 2000 helmet more modern.
@@ -787,6 +795,7 @@
 	icon_state = "a6b47"
 	item_state = "a6b47"
 	worn_state = "a6b47"
+	body_parts_covered = HEAD
 	flags_inv = BLOCKHEADHAIR
 	armor = list(melee = 62, arrow = 75, gun = ARMOR_CLASS*3, energy = 15, bomb = 55, bio = 20, rad = FALSE)
 
@@ -824,6 +833,7 @@
 	icon_state = "sfera_helmet"
 	item_state = "sfera_helmet"
 	worn_state = "sfera_helmet"
+	body_parts_covered = HEAD
 	flags_inv = BLOCKHEADHAIR
 	armor = list(melee = 80, arrow = 100, gun = ARMOR_CLASS*3, energy = 36, bomb = 76, bio = 30, rad = FALSE)
 
@@ -833,6 +843,7 @@
 	icon_state = "zsh1"
 	item_state = "zsh1"
 	worn_state = "zsh1"
+	body_parts_covered = HEAD
 	flags_inv = BLOCKHEADHAIR
 	armor = list(melee = 80, arrow = 100, gun = ARMOR_CLASS*3, energy = 36, bomb = 76, bio = 30, rad = FALSE)
 
@@ -842,7 +853,7 @@
 	icon_state = "zsh2"
 	item_state = "zsh2"
 	worn_state = "zsh2"
-	body_parts_covered = EYES
+	body_parts_covered = HEAD|EYES
 	flags_inv = BLOCKHEADHAIR
 	armor = list(melee = 84, arrow = 104, gun = ARMOR_CLASS*3, energy = 38, bomb = 79, bio = 34, rad = FALSE)
 
@@ -924,12 +935,14 @@
 	desc = "A light black piece of cloth worn wrapped around the head."
 	icon_state = "black_bandana"
 	item_state = "black_bandana"
+	body_parts_covered = HEAD
 
 /obj/item/clothing/head/black_shemagh
 	name = "black shemagh"
 	desc = "A light black piece of cloth worn loosely wrapped around the head, typical of middle-east countries."
 	icon_state = "black_shemagh"
 	item_state = "black_shemagh"
+	body_parts_covered = HEAD
 	heat_protection = HEAD|FACE|EYES
 
 	/* Insurgent Objects*/
@@ -979,6 +992,7 @@
 	icon_state = "idf"
 	item_state = "idf1"
 	worn_state = "idf1"
+	body_parts_covered = HEAD
 	flags_inv = BLOCKHEADHAIR
 	armor = list(melee = 62, arrow = 55, gun = ARMOR_CLASS*3, energy = 15, bomb = 55, bio = 20, rad = FALSE)
 
@@ -1058,6 +1072,7 @@
 	icon_state = "kevlarhelmet"
 	item_state = "kevlarhelmet"
 	worn_state = "kevlarhelmet"
+	body_parts_covered = HEAD
 	armor = list(melee = 65, arrow = 95, gun = ARMOR_CLASS*2, energy = 22, bomb = 60, bio = 20, rad = FALSE)
 	flags_inv = BLOCKHAIR
 	restricts_view = 1
@@ -1180,6 +1195,7 @@
 	icon_state = "swat"
 	item_state = "swat"
 	worn_state = "swat"
+	body_parts_covered = HEAD
 	armor = list(melee = 65, arrow = 95, gun = ARMOR_CLASS*3, energy = 27, bomb = 64, bio = 20, rad = FALSE)
 	flags_inv = BLOCKHAIR
 	restricts_view = 1
@@ -1191,6 +1207,7 @@
 	icon_state = "swat_new"
 	item_state = "swat_new"
 	worn_state = "swat_new"
+	body_parts_covered = HEAD
 	armor = list(melee = 85, arrow = 95, gun = ARMOR_CLASS*3, energy = 27, bomb = 70, bio = 20, rad = FALSE)
 	flags_inv = BLOCKHAIR
 	restricts_view = 1
@@ -1269,6 +1286,7 @@
 	icon_state = "hardhat_yellow"
 	item_state = "hardhat_yellow"
 	worn_state = "hardhat_yellow"
+	body_parts_covered = HEAD
 	flags_inv = BLOCKHEADHAIR
 	heat_protection = HEAD
 	max_heat_protection_temperature = FIRE_HELMET_MAX_HEAT_PROTECTION_TEMPERATURE
@@ -1528,6 +1546,7 @@
 	icon_state = "ft1_helmet"
 	item_state = "ft1_helmet"
 	worn_state = "ft1_helmet"
+	body_parts_covered = HEAD
 	flags_inv = BLOCKHEADHAIR
 	armor = list(melee = 35, arrow = 60, gun = ARMOR_CLASS*3, energy = 40, bomb = 30, bio = 30, rad = FALSE)
 
@@ -1538,6 +1557,7 @@
 	icon_state = "ft1med_helmet"
 	item_state = "ft1med_helmet"
 	worn_state = "ft1med_helmet"
+	body_parts_covered = HEAD
 	flags_inv = BLOCKHEADHAIR
 	armor = list(melee = 35, arrow = 60, gun = ARMOR_CLASS*3, energy = 40, bomb = 30, bio = 30, rad = FALSE)
 
@@ -1549,6 +1569,7 @@
 	icon_state = "tacticalhelmet"
 	item_state = "tacticalhelmet"
 	worn_state = "tacticalhelmet"
+	body_parts_covered = HEAD
 	armor = list(melee = 75, arrow = 95, gun = ARMOR_CLASS*3, energy = 22, bomb = 60, bio = 20, rad = FALSE)
 	flags_inv = BLOCKHAIR
 	health = 90
@@ -1741,6 +1762,7 @@
 	icon_state = "ioghelmet"
 	item_state = "ioghelmet"
 	worn_state = "ioghelmet"
+	body_parts_covered = HEAD
 	armor = list(melee = 95, arrow = 100, gun = ARMOR_CLASS*4, energy = 50, bomb = 90, bio = 45, rad = FALSE)
 	flags_inv = BLOCKHAIR
 	restricts_view = 1
@@ -1752,6 +1774,7 @@
 	icon_state = "iogmask1"
 	item_state = "iogmask1"
 	worn_state = "iogmask1"
+	body_parts_covered = HEAD
 	armor = list(melee = 95, arrow = 100, gun = ARMOR_CLASS*2, energy = 50, bomb = 90, bio = 45, rad = 100)
 	flags_inv = BLOCKHAIR
 	restricts_view = 1
@@ -1777,7 +1800,7 @@
 	icon_state = "scraphelmet"
 	item_state = "scraphelmet"
 	worn_state = "scraphelmet"
-	body_parts_covered = FACE
+	body_parts_covered = HEAD|FACE
 	armor = list(melee = 70, arrow = 85, gun = ARMOR_CLASS*2, energy = 20, bomb = 50, bio = 10, rad = 40)
 	flags_inv = BLOCKHAIR
 	restricts_view = 1
@@ -1790,6 +1813,7 @@
 	icon_state = "mk6"
 	item_state = "mk6"
 	worn_state = "mk6"
+	body_parts_covered = HEAD
 	flags_inv = BLOCKHEADHAIR
 	armor = list(melee = 70, arrow = 67, gun = ARMOR_CLASS*3, energy = 18, bomb = 65, bio = 20, rad = FALSE)
 	var/adjusted = FALSE
@@ -2230,6 +2254,7 @@
 	icon_state = "cg634"
 	item_state = "cg634"
 	worn_state = "cg634"
+	body_parts_covered = HEAD
 	armor = list(melee = 75, arrow = 95, gun = ARMOR_CLASS*3, energy = 22, bomb = 60, bio = 20, rad = FALSE)
 
 /obj/item/clothing/head/helmet/modern/cg634/arid
@@ -2266,6 +2291,7 @@
 	icon_state = "tilly_cadpat"
 	item_state = "tilly_cadpat"
 	worn_state = "tilly_cadpat"
+	body_parts_covered = HEAD
 
 /obj/item/clothing/head/jungle_hat/caf/arid
 	icon_state = "tilly_cadpat_arid"
@@ -2283,6 +2309,7 @@
 	icon_state = "mechanicalhelmet"
 	item_state = "mechanicalhelmet"
 	worn_state = "mechanicalhelmet"
+	body_parts_covered = HEAD
 	armor = list(melee = 175, arrow = 99, gun = ARMOR_CLASS*4, energy = 42, bomb = 185, bio = 35, rad = FALSE)
 
 /obj/item/clothing/suit/armor/mechanical
@@ -2310,6 +2337,7 @@
 	icon_state = "qgf03"
 	item_state = "qgf03"
 	worn_state = "qgf03"
+	body_parts_covered = HEAD
 	armor = list(melee = 65, arrow = 80, gun = ARMOR_CLASS*3, energy = 15, bomb = 55, bio = 20, rad = FALSE)
 
 /obj/item/clothing/under/cartel
@@ -2340,5 +2368,6 @@
 	icon_state = "m95_dpm"
 	item_state = "m95_dpm"
 	worn_state = "m95_dpm"
+	body_parts_covered = HEAD
 	flags_inv = BLOCKHEADHAIR
 	armor = list(melee = 62, arrow = 75, gun = ARMOR_CLASS*2, energy = 15, bomb = 55, bio = 20, rad = FALSE) // PASGT, so only pistol bullet defense (ARMOR_CLASS*2); like the body-armor.

@@ -404,7 +404,7 @@
 	icon_state = "roman"
 	item_state = "roman"
 	worn_state = "roman"
-	body_parts_covered = FACE
+	body_parts_covered = HEAD|FACE
 	flags_inv = BLOCKHEADHAIR
 	armor = list(melee = 50, arrow = 40, gun = ARMOR_CLASS, energy = 15, bomb = 50, bio = 20, rad = FALSE)
 	health = 35
@@ -416,7 +416,7 @@
 	icon_state = "roman_d"
 	item_state = "roman_d"
 	worn_state = "roman_d"
-	body_parts_covered = FACE
+	body_parts_covered = HEAD|FACE
 	flags_inv = BLOCKHEADHAIR
 	armor = list(melee = 50, arrow = 40, gun = ARMOR_CLASS, energy = 15, bomb = 50, bio = 20, rad = FALSE)
 	health = 35
@@ -428,7 +428,7 @@
 	icon_state = "roman_c"
 	item_state = "roman_c"
 	worn_state = "roman_c"
-	body_parts_covered = FACE
+	body_parts_covered = HEAD|FACE
 	flags_inv = BLOCKHEADHAIR
 	armor = list(melee = 50, arrow = 40, gun = ARMOR_CLASS, energy = 15, bomb = 50, bio = 20, rad = FALSE)
 	health = 35
@@ -439,7 +439,7 @@
 	icon_state = "gladiator"
 	item_state = "gladiator"
 	worn_state = "gladiator"
-	body_parts_covered = FACE|EYES
+	body_parts_covered = HEAD|FACE|EYES
 	flags_inv = BLOCKHEADHAIR
 	armor = list(melee = 60, arrow = 45, gun = ARMOR_CLASS, energy = 15, bomb = 50, bio = 20, rad = FALSE)
 	health = 40
@@ -450,7 +450,7 @@
 	icon_state = "sol_invictus"
 	item_state = "sol_invictus"
 	worn_state = "sol_invictus"
-	body_parts_covered = FACE|EYES
+	body_parts_covered = HEAD|FACE|EYES
 	flags_inv = BLOCKHAIR
 	armor = list(melee = 65, arrow = 50, gun = ARMOR_CLASS, energy = 15, bomb = 50, bio = 20, rad = FALSE)
 	restricts_view = 1
@@ -463,7 +463,7 @@
 	icon_state = "leonidas"
 	item_state = "leonidas"
 	worn_state = "leonidas"
-	body_parts_covered = FACE|EYES
+	body_parts_covered = HEAD|FACE|EYES
 	flags_inv = BLOCKHAIR
 	armor = list(melee = 60, arrow = 45, gun = ARMOR_CLASS, energy = 15, bomb = 50, bio = 20, rad = FALSE)
 	restricts_view = 1
@@ -476,7 +476,7 @@
 	icon_state = "new_greek"
 	item_state = "new_greek"
 	worn_state = "new_greek"
-	body_parts_covered = FACE|EYES
+	body_parts_covered = HEAD|FACE|EYES
 	flags_inv = BLOCKHEADHAIR
 	armor = list(melee = 62, arrow = 44, gun = ARMOR_CLASS, energy = 15, bomb = 50, bio = 20, rad = FALSE)
 	health = 40
@@ -487,7 +487,7 @@
 	icon_state = "spartan"
 	item_state = "spartan"
 	worn_state = "spartan"
-	body_parts_covered = FACE|EYES
+	body_parts_covered = HEAD|FACE|EYES
 	flags_inv = BLOCKHEADHAIR
 	armor = list(melee = 62, arrow = 44, gun = ARMOR_CLASS, energy = 15, bomb = 50, bio = 20, rad = FALSE)
 	health = 40
@@ -498,7 +498,7 @@
 	icon_state = "athenian"
 	item_state = "athenian"
 	worn_state = "athenian"
-	body_parts_covered = FACE|EYES
+	body_parts_covered = HEAD|FACE|EYES
 	flags_inv = BLOCKHEADHAIR
 	armor = list(melee = 62, arrow = 44, gun = ARMOR_CLASS, energy = 15, bomb = 50, bio = 20, rad = FALSE)
 	health = 40
@@ -509,7 +509,7 @@
 	icon_state = "egyptian_bronze_headdress"
 	item_state = "egyptian_bronze_headdress"
 	worn_state = "egyptian_bronze_headdress"
-	body_parts_covered = EYES
+	body_parts_covered = HEAD|EYES
 	item_flags = FLEXIBLEMATERIAL // The egyptian helmet does not block the face. body_parts_covered is used in armor calculation, masks with this flag will not prevent eating even if they are covering your "face".
 	flags_inv = BLOCKHEADHAIR
 	armor = list(melee = 50, arrow = 40, gun = ARMOR_CLASS, energy = 15, bomb = 50, bio = 20, rad = FALSE)
@@ -522,6 +522,7 @@
 	icon_state = "phrigian_helmet"
 	item_state = "phrigian_helmet"
 	worn_state = "phrigian_helmet"
+	body_parts_covered = HEAD
 	armor = list(melee = 38, arrow = 25, gun = FALSE, energy = 15, bomb = 30, bio = 20, rad = FALSE)
 	health = 30
 
@@ -532,6 +533,7 @@
 	icon_state = "leatherhelmet"
 	item_state = "leatherhelmet"
 	worn_state = "leatherhelmet"
+	body_parts_covered = HEAD
 	flags_inv = BLOCKHEADHAIR
 	armor = list(melee = 27, arrow = 15, gun = FALSE, energy = 15, bomb = 25, bio = 20, rad = FALSE)
 	health = 20
@@ -542,6 +544,7 @@
 	icon_state = "hatchigane"
 	item_state = "hatchigane"
 	worn_state = "hatchigane"
+	body_parts_covered = HEAD
 	armor = list(melee = 15, arrow = 15, gun = FALSE, energy = 15, bomb = 25, bio = 20, rad = FALSE)
 	health = 15
 
@@ -551,6 +554,7 @@
 	icon_state = "khepresh"
 	item_state = "khepresh"
 	worn_state = "khepresh"
+	body_parts_covered = HEAD
 	armor = list(melee = 30, arrow = 20, gun = FALSE, energy = 15, bomb = 40, bio = 20, rad = FALSE) //lightly stronger than leather
 	health = 30
 
@@ -562,7 +566,7 @@
 	icon_state = "gladiator"
 	item_state = "gladiator"
 	worn_state = "gladiator"
-	body_parts_covered = FACE|EYES
+	body_parts_covered = HEAD|FACE|EYES
 	flags_inv = BLOCKHEADHAIR
 	armor = list(melee = 45, arrow = 30, gun = FALSE, energy = 15, bomb = 40, bio = 20, rad = FALSE)
 	health = 30
@@ -573,6 +577,7 @@
 	icon_state = "barbarian" //"viking" can be used elsewise for wagner
 	item_state = "barbarian"
 	worn_state = "barbarian"
+	body_parts_covered = HEAD
 	flags_inv = BLOCKHEADHAIR
 	armor = list(melee = 45, arrow = 30, gun = FALSE, energy = 15, bomb = 40, bio = 20, rad = FALSE)
 	health = 30
@@ -583,6 +588,7 @@
 	icon_state = "asterix"
 	item_state = "asterix"
 	worn_state = "asterix"
+	body_parts_covered = HEAD
 	flags_inv = BLOCKHEADHAIR
 	armor = list(melee = 45, arrow = 30, gun = FALSE, energy = 15, bomb = 40, bio = 20, rad = FALSE)
 	health = 30
@@ -593,7 +599,7 @@
 	icon_state = "egyptian_bronze_headdress"
 	item_state = "egyptian_bronze_headdress"
 	worn_state = "egyptian_bronze_headdress"
-	body_parts_covered = EYES
+	body_parts_covered = HEAD|EYES
 	flags_inv = BLOCKHEADHAIR
 	armor = list(melee = 45, arrow = 30, gun = FALSE, energy = 15, bomb = 40, bio = 20, rad = FALSE)
 	health = 30
@@ -605,7 +611,7 @@
 	icon_state = "new_greek"
 	item_state = "new_greek"
 	worn_state = "new_greek"
-	body_parts_covered = FACE|EYES
+	body_parts_covered = HEAD|FACE|EYES
 	flags_inv = BLOCKHEADHAIR
 	armor = list(melee = 45, arrow = 30, gun = FALSE, energy = 15, bomb = 40, bio = 20, rad = FALSE)
 	health = 30
@@ -616,7 +622,7 @@
 	icon_state = "spartan"
 	item_state = "spartan"
 	worn_state = "spartan"
-	body_parts_covered = FACE|EYES
+	body_parts_covered = HEAD|FACE|EYES
 	flags_inv = BLOCKHEADHAIR
 	armor = list(melee = 50, arrow = 40, gun = ARMOR_CLASS, energy = 15, bomb = 50, bio = 20, rad = FALSE)
 	health = 40
@@ -627,7 +633,7 @@
 	icon_state = "athenian"
 	item_state = "athenian"
 	worn_state = "athenian"
-	body_parts_covered = FACE|EYES
+	body_parts_covered = HEAD|FACE|EYES
 	flags_inv = BLOCKHEADHAIR
 	armor = list(melee = 50, arrow = 40, gun = ARMOR_CLASS, energy = 15, bomb = 50, bio = 20, rad = FALSE)
 	health = 40
@@ -639,7 +645,7 @@
 	icon_state = "roman"
 	item_state = "roman"
 	worn_state = "roman"
-	body_parts_covered = FACE
+	body_parts_covered = HEAD|FACE
 	flags_inv = BLOCKHEADHAIR
 	armor = list(melee = 45, arrow = 30, gun = FALSE, energy = 15, bomb = 40, bio = 20, rad = FALSE) //nerfed
 	health = 30
@@ -650,6 +656,7 @@
 	icon_state = "bronze_chinese"
 	item_state = "bronze_chinese"
 	worn_state = "bronze_chinese"
+	body_parts_covered = HEAD
 	flags_inv = BLOCKHEADHAIR
 	armor = list(melee = 45, arrow = 30, gun = FALSE, energy = 15, bomb = 40, bio = 20, rad = FALSE)
 	health = 30
@@ -1320,6 +1327,7 @@
 	icon_state = "yellow_ninja"
 	item_state = "yellow_ninja"
 	worn_state = "yellow_ninja"
+	body_parts_covered = HEAD
 	armor = list(melee = 30, arrow = 40, gun = FALSE, energy = 15, bomb = 25, bio = 20, rad = FALSE)
 	health = 30
 	slowdown = -0.40

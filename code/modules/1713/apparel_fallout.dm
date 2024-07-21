@@ -141,6 +141,7 @@
 	icon_state = "ncr_helmet"
 	item_state = "ncr_helmet"
 	worn_state = "ncr_helmet"
+	body_parts_covered = HEAD
 	flags_inv = BLOCKHEADHAIR
 	armor = list(melee = 43, arrow = 33, gun = ARMOR_CLASS*2, energy = 15, bomb = 44, bio = 20, rad = FALSE)
 
@@ -255,5 +256,6 @@
 	icon_state = "legionaire"
 	item_state = "legionaire"
 	worn_state = "legionaire"
+	body_parts_covered = HEAD
 	flags_inv = BLOCKHEADHAIR
 	armor = list(melee = 10, arrow = 2, gun = FALSE, energy = 15, bomb = 10, bio = 20, rad = FALSE)

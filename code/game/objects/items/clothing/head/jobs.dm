@@ -39,6 +39,7 @@
 	desc = "It's hood that covers the head."
 	icon_state = "chaplain_hood"
 	flags_inv = BLOCKHAIR
+	body_parts_covered = HEAD
 
 /obj/item/clothing/under/chaplain
 	name = "preacher's clothing"
@@ -67,7 +68,7 @@
 	var/up = FALSE
 	armor = list(melee = 10, bullet = FALSE, laser = FALSE,energy = FALSE, bomb = FALSE, bio = FALSE, rad = FALSE)
 	flags_inv = (HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE)
-	body_parts_covered = FACE|EYES
+	body_parts_covered = HEAD|FACE|EYES
 	action_button_name = "Flip Welding Mask"
 	siemens_coefficient = 0.9
 	w_class = ITEM_SIZE_NORMAL

@@ -54,7 +54,7 @@ All eras are accepted, preferably store them in relevant sections with appropria
 	icon_state = "sauronhelmet"
 	item_state = "sauronhelmet"
 	worn_state = "sauronhelmet"
-	body_parts_covered = FACE|EYES
+	body_parts_covered = HEAD|FACE|EYES
 	armor = list(melee = 80, arrow = 90, gun = ARMOR_CLASS*2, energy = 20, bomb = 70, bio = 20, rad = 45)
 	value = 70
 	slowdown = 1
@@ -102,7 +102,7 @@ All eras are accepted, preferably store them in relevant sections with appropria
 	icon_state = "beserkerhelmet"
 	item_state = "beserkerhelmet"
 	worn_state = "beserkerhelmet"
-	body_parts_covered = FACE|EYES
+	body_parts_covered = HEAD|FACE|EYES
 	force = WEAPON_FORCE_PAINFUL
 	armor = list(melee = 70, arrow = 80, gun = FALSE, energy = FALSE, bomb = 50, bio = 20, rad = 10)
 
@@ -112,7 +112,7 @@ All eras are accepted, preferably store them in relevant sections with appropria
 	icon_state = "ork_elite_helmet_2"
 	item_state = "ork_elite_helmet_2"
 	worn_state = "ork_elite_helmet_2"
-	body_parts_covered = FACE|EYES
+	body_parts_covered = HEAD|FACE|EYES
 	force = WEAPON_FORCE_PAINFUL
 	armor = list(melee = 80, arrow = 90, gun = FALSE, energy = FALSE, bomb = 50, bio = 20, rad = 10)
 
@@ -122,6 +122,7 @@ All eras are accepted, preferably store them in relevant sections with appropria
 	icon_state = "ork_elite_helmet"
 	item_state = "ork_elite_helmet"
 	worn_state = "ork_elite_helmet"
+	body_parts_covered = HEAD
 	force = WEAPON_FORCE_PAINFUL
 	armor = list(melee = 70, arrow = 70, gun = FALSE, energy = FALSE, bomb = 50, bio = 20, rad = 10)
 
@@ -131,7 +132,7 @@ All eras are accepted, preferably store them in relevant sections with appropria
 	icon_state = "spearmanhelmet"
 	item_state = "spearmanhelmet"
 	worn_state = "spearmanhelmet"
-	body_parts_covered = FACE|EYES
+	body_parts_covered = HEAD|FACE|EYES
 	force = WEAPON_FORCE_PAINFUL
 	armor = list(melee = 55, arrow = 45, gun = ARMOR_CLASS, energy = 15, bomb = 60, bio = 30, rad = FALSE)
 
@@ -141,7 +142,7 @@ All eras are accepted, preferably store them in relevant sections with appropria
 	icon_state = "captainhelmet"
 	item_state = "captainhelmet"
 	worn_state = "captainhelmet"
-	body_parts_covered = FACE|EYES
+	body_parts_covered = HEAD|FACE|EYES
 	force = WEAPON_FORCE_PAINFUL
 	armor = list(melee = 55, arrow = 45, gun = ARMOR_CLASS, energy = 15, bomb = 60, bio = 30, rad = FALSE)
 
@@ -151,7 +152,7 @@ All eras are accepted, preferably store them in relevant sections with appropria
 	icon_state = "grunthelmet"
 	item_state = "grunthelmet"
 	worn_state = "grunthelmet"
-	body_parts_covered = FACE
+	body_parts_covered = HEAD|FACE
 	force = WEAPON_FORCE_PAINFUL
 	armor = list(melee = 50, arrow = 40, gun = ARMOR_CLASS, energy = 15, bomb = 50, bio = 20, rad = FALSE)
 
@@ -394,7 +395,7 @@ All eras are accepted, preferably store them in relevant sections with appropria
 	icon_state = "wyvern"
 	item_state = "wyvern"
 	worn_state = "wyvern"
-	body_parts_covered = FACE
+	body_parts_covered = HEAD|FACE
 	flags_inv = BLOCKHEADHAIR
 	armor = list(melee = 55, arrow = 45, gun = ARMOR_CLASS, energy = 15, bomb = 60, bio = 30, rad = FALSE)
 	health = 45
@@ -407,7 +408,7 @@ All eras are accepted, preferably store them in relevant sections with appropria
 	icon_state = "ice_wyvern"
 	item_state = "ice_wyvern"
 	worn_state = "ice_wyvern"
-	body_parts_covered = FACE
+	body_parts_covered = HEAD|FACE
 	flags_inv = BLOCKHEADHAIR
 	armor = list(melee = 55, arrow = 45, gun = ARMOR_CLASS, energy = 40, bomb = 60, bio = 30, rad = FALSE)
 	health = 45
@@ -420,7 +421,7 @@ All eras are accepted, preferably store them in relevant sections with appropria
 	icon_state = "green_dragon"
 	item_state = "green_dragon"
 	worn_state = "green_dragon"
-	body_parts_covered = FACE
+	body_parts_covered = HEAD|FACE
 	flags_inv = BLOCKHEADHAIR
 	armor = list(melee = 60, arrow = 70, gun = ARMOR_CLASS, energy = 15, bomb = 60, bio = 20, rad = FALSE)
 	health = 60

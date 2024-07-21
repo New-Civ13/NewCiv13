@@ -296,30 +296,35 @@
 	desc = "A red beret."
 	icon_state = "beret_red"
 	item_state = "beret_red"
+	body_parts_covered = HEAD
 
 /obj/item/clothing/head/beret_black
 	name = "black beret"
 	desc = "A black military beret."
 	icon_state = "beret_black"
 	item_state = "beret_black"
+	body_parts_covered = HEAD
 
 /obj/item/clothing/head/beret_black/insig
 	name = "black beret"
 	desc = "A black beret with golden insignia."
 	icon_state = "beret_black_insig"
 	item_state = "beret_black_insig"
+	body_parts_covered = HEAD
 
 /obj/item/clothing/head/beret_green
 	name = "green beret"
 	desc = "A green beret."
 	icon_state = "beret_green"
 	item_state = "beret_green"
+	body_parts_covered = HEAD
 
 /obj/item/clothing/head/beret_green/insig
 	name = "green beret"
 	desc = "A green beret with golden insignia."
 	icon_state = "beret_green_insig"
 	item_state = "beret_green_insig"
+	body_parts_covered = HEAD
 
 /* US Army Clothes*/
 
@@ -414,6 +419,7 @@
 	icon_state = "m1_standard"
 	item_state = "m1_standard"
 	worn_state = "m1_standard"
+	body_parts_covered = HEAD
 	flags_inv = BLOCKHEADHAIR
 	armor = list(melee = 55, arrow = 45, gun = ARMOR_CLASS*2, energy = 15, bomb = 55, bio = 20, rad = FALSE)
 	health = 24
@@ -492,6 +498,7 @@
 	icon_state = "cvc_helmet"
 	item_state = "cvc_helmet"
 	worn_state = "cvc_helmet"
+	body_parts_covered = HEAD
 	flags_inv = BLOCKHEADHAIR
 	armor = list(melee = 60, arrow = 75, gun = ARMOR_CLASS*3, energy = 15, bomb = 70, bio = 20, rad = FALSE)
 
@@ -502,6 +509,7 @@
 	icon_state = "korea_m1_standard"
 	item_state = "korea_m1_standard"
 	worn_state = "korea_m1_standard"
+	body_parts_covered = HEAD
 	flags_inv = BLOCKHEADHAIR
 	armor = list(melee = 40, arrow = 30, gun = ARMOR_CLASS*2, energy = 15, bomb = 40, bio = 20, rad = FALSE)
 
@@ -520,6 +528,7 @@
 	icon_state = "korea_m1_tan_netting"
 	item_state = "korea_m1_tan_netting"
 	worn_state = "korea_m1_tan_netting"
+	body_parts_covered = HEAD
 	flags_inv = BLOCKHEADHAIR
 	armor = list(melee = 40, arrow = 30, gun = ARMOR_CLASS*2, energy = 15, bomb = 40, bio = 20, rad = FALSE)
 
@@ -531,6 +540,7 @@
 		icon_state = "korea_m1_tan_netting"
 		item_state = "korea_m1_tan_netting"
 		worn_state = "korea_m1_tan_netting"
+		body_parts_covered = HEAD
 		item_state_slots["slot_wear_head"] = "m1_tan_netting"
 		usr << "<span class = 'danger'>You switch out your tan netting for green netting.</span>"
 		update_icon()
@@ -540,6 +550,7 @@
 		icon_state = "korea_m1_green_netting"
 		item_state = "korea_m1_green_netting"
 		worn_state = "korea_m1_green_netting"
+		body_parts_covered = HEAD
 		item_state_slots["slot_wear_head"] = "m1_green_netting"
 		usr << "<span class = 'danger'>You switch out your green netting for tan netting.</span>"
 		update_icon()
@@ -552,6 +563,7 @@
 	icon_state = "korea_m1_green_netting"
 	item_state = "korea_m1_green_netting"
 	worn_state = "korea_m1_green_netting"
+	body_parts_covered = HEAD
 	flags_inv = BLOCKHEADHAIR
 	armor = list(melee = 40, arrow = 30, gun = ARMOR_CLASS*2, energy = 15, bomb = 40, bio = 20, rad = FALSE)
 
@@ -561,6 +573,7 @@
 	icon_state = "korea_m1_medic"
 	item_state = "korea_m1_medic"
 	worn_state = "korea_m1_medic"
+	body_parts_covered = HEAD
 	flags_inv = BLOCKHEADHAIR
 	armor = list(melee = 40, arrow = 30, gun = ARMOR_CLASS*2, energy = 15, bomb = 40, bio = 20, rad = FALSE)
 
@@ -570,6 +583,7 @@
 	icon_state = "korea_m1_2nd_lt"
 	item_state = "korea_m1_2nd_lt"
 	worn_state = "korea_m1_2nd_lt"
+	body_parts_covered = HEAD
 	flags_inv = BLOCKHEADHAIR
 	armor = list(melee = 40, arrow = 30, gun = ARMOR_CLASS*2, energy = 15, bomb = 40, bio = 20, rad = FALSE)
 
@@ -579,6 +593,7 @@
 	icon_state = "korea_m1_1st_lt"
 	item_state = "korea_m1_1st_lt"
 	worn_state = "korea_m1_1st_lt"
+	body_parts_covered = HEAD
 	flags_inv = BLOCKHEADHAIR
 	armor = list(melee = 40, arrow = 30, gun = ARMOR_CLASS*2, energy = 15, bomb = 40, bio = 20, rad = FALSE)
 
@@ -588,6 +603,7 @@
 	icon_state = "korea_m1_cpt"
 	item_state = "korea_m1_cpt"
 	worn_state = "korea_m1_cpt"
+	body_parts_covered = HEAD
 	flags_inv = BLOCKHEADHAIR
 	armor = list(melee = 40, arrow = 30, gun = ARMOR_CLASS*2, energy = 15, bomb = 40, bio = 20, rad = FALSE)
 
@@ -608,6 +624,7 @@
 	desc = "A headcover for a ghillie suit."
 	icon_state = "ghillie"
 	item_state = "ghillie"
+	body_parts_covered = HEAD
 	restricts_view = 1
 
 /obj/item/clothing/suit/storage/ghillie/winter
@@ -630,25 +647,28 @@
 	desc = "A wide brim, soft jungle hat."
 	icon_state = "black_boonie"
 	item_state = "black_boonie"
-
+	body_parts_covered = HEAD
 
 /obj/item/clothing/head/jungle_hat/khaki
 	name = "khaki boonie"
 	desc = "A wide brim, soft jungle hat."
 	icon_state = "khaki_boonie"
 	item_state = "khaki_boonie"
+	body_parts_covered = HEAD
 
 /obj/item/clothing/head/jungle_hat/og107
 	name = "olive green boonie"
 	desc = "A wide brim, soft jungle hat."
 	icon_state = "og107_boonie"
 	item_state = "og107_boonie"
-	
+	body_parts_covered = HEAD
+
 /obj/item/clothing/head/rice_hat
 	name = "rice hat"
 	desc = "A wide brim, rice farmer hat."
 	icon_state = "rice_hat"
 	item_state = "rice_hat"
+	body_parts_covered = HEAD
 
 /obj/item/clothing/head/chinese_ushanka
 	name = "chinese ushanka"
@@ -681,6 +701,7 @@
 	icon_state = "chi_korea_helm"
 	item_state = "chi_korea_helm"
 	worn_state = "chi_korea_helm"
+	body_parts_covered = HEAD
 	flags_inv = BLOCKHEADHAIR
 	armor = list(melee = 50, arrow = 45, gun = ARMOR_CLASS*2, energy = 15, bomb = 55, bio = 20, rad = FALSE)
 	health = 24
@@ -691,6 +712,7 @@
 	icon_state = "chi_korea_helm"
 	item_state = "chi_korea_helm"
 	worn_state = "chi_korea_helm"
+	body_parts_covered = HEAD
 	flags_inv = BLOCKHEADHAIR
 	armor = list(melee = 55, arrow = 45, gun = ARMOR_CLASS*2, energy = 25, bomb = 55, bio = 20, rad = FALSE)
 	health = 100
@@ -713,6 +735,7 @@
 	desc = "A field cap with the markings of an NVA officer."
 	icon_state = "nva_off_cap"
 	item_state = "nva_off_cap"
+	body_parts_covered = HEAD
 
 /obj/item/clothing/head/sov_ushanka_new
 	name = "soviet ushanka"
@@ -758,6 +781,7 @@
 	icon_state = "fieldcap_afghanka"
 	item_state = "fieldcap_afghanka"
 	worn_state = "fieldcap_afghanka"
+	body_parts_covered = HEAD
 	cold_protection = HEAD
 
 /obj/item/clothing/head/beret_rus_vdv
@@ -765,6 +789,7 @@
 	desc = "A beret worn by the Soviet and Russian Airborne Forces."
 	icon_state = "beret_rus_vdv"
 	item_state = "beret_rus_vdv"
+	body_parts_covered = HEAD
 
 /obj/item/clothing/head/beret_rus_vdv/modern
 	name = "VDV beret"
@@ -777,30 +802,35 @@
 	desc = "A beret worn by the Spetznaz."
 	icon_state = "beret_rus_spez"
 	item_state = "beret_rus_spez"
+	body_parts_covered = HEAD
 
 /obj/item/clothing/head/beret_blugoslavia
 	name = "Blugoslavian beret"
 	desc = "A beret worn by Blugoslavian Officers."
 	icon_state = "beret_rus_vdv"
 	item_state = "beret_rus_vdv"
+	body_parts_covered = HEAD
 
 /obj/item/clothing/head/beret_redmenia
 	name = "Redmenian beret"
 	desc = "A beret worn by Redmenian Officers."
 	icon_state = "beret_rus_spez"
 	item_state = "beret_rus_spez"
+	body_parts_covered = HEAD
 
 /obj/item/clothing/head/cap_blugoslavia
 	name = "Blugoslavian navy cap"
 	desc = "A cap worn by Blugoslavian Officers of the Blugoslavian Naval Force."
 	icon_state = "blugoslavia_cap"
 	item_state = "blugoslavia_cap"
+	body_parts_covered = HEAD
 
 /obj/item/clothing/head/cap_redmenia
 	name = "Redmenian navy cap"
 	desc = "A cap worn by Redmenian Officers of the Imperial Redmenian Navy."
 	icon_state = "redmenia_cap"
 	item_state = "redmenia_cap"
+	body_parts_covered = HEAD
 
 /obj/item/clothing/head/ww2/us_sailor_hat/blugoslavia
 	name = "Blugoslavian sailor hat"
@@ -1001,6 +1031,7 @@
 	icon_state = "ssh_68_sovhelm"
 	item_state = "ssh_68_sovhelm"
 	worn_state = "ssh_68_sovhelm"
+	body_parts_covered = HEAD
 	flags_inv = BLOCKHEADHAIR
 	armor = list(melee = 55, arrow = 75, gun = ARMOR_CLASS*3, energy = 24, bomb = 66, bio = 25, rad = FALSE)
 
@@ -1490,6 +1521,7 @@
 	desc = "An olive drab coloured bandana."
 	icon_state = "commando_bandana"
 	item_state = "commando_bandana"
+	body_parts_covered = HEAD
 
 /obj/item/clothing/mask/sovietbala
 	name = "green balaclava"
@@ -1847,6 +1879,7 @@
 	desc = "A yellow coloured NBC hood, made protect against biological, chemical and nuclear threats."
 	icon_state = "nbc"
 	flags_inv = BLOCKHAIR
+	body_parts_covered = HEAD
 	armor = list(melee = FALSE, arrow = FALSE, gun = FALSE, energy = 25, bomb = 10, bio = 100, rad = 80)
 
 /obj/item/clothing/suit/nbc
@@ -1939,6 +1972,7 @@
 	icon_state = "toughguy"
 	item_state = "toughguy"
 	worn_state = "toughguy"
+	body_parts_covered = HEAD
 
 /obj/item/clothing/under/toughguy
 	name = "specialist pants with woodland pattern paint"
@@ -1984,8 +2018,8 @@ obj/item/clothing/head/chinaguardcap
 	icon_state = "redguardcap"
 	item_state = "redguardcap"
 	worn_state = "redguardcap"
+	body_parts_covered = HEAD
 	armor = list(melee = 5, arrow = FALSE, gun = FALSE, energy = FALSE, bomb = FALSE, bio = FALSE, rad = FALSE)
-
 	/* Sovie apparel 70-80'ss*/
 
 /obj/item/clothing/under/afghanka
@@ -2177,6 +2211,7 @@ obj/item/clothing/head/chinaguardcap
 	icon_state = "viet_pith"
 	item_state = "viet_pith"
 	worn_state = "viet_pith"
+	body_parts_covered = HEAD
 	flags_inv = BLOCKHEADHAIR
 	armor = list(melee = 45, arrow = 45, gun = ARMOR_CLASS*2, energy = 15, bomb = 55, bio = 20, rad = FALSE)
 	health = 24
@@ -2196,6 +2231,7 @@ obj/item/clothing/head/chinaguardcap
 	icon_state = "hardhat_white"
 	item_state = "hardhat_white"
 	worn_state = "hardhat_white"
+	body_parts_covered = HEAD
 	flags_inv = BLOCKHEADHAIR
 	armor = list(melee = 65, arrow = 15, gun = ARMOR_CLASS, energy = 5, bomb = 55, bio = 10, rad = FALSE)
 	health = 30

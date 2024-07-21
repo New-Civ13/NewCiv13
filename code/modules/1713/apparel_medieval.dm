@@ -169,6 +169,7 @@
 	icon_state = "black_cape"
 	item_state = "black_cape"
 	worn_state = "black_cape"
+	body_parts_covered = HEAD
 	flags_inv = BLOCKHAIR|HIDEFACE
 
 /obj/item/clothing/head/plaguedoctor
@@ -178,6 +179,7 @@
 	item_state = "plaguedoctor"
 	worn_state = "plaguedoctor"
 	flags_inv = BLOCKHAIR
+	body_parts_covered = HEAD
 
 /obj/item/clothing/head/nun_hood //path can't be changed, has dependencies in civilian.dm & civ_factions.dm
 	name = "nun hood"
@@ -186,6 +188,7 @@
 	item_state = "nun_hood"
 	worn_state = "nun_hood"
 	flags_inv = BLOCKHAIR
+	body_parts_covered = HEAD
 
 /obj/item/clothing/head/turban
 	name = "turban"
@@ -839,6 +842,7 @@
 	icon_state = "brown_eisenbruck"
 	item_state = "brown_eisenbruck"
 	worn_state = "brown_eisenbruck"
+	body_parts_covered = HEAD
 	armor = list(melee = 24, arrow = 15, gun = FALSE, energy = 15, bomb = 25, bio = 20, rad = FALSE)
 	health = 20
 
@@ -848,6 +852,7 @@
 	icon_state = "grey_eisenbruck"
 	item_state = "grey_eisenbruck"
 	worn_state = "grey_eisenbruck"
+	body_parts_covered = HEAD
 	armor = list(melee = 24, arrow = 15, gun = FALSE, energy = 15, bomb = 25, bio = 20, rad = FALSE)
 	health = 20
 
@@ -857,6 +862,7 @@
 	icon_state = "aged_eisenbruck"
 	item_state = "aged_eisenbruck"
 	worn_state = "aged_eisenbruck"
+	body_parts_covered = HEAD
 	armor = list(melee = 24, arrow = 15, gun = FALSE, energy = 15, bomb = 25, bio = 20, rad = FALSE)
 	health = 20
 
@@ -864,7 +870,7 @@
 
 /obj/item/clothing/head/helmet/sallet/italian
 	name = "italian sallet"
-	desc = "A very protective helmet used by archers and crossbowmen in the 15th century throughout Europe."
+	desc = "A very protective helmet used by archers and crossbowmen in the 15th century throughout europe."
 	icon_state = "italian_sallet_o"
 	item_state = "italian_sallet_o"
 	worn_state = "italian_sallet_o"
@@ -887,6 +893,7 @@
 			usr << "<span class = 'danger'>You put up your helmet's visor.</span>"
 			toggled = FALSE
 			update_clothing_icon()
+			body_parts_covered = HEAD
 			flags_inv = BLOCKHEADHAIR
 		else if (!toggled)
 			item_state = "italian_sallet"
@@ -896,7 +903,7 @@
 			usr << "<span class = 'danger'>You put down your helmet's visor.</span>"
 			toggled = TRUE
 			update_clothing_icon()
-			body_parts_covered = FACE
+			body_parts_covered = HEAD|FACE
 			flags_inv = BLOCKHAIR
 
 /obj/item/clothing/head/helmet/sallet/german
@@ -924,6 +931,7 @@
 			usr << "<span class = 'danger'>You put up your helmet's visor.</span>"
 			toggled = FALSE
 			update_clothing_icon()
+			body_parts_covered = HEAD
 			flags_inv = BLOCKHEADHAIR
 		else if (!toggled)
 			item_state = "german_sallet"
@@ -933,7 +941,7 @@
 			usr << "<span class = 'danger'>You put down your helmet's visor.</span>"
 			toggled = TRUE
 			update_clothing_icon()
-			body_parts_covered = FACE
+			body_parts_covered = HEAD|FACE
 			flags_inv = BLOCKHAIR
 
 /obj/item/clothing/head/helmet/sallet/burg
@@ -961,6 +969,7 @@
 			usr << "<span class = 'danger'>You put up your helmet's visor.</span>"
 			toggled = FALSE
 			update_clothing_icon()
+			body_parts_covered = HEAD
 			flags_inv = BLOCKHEADHAIR
 		else if (!toggled)
 			item_state = "burg_sallet"
@@ -970,7 +979,7 @@
 			usr << "<span class = 'danger'>You put down your helmet's visor.</span>"
 			toggled = TRUE
 			update_clothing_icon()
-			body_parts_covered = FACE
+			body_parts_covered = HEAD|FACE
 			flags_inv = BLOCKHAIR
 
 /* Sallets End*/
@@ -1000,6 +1009,7 @@
 			usr << "<span class = 'danger'>You put up your helmet's visor.</span>"
 			toggled = FALSE
 			update_clothing_icon()
+			body_parts_covered = HEAD
 			flags_inv = BLOCKHEADHAIR
 		else if (!toggled)
 			item_state = "bascinet_hounskull"
@@ -1009,7 +1019,7 @@
 			usr << "<span class = 'danger'>You put down your helmet's visor.</span>"
 			toggled = TRUE
 			update_clothing_icon()
-			body_parts_covered = FACE
+			body_parts_covered = HEAD|FACE
 			flags_inv = BLOCKHAIR
 
 /obj/item/clothing/head/helmet/medieval
@@ -1018,7 +1028,7 @@
 	icon_state = "knight_simple"
 	item_state = "knight_simple"
 	worn_state = "knight_simple"
-	body_parts_covered = FACE|EYES
+	body_parts_covered = HEAD|FACE|EYES
 	armor = list(melee = 70, arrow = 90, gun = ARMOR_CLASS, energy = 15, bomb = 60, bio = 20, rad = FALSE)
 	flags_inv = BLOCKHAIR
 	restricts_view = 1
@@ -1031,7 +1041,7 @@
 	icon_state = "medieval_helmet1"
 	item_state = "medieval_helmet1"
 	worn_state = "medieval_helmet1"
-	body_parts_covered = FACE
+	body_parts_covered = HEAD|FACE
 	flags_inv = BLOCKHEADHAIR
 	armor = list(melee = 50, arrow = 40, gun = ARMOR_CLASS, energy = 15, bomb = 50, bio = 20, rad = FALSE)
 	health = 35
@@ -1042,6 +1052,7 @@
 	icon_state = "medieval_helmet2"
 	item_state = "medieval_helmet2"
 	worn_state = "medieval_helmet2"
+	body_parts_covered = HEAD
 	flags_inv = BLOCKHEADHAIR
 	armor = list(melee = 45, arrow = 35, gun = ARMOR_CLASS, energy = 15, bomb = 40, bio = 20, rad = FALSE)
 	health = 28
@@ -1052,6 +1063,7 @@
 	icon_state = "medieval_helmet3"
 	item_state = "medieval_helmet3"
 	worn_state = "medieval_helmet3"
+	body_parts_covered = HEAD
 	flags_inv = BLOCKHEADHAIR
 	armor = list(melee = 40, arrow = 30, gun = ARMOR_CLASS, energy = 15, bomb = 40, bio = 20, rad = FALSE)
 	health = 32
@@ -1062,6 +1074,7 @@
 	icon_state = "coif"
 	item_state = "coif"
 	worn_state = "coif"
+	body_parts_covered = HEAD
 	flags_inv = BLOCKHEADHAIR
 	armor = list(melee = 45, arrow = 40, gun = ARMOR_CLASS, energy = 15, bomb = 40, bio = 20, rad = FALSE)
 	health = 37
@@ -1072,6 +1085,7 @@
 	icon_state = "coif_helmet"
 	item_state = "coif_helmet"
 	worn_state = "coif_helmet"
+	body_parts_covered = HEAD
 	flags_inv = BLOCKHEADHAIR
 	armor = list(melee = 55, arrow = 45, gun = ARMOR_CLASS, energy = 15, bomb = 60, bio = 30, rad = FALSE)
 	health = 45
@@ -1082,6 +1096,7 @@
 	icon_state = "leather_skullcap_helmet"
 	item_state = "leather_skullcap_helmet"
 	worn_state = "leather_skullcap_helmet"
+	body_parts_covered = HEAD
 	armor = list(melee = 30, arrow = 20, gun = FALSE, energy = 15, bomb = 40, bio = 20, rad = FALSE) //lightly stronger than leather
 	health = 30
 
@@ -1091,6 +1106,7 @@
 	icon_state = "turhelm1"
 	item_state = "turhelm1"
 	worn_state = "turhelm1"
+	body_parts_covered = HEAD
 	flags_inv = BLOCKHEADHAIR
 	armor = list(melee = 50, arrow = 40, gun = ARMOR_CLASS, energy = 15, bomb = 50, bio = 20, rad = FALSE)
 	health = 32
@@ -1101,7 +1117,7 @@
 	icon_state = "arabw_helmet1"
 	item_state = "arabw_helmet1"
 	worn_state = "arabw_helmet1"
-	body_parts_covered = FACE
+	body_parts_covered = HEAD|FACE
 	flags_inv = BLOCKHEADHAIR
 	armor = list(melee = 55, arrow = 45, gun = ARMOR_CLASS, energy = 15, bomb = 60, bio = 30, rad = FALSE)
 	health = 32
@@ -1112,7 +1128,7 @@
 	icon_state = "arabw_helmet"
 	item_state = "arabw_helmet"
 	worn_state = "arabw_helmet"
-	body_parts_covered = FACE
+	body_parts_covered = HEAD|FACE
 	flags_inv = BLOCKHEADHAIR
 	armor = list(melee = 55, arrow = 45, gun = ARMOR_CLASS, energy = 15, bomb = 60, bio = 30, rad = FALSE)
 	health = 32
@@ -1132,7 +1148,7 @@
 	icon_state = "turhelm1"
 	item_state = "turhelm1"
 	worn_state = "turhelm1"
-	body_parts_covered = FACE
+	body_parts_covered = HEAD|FACE
 	flags_inv = BLOCKHEADHAIR
 	armor = list(melee = 45, arrow = 40, gun = ARMOR_CLASS, energy = 15, bomb = 40, bio = 20, rad = FALSE)
 	health = 25
@@ -1143,7 +1159,7 @@
 	icon_state = "turhelm2"
 	item_state = "turhelm2"
 	worn_state = "turhelm2"
-	body_parts_covered = FACE
+	body_parts_covered = HEAD|FACE
 	flags_inv = BLOCKHEADHAIR
 	armor = list(melee = 45, arrow = 40, gun = ARMOR_CLASS, energy = 15, bomb = 40, bio = 20, rad = FALSE)
 	health = 25
@@ -1154,7 +1170,7 @@
 	icon_state = "turhelm3"
 	item_state = "turhelm3"
 	worn_state = "turhelm3"
-	body_parts_covered = FACE
+	body_parts_covered = HEAD|FACE
 	flags_inv = BLOCKHEADHAIR
 	armor = list(melee = 45, arrow = 40, gun = ARMOR_CLASS, energy = 15, bomb = 40, bio = 20, rad = FALSE)
 	health = 25
@@ -1165,7 +1181,7 @@
 	icon_state = "turhelm3"
 	item_state = "turhelm3"
 	worn_state = "turhelm3"
-	body_parts_covered = FACE
+	body_parts_covered = HEAD|FACE
 	flags_inv = BLOCKHEADHAIR
 	armor = list(melee = 45, arrow = 40, gun = ARMOR_CLASS, energy = 15, bomb = 40, bio = 20, rad = FALSE)
 	health = 25
@@ -1176,7 +1192,7 @@
 	icon_state = "arabw_helmet"
 	item_state = "arabw_helmet"
 	worn_state = "arabw_helmet"
-	body_parts_covered = FACE
+	body_parts_covered = HEAD|FACE
 	flags_inv = BLOCKHEADHAIR
 	armor = list(melee = 55, arrow = 45, gun = ARMOR_CLASS, energy = 15, bomb = 60, bio = 30, rad = FALSE)
 	health = 32
@@ -1187,7 +1203,7 @@
 	icon_state = "arabw_helmet1"
 	item_state = "arabw_helmet1"
 	worn_state = "arabw_helmet1"
-	body_parts_covered = FACE
+	body_parts_covered = HEAD|FACE
 	flags_inv = BLOCKHEADHAIR
 	armor = list(melee = 55, arrow = 45, gun = ARMOR_CLASS, energy = 15, bomb = 60, bio = 30, rad = FALSE)
 	health = 32
@@ -1200,7 +1216,7 @@
 	icon_state = "emir_turban"
 	item_state = "emir_turban"
 	worn_state = "emir_turban"
-	body_parts_covered = FACE
+	body_parts_covered = HEAD|FACE
 	item_flags = FLEXIBLEMATERIAL // The emirate helmet does not block the face. body_parts_covered is used in armor calculation, masks with this flag will not prevent eating even if they are covering your "face".
 	flags_inv = BLOCKHEADHAIR
 	armor = list(melee = 55, arrow = 45, gun = ARMOR_CLASS, energy = 15, bomb = 60, bio = 30, rad = FALSE)
@@ -1488,7 +1504,7 @@
 	icon_state = "new_viking" //to keep seperate from the wagner-esque viking helmet
 	item_state = "new_viking"
 	worn_state = "new_viking"
-	body_parts_covered = FACE
+	body_parts_covered = HEAD|FACE
 	flags_inv = BLOCKHEADHAIR
 	armor = list(melee = 55, arrow = 45, gun = ARMOR_CLASS, energy = 15, bomb = 50, bio = 20, rad = FALSE)
 	health = 40
@@ -1513,7 +1529,7 @@
 	icon_state = "viking_king"
 	item_state = "viking_king"
 	worn_state = "viking_king"
-	body_parts_covered = FACE
+	body_parts_covered = HEAD|FACE
 	flags_inv = BLOCKHEADHAIR
 	armor = list(melee = 55, arrow = 45, gun = ARMOR_CLASS, energy = 15, bomb = 50, bio = 20, rad = FALSE)
 	health = 40
@@ -1524,7 +1540,7 @@
 	icon_state = "valkyrie"
 	item_state = "valkyrie"
 	worn_state = "valkyrie"
-	body_parts_covered = FACE
+	body_parts_covered = HEAD|FACE
 	flags_inv = BLOCKHEADHAIR
 	armor = list(melee = 55, arrow = 45, gun = ARMOR_CLASS, energy = 15, bomb = 50, bio = 20, rad = FALSE)
 	health = 40
@@ -1549,7 +1565,7 @@
 	icon_state = "valkyrie_queen"
 	item_state = "valkyrie_queen"
 	worn_state = "valkyrie_queen"
-	body_parts_covered = FACE
+	body_parts_covered = HEAD|FACE
 	flags_inv = BLOCKHEADHAIR
 	armor = list(melee = 55, arrow = 45, gun = ARMOR_CLASS, energy = 15, bomb = 50, bio = 20, rad = FALSE)
 	health = 40
@@ -1561,9 +1577,9 @@
 	item_state = "varangian_guard"
 	worn_state = "varangian_guard"
 	flags_inv = BLOCKHAIR
-	body_parts_covered = FACE|EYES
-	restricts_view = 1
+	body_parts_covered = HEAD|FACE|EYES
 	armor = list(melee = 70, arrow = 90, gun = ARMOR_CLASS, energy = 15, bomb = 60, bio = 20, rad = FALSE)
+	restricts_view = 2
 	health = 55
 	slowdown = 0.25
 
@@ -1586,7 +1602,7 @@
 	icon_state = "imperial_chinese"
 	item_state = "imperial_chinese"
 	worn_state = "imperial_chinese"
-	body_parts_covered = FACE
+	body_parts_covered = HEAD|FACE
 	flags_inv = BLOCKHEADHAIR
 	armor = list(melee = 55, arrow = 45, gun = ARMOR_CLASS, energy = 15, bomb = 60, bio = 30, rad = FALSE)
 	health = 45
@@ -1613,7 +1629,7 @@
 	icon_state = "mamluk_helmet"
 	item_state = "mamluk_helmet"
 	worn_state = "mamluk_helmet"
-	body_parts_covered = FACE
+	body_parts_covered = HEAD|FACE
 	flags_inv = BLOCKHEADHAIR
 	armor = list(melee = 50, arrow = 40, gun = ARMOR_CLASS, energy = 15, bomb = 50, bio = 20, rad = FALSE)
 	health = 35
@@ -1624,7 +1640,7 @@
 	icon_state = "mamluk_lord"
 	item_state = "mamluk_lord"
 	worn_state = "mamluk_lord"
-	body_parts_covered = FACE
+	body_parts_covered = HEAD|FACE
 	flags_inv = BLOCKHEADHAIR
 	armor = list(melee = 60, arrow = 50, gun = ARMOR_CLASS, energy = 15, bomb = 50, bio = 20, rad = FALSE)
 	health = 50
@@ -1650,7 +1666,7 @@
 	icon_state = "mamluk_king"
 	item_state = "mamluk_king"
 	worn_state = "mamluk_king"
-	body_parts_covered = FACE
+	body_parts_covered = HEAD|FACE
 	flags_inv = BLOCKHEADHAIR
 	armor = list(melee = 60, arrow = 50, gun = ARMOR_CLASS, energy = 15, bomb = 50, bio = 20, rad = FALSE)
 	health = 50
@@ -1662,7 +1678,7 @@
 	icon_state = "mamluk_coif_helmet"
 	item_state = "mamluk_coif_helmet"
 	worn_state = "mamluk_coif_helmet"
-	body_parts_covered = FACE
+	body_parts_covered = HEAD|FACE
 	flags_inv = BLOCKHEADHAIR
 	armor = list(melee = 55, arrow = 45, gun = ARMOR_CLASS, energy = 15, bomb = 60, bio = 30, rad = FALSE)
 	health = 45
@@ -1980,6 +1996,7 @@
 	icon_state = "samurai_warrior3"
 	item_state = "samurai_warrior3"
 	worn_state = "samurai_warrior3"
+	body_parts_covered = HEAD
 	armor = list(melee = 60, arrow = 50, gun = ARMOR_CLASS, energy = 15, bomb = 55, bio = 20, rad = FALSE)
 	health = 45
 
@@ -2008,6 +2025,7 @@
 			usr << "<span class = 'danger'>You put up your helmet's faceguard.</span>"
 			toggled = FALSE
 			update_clothing_icon()
+			body_parts_covered = HEAD
 			flags_inv = BLOCKHEADHAIR
 		else if (!toggled)
 			item_state = "samurai_lord3"
@@ -2017,7 +2035,7 @@
 			usr << "<span class = 'danger'>You put down your helmet's faceguard.</span>"
 			toggled = TRUE
 			update_clothing_icon()
-			body_parts_covered = FACE
+			body_parts_covered = HEAD|FACE
 			flags_inv = BLOCKHAIR
 
 /obj/item/clothing/head/helmet/jingasa
@@ -2026,6 +2044,7 @@
 	icon_state = "jingasa"
 	item_state = "jingasa"
 	worn_state = "jingasa"
+	body_parts_covered = HEAD
 	armor = list(melee = 30, arrow = 15, gun = ARMOR_CLASS, energy = 15, bomb = 55, bio = 20, rad = FALSE)
 	health = 30
 	var/adjusted = FALSE
@@ -2056,6 +2075,7 @@
 	icon_state = "kasa"
 	item_state = "kasa"
 	worn_state = "kasa"
+	body_parts_covered = HEAD
 	armor = list(melee = 20, arrow = 15, gun = ARMOR_CLASS, energy = 15, bomb = 55, bio = 20, rad = FALSE)
 	health = 30
 
@@ -2065,6 +2085,7 @@
 	icon_state = "samurai_guard3"
 	item_state = "samurai_guard3"
 	worn_state = "samurai_guard3"
+	body_parts_covered = HEAD
 	armor = list(melee = 45, arrow = 40, gun = ARMOR_CLASS, energy = 15, bomb = 40, bio = 20, rad = FALSE)
 	health = 32
 
@@ -2132,6 +2153,7 @@ obj/item/clothing/head/helmet/samurai/black
 			usr << "<span class = 'danger'>You put up your helmet's faceguard.</span>"
 			toggled = FALSE
 			update_clothing_icon()
+			body_parts_covered = HEAD
 			flags_inv = BLOCKHEADHAIR
 		else if (!toggled)
 			item_state = "samurai_lord1"
@@ -2141,7 +2163,7 @@ obj/item/clothing/head/helmet/samurai/black
 			usr << "<span class = 'danger'>You put down your helmet's faceguard.</span>"
 			toggled = TRUE
 			update_clothing_icon()
-			body_parts_covered = FACE
+			body_parts_covered = HEAD|FACE
 			flags_inv = BLOCKHAIR
 
 /obj/item/clothing/head/helmet/samurai/lord/blue
@@ -2166,6 +2188,7 @@ obj/item/clothing/head/helmet/samurai/black
 			usr << "<span class = 'danger'>You put up your helmet's faceguard.</span>"
 			toggled = FALSE
 			update_clothing_icon()
+			body_parts_covered = HEAD
 			flags_inv = BLOCKHEADHAIR
 		else if (!toggled)
 			item_state = "samurai_lord2"
@@ -2175,7 +2198,7 @@ obj/item/clothing/head/helmet/samurai/black
 			usr << "<span class = 'danger'>You put down your helmet's faceguard.</span>"
 			toggled = TRUE
 			update_clothing_icon()
-			body_parts_covered = FACE
+			body_parts_covered = HEAD|FACE
 			flags_inv = BLOCKHAIR
 
 /obj/item/clothing/head/helmet/samurai/lord/black
@@ -2200,6 +2223,7 @@ obj/item/clothing/head/helmet/samurai/black
 			usr << "<span class = 'danger'>You put up your helmet's faceguard.</span>"
 			toggled = FALSE
 			update_clothing_icon()
+			body_parts_covered = HEAD
 			flags_inv = BLOCKHEADHAIR
 		else if (!toggled)
 			item_state = "samurai_lord4"
@@ -2209,7 +2233,7 @@ obj/item/clothing/head/helmet/samurai/black
 			usr << "<span class = 'danger'>You put down your helmet's faceguard.</span>"
 			toggled = TRUE
 			update_clothing_icon()
-			body_parts_covered = FACE
+			body_parts_covered = HEAD|FACE
 			flags_inv = BLOCKHAIR
 
 	/* Medieval Japanese Masks*/
@@ -2360,7 +2384,7 @@ obj/item/clothing/head/helmet/samurai/black
 	icon_state = "dwelmet"
 	item_state = "dwelmet"
 	worn_state = "dwelmet"
-	body_parts_covered = FACE|EYES
+	body_parts_covered = HEAD|FACE|EYES
 	flags_inv = BLOCKHAIR
 	armor = list(melee = 70, arrow = 90, gun = ARMOR_CLASS, energy = 15, bomb = 60, bio = 20, rad = FALSE)
 	restricts_view = 1
@@ -2447,7 +2471,7 @@ obj/item/clothing/head/helmet/samurai/black
 	icon_state = "tes13"
 	item_state = "tes13"
 	worn_state = "tes13"
-	body_parts_covered = FACE|EYES
+	body_parts_covered = HEAD|FACE|EYES
 	flags_inv = BLOCKHAIR
 	armor = list(melee = 50, arrow = 30, gun = ARMOR_CLASS, energy = 15, bomb = 60, bio = 20, rad = FALSE)
 	restricts_view = 1
@@ -2460,6 +2484,7 @@ obj/item/clothing/head/helmet/samurai/black
 	icon_state = "tes13_hide"
 	item_state = "tes13_hide"
 	worn_state = "tes13_hide"
+	body_parts_covered = HEAD
 	flags_inv = BLOCKHAIR
 	armor = list(melee = 35, arrow = 20, gun = ARMOR_CLASS, energy = 15, bomb = 20, bio = 20, rad = FALSE)
 	restricts_view = 1
@@ -2472,7 +2497,7 @@ obj/item/clothing/head/helmet/samurai/black
 	icon_state = "tes13_iron"
 	item_state = "tes13_iron"
 	worn_state = "tes13_iron"
-	body_parts_covered = FACE
+	body_parts_covered = HEAD|FACE
 	flags_inv = BLOCKHAIR
 	armor = list(melee = 45, arrow = 30, gun = ARMOR_CLASS, energy = 25, bomb = 30, bio = 20, rad = FALSE)
 	restricts_view = 1
@@ -2511,7 +2536,7 @@ obj/item/clothing/head/helmet/samurai/black
 	icon_state = "stormcloak"
 	item_state = "stormcloak"
 	worn_state = "stormcloak"
-	body_parts_covered = FACE|EYES
+	body_parts_covered = HEAD|FACE|EYES
 	flags_inv = BLOCKHAIR
 	armor = list(melee = 60, arrow = 45, gun = ARMOR_CLASS, energy = 15, bomb = 60, bio = 20, rad = FALSE)
 	restricts_view = 1
@@ -2536,6 +2561,7 @@ obj/item/clothing/head/helmet/samurai/black
 	icon_state = "tes13_imperial"
 	item_state = "tes13_imperial"
 	worn_state = "tes13_imperial"
+	body_parts_covered = HEAD
 	flags_inv = BLOCKHAIR
 	armor = list(melee = 45, arrow = 40, gun = ARMOR_CLASS, energy = 15, bomb = 60, bio = 20, rad = FALSE)
 	restricts_view = 1
@@ -2548,6 +2574,7 @@ obj/item/clothing/head/helmet/samurai/black
 	icon_state = "tes13_imperial_officer"
 	item_state = "tes13_imperial_officer"
 	worn_state = "tes13_imperial_officer"
+	body_parts_covered = HEAD
 	flags_inv = BLOCKHAIR
 	armor = list(melee = 70, arrow = 50, gun = ARMOR_CLASS, energy = 15, bomb = 60, bio = 20, rad = FALSE)
 	restricts_view = 1

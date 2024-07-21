@@ -210,6 +210,7 @@
 	worn_state = "kerchief"
 	desc = "A kerchief, worn by women over the hair."
 	flags_inv = BLOCKHAIR
+	body_parts_covered = HEAD
 
 /obj/item/clothing/head/red_sailorberet
 	name = "red sailor beret"
@@ -264,6 +265,7 @@
 	icon_state = "morion_helmet"
 	item_state = "morion_helmet"
 	worn_state = "morion_helmet"
+	body_parts_covered = HEAD
 	flags_inv = BLOCKHEADHAIR
 	armor = list(melee = 40, arrow = 30, gun = ARMOR_CLASS, energy = 15, bomb = 40, bio = 20, rad = FALSE)
 	health = 32
@@ -274,6 +276,7 @@
 	icon_state = "morion_helmet"
 	item_state = "morion_helmet"
 	worn_state = "morion_helmet"
+	body_parts_covered = HEAD
 	flags_inv = BLOCKHEADHAIR
 	armor = list(melee = 35, arrow = 32, gun = ARMOR_CLASS, energy = 15, bomb = 41, bio = 21, rad = FALSE)
 	health = 34
@@ -1137,6 +1140,7 @@
 	icon_state = "nursehat"
 	item_state = "nursehat"
 	worn_state = "nursehat"
+	body_parts_covered = HEAD
 
 /* Napoleonic Army Clothing*/
 
@@ -1233,6 +1237,7 @@
 	icon_state = "nap_lea_infantry_cap"
 	item_state = "nap_lea_infantry_cap"
 	worn_state = "nap_lea_infantry_cap"
+	body_parts_covered = HEAD
 	armor = list(melee = 20, arrow = 25, gun = ARMOR_CLASS, energy = 25, bomb = 50, bio = 10, rad = FALSE)
 	health = 25
 
@@ -1269,6 +1274,7 @@
 	icon_state = "nap_satsuma"
 	item_state = "nap_satsuma"
 	worn_state = "nap_satsuma"
+	body_parts_covered = HEAD
 	armor = list(melee = 20, arrow = 25, gun = ARMOR_CLASS, energy = 25, bomb = 50, bio = 10, rad = FALSE) //equal to infantry cap
 	health = 25
 
@@ -1278,7 +1284,7 @@
 	icon_state = "dragoon"
 	item_state = "dragoon"
 	worn_state = "dragoon"
-	body_parts_covered = FACE
+	body_parts_covered = HEAD|FACE
 	flags_inv = BLOCKHEADHAIR
 	armor = list(melee = 45, arrow = 40, gun = ARMOR_CLASS, energy = 15, bomb = 45, bio = 20, rad = FALSE) //slightly stronger than a kettle helmet being its equal, protective conical outclasses it
 	health = 32
@@ -1289,6 +1295,7 @@
 	icon_state = "nap_bearskin_hat"
 	item_state = "nap_bearskin_hat"
 	worn_state = "nap_bearskin_hat"
+	body_parts_covered = HEAD
 	flags_inv = BLOCKHEADHAIR
 	armor = list(melee = 45, arrow = 40, gun = ARMOR_CLASS, energy = 15, bomb = 45, bio = 20, rad = FALSE)
 	health = 30
