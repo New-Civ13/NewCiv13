@@ -449,13 +449,16 @@
 	if(user.lying || user.prone)
 		recoil_range *= 0.5
 
-	if(dt_movement <= 6)
-		accuracy_range = 30
-	else if (dt_movement < 10)
-		accuracy_range = 40 / (dt_movement - 6)
+	if(user.m_intent != "stealth")
+		if(dt_movement <= 6)
+			accuracy_range = 30
+
+		else if (dt_movement < 10)
+			accuracy_range = 40 / (dt_movement - 6)
 
 	if(dt_picked_up < 10)
 		accuracy_range = 40 / sqrt(dt_picked_up) / ergonomics
+
 	return recoil_range + accuracy_range
 
 //does the actual launching of the projectile
@@ -494,13 +497,14 @@
 			shot_accuracy = rand(-20, 20)
 
 		if(7 to 10) // else if (dt_movement < 10) --- 1 second
+			if(user.m_intent == "stealth")
+				return
 			var/accuracy_range = 20 / sqrt(dt_movement - 6)
 			shot_accuracy = rand(-accuracy_range, accuracy_range)
 			if (abs(shot_accuracy) < 5) // even RNjesus won’t help you get there right away
 				shot_accuracy += 5
-			if (istype(user, /mob/living/human))
-				if(user.m_intent != "run")
-					shot_accuracy *= 0.75
+			if(user.m_intent != "run")
+				shot_accuracy *= 0.75
 
 		else // Use the base variable of the gun; this is used in shot_dispersion only, not hit_chances contrary to the variable name
 			shot_accuracy = rand(-accuracy, accuracy)
