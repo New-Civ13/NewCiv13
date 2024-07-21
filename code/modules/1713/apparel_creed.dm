@@ -161,7 +161,7 @@
 		item_state = "ac_hood_up"
 		worn_state = "ac_hood_up"
 		flags_inv = BLOCKHAIR|HIDEFACE
-		body_parts_covered = HEAD|FACE
+		body_parts_covered = FACE
 		item_state_slots["slot_wear_suit"] = "ac_hood_up"
 		usr << "<span class = 'danger'>You cover your head with your hood.</span>"
 		update_icon()

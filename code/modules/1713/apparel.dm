@@ -416,7 +416,6 @@
 	icon_state = "redguard"
 	item_state = "redguard"
 	worn_state = "redguard"
-	body_parts_covered = HEAD
 	flags_inv = BLOCKHEADHAIR
 	armor = list(melee = 60, arrow = 80, gun = ARMOR_CLASS*4, energy = 65, bomb = 40, bio = 30, rad = FALSE)
 
@@ -426,7 +425,6 @@
 	icon_state = "senateguard"
 	item_state = "senateguard"
 	worn_state = "senateguard"
-	body_parts_covered = HEAD
 	flags_inv = BLOCKHEADHAIR
 	armor = list(melee = 60, arrow = 80, gun = ARMOR_CLASS*4, energy = 65, bomb = 40, bio = 30, rad = FALSE)
 
@@ -436,7 +434,6 @@
 	icon_state = "repARF_helmet"
 	item_state = "repARF_helmet"
 	worn_state = "repARF_helmet"
-	body_parts_covered = HEAD
 	flags_inv = BLOCKHEADHAIR
 	armor = list(melee = 30, arrow = 50, gun = ARMOR_CLASS*4, energy = 45, bomb = 30, bio = 20, rad = FALSE)
 
@@ -446,7 +443,6 @@
 	icon_state = "repairborne_helmet"
 	item_state = "repairborne_helmet"
 	worn_state = "repairborne_helmet"
-	body_parts_covered = HEAD
 	flags_inv = BLOCKHEADHAIR
 	armor = list(melee = 35, arrow = 50, gun = ARMOR_CLASS*4, energy = 55, bomb = 40, bio = 30, rad = FALSE)
 
@@ -456,7 +452,6 @@
 	icon_state = "repstormtrooper_helmet"
 	item_state = "repstormtrooper_helmet"
 	worn_state = "repstormtrooper_helmet"
-	body_parts_covered = HEAD
 	flags_inv = BLOCKHEADHAIR
 	armor = list(melee = 35, arrow = 60, gun = ARMOR_CLASS*4, energy = 50, bomb = 30, bio = 30, rad = FALSE)
 
@@ -466,7 +461,6 @@
 	icon_state = "stormsurgeon_helmet"
 	item_state = "stormsurgeon_helmet"
 	worn_state = "stormsurgeon_helmet"
-	body_parts_covered = HEAD
 	flags_inv = BLOCKHEADHAIR
 	armor = list(melee = 35, arrow = 60, gun = ARMOR_CLASS*3, energy = 50, bomb = 30, bio = 30, rad = FALSE)
 
@@ -476,7 +470,6 @@
 	icon_state = "stormradio_helmet"
 	item_state = "stormradio_helmet"
 	worn_state = "stormradio_helmet"
-	body_parts_covered = HEAD
 	flags_inv = BLOCKHEADHAIR
 	armor = list(melee = 30, arrow = 50, gun = ARMOR_CLASS*3, energy = 50, bomb = 20, bio = 20, rad = FALSE)
 
@@ -486,7 +479,6 @@
 	icon_state = "replicant_helmet"
 	item_state = "replicant_helmet"
 	worn_state = "replicant_helmet"
-	body_parts_covered = HEAD
 	flags_inv = BLOCKHEADHAIR
 	armor = list(melee = 30, arrow = 50, gun = ARMOR_CLASS*3, energy = 50, bomb = 30, bio = 20, rad = FALSE)
 	flash_protection = FLASH_PROTECTION_MODERATE
@@ -497,7 +489,6 @@
 	icon_state = "replicant_atrt"
 	item_state = "replicant_atrt"
 	worn_state = "replicant_atrt"
-	body_parts_covered = HEAD
 	flags_inv = BLOCKHEADHAIR
 	armor = list(melee = 40, arrow = 45, gun = ARMOR_CLASS*3, energy = 45, bomb = 50, bio = 20, rad = FALSE)
 
@@ -507,7 +498,6 @@
 	icon_state = "replicant_radiotech"
 	item_state = "replicant_radiotech"
 	worn_state = "replicant_radiotech"
-	body_parts_covered = HEAD
 	flags_inv = BLOCKHEADHAIR
 	armor = list(melee = 30, arrow = 50, gun = ARMOR_CLASS*3, energy = 50, bomb = 30, bio = 20, rad = FALSE)
 
@@ -517,7 +507,6 @@
 	icon_state = "replicant_engi"
 	item_state = "replicant_engi"
 	worn_state = "replicant_engi"
-	body_parts_covered = HEAD
 	flags_inv = BLOCKHEADHAIR
 	armor = list(melee = 30, arrow = 50, gun = ARMOR_CLASS*3, energy = 50, bomb = 40, bio = 40, rad = 35)
 
@@ -528,7 +517,6 @@
 	icon_state = "replicant_helmet2"
 	item_state = "replicant_helmet2"
 	worn_state = "replicant_helmet2"
-	body_parts_covered = HEAD
 	flags_inv = BLOCKHEADHAIR
 	armor = list(melee = 40, arrow = 60, gun = ARMOR_CLASS*3, energy = 58, bomb = 30, bio = 20, rad = FALSE)
 
@@ -538,7 +526,6 @@
 	icon_state = "replicant_commando"
 	item_state = "replicant_commando"
 	worn_state = "replicant_commando"
-	body_parts_covered = HEAD
 	flags_inv = BLOCKHEADHAIR
 	armor = list(melee = 55, arrow = 65, gun = ARMOR_CLASS*3, energy = 60, bomb = 30, bio = 25, rad = FALSE)
 
@@ -548,7 +535,6 @@
 	icon_state = "replicant_blizzard"
 	item_state = "replicant_blizzard"
 	worn_state = "replicant_blizzard"
-	body_parts_covered = HEAD
 	flags_inv = BLOCKHEADHAIR
 	armor = list(melee = 40, arrow = 60, gun = ARMOR_CLASS*3, energy = 58, bomb = 30, bio = 20, rad = FALSE)
 
@@ -558,7 +544,6 @@
 	icon_state = "replicant_helmet2"
 	item_state = "replicant_helmet2"
 	worn_state = "replicant_helmet2"
-	body_parts_covered = HEAD
 	flags_inv = BLOCKHEADHAIR
 	armor = list(melee = 40, arrow = 60, gun = ARMOR_CLASS*3, energy = 58, bomb = 30, bio = 20, rad = FALSE)
 
@@ -568,7 +553,6 @@
 	icon_state = "reppilot_helmet"
 	item_state = "reppilot_helmet"
 	worn_state = "reppilot_helmet"
-	body_parts_covered = HEAD
 	flags_inv = BLOCKHEADHAIR
 	armor = list(melee = 30, arrow = 50, gun = ARMOR_CLASS*3, energy = 55, bomb = 30, bio = 20, rad = FALSE)
 
@@ -578,7 +562,6 @@
 	icon_state = "repmp_helmet"
 	item_state = "repmp_helmet"
 	worn_state = "repmp_helmet"
-	body_parts_covered = HEAD
 	flags_inv = BLOCKHEADHAIR
 	armor = list(melee = 30, arrow = 50, gun = ARMOR_CLASS*3, energy = 45, bomb = 30, bio = 20, rad = FALSE)
 
@@ -588,7 +571,6 @@
 	icon_state = "repsgt_helmet"
 	item_state = "repsgt_helmet"
 	worn_state = "repsgt_helmet"
-	body_parts_covered = HEAD
 	flags_inv = BLOCKHEADHAIR
 	armor = list(melee = 30, arrow = 50, gun = ARMOR_CLASS*3, energy = 55, bomb = 30, bio = 20, rad = FALSE)
 
@@ -598,7 +580,6 @@
 	icon_state = "replt_helmet"
 	item_state = "replt_helmet"
 	worn_state = "replt_helmet"
-	body_parts_covered = HEAD
 	flags_inv = BLOCKHEADHAIR
 	armor = list(melee = 30, arrow = 50, gun = ARMOR_CLASS*3, energy = 55, bomb = 30, bio = 20, rad = FALSE)
 
@@ -608,7 +589,6 @@
 	icon_state = "repcaptain_helmet"
 	item_state = "repcaptain_helmet"
 	worn_state = "repcaptain_helmet"
-	body_parts_covered = HEAD
 	flags_inv = BLOCKHEADHAIR
 	armor = list(melee = 30, arrow = 50, gun = ARMOR_CLASS*3, energy = 55, bomb = 30, bio = 20, rad = FALSE)
 
@@ -618,7 +598,6 @@
 	icon_state = "repcommander_helmet"
 	item_state = "repcommander_helmet"
 	worn_state = "repcommander_helmet"
-	body_parts_covered = HEAD
 	flags_inv = BLOCKHEADHAIR
 	armor = list(melee = 30, arrow = 50, gun = ARMOR_CLASS*3, energy = 55, bomb = 30, bio = 20, rad = FALSE)
 
@@ -839,7 +818,6 @@
 	icon_state = "rebel_helmet1"
 	item_state = "rebel_helmet1"
 	worn_state = "rebel_helmet1"
-	body_parts_covered = HEAD
 	flags_inv = BLOCKHEADHAIR
 	armor = list(melee = 30, arrow = 50, gun = ARMOR_CLASS*3, energy = 45, bomb = 30, bio = 20, rad = FALSE)
 

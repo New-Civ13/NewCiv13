@@ -677,7 +677,6 @@
 	icon_state = "constable"
 	item_state = "constable"
 	worn_state = "constable"
-	body_parts_covered = HEAD
 	flags_inv = BLOCKHEADHAIR
 	armor = list(melee = 50, arrow = 60, gun = ARMOR_CLASS, energy = 15, bomb = 45, bio = 20, rad = FALSE)
 
@@ -1074,7 +1073,6 @@
 	icon_state = "pickelhaube"
 	item_state = "pickelhaube"
 	worn_state = "pickelhaube"
-	body_parts_covered = HEAD
 	flags_inv = BLOCKHEADHAIR
 	armor = list(melee = 50, arrow = 40, gun = ARMOR_CLASS*2, energy = 15, bomb = 50, bio = 20, rad = FALSE)
 
@@ -1090,7 +1088,6 @@
 	icon_state = "stahlhelm"
 	item_state = "stahlhelm"
 	worn_state = "stahlhelm"
-	body_parts_covered = HEAD
 	flags_inv = BLOCKHEADHAIR
 	armor = list(melee = 55, arrow = 45, gun = ARMOR_CLASS*2, energy = 15, bomb = 55, bio = 20, rad = FALSE)
 
@@ -1100,7 +1097,6 @@
 	icon_state = "brodie"
 	item_state = "brodie"
 	worn_state = "brodie"
-	body_parts_covered = HEAD
 	flags_inv = BLOCKHEADHAIR
 	armor = list(melee = 45, arrow = 35, gun = ARMOR_CLASS*2, energy = 15, bomb = 45, bio = 20, rad = FALSE)
 
@@ -1110,7 +1106,6 @@
 	icon_state = "pith"
 	item_state = "pith"
 	worn_state = "pith"
-	body_parts_covered = HEAD
 	flags_inv = BLOCKHEADHAIR
 	armor = list(melee = 50, arrow = 40, gun = ARMOR_CLASS*2, energy = 15, bomb = 50, bio = 20, rad = FALSE)
 

@@ -7,7 +7,6 @@
 		slot_r_hand_str = "helmet",
 		)
 	item_flags = THICKMATERIAL
-	body_parts_covered = HEAD
 	armor = list(melee = 50)
 	flags_inv = HIDEEARS
 	cold_protection = HEAD
