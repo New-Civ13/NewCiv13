@@ -54,7 +54,7 @@
 
 /obj/item/clothing/proc/check_health()
 	if (health <= 0)
-		visible_message("\The [src] falls apart!")
+		visible_message(SPAN_WARNING("\The [src] falls apart!"))
 		if (ripable && rag_amount > 0)
 			new/obj/item/stack/material/rags(get_turf(src))
 		if (istype(loc, /mob/living))

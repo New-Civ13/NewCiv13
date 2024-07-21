@@ -14,6 +14,7 @@
 	armor = list(melee = FALSE, arrow = FALSE, gun = FALSE, energy = FALSE, bomb = FALSE, bio = FALSE, rad = FALSE)
 	ripable = TRUE
 	rag_amount = 1
+
 /obj/item/clothing/accessory/Destroy()
 	if (has_suit)
 		on_removed()
@@ -50,15 +51,16 @@
 	add_fingerprint(user)
 
 /obj/item/clothing/accessory/proc/on_removed(var/mob/user)
-	if (!has_suit)
-		return
-	has_suit.overlays -= get_inv_overlay()
-	has_suit = null
-	if (user)
-		usr.put_in_hands(src)
-		add_fingerprint(user)
-	else
-		forceMove(get_turf(src))
+    if (!has_suit)
+        return
+    has_suit.overlays -= get_inv_overlay()
+    has_suit = null
+    if (user)
+        add_fingerprint(user)
+    if (usr)
+        usr.put_in_hands(src)
+    else
+        forceMove(get_turf(src))
 
 //default attackby behaviour
 /obj/item/clothing/accessory/attackby(obj/item/I, mob/user)

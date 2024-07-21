@@ -547,7 +547,7 @@ bullet_act
 	if (!affecting)
 		return
 	for (var/gear in protective_gear)
-		if (gear && istype(gear ,/obj/item/clothing))
+		if (gear && istype(gear, /obj/item/clothing))
 			var/obj/item/clothing/C = gear
 			if (istype(C) && C.body_parts_covered & affecting.body_part)
 				if(istype(C, /obj/item/clothing/head/helmet) || istype(C, /obj/item/clothing/suit/armor)) // Adds a type check for armor/helmets.
@@ -558,8 +558,8 @@ bullet_act
 					if (AC.body_parts_covered & affecting.body_part)
 						AC.health -= dmg
 						if(AC.health <= 0)
-							C.remove_accessory(src, AC) // Handles removing things like plates if their health is fully done for.
-						AC.check_health()
+							C.remove_accessory(src, AC) // We do this here so the overlay is removed.
+						AC.check_health() // Handles deleting carriers if their health is fully 0.
 			C.update_icon() // Potential damaged icon, so lets update the slot_icon and clothing_icon appearance.
 			C.update_clothing_icon()
 	return TRUE
