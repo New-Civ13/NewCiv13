@@ -457,7 +457,8 @@
 	var/slowness = weakened ? 1.50 : 1.00
 	scrambling = TRUE
 	sleep(9*slowness)
-	visible_message("<span class = 'red'><b>[src]</b> crawls with difficulty!</span>")
+	var/crawling_adjective = "[pick("much", "severe", "lots of")]"
+	visible_message(SPAN_RED("<b>[src]</b> crawls with [crawling_adjective] difficulty!"), SPAN_RED("You <b>crawl</b> with [crawling_adjective] difficulty!"))
 	var/nloc = loc
 	if (nloc == oloc)
 		Move(F)
