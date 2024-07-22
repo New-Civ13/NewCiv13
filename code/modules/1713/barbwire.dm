@@ -9,9 +9,6 @@
 	var/allow_passage = TRUE // So we snag otherwise. (To allow the user to get off the src-turf and not punish them.)
 	layer = 2.98
 
-/obj/structure/barbwire/New()
-	..()
-
 /obj/structure/barbwire/ex_act(severity)
 	switch (severity)
 		if (3)
