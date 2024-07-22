@@ -50,14 +50,24 @@
 
 	if (affecting && affecting.damage > 0)
 		H.UpdateDamageIcon()
-
+	if(prob(80))
+		spawn(rand(7,9)) // TODO; signal this or callback it. (Call this more consistently.)
+			if(H.weakened)
+				to_chat(H, SPAN_DANGER("[pick("<font size = 1.5><b>You trip!</b></font>", "<font size = 1.5><b>You get tangled in \the [src] and trip!</b></font>")]"))
+				H.weakened -= min(15, H.weakened) // Most of the time it is 20, so we set it to `5`, allowing some crawls before another pause.
+				affecting = H.get_organ(pick("head", "chest", "l_leg", "r_leg", "l_arm", "r_arm"))
+				if(affecting) affecting.take_damage(rand(1,2), FALSE) // Gives around 3~ shock_stage.
+				playsound(get_turf(H), 'sound/effects/gore/fallsmash.ogg', 160, TRUE)
+	else
+		to_chat(H, SPAN_WARNING("[pick("<font size = 1.5><b>You almost trip!</b></font>", "<font size = 1.5><b>You almost get tangled in \the [src]!</b></font>")]"))
+		if (H.stat == CONSCIOUS)
+			H.emote("painscream")
 	playsound(loc, pick('sound/effects/barbwire1.ogg', 'sound/effects/barbwire2.ogg', 'sound/effects/barbwire3.ogg'), 50, TRUE)
-	return ..()
 
 /obj/structure/barbwire/Uncross(mob/living/human/M) // Non-Humans will never get stuck in here.
 	if(allow_passage)
 		allow_passage = FALSE
-		return TRUE // Allow them to leave once.
+		return TRUE // Allow them/other mobs to leave once.
 
 	if(!ishuman(M)) return TRUE //; we type-cast in the argument of the proc.
 
@@ -71,8 +81,6 @@
 		if (affecting.take_damage(2, FALSE))
 			M.UpdateDamageIcon()
 		return FALSE // Deny.
-
-	return ..()
 
 /obj/structure/barbwire/attackby(obj/item/W, mob/living/human/H)
 	if(!anchored) return
