@@ -437,16 +437,16 @@ proc/skintone2racedescription(tone)
 		if (-25 to -9)			return "tan"
 		if (-45 to -24)			return "darker skinned"
 		if (-65 to -44)			return "brown"
-		if (-INFINITY to -64)		return "black"
-		else				return "unknown"
+		if (-INFINITY to -64)	return "black"
+		else					return "unknown"
 
 proc/age2agedescription(age)
 	if(!isnum(age))
 		CRASH("age2agedescription; proc called without correct age (integer) argument.")
 
 	switch(age)
-		if (0 to 1)			return "infant"
-		if (2 to 3)			return "toddler"
+		if (0 to 1)				return "infant"
+		if (2 to 3)				return "toddler"
 		if (4 to 12)			return "child"
 		if (13 to 17)			return "teenager"
 		if (18 to 29)			return "young adult"
@@ -454,24 +454,25 @@ proc/age2agedescription(age)
 		if (45 to 59)			return "middle-aged"
 		if (60 to 69)			return "aging"
 		if (70 to INFINITY)		return "elderly"
-		else				return "unknown"
+		else					return "unknown"
 
 proc/ageAndGender2Desc(age, gender) // Radio name getters.
 	if (!gender || !isnum(age))
 		CRASH("ageAndGender2Desc; proc called without age/gender argument.")
 
-	if (gender == MALE)
-		switch(age)
-			if (0 to 15)		return "Boy"
-			if (16 to 25)		return "Young Man"
-			if (26 to 60)		return "Man"
-			if (61 to INFINITY)	return "Old Man"
-	else
-		switch(age)
-			if (0 to 15)		return "Girl"
-			if (16 to 25)		return "Young Woman"
-			if (26 to 60)		return "Woman"
-			if (61 to INFINITY)	return "Old Woman"
+	switch(gender)
+		if(MALE)
+			switch(age)
+				if (0 to 15)		return "Boy"
+				if (16 to 25)		return "Young Man"
+				if (26 to 60)		return "Man"
+				if (61 to INFINITY)	return "Old Man"
+		if(FEMALE)
+			switch(age)
+				if (0 to 15)		return "Girl"
+				if (16 to 25)		return "Young Woman"
+				if (26 to 60)		return "Woman"
+				if (61 to INFINITY)	return "Old Woman"
 	return "Unknown"
 
 proc/get_body_build(gender, body_build = "Default")
