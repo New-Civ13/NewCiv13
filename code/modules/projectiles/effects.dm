@@ -1,3 +1,5 @@
+/* Projectile Effects Parent */
+
 /obj/effect/projectile
 	icon = 'icons/effects/projectiles.dmi'
 	icon_state = "bolt"
@@ -30,18 +32,25 @@
 	spawn(update_time)
 		update()
 
-//----------------------------
-// Bullet
-//----------------------------
+/* Projectile Effects Parent End */
+
+//----------------------------//
+//       Bullet Effects       //
+//----------------------------//
+
 /obj/effect/projectile/bullet/muzzle
 	icon_state = "muzzle_bullet"
-///LASERS
+
+/* Laser Effects */
 /obj/effect/projectile/laser/muzzle
 	icon_state = "muzzle_laser"
+
 /obj/effect/projectile/laser/muzzle/b
 	icon_state = "muzzle_laserb"
+
 /obj/effect/projectile/laser/muzzle/g
 	icon_state = "muzzle_laserg"
+/* Lasers Effects End */
 
 /obj/effect/projectile
 	icon = 'icons/effects/projectiles.dmi'
@@ -81,9 +90,9 @@
 	spawn(update_time)
 		update()
 
-//----------------------------
-// Impact
-//----------------------------
+//----------------------------//
+//       Impact Effects       //
+//----------------------------//
 
 /obj/effect/projectile/impact
 	icon_state = "dust_cloud_generic"
@@ -118,16 +127,18 @@
 	spawn(update_time)
 		update()
 
+/* Impact Heavy Effects */
 /obj/effect/projectile/impact/heavy
 	icon_state = "dust_heavy_cloud_generic"
 	life_time = 10
 	alpha_modifier = 0.9
 	update_time = 0.6
 	speed_modifier = 1.5
+/* Impact Heavy Effects End */
 
-//----------------------------
-// Tracer
-//----------------------------
+//----------------------------//
+//       Tracer Effects       //
+//----------------------------//
 
 /obj/effect/projectile/tracer
 	icon_state = "tracer_white"
@@ -159,6 +170,7 @@
 	life_time = 3
 	alpha_modifier = 0.7
 
+/* Tracer Effect /obj/ defines */
 /obj/effect/projectile/tracer/red
 	icon_state = "tracer_red"
 
@@ -168,6 +180,11 @@
 /obj/effect/projectile/tracer/shell
 	icon_state = "shell_tracer_white"
 	life_time = 10
+/* Tracer Effects /obj defines End */
+
+//----------------------------//
+//   Tracer Missile Effects   //
+//----------------------------//
 
 /obj/effect/projectile/tracer/missile
 	icon_state = "dust_cloud_generic"
@@ -199,3 +216,4 @@
 	pixel_y += sin(angle) * sqrt(ds)
 	spawn(update_time)
 		update()
+/* Tracer Missile Effects End */
