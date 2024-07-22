@@ -112,85 +112,86 @@
 	if (!istype(T, /turf/floor/beach) && !istype(T, /turf/floor/broken_floor) && !istype(T, /turf/floor/trench))
 		if(caliber >= 37)
 			T.ChangeTurf(/turf/floor/dirt/burned)
-	if (atype == "HE")
-		var/he_range = caliber_modifier
-		var/list/fragment_types = list(/obj/item/projectile/bullet/pellet/fragment/short_range = 1)
-		if(caliber < 37)
-			explosion(T, 0, 0, 1, 2)
-		else
-			explosion(T, he_range, he_range + 1, he_range + 2, he_range + 3)
-			fragmentate(T, 12, 7, fragment_types)
-		loc = null
-		qdel(src)
-	else if (atype == "AP")
-		var/ap_range = clamp(round(caliber_modifier / 2), 0, 4)
-		var/list/fragment_types = list(/obj/item/projectile/bullet/pellet/fragment/short_range = 1)
-		if(caliber >= 37)
-			if(caliber >= 50)
-				explosion(T, ap_range, ap_range + 1, ap_range + 2, 3)
-			fragmentate(T, 8, 7, fragment_types)
-		loc = null
-		qdel(src)
-	else if (atype == "APCR")
-		if(!initiated)
-			if(caliber >= 40)
-				explosion(T, 0, 0, 1, 0)
+	switch(atype)
+		if ("HE")
+			var/he_range = caliber_modifier
+			var/list/fragment_types = list(/obj/item/projectile/bullet/pellet/fragment/short_range = 1)
+			if(caliber < 37)
+				explosion(T, 0, 0, 1, 2)
+			else
+				explosion(T, he_range, he_range + 1, he_range + 2, he_range + 3)
+				fragmentate(T, 12, 7, fragment_types)
 			loc = null
 			qdel(src)
-			return
-
-		var/num_fragments = 2 * caliber_modifier
-
-		var/target_x = round(cos(angle) * 8)
-		var/target_y = round(sin(angle) * 8)
-
-		var/i
-		for (i = 0, i < num_fragments, i++)
-			spawn(i * 0.1)
-				var/obj/item/projectile/bullet/pellet/fragment/P = new/obj/item/projectile/bullet/pellet/fragment(T)
-				P.damage = 15
-				P.pellets = num_fragments
-				P.range_step = 2
-				P.shot_from = name
-				P.launch_fragment(locate(x + target_x + rand(-4,4), y + target_y + rand(-4,4), z))
-				for (var/mob/living/L in T)
-					P.attack_mob(L, 0, 0)
-	else if (atype == "HEAT")
-		var/num_fragments = 3 * caliber_modifier
-		var/heat_range = clamp(round(caliber_modifier / 2), 0, 4)
-
-		if(!initiated)
-			explosion(T, heat_range, heat_range + 1, heat_range + 2, 3)
+		if ("AP")
+			var/ap_range = clamp(round(caliber_modifier / 2), 0, 4)
+			var/list/fragment_types = list(/obj/item/projectile/bullet/pellet/fragment/short_range = 1)
+			if(caliber >= 37)
+				if(caliber >= 50)
+					explosion(T, ap_range, ap_range + 1, ap_range + 2, 3)
+				fragmentate(T, 8, 7, fragment_types)
 			loc = null
 			qdel(src)
-			return
-		if(permutated.len > 1)
-			explosion(permutated[permutated.len-1], heat_range, heat_range + 1, heat_range + 2, 3)
-		else
-			explosion(starting, heat_range, heat_range + 1, heat_range + 2, 3)
+		if ("APCR")
+			if(!initiated)
+				if(caliber >= 40)
+					explosion(T, 0, 0, 1, 0)
+				loc = null
+				qdel(src)
+				return
 
-		var/target_x = round(cos(angle) * 6)
-		var/target_y = round(sin(angle) * 6)
+			var/num_fragments = 2 * caliber_modifier
 
-		var/i
-		for (i = 0, i < num_fragments, i++)
-			spawn(i * 0.1)
-				var/obj/item/projectile/bullet/pellet/fragment/P = new/obj/item/projectile/bullet/pellet/fragment(T)
-				P.damage = 15
-				P.pellets = num_fragments
-				P.range_step = 2
-				P.shot_from = name
-				P.launch_fragment(locate(x + target_x + rand(-3,3), y + target_y + rand(-3,3), z))
-				for (var/mob/living/L in T)
-					P.attack_mob(L, 0, 0)
-		loc = null
-		qdel(src)
-	else if (atype == "HEI")
-		var/hei_range = clamp(round(caliber_modifier / 2), 0, 4)
-		explosion(T, hei_range, hei_range + 1, hei_range + 2, 3)
-		ignite_turf(T,8,40)
-		loc = null
-		qdel(src)
+			var/target_x = round(cos(angle) * 8)
+			var/target_y = round(sin(angle) * 8)
+
+			var/i
+			for (i = 0, i < num_fragments, i++)
+				spawn(i * 0.1)
+					var/obj/item/projectile/bullet/pellet/fragment/P = new/obj/item/projectile/bullet/pellet/fragment(T)
+					P.damage = 15
+					P.pellets = num_fragments
+					P.range_step = 2
+					P.shot_from = name
+					P.launch_fragment(locate(x + target_x + rand(-4,4), y + target_y + rand(-4,4), z))
+					for (var/mob/living/L in T)
+						P.attack_mob(L, 0, 0)
+		if ("HEAT")
+			var/num_fragments = 3 * caliber_modifier
+			var/heat_range = clamp(round(caliber_modifier / 2), 0, 4)
+
+			if(!initiated)
+				explosion(T, heat_range, heat_range + 1, heat_range + 2, 3)
+				loc = null
+				qdel(src)
+				return
+			if(permutated.len > 1)
+				explosion(permutated[permutated.len-1], heat_range, heat_range + 1, heat_range + 2, 3)
+			else
+				explosion(starting, heat_range, heat_range + 1, heat_range + 2, 3)
+
+			var/target_x = round(cos(angle) * 6)
+			var/target_y = round(sin(angle) * 6)
+
+			var/i
+			for (i = 0, i < num_fragments, i++)
+				spawn(i * 0.1)
+					var/obj/item/projectile/bullet/pellet/fragment/P = new/obj/item/projectile/bullet/pellet/fragment(T)
+					P.damage = 15
+					P.pellets = num_fragments
+					P.range_step = 2
+					P.shot_from = name
+					P.launch_fragment(locate(x + target_x + rand(-3,3), y + target_y + rand(-3,3), z))
+					for (var/mob/living/L in T)
+						P.attack_mob(L, 0, 0)
+			loc = null
+			qdel(src)
+		if ("HEI")
+			var/hei_range = clamp(round(caliber_modifier / 2), 0, 4)
+			explosion(T, hei_range, hei_range + 1, hei_range + 2, 3)
+			ignite_turf(T,8,40)
+			loc = null
+			qdel(src)
 
 //////////////////////////////////////////
 ////////////////AUTOCANNON////////////////
