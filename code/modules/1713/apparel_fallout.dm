@@ -8,6 +8,7 @@
 	var/maskup = FALSE
 
 /obj/item/clothing/under/fallout/ncr/verb/roll_sleeves()
+	set name = "Roll Sleeves"
 	set category = null
 	set src in usr
 	if (type != /obj/item/clothing/under/fallout/ncr)

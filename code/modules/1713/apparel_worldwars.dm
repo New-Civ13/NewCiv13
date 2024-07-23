@@ -748,6 +748,7 @@
 	var/rolled = FALSE
 
 /obj/item/clothing/under/ww2/japoffuni/verb/roll_sleeves()
+	set name = "Roll Sleeves"
 	set category = null
 	set src in usr
 	if (type != /obj/item/clothing/under/ww2/japoffuni)
@@ -793,6 +794,7 @@
 		icon_state = "ww2_japuni"
 
 /obj/item/clothing/under/ww2/japuni/verb/roll_sleeves()
+	set name = "Roll Sleeves"
 	set category = null
 	set src in usr
 	if (type != /obj/item/clothing/under/ww2/japuni)
@@ -950,6 +952,7 @@
 	var/rolled = FALSE
 
 /obj/item/clothing/under/ww2/japuni_navy/verb/roll_sleeves()
+	set name = "Roll Sleeves"
 	set category = null
 	set src in usr
 	if (type != /obj/item/clothing/under/ww2/japuni_navy)
@@ -998,6 +1001,7 @@
 	var/rolled = FALSE
 
 /obj/item/clothing/under/ww2/japuni_snlf/verb/roll_sleeves()
+	set name = "Roll Sleeves"
 	set category = null
 	set src in usr
 	if (type != /obj/item/clothing/under/ww2/japuni_snlf)
@@ -1316,6 +1320,7 @@
 	var/rolled = FALSE
 
 /obj/item/clothing/under/ww2/british/verb/roll_sleeves()
+	set name = "Roll Sleeves"
 	set category = null
 	set src in usr
 	if (type != /obj/item/clothing/under/ww2/british)
@@ -1347,6 +1352,7 @@
 	var/rolled = FALSE
 
 /obj/item/clothing/under/ww2/british_off/verb/roll_sleeves()
+	set name = "Roll Sleeves"
 	set category = null
 	set src in usr
 	if (type != /obj/item/clothing/under/ww2/british_off)
@@ -1399,6 +1405,7 @@
 	var/rolled = FALSE
 
 /obj/item/clothing/under/ww2/chiuni/verb/roll_sleeves()
+	set name = "Roll Sleeves"
 	set category = null
 	set src in usr
 	if (type != /obj/item/clothing/under/ww2/chiuni)
@@ -1430,6 +1437,7 @@
 	var/rolled = FALSE
 
 /obj/item/clothing/under/ww2/chiuni_off/verb/roll_sleeves()
+	set name = "Roll Sleeves"
 	set category = null
 	set src in usr
 	if (type != /obj/item/clothing/under/ww2/chiuni_off)
@@ -1461,6 +1469,7 @@
 	var/rolled = FALSE
 
 /obj/item/clothing/under/ww2/chiuni2/verb/roll_sleeves()
+	set name = "Roll Sleeves"
 	set category = null
 	set src in usr
 	if (type != /obj/item/clothing/under/ww2/chiuni2)
@@ -1492,6 +1501,7 @@
 	var/rolled = FALSE
 
 /obj/item/clothing/under/ww2/chiuni2_off/verb/roll_sleeves()
+	set name = "Roll Sleeves"
 	set category = null
 	set src in usr
 	if (type != /obj/item/clothing/under/ww2/chiuni2_off)
@@ -2006,6 +2016,7 @@ obj/item/clothing/accessory/storage/webbing/ww1/ww2/stormgroup/Scout
 		item_state_slots["slot_w_uniform"] = "geruni_ww2_winter"
 */
 /obj/item/clothing/under/ww2/german/verb/roll_sleeves()
+	set name = "Roll Sleeves"
 	set category = null
 	set src in usr
 	if (type != /obj/item/clothing/under/ww2/german)
@@ -2056,6 +2067,7 @@ obj/item/clothing/accessory/storage/webbing/ww1/ww2/stormgroup/Scout
 	var/rolled = FALSE
 
 /obj/item/clothing/under/ww2/german_doctor/verb/roll_sleeves()
+	set name = "Roll Sleeves"
 	set category = null
 	set src in usr
 	if (type != /obj/item/clothing/under/ww2/german_doctor)
@@ -2250,6 +2262,7 @@ obj/item/clothing/accessory/storage/webbing/ww1/ww2/stormgroup/Scout
 			worn_state = "sovuni"
 
 /obj/item/clothing/under/ww2/soviet/verb/roll_sleeves()
+	set name = "Roll Sleeves"
 	set category = null
 	set src in usr
 	if (type != /obj/item/clothing/under/ww2/soviet)
@@ -3140,6 +3153,7 @@ obj/item/clothing/accessory/storage/webbing/ww1/ww2/stormgroup/Scout
 	base_state = "upa_off"
 	rolled = FALSE
 /obj/item/clothing/under/ww2/upa/verb/roll_sleeves()
+	set name = "Roll Sleeves"
 	set category = null
 	set src in usr
 	if (rolled && usr.gender == "male")

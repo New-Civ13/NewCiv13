@@ -21,6 +21,7 @@
 	var/rolled = FALSE
 
 /obj/item/clothing/under/abashiri/verb/roll_sleeves()
+	set name = "Roll Sleeves"
 	set category = null
 	set src in usr
 	if (type != /obj/item/clothing/under/abashiri)
@@ -134,6 +135,7 @@
 	var/rolled = FALSE
 
 /obj/item/clothing/under/japuni/verb/roll_sleeves()
+	set name = "Roll Sleeves"
 	set category = null
 	set src in usr
 	if (type != /obj/item/clothing/under/japuni)
@@ -166,6 +168,7 @@
 	var/rolled = FALSE
 
 /obj/item/clothing/under/japoffuni/verb/roll_sleeves()
+	set name = "Roll Sleeves"
 	set category = null
 	set src in usr
 	if (type != /obj/item/clothing/under/japoffuni)
@@ -226,6 +229,7 @@
 	worn_state = "ww1_russian"
 
 /obj/item/clothing/under/rusuni/verb/roll_sleeves()
+	set name = "Roll Sleeves"
 	set category = null
 	set src in usr
 	if (type != /obj/item/clothing/under/rusuni)
@@ -1570,6 +1574,7 @@
 	var/rolled = FALSE
 
 /obj/item/clothing/under/ph_us_war/filipino/filuni/verb/roll_sleeves()
+	set name = "Roll Sleeves"
 	set category = null
 	set src in usr
 	if (type != /obj/item/clothing/under/ph_us_war/filipino/filuni)
@@ -1602,6 +1607,7 @@
 	var/rolled = FALSE
 
 /obj/item/clothing/under/ph_us_war/filipino/tiradores/verb/roll_sleeves()
+	set name = "Roll Sleeves"
 	set category = null
 	set src in usr
 	if (type != /obj/item/clothing/under/ph_us_war/filipino/tiradores)
@@ -1635,6 +1641,7 @@
 	var/rolled = FALSE
 
 /obj/item/clothing/under/ph_us_war/american/us_uni/verb/roll_sleeves()
+	set name = "Roll Sleeves"
 	set category = null
 	set src in usr
 	if (type != /obj/item/clothing/under/ph_us_war/american/us_uni)
@@ -1667,6 +1674,7 @@
 	var/rolled = FALSE
 
 /obj/item/clothing/under/ph_us_war/american/us_off_uni/verb/roll_sleeves()
+	set name = "Roll Sleeves"
 	set category = null
 	set src in usr
 	if (type != /obj/item/clothing/under/ph_us_war/american/us_off_uni)

@@ -614,6 +614,7 @@
 	var/rolled = FALSE
 
 /obj/item/clothing/under/us_uni/multicam/verb/roll_sleeves()
+	set name = "Roll Sleeves"
 	set category = null
 	set src in usr
 	if (type != /obj/item/clothing/under/us_uni/multicam)
@@ -1848,6 +1849,7 @@
 	var/rolled = FALSE
 
 /obj/item/clothing/under/ukraine/verb/roll_sleeves()
+	set name = "Roll Sleeves"
 	set category = null
 	set src in usr
 	if (type != /obj/item/clothing/under/ukraine)
@@ -1889,6 +1891,7 @@
 	var/rolled = FALSE
 
 /obj/item/clothing/under/russian/verb/roll_sleeves()
+	set name = "Roll Sleeves"
 	set category = null
 	set src in usr
 	if (type != /obj/item/clothing/under/russian)
@@ -1911,6 +1914,7 @@
 	update_clothing_icon()
 
 /obj/item/clothing/under/russian/vdv/roll_sleeves()
+	set name = "Roll Sleeves"
 	set category = null
 	set src in usr
 	if (type != /obj/item/clothing/under/russian/vdv)
@@ -1951,6 +1955,7 @@
 	var/rolled = FALSE
 
 /obj/item/clothing/under/russiandesert/verb/roll_sleeves()
+	set name = "Roll Sleeves"
 	set category = null
 	set src in usr
 	if (type != /obj/item/clothing/under/russiandesert)
@@ -1986,6 +1991,7 @@
 	var/rolled = FALSE
 
 /obj/item/clothing/under/syrian_gov/verb/roll_sleeves()
+	set name = "Roll Sleeves"
 	set category = null
 	set src in usr
 	if (type != /obj/item/clothing/under/syrian_gov)
@@ -2019,6 +2025,7 @@
 	var/rolled = FALSE
 
 /obj/item/clothing/under/syria_fsa/verb/roll_sleeves()
+	set name = "Roll Sleeves"
 	set category = null
 	set src in usr
 	if (type != /obj/item/clothing/under/syria_fsa)
@@ -2144,6 +2151,7 @@
 	base_icon = "cad_pat_winter"
 
 /obj/item/clothing/under/caf/verb/roll_sleeves()
+	set name = "Roll Sleeves"
 	set category = null
 	set src in usr
 	if (type != /obj/item/clothing/under/caf)
