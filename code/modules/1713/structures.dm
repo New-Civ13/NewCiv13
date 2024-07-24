@@ -762,7 +762,7 @@
 	desc = "A hotbulb engine in operation."
 	icon_state = "hotbulb_on"
 /obj/structure/props/engineprops/dieselgeni
-	name = "diesel genertator"
+	name = "diesel generator"
 	desc = "A diesel generator in operation."
 	icon_state = "diesel_on"
 /obj/structure/props/engineprops/hesselman
