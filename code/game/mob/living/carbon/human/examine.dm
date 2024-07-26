@@ -189,7 +189,7 @@
 		distance = TRUE
 	if (stat)
 		msg += "<span class='warning'>[T.He] [T.is]n't responding to anything around [T.him] and seems to be asleep.</span>\n"
-		if ((stat == DEAD || losebreath) && distance <= 3)
+		if ((stat == DEAD || ticks_since_last_successful_breath) && distance <= 3)
 			msg += "<span class='warning'>[T.He] [T.does] not appear to be breathing.</span>\n"
 
 	if (fire_stacks)

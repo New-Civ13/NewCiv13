@@ -47,7 +47,7 @@
 								if (heart.pulse == PULSE_THREADY)
 									heartrate = "has a thready pulse with [M.get_pulse(GETPULSE_TOOL)] beats per minute. That's a sign of a hypovolemic shock (extreme blood loss)!"
 							var/obj/item/organ/heart/L = M.internal_organs_by_name["lungs"]
-							if (!L || M.losebreath)
+							if (!L || M.ticks_since_last_successful_breath)
 								sound += " and no respiration"
 							else if (M.is_lung_ruptured() || M.getOxyLoss() > 50)
 								sound += " and [pick("wheezing","gurgling")] sounds"

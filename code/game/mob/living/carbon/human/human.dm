@@ -530,7 +530,7 @@ var/list/coefflist = list()
 	species.create_organs(src)
 
 	never_set_faction_huds = TRUE
-	losebreath = FALSE
+	ticks_since_last_successful_breath = FALSE
 	rotting_stage = 0
 	shock_stage = 0
 	nutrition = max_nutrition

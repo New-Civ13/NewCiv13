@@ -46,5 +46,5 @@
 			owner.drip(10)
 		if (prob(4))
 			spawn owner.emote("me", TRUE, "gasps for air!")
-			owner.losebreath += 15
+			owner.ticks_since_last_successful_breath += 15
 	#endif

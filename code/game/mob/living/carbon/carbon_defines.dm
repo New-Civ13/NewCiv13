@@ -14,7 +14,7 @@
 	var/datum/reagents/metabolism/bloodstr = null
 	var/datum/reagents/metabolism/ingested = null
 	var/datum/reagents/metabolism/touching = null 
-	var/losebreath = FALSE //if we failed to breathe last tick
+	var/ticks_since_last_successful_breath = FALSE //if we failed to breathe last tick
 	var/mood = 100 //Morale. At a value between 40 and 60, the stat has no positive bonuses or negative penalties.
 	var/coughedtime = FALSE
 	var/lastpuke = FALSE

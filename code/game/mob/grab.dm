@@ -147,7 +147,7 @@
 			var/mob/living/human/C = affecting
 			C.apply_effect(STUTTER, 5) //It will hamper your voice, being choked and all.
 			C.Weaken(5)	//Should keep you down unless you get help.
-			C.losebreath = max(C.losebreath + 2, 3)
+			C.ticks_since_last_successful_breath = max(C.ticks_since_last_successful_breath + 2, 3)
 
 	adjust_position()
 
@@ -269,7 +269,7 @@
 		affecting.set_dir(WEST)
 		if (ishuman(affecting))
 			var/mob/living/human/C = affecting
-			C.losebreath += 3.5 // This wasnt ACTUALLY strangling anything (value was 1), infact if you use a doctor's book, the assailant/affecting will always have 1 unit of oxygen damage, this is because you recover 1 unit per tick, and it tries to deal 1 unit of oxygen loss per tick. I've quick-fixed it by changing it to 1 --> 3.5, but needs refactoring.
+			C.ticks_since_last_successful_breath += 3.5 // This wasnt ACTUALLY strangling anything (value was 1), infact if you use a doctor's book, the assailant/affecting will always have 1 unit of oxygen damage, this is because you recover 1 unit per tick, and it tries to deal 1 unit of oxygen loss per tick. I've quick-fixed it by changing it to 1 --> 3.5, but needs refactoring.
 	adjust_position()
 
 //This is used to make sure the victim hasn't managed to yackety sax away before using the grab.

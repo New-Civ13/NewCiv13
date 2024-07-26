@@ -337,7 +337,7 @@
 			target.adjustOxyLoss(6) //Stack the chokes with additional oxyloss for quicker death
 			if(prob(40))
 				target.stuttering = max(target.stuttering, 3) //It will hamper your voice, being choked and all.
-				target.losebreath = max(target.losebreath, 3)
+				target.ticks_since_last_successful_breath = max(target.ticks_since_last_successful_breath, 3)
 		return TRUE
 	else
 		garroting = FALSE

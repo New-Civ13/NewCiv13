@@ -99,8 +99,8 @@
 					"<span class='userdanger'>Your chest is slammed by [A]! You can't breathe!</span>", "<span class='hear'>You hear a sickening sound of flesh hitting flesh!</span>")
 	to_chat(A, "<span class='danger'>You pound [D] on the chest!</span>")
 	playsound(get_turf(A), "punch_sound", 50, TRUE, -1)
-	if(D.losebreath <= 10)
-		D.losebreath = clamp(D.losebreath + 5, 0, 10)
+	if(D.ticks_since_last_successful_breath <= 10)
+		D.ticks_since_last_successful_breath = clamp(D.ticks_since_last_successful_breath + 5, 0, 10)
 	D.adjustOxyLoss(10)
 	D.attack_log += "\[[time_stamp()]\] <font color='orange'>Quickchoked by [A.name] ([A.ckey])</font>"
 	return TRUE

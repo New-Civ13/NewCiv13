@@ -186,8 +186,8 @@
 	if (ishuman(M))
 		var/mob/living/human/H = M
 		if (H.stat != TRUE)
-			if (H.losebreath >= 10)
-				H.losebreath = max(10, H.losebreath - 10)
+			if (H.ticks_since_last_successful_breath >= 10)
+				H.ticks_since_last_successful_breath = max(10, H.ticks_since_last_successful_breath - 10)
 			H.adjustOxyLoss(2)
 			H.Weaken(10)
 		M.add_chemical_effect(CE_NOPULSE, TRUE)
@@ -208,8 +208,8 @@
 	if (ishuman(M))
 		var/mob/living/human/H = M
 		if (H.stat != TRUE)
-			if (H.losebreath >= 10)
-				H.losebreath = max(10, M.losebreath-10)
+			if (H.ticks_since_last_successful_breath >= 10)
+				H.ticks_since_last_successful_breath = max(10, M.ticks_since_last_successful_breath-10)
 			H.adjustOxyLoss(2)
 			H.Weaken(10)
 		M.add_chemical_effect(CE_NOPULSE, TRUE)
@@ -303,8 +303,8 @@
 
 /datum/reagent/lexorin/affect_blood(var/mob/living/human/M, var/alien, var/removed)
 	M.take_organ_damage(3 * removed, FALSE)
-	if (M.losebreath < 15)
-		M.losebreath++
+	if (M.ticks_since_last_successful_breath < 15)
+		M.ticks_since_last_successful_breath++
 
 /datum/reagent/slimejelly
 	name = "Slime Jelly"
@@ -630,6 +630,6 @@
 /datum/reagent/toxin/chlorobenzalmalononitrile/overdose(var/mob/living/human/M, var/alien, var/removed)
 	M.adjustOxyLoss(5)
 	M.take_organ_damage(5)
-	if(M.losebreath < 15)
-		M.losebreath++
+	if(M.ticks_since_last_successful_breath < 15)
+		M.ticks_since_last_successful_breath++
 
