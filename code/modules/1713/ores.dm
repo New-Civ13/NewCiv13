@@ -86,6 +86,23 @@
 						qdel(src)
 		else
 			..()
+
+/obj/item/stack/ore/iron_sponge/update_icon()
+	if(novariants) return
+	var/icon_suffix = ""
+	switch(amount)
+		if(1)
+			icon_suffix = ""
+		if (2 to 5)
+			icon_suffix = "_1"
+		if (6 to 24)
+			icon_suffix = "_2"
+		if (25 to 36)
+			icon_suffix = "_3"
+		if (37 to INFINITY)
+			icon_suffix = "_4"
+	icon_state = "[initial(icon_state)][icon_suffix]"
+
 /obj/item/stack/ore/iron_pig //slighly better iron from a blast furnace.
 	name = "pig iron"
 	desc = "A soft iron with a high carbon content. Used to make steel using an anvil."
@@ -108,6 +125,23 @@
 						qdel(src)
 		else
 			..()
+
+/obj/item/stack/ore/iron_pig/update_icon()
+	if(novariants) return
+	var/icon_suffix = ""
+	switch(amount)
+		if(1)
+			icon_suffix = ""
+		if (2 to 5)
+			icon_suffix = "_1"
+		if (6 to 24)
+			icon_suffix = "_2"
+		if (25 to 36)
+			icon_suffix = "_3"
+		if (37 to INFINITY)
+			icon_suffix = "_4"
+	icon_state = "[initial(icon_state)][icon_suffix]"
+
 /obj/item/stack/ore/glass
 	name = "sand"
 	icon_state = "ore_glass"
