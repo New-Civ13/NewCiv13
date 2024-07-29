@@ -738,7 +738,7 @@ bullet_act
 
 	if(I.damtype == BRUTE && !I.edge && prob(I.force * (hit_zone == "mouth" ? 6 : 0)) && O)//Knocking out teeth.
 		if(O.knock_out_teeth(get_dir(user, src), round(rand(28, 38) * ((I.force*1.5)/100))))
-			user.visible_message("<span class='danger'>Some of [src]'s teeth sail off in an arc!</span>", \
+			src.visible_message("<span class='danger'>Some of [src]'s teeth sail off in an arc!</span>", \
 								"<span class='userdanger'>Some of your teeth sail off in an arc!</span>")
 
 	else if ((I.damtype == BRUTE || I.damtype == HALLOSS) && prob(5 + (effective_force)))
@@ -756,7 +756,7 @@ bullet_act
 
 	if (prob(I.force * (hit_zone == "mouth" ? 5 : 0)) && O) //Will the teeth fly out?
 		if (O.knock_out_teeth(get_dir(user, src), round(rand(28, 38) * ((I.force*1.5)/100))))
-			user.visible_message("<span class='danger'>Some of [src]'s teeth sail off in an arc!</span>", \
+			src.visible_message("<span class='danger'>Some of [src]'s teeth sail off in an arc!</span>", \
 								"<span class='userdanger'>Some of your teeth sail off in an arc!</span>")
 		//Apply blood
 		if (!(I.flags & NOBLOODY))
