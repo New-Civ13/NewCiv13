@@ -16,7 +16,7 @@
 /obj/structure/closet/crate/MouseDrop_T(mob/target, mob/user)
 	//if (!opened)
 	var/mob/living/H = user
-	if (istype(H) && target == user)
+	if (istype(H) && target == user && can_climb(target))
 		do_climb(target)
 	else
 		return ..(target, user)

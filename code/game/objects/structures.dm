@@ -93,7 +93,7 @@
 	else
 		return ..()
 
-/obj/structure/proc/can_climb(var/mob/living/user, post_climb_check=0)
+/obj/structure/proc/can_climb(var/mob/living/user, post_climb_check = FALSE, suppress_feedback = FALSE)
 	var/movingto = get_step(get_turf(src), dir)
 	if (map && movingto && map.check_caribbean_block(user, movingto))
 		to_chat(user, SPAN_WARNING("You cannot pass the invisible wall until the <b>Grace Period</b> has ended."))
@@ -101,21 +101,24 @@
 	
 	if (!climbable || !can_touch(user) || (!post_climb_check && (user in climbers)))
 		return FALSE
-	
+
 	if (!user.Adjacent(src) && !istype(src, /obj/structure/window/barrier))
-		to_chat(user, SPAN_DANGER("You can't climb there, the way is blocked."))
+		if(!suppress_feedback)
+			to_chat(user, SPAN_DANGER("You can't climb there, the way is blocked."))
 		return FALSE
 	
 	var/list/objects_blocked = turf_is_crowded(user)
 	if (objects_blocked.len > 0)
 		var/blocked_list = english_list(objects_blocked, " nothing ", " and \the ")
-		to_chat(user, SPAN_DANGER("\The [blocked_list] blocks you from climbing over.")) // e.g; The wood barricade and the steel barricade blocks you from climbing over.
+		if(!suppress_feedback)
+			to_chat(user, SPAN_DANGER("\The [blocked_list] blocks you from climbing over.")) // e.g; The wood barricade and the steel barricade blocks you from climbing over.
 		return FALSE
 	
 	var/list/objects_blocked_2 = turf_is_crowded(user, 1)
 	if (objects_blocked_2.len > 0)
 		var/blocked_list_2 = english_list(objects_blocked_2, " nothing ", " and \the ")
-		to_chat(user, SPAN_DANGER("\The [blocked_list_2] blocks you from climbing over.")) // e.g; The wood barricade and the steel barricade blocks you from climbing over.
+		if(!suppress_feedback)
+			to_chat(user, SPAN_DANGER("\The [blocked_list_2] blocks you from climbing over.")) // e.g; The wood barricade and the steel barricade blocks you from climbing over.
 		return FALSE
 	
 	return TRUE
@@ -152,18 +155,18 @@
 	var/turf/T = get_step(get_turf(src), src.dir)
 	if (!T || !istype(T))
 		return FALSE
-	if (T.density == TRUE)
+	if (T.density)
 		return FALSE
 	for (var/obj/O in T.contents)  // Iterate over all objects in the turf
 		if (istype(O, /obj/structure)) // Type-cast to the superclass which has `climbable` defined
 			var/obj/structure/S = O
 			if(S.climbable) continue // We don't include this in the is-type checks because open crates aren't climbable if open, so that could lead to some technicalities
-			if (istype(O, /obj/structure/closet/crate))
-				continue // Allow us to climb onto crates
-			if (istype(O, /obj/structure/table))
-				continue // Allow us to climb onto other tables (UNLESS they face our way (handled in obj/str/table/do_climb()))
-			if (O.density == TRUE) 
-				return FALSE
+		if (istype(O, /obj/structure/closet/crate))
+			continue // Allow us to climb onto crates
+		if (istype(O, /obj/structure/table))
+			continue // Allow us to climb onto other tables (UNLESS they face our way (handled in obj/str/table/do_climb()))
+		if (O.density) 
+			return FALSE
 	return TRUE
 
 /obj/structure/proc/do_climb(var/mob/living/user)
