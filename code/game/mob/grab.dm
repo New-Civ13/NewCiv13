@@ -342,7 +342,7 @@
 /obj/item/weapon/grab/proc/reset_kill_state()
 	if (state == GRAB_KILL)
 		if (assailant)
-			assailant.visible_message("<span class='warning'>[assailant] lost \his tight grip on [affecting]'s neck!</span>", "<span class = 'warning'>You have lost your tight grip on [affecting]'s neck 5!</span>")
+			assailant.visible_message(SPAN_WARNING("[assailant] lost \his tight grip on [affecting]'s neck!"), SPAN_WARNING("You have lost your tight grip on [affecting]'s neck!"))
 		hud.icon_state = "kill"
 		state = GRAB_NECK
 
