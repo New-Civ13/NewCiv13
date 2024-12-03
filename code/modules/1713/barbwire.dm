@@ -35,17 +35,17 @@
 		if (1 to 20) // 20% chance.
 			if (affecting)
 				affecting.take_damage(slight_cut, FALSE) // Slight cut gives around 6.16~ shock_stage.
-				to_chat(H, SPAN_WARNING("Your <b>[affecting.name]</b> gets <b>slightly</b> cut by the [src]!"))
+				to_chat(H, SPAN_WARNING("Your <b>[affecting.name]</b> gets <b>slightly</b> cut by \the [src]!"))
 		if (21 to 60) // 40% chance.
 			if (affecting)
 				affecting.take_damage(moderate_cut, FALSE) // Gives around 15~ shock_stage.
-				to_chat(H, SPAN_WARNING("Your <b>[affecting.name]</b> gets <b>cut</b> by the [src]!"))
+				to_chat(H, SPAN_WARNING("Your <b>[affecting.name]</b> gets <b>cut</b> by \the [src]!"))
 		if (61 to 90) // 30% chance.
 			if (affecting)
 				affecting.take_damage(deep_cut, FALSE) // Gives around 25~ shock_stage.
-				to_chat(H, SPAN_WARNING("Your <b>[affecting.name]</b> gets <b>[pick("deeply", "heavily", "seriously")]</b> cut by the [src]!"))
+				to_chat(H, SPAN_WARNING("Your <b>[affecting.name]</b> gets <b>[pick("deeply", "heavily", "seriously")]</b> cut by \the [src]!"))
 		if (91 to 100) // 10% chance.
-			to_chat(H, SPAN_WARNING("You snag on the [src]!"))
+			to_chat(H, SPAN_WARNING("You snag on \the [src]!"))
 
 	if (affecting && affecting.damage > 0)
 		H.UpdateDamageIcon()
