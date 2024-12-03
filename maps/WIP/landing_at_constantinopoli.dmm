@@ -116,8 +116,8 @@
 /obj/effect/floor_decal/corner_steel_grid/diagonal{
 	dir = 4
 	},
-/obj/structure/simple_door/key_door/ancient/greek{
-	unique_door_name = null
+/obj/structure/door/key/ancient/greek{
+	
 	},
 /turf/floor/plating/steel,
 /area/caribbean/roofed)
@@ -412,7 +412,7 @@
 /turf/floor/plating/steel,
 /area/caribbean/roofed)
 "ed" = (
-/obj/structure/simple_door/key_door/anyone/wood,
+/obj/structure/door/key/anyone/wood,
 /turf/floor/wood,
 /area/caribbean/roofed)
 "ef" = (
@@ -848,8 +848,8 @@
 /turf/floor/plating/tiled/dark,
 /area/caribbean/roofed)
 "hZ" = (
-/obj/structure/simple_door/key_door/ancient/greek{
-	unique_door_name = null
+/obj/structure/door/key/ancient/greek{
+	
 	},
 /turf/floor/wood{
 	icon_state = "wood-broken1"
@@ -1004,8 +1004,8 @@
 /turf/floor/plating/steel,
 /area/caribbean/roofed)
 "iX" = (
-/obj/structure/simple_door/key_door/ancient/greek{
-	unique_door_name = null
+/obj/structure/door/key/ancient/greek{
+	
 	},
 /turf/floor/wood{
 	icon_state = "wood-broken6"
@@ -1206,7 +1206,7 @@
 /turf/floor/beach/water/shallowsaltwater,
 /area/caribbean/roofed)
 "kj" = (
-/obj/structure/simple_door/key_door/anyone,
+/obj/structure/door/key/anyone,
 /turf/floor/plating/steel,
 /area/caribbean/roofed)
 "kl" = (
@@ -1258,7 +1258,7 @@
 /area/caribbean/roofed)
 "kR" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/simple_door/key_door/anyone/wood,
+/obj/structure/door/key/anyone/wood,
 /turf/floor/wood,
 /area/caribbean/roofed)
 "kY" = (
@@ -1302,7 +1302,7 @@
 /turf/floor/dirt,
 /area/caribbean)
 "lB" = (
-/obj/structure/simple_door/key_door/custom/jail/steeljail/police,
+/obj/structure/door/key/jail/steel/police,
 /turf/floor/plating/tiled,
 /area/caribbean/roofed)
 "lC" = (
@@ -1567,8 +1567,8 @@
 /turf/floor/grass,
 /area/caribbean)
 "ns" = (
-/obj/structure/simple_door/key_door/ancient/greek{
-	unique_door_name = null
+/obj/structure/door/key/ancient/greek{
+	
 	},
 /turf/floor/plating/tiled,
 /area/caribbean/roofed)
@@ -3080,8 +3080,8 @@
 /turf/wall/rockwall,
 /area/caribbean/roofed)
 "Ao" = (
-/obj/structure/simple_door/key_door/ancient/greek{
-	unique_door_name = null
+/obj/structure/door/key/ancient/greek{
+	
 	},
 /turf/floor/plating/tiled/darker,
 /area/caribbean/roofed)
@@ -4020,8 +4020,8 @@
 /obj/covers/cement_wall{
 	layer = 11
 	},
-/obj/structure/simple_door/key_door/ancient/greek{
-	unique_door_name = null
+/obj/structure/door/key/ancient/greek{
+	
 	},
 /turf/wall/rockwall,
 /area/caribbean/roofed)
@@ -4265,8 +4265,8 @@
 /turf/floor/plating/steel,
 /area/caribbean/roofed)
 "Jr" = (
-/obj/structure/simple_door/key_door/ancient/greek{
-	unique_door_name = null
+/obj/structure/door/key/ancient/greek{
+	
 	},
 /turf/floor/plating/tiled/dark,
 /area/caribbean/roofed)
@@ -4879,8 +4879,8 @@
 /turf/floor/plating/cobblestone/vertical,
 /area/caribbean)
 "OY" = (
-/obj/structure/simple_door/key_door/ancient/greek{
-	unique_door_name = null
+/obj/structure/door/key/ancient/greek{
+	
 	},
 /obj/effect/floor_decal/corner/black/diagonal{
 	dir = 4
@@ -4889,8 +4889,8 @@
 /turf/floor/plating/steel,
 /area/caribbean/roofed)
 "Pd" = (
-/obj/structure/simple_door/key_door/ancient/greek{
-	unique_door_name = null
+/obj/structure/door/key/ancient/greek{
+	
 	},
 /turf/floor/wood,
 /area/caribbean/roofed)
@@ -5305,8 +5305,8 @@
 	},
 /area/caribbean/roofed)
 "RA" = (
-/obj/structure/simple_door/key_door/ancient/greek{
-	unique_door_name = null
+/obj/structure/door/key/ancient/greek{
+	
 	},
 /turf/floor/wood{
 	icon_state = "wood-broken4"
@@ -5336,7 +5336,7 @@
 /area/caribbean)
 "RN" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/simple_door/key_door/anyone/wood,
+/obj/structure/door/key/anyone/wood,
 /obj/structure/barricade,
 /obj/structure/barricade/vertical,
 /turf/floor/wood,
@@ -5992,8 +5992,8 @@
 /turf/floor/beach/water/shallowsaltwater,
 /area/caribbean/roofed)
 "Yv" = (
-/obj/structure/simple_door/key_door/ancient/greek{
-	unique_door_name = null
+/obj/structure/door/key/ancient/greek{
+	
 	},
 /turf/floor/plating/steel,
 /area/caribbean/roofed)

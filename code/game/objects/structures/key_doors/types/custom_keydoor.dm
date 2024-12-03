@@ -1,93 +1,89 @@
-/* File reserved for custom types other than the default metal door that starts locked on /obj/structure/simple_door/key_door/custom */
+/* File reserved for custom types other than the default metal door that starts locked on /obj/structure/door/key/custom */
 
-/obj/structure/simple_door/key_door/custom/doubledoor
-	name = "large double"
-	material = "wood"
-	desc = "A large set of improper doors, it has a lock. if you can see this, report this to a developer."
-	unique_door_name = "doubledoor"
+/obj/structure/door/key/custom/doubledoor
+	name = "large double-door"
+	desc = "A large set of improper doors. if you can see this, report this to a developer."
+	material = null // This isn't supposed to be spawned.
 	icon = 'icons/obj/doors/material_doors_fwoosh.dmi'
-	health = 200
+	max_health = 200
 
-/obj/structure/simple_door/key_door/custom/doubledoor/bone //for tribes
-	name = "large bone double"
+/obj/structure/door/key/custom/doubledoor/New()
+	if(!material)
+		CRASH("anyone/doubledoor; called without the material variable set. Are you trying to spawn in the parent doubledoor?")
+	..()
+
+/obj/structure/door/key/custom/doubledoor/bone //for tribes
+	name = "large bone double-door"
 	material = "bone"
-	desc = "A large set of bone doors, it has a lock."
+	desc = "A large set of bone doors."
 
-/obj/structure/simple_door/key_door/custom/doubledoor/marble //psuedo-material
-	name = "large marble double"
+/obj/structure/door/key/custom/doubledoor/marble //psuedo-material
+	name = "large marble double-door"
 	material = "marble"
-	desc = "A large set of marble doors, it has a lock."
+	desc = "A large set of marble doors."
 
-/obj/structure/simple_door/key_door/custom/doubledoor/stone
-	name = "large stone double"
+/obj/structure/door/key/custom/doubledoor/stone
+	name = "large stone double-door"
 	material = "stone"
-	desc = "A large set of stone doors, it has a lock."
+	desc = "A large set of stone doors."
 
-/obj/structure/simple_door/key_door/custom/doubledoor/sandstone
-	name = "large sandstone double"
+/obj/structure/door/key/custom/doubledoor/sandstone
+	name = "large sandstone double-door"
 	material = "sandstone"
-	desc = "A large set of sandstone doors, it has a lock."
+	desc = "A large set of sandstone doors."
 
-/obj/structure/simple_door/key_door/custom/doubledoor/tin
-	name = "large tin double"
+/obj/structure/door/key/custom/doubledoor/tin
+	name = "large tin double-door"
 	material = "tin"
-	health = 150
-	desc = "A large set of tin doors, it has a lock. With enough effort they could be soon broken through."
+	max_health = 200
+	desc = "A large set of tin doors. With enough effort they could be soon broken through."
 
-/obj/structure/simple_door/key_door/custom/doubledoor/lead
-	name = "large lead double"
+/obj/structure/door/key/custom/doubledoor/lead
+	name = "large lead double-door"
 	material = "lead"
-	desc = "A large set of lead doors, it has a lock."
+	desc = "A large set of lead doors."
 
-/obj/structure/simple_door/key_door/custom/doubledoor/copper
-	name = "large copper double"
+/obj/structure/door/key/custom/doubledoor/copper
+	name = "large copper double-door"
 	material = "copper"
-	desc = "A large set of copper doors, it has a lock."
+	desc = "A large set of copper doors."
 
-/obj/structure/simple_door/key_door/custom/doubledoor/bronze
-	name = "large bronze double"
+/obj/structure/door/key/custom/doubledoor/bronze
+	name = "large bronze double-door"
 	material = "bronze"
-	health = 250
-	desc = "A large set of well built and sturdy bronze doors, it has a lock."
+	max_health = 250
+	desc = "A large set of well built and sturdy bronze doors."
 
-/obj/structure/simple_door/key_door/custom/doubledoor/iron
-	name = "large iron double"
+/obj/structure/door/key/custom/doubledoor/iron
+	name = "large iron double-door"
 	material = "iron"
-	health = 300
-	desc = "A large set of strong iron doors, it has a lock."
+	max_health = 300
+	desc = "A large set of strong iron doors."
 
-/obj/structure/simple_door/key_door/custom/doubledoor/steel
-	name = "large reinforced steel double"
+/obj/structure/door/key/custom/doubledoor/steel
+	name = "large reinforced steel double-door"
 	material = "steel"
-	health = 400
-	desc = "A large set of reinforced steel doors, it has a lock."
+	max_health = 400
+	desc = "A large set of reinforced steel doors."
 	breachable = FALSE
 
-/obj/structure/simple_door/key_door/custom/doubledoor/silver
-	name = "large silver double"
+/obj/structure/door/key/custom/doubledoor/silver
+	name = "large silver double-door"
 	material = "silver"
-	desc = "A large set of shimmering silver doors, it has a lock."
+	desc = "A large set of shimmering silver doors."
 	breachable = FALSE
 
-/obj/structure/simple_door/key_door/custom/doubledoor/gold
-	name = "large gold double"
+/obj/structure/door/key/custom/doubledoor/gold
+	name = "large gold double-door"
 	material = "gold"
-	desc = "A large set of glimmering gold doors, it has a lock."
+	desc = "A large set of glimmering gold doors."
 
-/obj/structure/simple_door/key_door/custom/singledoor/New(var/newloc,var/material_name)
-	..(newloc, "wood")
-	name = "improper single door"
-	icon = 'icons/obj/doors/material_doors_fwoosh.dmi'
-	basic_icon = "private"
-	icon_state = "private"
-	desc = "If you can see this door please report it to a developer"
-	override_material = TRUE
-
-/obj/structure/simple_door/key_door/custom/singledoor/privacy/New(var/newloc,var/material_name)
-	..(newloc, "wood")
+/obj/structure/door/key/custom/singledoor/privacy
 	name = "wooden privacy door"
-	desc = "A wood paneled privacy door, it has a locking mechanism"
-	health = 250
-	override_material = FALSE
-	override_opacity = TRUE
-	opacity = FALSE
+	icon = 'icons/obj/doors/material_doors_fwoosh.dmi'
+	base_icon_state = "private"
+	icon_state = "private"
+	material = "wood"
+	desc = "A wood-paneled privacy door."
+	max_health = 250
+	override_material = TRUE // This has a custom icon.

@@ -589,8 +589,8 @@
 		if (!istype(TU, /turf/floor/beach) && !istype(TU, /turf/floor/broken_floor))
 			TU.ChangeTurf(/turf/floor/dirt/burned)
 		explosion(T, 1, 0, 2, 1)
-	if (istype(A, /obj/structure/simple_door))
-		var/obj/structure/simple_door/T = A
+	if (istype(A, /obj/structure/door))
+		var/obj/structure/door/T = A
 		var/turf/TU
 		if (!istype(TU, /turf/floor/beach) && !istype(TU, /turf/floor/broken_floor))
 			TU.ChangeTurf(/turf/floor/dirt/burned)
@@ -650,8 +650,8 @@
 		if (!istype(TU, /turf/floor/beach) && !istype(TU, /turf/floor/broken_floor))
 			TU.ChangeTurf(/turf/floor/dirt/burned)
 		explosion(T, 1, 0, 2, 1)
-	if (istype(A, /obj/structure/simple_door))
-		var/obj/structure/simple_door/T = A
+	if (istype(A, /obj/structure/door))
+		var/obj/structure/door/T = A
 		var/turf/TU
 		if (!istype(TU, /turf/floor/beach) && !istype(TU, /turf/floor/broken_floor))
 			TU.ChangeTurf(/turf/floor/dirt/burned)

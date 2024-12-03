@@ -39,10 +39,8 @@
 				user.put_in_hands(SHK)
 				to_chat(user, "\The [I] turns into a shank.")
 				qdel(I)
-	if (istype(W,/obj/item/weapon) && !istype(W,/obj/item/weapon/weldingtool) && !istype(W,/obj/item/weapon/wrench) && !istype(W,/obj/item/weapon/metalfile)) //No weapons can harm me! If not weapon and not a wrench.
-		to_chat(user, "You pound the bars uselessly!")//sucker
 
-	else if (istype(W,/obj/item/weapon/weldingtool))//if it is a welding tool
+	else if (istype(W,/obj/item/weapon/weldingtool))
 		if (material != "Steel")
 			to_chat(user, "This is the wrong tool.")
 		else
@@ -53,7 +51,7 @@
 					new buildstack(get_turf(src))
 				qdel(src)
 				return
-	else if (istype(W,/obj/item/weapon/wrench))//if it is a wrench
+	else if (istype(W,/obj/item/weapon/wrench))
 		if (material != "Wood")
 			to_chat(user, "This is the wrong tool.")
 		else
@@ -63,7 +61,7 @@
 				for (var/i = TRUE, i <= buildstackamount, i++)
 					new buildstack(get_turf(src))
 				qdel(src)
-	else if (istype(W,/obj/item/weapon/metalfile))//if it is a metalfile
+	else if (istype(W,/obj/item/weapon/metalfile))
 		if (material != "Steel")
 			to_chat(user, "This is the wrong tool.")
 		else
@@ -74,6 +72,9 @@
 					new buildstack(get_turf(src))
 				qdel(src)
 				return
+	else if (istype(W,/obj/item/weapon))
+		to_chat(user, "You pound the bars uselessly!")
+		return
 	return TRUE
 
 /obj/covers/jail/bullet_act(var/obj/item/projectile/P)
@@ -102,7 +103,7 @@
 	explosion_resistance = 0
 	buildstackamount = 8
 	buildstack = /obj/item/stack/material/wood
-	opacity = 0
+	opacity = FALSE
 	material = "Wood"
 	passable = FALSE
 
@@ -122,7 +123,7 @@
 	explosion_resistance = 65
 	buildstackamount = 8
 	buildstack = /obj/item/stack/rods
-	opacity = 0
+	opacity = FALSE
 	material = "Steel"
 	passable = FALSE
 	flammable = FALSE

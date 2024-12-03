@@ -58,7 +58,7 @@
 "bf" = (/obj/item/weapon/gun/projectile/submachinegun/ak47,/obj/item/weapon/gun/projectile/submachinegun/ak47,/obj/item/weapon/gun/projectile/submachinegun/ak47,/obj/item/weapon/gun/projectile/submachinegun/ak47,/obj/item/weapon/gun/projectile/submachinegun/ak47,/obj/item/weapon/gun/projectile/submachinegun/ak47,/obj/item/weapon/gun/projectile/submachinegun/ak47,/turf/floor/trench,/area/caribbean/roofed)
 "bg" = (/obj/item/ammo_magazine/m16,/obj/item/ammo_magazine/m16,/obj/item/ammo_magazine/m16,/obj/item/ammo_magazine/m16,/obj/item/ammo_magazine/m16,/obj/item/ammo_magazine/m16,/obj/structure/closet/crate/empty,/turf/floor/dirt,/area/caribbean/british/land/outside{name = "American Camp"})
 "bh" = (/obj/covers/brick_wall,/turf/floor/dirt,/area/caribbean/british/land/outside/objective)
-"bi" = (/obj/structure/simple_door/key_door/american,/turf/floor/wood,/area/caribbean/british/land/outside/objective)
+"bi" = (/obj/structure/door/key/american,/turf/floor/wood,/area/caribbean/british/land/outside/objective)
 "bj" = (/turf/floor/wood,/area/caribbean/british/land/outside/objective)
 "bk" = (/obj/structure/potted_plant,/turf/floor/wood,/area/caribbean/british/land/outside/objective)
 "bm" = (/obj/structure/table/wood,/obj/item/weapon/key/american,/turf/floor/wood,/area/caribbean/british/land/outside/objective)

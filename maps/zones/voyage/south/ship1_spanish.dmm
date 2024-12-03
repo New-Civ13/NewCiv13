@@ -41,7 +41,7 @@
 "JX" = (/obj/structure/barricade/ship/wood/a7,/obj/covers/repairedfloor/ship,/obj/structure/sign/painting9,/turf/floor/beach/water/deep/saltwater,/area/caribbean/sea/bottom/roofed)
 "Kf" = (/obj/covers/repairedfloor/ship,/obj/structure/wallclock,/turf/floor/beach/water/deep/saltwater,/area/caribbean/sea/bottom/roofed)
 "Kq" = (/obj/covers/repairedfloor/ship,/obj/structure/bed/chair{dir = 4},/turf/floor/beach/water/deep/saltwater,/area/caribbean/sea/bottom/roofed)
-"Mg" = (/obj/structure/simple_door/key_door/anyone/wood,/obj/covers/repairedfloor/ship,/turf/floor/beach/water/deep/saltwater,/area/caribbean/sea/bottom/roofed)
+"Mg" = (/obj/structure/door/key/anyone/wood,/obj/covers/repairedfloor/ship,/turf/floor/beach/water/deep/saltwater,/area/caribbean/sea/bottom/roofed)
 "NE" = (/obj/covers/repairedfloor/ship,/obj/structure/flag/spanish,/turf/floor/beach/water/deep/saltwater,/area/caribbean/sea/bottom)
 "OO" = (/obj/structure/window/barrier/ship/blue/bport3,/obj/covers/repairedfloor/ship,/obj/structure/cannon/modern/tank/voyage/autofire,/turf/floor/beach/water/deep/saltwater,/area/caribbean/sea/bottom)
 "Po" = (/obj/structure/barricade/ship/blue/b17,/obj/covers/repairedfloor/ship,/obj/structure/barricade/ship/blue/b15,/turf/floor/beach/water/deep/saltwater,/area/caribbean/sea/bottom/roofed)

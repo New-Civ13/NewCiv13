@@ -59,7 +59,7 @@
 "bg" = (/obj/covers/wood,/obj/covers/wood,/turf/floor/dirt,/area/caribbean/forest)
 "bh" = (/obj/structure/table/wood,/obj/item/weapon/doctor_handbook,/obj/item/weapon/storage/firstaid/surgery_bronze,/turf/floor/dirt/dust,/area/caribbean/roman)
 "bi" = (/turf/floor/beach/sand,/area/caribbean/forest)
-"bj" = (/obj/structure/simple_door/wood{name = "House"},/obj/covers/wood_ship,/turf/floor/dirt,/area/caribbean/houses/nml_one)
+"bj" = (/obj/structure/door/wood{name = "House"},/obj/covers/wood_ship,/turf/floor/dirt,/area/caribbean/houses/nml_one)
 "bk" = (/obj/structure/grille/fence{icon_state = "fence"; dir = 8},/obj/structure/grille/fence{icon_state = "fence"; dir = 1},/turf/floor/grass,/area/caribbean/forest)
 "bl" = (/obj/structure/barricade/sandstone_v/crenelated,/obj/covers/wood,/turf/floor/dirt,/area/caribbean/forest)
 "bm" = (/obj/structure/window/barrier/railing{icon_state = "sandstone"; dir = 1; climbable = 0},/turf/floor/dirt,/area/caribbean/roman)

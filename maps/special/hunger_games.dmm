@@ -79,7 +79,7 @@
 "bA" = (/obj/item/mine/ap/armed,/turf/floor/grass,/area/caribbean)
 "bB" = (/obj/covers/generic_wall{color = "#5C6676"; desc = "A wall."; name = "wall"},/turf/floor/grass,/area/caribbean)
 "bC" = (/mob/living/simple_animal/hostile/wolf,/turf/floor/plating/white{color = "#5C6676"; name = "plated floor"},/area/caribbean)
-"bD" = (/obj/structure/simple_door/key_door/custom/jail/steeljail/guard/max{unique_door_name = "Dropship"},/obj/structure/simple_door/key_door/anyone{custom_code = 0; locked = 1; unique_door_name = "Dropship"},/turf/floor/plating/white{color = "#5C6676"; name = "plated floor"},/area/caribbean)
+"bD" = (/obj/structure/door/key/jail/steel/guard/max{name = "Dropship"},/obj/structure/door/key/anyone{custom_code = 0; locked = 1; name = "Dropship"},/turf/floor/plating/white{color = "#5C6676"; name = "plated floor"},/area/caribbean)
 "bE" = (/obj/structure/lamp/lamp_big/alwayson/white{icon_state = "tube"; dir = 1},/mob/living/simple_animal/hostile/wolf,/turf/floor/plating/white{color = "#5C6676"; name = "plated floor"},/area/caribbean)
 "bF" = (/obj/structure/lamp/lamp_big/alwayson/white{icon_state = "tube"; dir = 8},/mob/living/simple_animal/hostile/wolf,/turf/floor/plating/white{color = "#5C6676"; name = "plated floor"},/area/caribbean)
 "bG" = (/obj/structure/lamp/lamp_big/alwayson/white{icon_state = "tube"; dir = 4},/mob/living/simple_animal/hostile/wolf,/turf/floor/plating/white{color = "#5C6676"; name = "plated floor"},/area/caribbean)

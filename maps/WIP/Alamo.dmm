@@ -55,7 +55,7 @@
 "bc" = (/obj/structure/wild/burnedbush,/turf/floor/beach/sand/desert,/area/caribbean)
 "bd" = (/obj/item/weapon/attachment/scope/adjustable/binoculars,/turf/floor/trench,/area/caribbean)
 "be" = (/obj/covers/sandstone_wall,/obj/roof/clay,/turf/floor/beach/sand/desert,/area/caribbean)
-"bf" = (/obj/covers/sandstone,/obj/structure/simple_door/iron,/obj/roof/clay,/turf/floor/beach/sand/desert,/area/caribbean)
+"bf" = (/obj/covers/sandstone,/obj/structure/door/iron,/obj/roof/clay,/turf/floor/beach/sand/desert,/area/caribbean)
 "bg" = (/obj/covers/sandstone,/obj/item/weapon/gun/projectile/flintlock/musket,/obj/effect/decal/cleanable/cobweb,/obj/roof/clay,/turf/floor/beach/sand/desert,/area/caribbean)
 "bh" = (/obj/covers/sandstone,/obj/structure/vending/muskets,/obj/roof/clay,/turf/floor/beach/sand/desert,/area/caribbean)
 "bi" = (/obj/covers/sandstone,/obj/roof/clay,/turf/floor/beach/sand/desert,/area/caribbean)

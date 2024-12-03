@@ -212,7 +212,7 @@
 			TT.recalc_atom_opacity()
 			if (TT.has_opaque_atom)
 				update_transparency(0)
-			else if (istype(S, /obj/structure/simple_door) || istype(S, /obj/structure/curtain))
+			else if (istype(S, /obj/structure/door) || istype(S, /obj/structure/curtain))
 				if (S.opacity)
 					update_transparency(0)
 				else
@@ -220,7 +220,7 @@
 			else if ((istype(S, /obj/structure/window) && !(istype(S, /obj/structure/window/barrier) || istype(S, /obj/structure/window/barrier/snowwall)))  || istype(S, /obj/structure/window_frame))
 				var/found = FALSE
 				for(var/obj/structure/SS in S.loc)
-					if (istype(SS, /obj/structure/simple_door) || istype(SS, /obj/structure/curtain))
+					if (istype(SS, /obj/structure/door) || istype(SS, /obj/structure/curtain))
 						if (SS.opacity)
 							update_transparency(0)
 						else
@@ -257,7 +257,7 @@
 			supportfound = TRUE
 		for (var/turf/wall/W in range(2, src))
 			supportfound = TRUE
-		for (var/obj/structure/simple_door/SD in loc)
+		for (var/obj/structure/door/SD in loc)
 			supportfound = TRUE
 		for (var/obj/covers/C in range(1, src))
 			if (C.wall == TRUE)

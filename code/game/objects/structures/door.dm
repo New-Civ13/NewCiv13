@@ -1,507 +1,464 @@
-/obj/structure/simple_door
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// *** Blocking checks for doors.
+/atom/movable/proc/blocks_door()
+	return density
+
+/obj/structure/door/blocks_door()
+	return FALSE
+
+/mob/living/blocks_door()
+	return TRUE
+
+/obj/structure/closet/body_bag/blocks_door()
+	if (locate(/mob) in src)
+		return TRUE // Prevents doors from closing on body-bags with people inside.
+	return FALSE
+// *** Blocking door checks END.
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+/obj/structure/door
+	/// String. Keep this the same if you want the door's name to be "[material.display_name] door". Over-write it if you don't.
 	name = "door"
-	density = TRUE
-	anchored = TRUE
-	var/custom = FALSE //for customized locks in RP
-	var/custom_code = 0 //for customized locks in RP
-	var/locked = FALSE //for customized locks in RP
 
-	var/override_material = FALSE
-	var/override_opacity = FALSE
-
+	// desc - No description if it's not over-rided.
 	icon = 'icons/obj/doors/material_doors.dmi'
-	icon_state = "metal"
 
-	var/material/material
-	var/state = FALSE //closed, TRUE == open
-	var/isSwitchingStates = FALSE
-	var/hardness = TRUE
-	var/oreAmount = 7
-	var/basic_icon = "metal"
-
-	var/override_material_state = null
-
-	var/health = 400
-	var/initial_health = 400
+	anchored = TRUE
+	density = TRUE
+	// opacity = TRUE (Determined in update_material, by checking the material's opacity~)
 	not_movable = TRUE
 	not_disassemblable = TRUE
 
-	//KEYPAD AND LOCKS
-	var/locktype = "NONE" //NONE, KEYPAD, DNA, and LOCK.
-	var/haslock = FALSE
-	var/lockicon = "" //File
-	var/lockstate = "" //Icon_state
-	var/keycode
+	/// Boolean. Whether or not the door is locked, usually by a key.
+	var/locked = FALSE
+	/// String. (Usually a copy of `icon_state = *`). A stored copy of icon_state before we do some calculations and apply it to icon_state.
+	var/base_icon_state
 
+	/// Boolean. For customized door locks in roleplay (RP).
+	var/custom = FALSE
+	/// Boolean. For customized door locks in roleplay (RP).
+	var/custom_code = FALSE
+
+	var/material/material
+	var/open_sound = 'sound/machines/door_open.ogg'
+	var/close_sound = 'sound/machines/door_close.ogg'
+
+	/// Integer (One of `DOOR_OPERATING_*`). The door's operating state.
+	var/operating = DOOR_OPERATING_NO
+	/// Integer. The minimum amount of force needed to damage a door with a melee weapon.
+	var/min_force = 10
+	/// The maximum health that the door can have, current_health is set to this if current_health is null. (Integer) (Helpful for VV-edits and knowing the max_health.)
+	var/max_health = 400
+	/// The current health of the door. Leave to null, unless you want the object to start at a different health than max_health. (Integer)
+	var/current_health
+
+	/// Boolean. To override certain doors from retrieving their material icon from /material/ datum, set TRUE for custom-sprited doors.
+	var/override_material = FALSE
+	/// Boolean. To override opacity on certain doors. TRUE will only make opacity FALSE during open/closes, you must still define opacity as FALSE.
+	var/override_opacity = FALSE
+	/// Boolean. To override the names of certain doors from retrieving their material name, for custom-named doors. *unused*.
+	// var/override_name = FALSE
+
+	/// Persistence variables to apply saved vars later.
 	map_storage_saved_vars = "density;icon_state;dir;name;pixel_x;pixel_y;keycode;haslock;custom;custom_code;locked"
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-/obj/structure/simple_door/fire_act(temperature)
-	var/dmg = round((temperature - 365)/20)
-	if (temperature >= 380)
-		dmg = max(dmg, 5)
-	if (dmg > 0)
-		health -= dmg
-		if (istype(src, /obj/structure/simple_door/key_door))
-			src:damage_display()
-		if (health <= 0)
-			qdel(src)
+/obj/structure/door/New(newloc, material_name)
+	if(!material_name) // I'd rather people use `door/wood`; not parent `structure/door`.
+		if(material)
+			material_name = material // If we set material instead of doing ..("mat") then add it.
+		else
+			CRASH("door/new; crashed with no material var set anywhere.")
 
-/obj/structure/simple_door/bullet_act(var/obj/item/projectile/P)
-	var/damage = max(P.damage/2, 2)
-	health -= damage
-	visible_message("<span class = 'danger'>\The [src] is hit by \the [P.name]!</span>")
-	if (istype(src, /obj/structure/simple_door/key_door))
-		src:damage_display()
-	if (health <= 0)
-		qdel(src)
-
-/obj/structure/simple_door/proc/TemperatureAct(temperature)
-	hardness -= material.combustion_effect(get_turf(src),temperature, 0.3)
-	CheckHardness()
-
-/obj/structure/simple_door/New(var/newloc, var/material_name)
-	..()
-	opacity = TRUE
-	update_material(material_name)
 	door_list += src
-	if (material)
-		if (get_material_name() == "wood" || "bamboo")
-			flammable = TRUE
-	for(var/obj/roof/R in range(1,src))
-		R.update_transparency(0)
+	if(!current_health) // To allow people to set damaged doors in mapping so it only changes this to max_health if it's null on creation.
+		current_health = max_health
+	..() // Any lighting related init.
 
-/obj/structure/simple_door/Destroy()
-	door_list -= src
+	update_material(material_name) // Handles material_name; "wood", "iron", etc.
+
+	spawn(0) // Scheduled to happen right after other existing events that are immediately pending.
+		// This notifies any roofs in the surrounding atoms to not be transparent anymore.
+		for(var/obj/roof/R in range(1, src))
+			R.update_transparency(FALSE)
+
+/obj/structure/door/Destroy()
+	door_list -= src	
 	..()
-	spawn(1)
-		for(var/obj/roof/R in loc)
-			R.collapse_check()
-		for(var/obj/roof/R in range(1,src))
-			R.update_transparency(0)
-/obj/structure/simple_door/proc/update_material(var/material_name)
-	if (!material_name)
-		material_name = DEFAULT_WALL_MATERIAL
-	material = get_material_by_name(material_name)
-	if (!material)
+	for(var/obj/roof/R in loc)
+		R.collapse_check()
+	// This notifies any roofs in the surrounding atoms to not be transparent anymore.
+	for(var/obj/roof/R in range(1, src))
+		R.update_transparency(FALSE)
+
+/obj/structure/door/fire_act(temperature)
+	if(!isnum(temperature) || !temperature)
+		CRASH("door/fire_act; proc called without correct temperature (integer) argument.")
+
+	var/damage = round((temperature - 365)/20)
+
+	if (temperature >= 380)
+		damage = max(damage, 5)
+
+	take_damage(damage)
+	/*
+	if (istype(src, /obj/structure/door/key))
+		var/obj/structure/door/key/AM = src
+		AM.damage_display()
+	*/
+/obj/structure/door/bullet_act(obj/item/projectile/P)
+	var/damage = max(P.damage/2, 2)
+	visible_message(SPAN_DANGER("\The [src] is hit by \the [P.name]!"))
+	take_damage(damage)
+	/*
+	if (istype(src, /obj/structure/door/key))
+		var/obj/structure/door/key/AM = src
+		AM.damage_display()
+	if (current_health <= 0)
 		qdel(src)
-		return
-	hardness = max(1,round(material.integrity/10))
+	*/
+
+/obj/structure/door/proc/update_material(material_name)
+	material = get_material_by_name(material_name)
+
 	if (override_material)
-		basic_icon = icon_state
+		base_icon_state = icon_state
 	else
 		icon_state = material.door_icon_base
-		basic_icon = material.door_icon_base
-		name = "[material.display_name] door"
+		base_icon_state = material.door_icon_base
 		color = material.icon_colour
-	if (material.opacity < 0.5)
+
+	if(override_opacity && !opacity) // To not have to set opacity after a custom New() call ..().
+		return
+	else if(material.opacity < 0.5)
 		opacity = FALSE
 	else
 		opacity = TRUE
-	if (istype(src,/obj/structure/simple_door/key_door/anyone/doubledoor/steel/store_door))
-		opacity = FALSE
 
-/obj/structure/simple_door/Destroy()
-	processing_objects -= src
-	..()
+	spawn(0) // Scheduled to happen right after other existing events that are immediately pending.
+		if (material == MATERIAL_WOOD || MATERIAL_BAMBOO)
+			flammable = TRUE
 
-/obj/structure/simple_door/get_material()
+		if (!name || (!findtext(material.display_name, name) && name == "door"))
+			name = "[material.display_name] door"
+
+/obj/structure/door/get_material()
 	return material
 
-/obj/structure/simple_door/Bumped(atom/user)
-	..()
-	if (!state)
-		return TryToSwitchState(user)
-	return
-
-/obj/structure/simple_door/attack_hand(mob/user as mob)
+/obj/structure/door/Bumped(atom/user)
+	if (operating) return
 	return TryToSwitchState(user)
 
-/obj/structure/simple_door/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
+/obj/structure/door/attack_hand(mob/user as mob)
+	if (operating) return
+	return TryToSwitchState(user)
+
+/obj/structure/door/CanPass(atom/movable/mover, turf/target, height = FALSE, air_group = FALSE)
 	if (air_group) return FALSE
 	return !density
 
-/obj/structure/simple_door/proc/TryToSwitchState(atom/user)
-	if (isSwitchingStates) return FALSE
-	if (ismob(user) && canOpen(user))
-		var/mob/M = user
-		if (world.time - user.last_bumped <= 60)
-			return FALSE
-		if (M.client)
-			if (ishuman(M))
-				var/mob/living/human/C = M
-				if (!C.handcuffed)
-					SwitchState()
-			else
-				SwitchState()
+/obj/structure/door/proc/TryToSwitchState(mob/user)
+	if (operating || !user.client) return
+
+	else if (ishuman(user))
+		var/mob/living/human/H = user
+		if(H.handcuffed)
+			return
+
+	if (density)
+		Open()
+	else
+		Close()
+
+/obj/structure/door/proc/can_open()
+	if (!density || operating)
+		return FALSE
 	return TRUE
 
-
-/obj/structure/simple_door/proc/SwitchState()
-	if (state)
-		Close()
-	else
-		Open()
-
-
-/obj/structure/simple_door/proc/canOpen(var/mob/user as mob)
-	if (!user || !istype(user))
+/obj/structure/door/proc/can_close()
+	if (density || operating)
 		return FALSE
-	else
-		return TRUE
+	// Is anything blocking this door from closing?
+	for (var/turf/turf in locs)
+		for (var/atom/movable/AM in turf) // Iterate over every movable object in the turf.
+			if (AM.blocks_door())
+				return FALSE
+	return TRUE
 
+/obj/structure/door/proc/Open()
+	set waitfor = FALSE // Instantly return . value on any sleep().
+	if(!can_open())
+		return
+	operating = DOOR_OPERATING_YES
 
-/obj/structure/simple_door/proc/Open()
-	isSwitchingStates = TRUE
-	if(haslock)
-		//NO AUDIO, HANDLED IN ATTACKBY
-	else if (istype(src, /obj/structure/simple_door/key_door/anyone/shoji))
-		playsound(loc, 'sound/machines/shoji_door_open.ogg', 100, TRUE)
-	else
-		playsound(loc, 'sound/machines/door_open.ogg', 100, TRUE)
-	flick("[basic_icon]opening",src)
-	spawn (10)
-		density = FALSE
+	if(open_sound)
+		playsound(loc, open_sound, 100, TRUE)
+	flick("[base_icon_state]opening", src)
+	density = FALSE
+	update_icon()
+	sleep(2)
+	opacity = FALSE
+	sleep(8)
+	operating = DOOR_OPERATING_NO
+	// It notifies (potentially) affected light sources so they can update (if needed).
+	for (var/atom/movable/lighting_overlay/L in view(7*3, src))
+		L.update_overlay()
+	// This notifies any roofs in the surrounding atoms to become transparent.
+	for (var/obj/roof/R in range(1, src))
+		R.update_transparency(TRUE)
+
+/obj/structure/door/proc/Close()
+	set waitfor = FALSE // Instantly return . value on any sleep().
+	if (!can_close())
+		return
+	operating = DOOR_OPERATING_YES
+
+	if(close_sound)
+		playsound(loc, close_sound, 100, TRUE)
+	flick("[base_icon_state]closing", src)
+	density = TRUE
+	update_icon()
+	sleep(2)
+	if(override_opacity)
 		opacity = FALSE
-		state = TRUE
-		update_icon()
-		isSwitchingStates = FALSE
-		for (var/atom/movable/lighting_overlay/L in view(7*3, src))
-			L.update_overlay()
-		for(var/obj/roof/R in range(1,src))
-			R.update_transparency(1)
-
-/obj/structure/simple_door/proc/Close()
-	isSwitchingStates = TRUE
-	if (istype(src, /obj/structure/simple_door/key_door/anyone/shoji))
-		playsound(loc, 'sound/machines/shoji_door_close.ogg', 100, TRUE)
 	else
-		playsound(loc, 'sound/machines/door_close.ogg', 100, TRUE)
-	flick("[basic_icon]closing",src)
-	spawn (10)
-		density = TRUE
-		if(override_opacity)
-			opacity = FALSE
-		else
-			opacity = TRUE
-		state = FALSE
-		update_icon()
-		isSwitchingStates = FALSE
-		for (var/atom/movable/lighting_overlay/L in view(7*3, src))
-			L.update_overlay()
-		for(var/obj/roof/R in range(1,src))
-			R.update_transparency(0)
-/obj/structure/simple_door/Destroy()
+		opacity = TRUE
+	sleep(8)
+	operating = DOOR_OPERATING_NO
+	// This notifies (potentially) affected light sources so they can update (if needed).
+	for (var/atom/movable/lighting_overlay/L in view(7*3, src))
+		L.update_overlay()
+	// This notifies any roofs in the surrounding atoms to not be transparent anymore.
+	for (var/obj/roof/R in range(1, src))
+		R.update_transparency(FALSE)
+
+/obj/structure/door/Destroy()
 	for (var/atom/movable/lighting_overlay/L in view(7*3, src))
 		L.update_overlay()
 	..()
 
-/obj/structure/simple_door/update_icon()
-	if (state)
-		icon_state = "[basic_icon]open"
+/obj/structure/door/update_icon()
+    // icon_state = override_material ? initial(icon_state) : material.door_icon_base
+	if (density) // aka. if (closed)
+		icon_state = base_icon_state
 	else
-		icon_state = basic_icon
+		icon_state = "[base_icon_state]open"
 
-/obj/structure/simple_door/attackby(obj/item/weapon/W as obj, mob/user as mob)
-	//KEYPAD AND LOCKSAASDASD
-	if (istype(W,/obj/item/weapon/keypad))
-		if(haslock)
-			user << "This door already has a lock!"
-		else
-			user << "You attach the " + W.name + " to the door!"
-			src.name = name + "("+W.name+")"
-			//LATER WE WILL ADD A SWITCH TO CHECK FOR EACH LOCKTYPE APPROPRIATELY
-			src.locktype = "KEYPAD"
-			src.lockicon = "icons/obj/doors/locks.dmi"
-			src.lockstate = "keypad_door_overlay"
-			var/input_code = input(user, "Input a code, only the first four characters will be used.","Keypad Code", keycode) as text
-			keycode = sanitizeName(input_code, 4, TRUE)
-			user << "<span class='notice'> Code set to: " + keycode + "!</span>"
-			update_lock_overlay()
-			playsound(src, 'sound/machines/click.ogg', 60)
-	//If the door has a lock.
-	else if (haslock)
-		if(locktype == "KEYPAD")
-			if(state) //If it is open, close it, lock it, and overlay
-				Close()
-				locked = 1
-				update_lock_overlay()
-				playsound(src, 'sound/effects/insert.ogg', 30)
-			else //It is closed
-				var/input_query = input(user, "Input the Passcode.","Keypad Code", keycode) as text//Get input
-				var/answer = sanitizeName(input_query, 4, TRUE)
-				if(answer == keycode)//if it matches, unlock, open, and overlay
-					locked = 0
-					Open()
-					update_lock_overlay()
-					playsound(src, 'sound/machines/ping.ogg', 60)
-				else
-					playsound(src, 'sound/machines/geiger/ext1.ogg', 60)//temp error noise
+/obj/structure/door/attackby(obj/item/weapon/W, mob/user)
+	if(check_force(W, user))
+		return
+	attack_hand(user)
 
-
-	else if (istype(W,/obj/item/weapon)) //not sure, can't not just weapons get passed to this proc?
-		hardness -= W.force/100
-		user << "You hit the [name] with your [W.name]!"
-		CheckHardness()
-	else
-		attack_hand(user)
-	return TRUE // for key_doors
-	..()
-//MOAR KEYPAD
-/obj/structure/simple_door/proc/update_lock_overlay()
-	if(haslock)
-		if (state) //if open
-			src.overlays = null
-		else //if closed
-			src.overlays += icon(lockicon,lockstate)
-
-/obj/structure/simple_door/proc/CheckHardness()
-	if (hardness <= 0)
-		Dismantle(1)
-
-/obj/structure/simple_door/proc/Dismantle(devastated = FALSE)
+/obj/structure/door/proc/on_deconstruct(devastated = FALSE)
 	if (istype(material))
 		material.place_dismantled_product(get_turf(src))
 	qdel(src)
 
-/obj/structure/simple_door/ex_act(severity = TRUE)
+/obj/structure/door/ex_act(severity)
 	switch(severity)
 		if (1)
-			Dismantle(1)
+			on_deconstruct(TRUE)
 		if (2)
 			if (prob(20))
-				Dismantle(1)
-			else
-				hardness--
-				CheckHardness()
-		if (3)
-			hardness -= 0.1
-			CheckHardness()
-	return
-
-/obj/structure/simple_door/key_door/custom/jail/
-	var/buildstackamount = 0//How much mats it takes to make it.
-	var/buildstack = /obj/item/stack/rods //the item it is made with.
-	override_opacity = TRUE
-	opacity = FALSE
-	breachable = FALSE
-
-/obj/structure/simple_door/key_door/custom/jail/woodjail/attackby(obj/item/weapon/W as obj, mob/user as mob)
-	if (istype(W, /obj/item/weapon/key))
-		if (W.code == custom_code)
-			locked = !locked
-			if (locked == 1)
-				visible_message("<span class = 'notice'>[user] locks the door.</span>")
-				playsound(get_turf(user), 'sound/effects/door_lock_unlock.ogg', 100)
-				return
-			else if (locked == 0)
-				visible_message("<span class = 'notice'>[user] unlocks the door.</span>")
-				playsound(get_turf(user), 'sound/effects/door_lock_unlock.ogg', 100)
-				return
-		if (W.code != custom_code)
-			user << "This key does not match this lock!"
-	else if (istype(W, /obj/item/weapon/storage/belt/keychain))
-		for (var/obj/item/weapon/key/KK in W.contents)
-			if (KK.code == custom_code)
-				locked = !locked
-				if (locked == 1)
-					visible_message("<span class = 'notice'>[user] locks the door.</span>")
-					playsound(get_turf(user), 'sound/effects/door_lock_unlock.ogg', 100)
-					return
-				else if (locked == 0)
-					visible_message("<span class = 'notice'>[user] unlocks the door.</span>")
-					playsound(get_turf(user), 'sound/effects/door_lock_unlock.ogg', 100)
-					return
-		if (W.code != custom_code)
-			user << "None of the keys match this lock!"
-	else if (istype(W,/obj/item/weapon) && !istype(W,/obj/item/weapon/wrench) && !istype(W,/obj/item/weapon/hammer)) //No weapons can harm me! If not weapon and not a wrench.
-		user << "You pound the bars uselessly!"//sucker
-	else if (istype(W,/obj/item/weapon/wrench) || istype(W,/obj/item/weapon/hammer))//if it is a wrench
-		if (state == 0)
-			user << "You need to open the door first."
+				on_deconstruct(TRUE)
 		else
-			user << "<span class='notice'>You start disassembling the [src]...</span>"
-			playsound(loc, 'sound/items/Screwdriver.ogg', 50, TRUE)
-			if (do_after(user, 30, target = src))
-				for (var/i = TRUE, i <= buildstackamount, i++)
-					new buildstack(get_turf(src))
-				qdel(src)
-				return
-	else if (istype(W, /obj/item/weapon/lockpick))
-		if (src.locked == 1)
-			var/mob/living/human/H = user
-			visible_message("<span class = 'danger'>[user] starts picking the [src.name]'s lock with the [W]!</span>")
-			if (H.getStatCoeff("dexterity") < 1.7)
-				user << "You don't have the skills to use this."
-				return
-			else
-				if (do_after(user, 35*H.getStatCoeff("dexterity"), src))
-					if(prob(H.getStatCoeff("dexterity")*35))
-						user << "<span class='notice'>You pick the lock.</span>"
-						src.locked = 0
-						return
-					else if (prob(60))
-						qdel(W)
-						user << "<span class='warning'>Your lockpick broke!</span>"
-						return
-					else
-						user << "<span class='warning'>You failed to pick the lock!</span>"
-						return
-				return
+			on_deconstruct(TRUE)
+
+/obj/structure/door/proc/check_force(obj/item/I, mob/user)
+	if(!istype(I) || !density || user.a_intent != I_HARM)
+		return FALSE
+	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
+	user.do_attack_animation(src)
+	if(I.force < min_force)
+		user.visible_message(SPAN_WARNING("\The [user] hits \the [src] with \an [I] to no effect."), \
+							SPAN_WARNING("You <b>hit</b> \the [src] with \the [I] to no effect."))
 	else
-		attack_hand(user)//keys!
-	return TRUE // for key_doors
+		user.visible_message(SPAN_DANGER("\The [user] hits \the [src] with \an [I], causing damage!"), \
+							SPAN_WARNING("You <b>hit</b> \the [src] with \the [I], causing damage!"))
+	
+	// Scuffed attack animation begin.
+	pixel_x += 1.5
+	pixel_y += 1.5
+	sleep(1)	
+	pixel_x = initial(pixel_x)
+	pixel_y = initial(pixel_y)
+	// END.
 
-/obj/structure/simple_door/key_door/custom/jail/steeljail/attackby(obj/item/weapon/W as obj, mob/user as mob)
+	take_damage(I.force)
+	return TRUE // Used as; if(check_force(obj, user))
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+/obj/structure/door/key/jail
+	override_material = TRUE // This has a custom icon.
+	override_opacity = TRUE // This icon can be seen through the bars.
+	opacity = FALSE
+
+/obj/structure/door/key/jail/attackby(obj/item/weapon/W, mob/living/human/user)
+	if(!ishuman(user)) return //; we typecast in the proc arguments.
+
 	if (istype(W, /obj/item/weapon/key))
-		if (W.code == custom_code)
-			locked = !locked
-			if (locked == 1)
-				visible_message("<span class = 'notice'>[user] locks the door.</span>")
-				playsound(get_turf(user), 'sound/effects/door_lock_unlock.ogg', 100)
-				return
-			else if (locked == 0)
-				visible_message("<span class = 'notice'>[user] unlocks the door.</span>")
-				playsound(get_turf(user), 'sound/effects/door_lock_unlock.ogg', 100)
-				return
 		if (W.code != custom_code)
-			user << "This key does not match this lock!"
+			to_chat(user, SPAN_WARNING("This key does not match this lock!"))
+			return
+		locked = !locked
+		user.visible_message(SPAN_NOTICE("[user] [locked ? "locks" : "unlocks"] \the [src]."), SPAN_NOTICE("You [locked ? "lock" : "unlock"] \the [src]"))
+		playsound(get_turf(src), 'sound/effects/door_lock_unlock.ogg', 100)
+		return
+
 	else if (istype(W, /obj/item/weapon/storage/belt/keychain))
+		if(!W.contents.len)
+			to_chat(user, SPAN_WARNING("\The [W] has no keys!"))
+			return
 		for (var/obj/item/weapon/key/KK in W.contents)
-			if (KK.code == custom_code)
+			if (KK.code == custom_code) // Does any key match?
 				locked = !locked
-				if (locked == 1)
-					visible_message("<span class = 'notice'>[user] locks the door.</span>")
-					playsound(get_turf(user), 'sound/effects/door_lock_unlock.ogg', 100)
-					return
-				else if (locked == 0)
-					visible_message("<span class = 'notice'>[user] unlocks the door.</span>")
-					playsound(get_turf(user), 'sound/effects/door_lock_unlock.ogg', 100)
-					return
+				user.visible_message(SPAN_NOTICE("[user] [locked ? "locks" : "unlocks"] \the [src]."), SPAN_NOTICE("You [locked ? "lock" : "unlock"] \the [src]."))
+				playsound(get_turf(src), 'sound/effects/door_lock_unlock.ogg', 100)
+				return
 		if (W.code != custom_code)
-			user << "None of the keys match this lock!"
-	else if (istype(W,/obj/item/weapon) && !istype(W,/obj/item/weapon/weldingtool)) //No weapons can harm me! If not weapon and not a wrench.
-		user << "You pound the bars uselessly!"//sucker
-	else if (istype(W,/obj/item/weapon/weldingtool))//if it is a welding tool
-		if (state == 0)
-			user << "You need to open the door first."
+			if(W.contents.len > 1)
+				to_chat(user, SPAN_WARNING("None of the keys on \the [W] match this lock!"))
+			else
+				to_chat(user, SPAN_WARNING("\The key on \the [W] does not match this lock!"))
+
+	else if (istype(W, /obj/item/weapon/weldingtool))
+		if (density)
+			to_chat(user, SPAN_WARNING("You need to open \the [src] first."))
 		else
-			user << "<span class='notice'>You start disassembling the [src]...</span>"
+			to_chat(user, SPAN_NOTICE("You start disassembling \the [src]..."))
 			playsound(loc, 'sound/effects/extinguish.ogg', 50, TRUE)
-			if (do_after(user, 30, target = src))
-				for (var/i = TRUE, i <= buildstackamount, i++)
-					new buildstack(get_turf(src))
-				qdel(src)
+			if (!do_after(user, 30, src))
 				return
+			// new buildstack(get_turf(src), buildstackamount)
+			qdel(src)
+			return
+
 	else if (istype(W, /obj/item/weapon/lockpick))
-		if (src.locked == 1)
-			var/mob/living/human/H = user
+		if (user.getStatCoeff("dexterity") < 1.7)
+			to_chat(user, SPAN_WARNING("You don't have the skills to use this."))
+			return
+		if (locked)
 			visible_message("<span class = 'danger'>[user] starts picking the [src.name]'s lock with the [W]!</span>")
-			if (H.getStatCoeff("dexterity") < 1.7)
-				user << "You don't have the skills to use this."
+			if (!do_after(user, 35*user.getStatCoeff("dexterity"), src))
+				return
+			if(prob(user.getStatCoeff("dexterity")*35))
+				to_chat(user, SPAN_NOTICE("You pick the lock!"))
+				locked = !locked
+				return
+			else if (prob(60))
+				qdel(W)
+				to_chat(user, SPAN_WARNING("Your lockpick broke!"))
 				return
 			else
-				if (do_after(user, 35*H.getStatCoeff("dexterity"), src))
-					if(prob(H.getStatCoeff("dexterity")*35))
-						user << "<span class='notice'>You pick the lock.</span>"
-						src.locked = 0
-						return
-					else if (prob(60))
-						qdel(W)
-						user << "<span class='warning'>Your lockpick broke!</span>"
-						return
-					else
-						user << "<span class='warning'>You failed to pick the lock!</span>"
-						return
+				to_chat(user, SPAN_WARNING("You failed to pick the lock!"))
 				return
+			return
+
 	else
 		attack_hand(user)//keys!
-	return TRUE // for key_doors
 
-/obj/structure/simple_door/key_door/custom/jail/bullet_act(var/obj/item/projectile/P)
+/obj/structure/door/key/jail/bullet_act(obj/item/projectile/P)
 	return PROJECTILE_CONTINUE
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-/obj/structure/simple_door/iron/New(var/newloc,var/material_name)
-	..(newloc, "iron")
-	basic_icon = "cell"
-	name = "Cell"
+/obj/structure/door/examine(mob/user)
+	. = ..()
+	if(material)
+		to_chat(user, "It's made out of [material.display_name].")
 
-/obj/structure/simple_door/fence
-	basic_icon = "fence"
-	icon_state = "fence"
-/obj/structure/simple_door/fence/New(var/newloc,var/material_name)
-	..(newloc, "wood")
-	basic_icon = "fence"
-	icon_state = "fence"
-	name = "fence gate"
-	override_opacity = TRUE
+	// Health Component. (max_health is 400 if not over-ridden.)
+	if (current_health < (max_health / 4)) // 100 health or below.
+		to_chat(user, SPAN_WARNING("It looks like it's about to break!"))
+	else if (current_health < (max_health / 2)) // 200 health or below.
+		to_chat(user, SPAN_WARNING("It looks seriously damaged!"))
+	else if (current_health < (max_health * 3/4)) /// 300 health or below.
+		to_chat(user, SPAN_WARNING("It shows moderate signs of damage!"))
+	else if (current_health < max_health) // Any damage.
+		to_chat(user, SPAN_WARNING("It has minor damage."))
+	else // Fully intact.
+		to_chat(user, SPAN_NOTICE("It looks fully intact."))
+
+/obj/structure/door/proc/take_damage(damage)
+	if(QDELETED(src)) // Fail-safe.
+		return
+	current_health = max(0, (current_health - damage))
+	if(current_health == 0)
+		visible_message(SPAN_DANGER("\The [src] breaks!"))
+		qdel(src)
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+/obj/structure/door/iron
+	material = "iron"
+/obj/structure/door/stone
+	material = "stone"
+/obj/structure/door/silver
+	material = "silver"
+/obj/structure/door/gold
+	material = "gold"
+/obj/structure/door/sandstone
+	material = "sandstone"
+/obj/structure/door/wood
+	material = "wood"
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/obj/structure/door/wood_unwindowed
+	name = "wooden door"
+	material = "wood"
+	base_icon_state = "wood"
+	icon = 'icons/obj/doors/material_doors_leonister.dmi'
+	override_material = TRUE // This has a custom icon.
+	override_opacity = TRUE // Keep opacity false, even when closed.
 	opacity = FALSE
 
-/obj/structure/simple_door/fence/picket
-	basic_icon = "picketfence"
-	icon_state = "picketfence"
-/obj/structure/simple_door/fence/picket/New(var/newloc,var/material_name)
-	..(newloc, "wood")
-	basic_icon = "picketfence"
-	icon_state = "picketfence"
+/obj/structure/door/wood_windowed
+	name = "windowed wooden door"
+	icon = 'icons/obj/doors/material_doors_leonister.dmi'
+	icon_state = "wood2"
+	base_icon_state = "wood2"
+	material = "wood"
+	desc = "This windowed wooden door has four corner windows and a cross at the top-center, dividing each window."
+	override_material = TRUE // This has a custom icon.
+	override_opacity = TRUE // Keep opacity false, even when closed.
+	opacity = FALSE
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/obj/structure/door/fence
+	name = "fence gate"
+	base_icon_state = "fence"
+	icon_state = "fence"
+	material = "wood"
+	override_opacity = TRUE // This icon is not fully blocking vision.
+	override_material = TRUE // This has a custom icon.
+	opacity = FALSE
+
+/obj/structure/door/fence/picket
 	name = "picket fence gate"
+	icon_state = "picketfence"
+	base_icon_state = "picketfence"
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-/obj/structure/simple_door/cell/New(var/newloc,var/material_name)
-	..(newloc, "iron")
-
-/obj/structure/simple_door/stone/New(var/newloc,var/material_name)
-	..(newloc, "stone")
-
-/obj/structure/simple_door/silver/New(var/newloc,var/material_name)
-	..(newloc, "silver")
-
-/obj/structure/simple_door/gold/New(var/newloc,var/material_name)
-	..(newloc, "gold")
-
-/obj/structure/simple_door/sandstone/New(var/newloc,var/material_name)
-	..(newloc, "sandstone")
-
-/obj/structure/simple_door/wood/New(var/newloc,var/material_name)
-	..(newloc, "wood")
-
-/obj/structure/simple_door/wood2
-	icon = 'icons/obj/doors/material_doors_leonister.dmi'
-	basic_icon = "wood2"
-	icon_state = "wood2"
-/obj/structure/simple_door/wood2/New(var/newloc,var/material_name)
-	..(newloc, "wood")
-	icon = 'icons/obj/doors/material_doors_leonister.dmi'
-	basic_icon = "wood2"
-	icon_state = "wood2"
-	name = "Windowed"
-	opacity = 0
-	override_opacity = 1
-
-///obj/structure/simple_door/resin/New(var/newloc,var/material_name)
-//	..(newloc, "resin")
-//resin is not an extant material, this is a broken door - siro
-
-/obj/structure/simple_door/key_door/custom/jail/woodjail
-	basic_icon = "woodcell"
-	icon_state = "woodcell"
-/obj/structure/simple_door/key_door/custom/jail/woodjail/New(var/newloc,var/material_name)
-	..(newloc, "wood")
-	basic_icon = "woodcell"
-	icon_state = "woodcell"
-
-/obj/structure/simple_door/key_door/custom/jail/woodjail/abashiri
-	icon = 'icons/obj/doors/material_doors_leonister.dmi'
-	basic_icon = "abashiricell"
-	icon_state = "abashiricell"
-/obj/structure/simple_door/key_door/custom/jail/woodjail/abashiri/New(var/newloc,var/material_name)
-	..(newloc, "wood")
-	icon = 'icons/obj/doors/material_doors_leonister.dmi'
-	basic_icon = "abashiricell"
-	icon_state = "abashiricell"
-
-/obj/structure/simple_door/key_door/custom/jail/steeljail
-	basic_icon = "cell"
+/obj/structure/door/cell
+	material = "iron"
+	name = "cell"
 	icon_state = "cell"
-/obj/structure/simple_door/key_door/custom/jail/steeljail/New(var/newloc,var/material_name)
-	..(newloc, "steel")
-	basic_icon = "cell"
+	base_icon_state = "cell"
+	override_opacity = TRUE // This icon can be seen through the bars.
+	override_material = TRUE // This has a custom icon.
+	opacity = FALSE
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+/obj/structure/door/key/jail/wood
+	icon_state = "woodcell"
+	base_icon_state = "woodcell"
+	material = "wood"
+
+/obj/structure/door/key/jail/wood/abashiri
+	icon = 'icons/obj/doors/material_doors_leonister.dmi'
+	icon_state = "abashiricell"
+	base_icon_state = "abashiricell"
+	material = "wood"
+
+/obj/structure/door/key/jail/steel
 	icon_state = "cell"
+	base_icon_state = "cell"
+	material = "steel"
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////

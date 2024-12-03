@@ -346,7 +346,7 @@
 /turf/floor/beach/water/deep,
 /area/caribbean/no_mans_land/invisible_wall)
 "gs" = (
-/obj/structure/simple_door/fence,
+/obj/structure/door/fence,
 /turf/floor/dirt/dust,
 /area/caribbean/houses)
 "gH" = (
@@ -594,7 +594,7 @@
 /turf/floor/beach/water/deep,
 /area/caribbean/no_mans_land/taiga)
 "ml" = (
-/obj/structure/simple_door/key_door/anyone/nordic,
+/obj/structure/door/key/anyone/nordic,
 /turf/floor/wood,
 /area/caribbean/houses)
 "mm" = (
@@ -2009,7 +2009,7 @@
 /turf/floor/winter,
 /area/caribbean/no_mans_land/taiga)
 "Tq" = (
-/obj/structure/simple_door/fence,
+/obj/structure/door/fence,
 /obj/roof/wood,
 /turf/floor/winter,
 /area/caribbean/no_mans_land/taiga)
@@ -2078,7 +2078,7 @@
 /turf/floor/dirt,
 /area/caribbean/no_mans_land/taiga)
 "UE" = (
-/obj/structure/simple_door/key_door/anyone/nordic,
+/obj/structure/door/key/anyone/nordic,
 /turf/floor/wood/fancywood,
 /area/caribbean/greek{
 	location = 0;
@@ -2163,7 +2163,7 @@
 /turf/floor/wood,
 /area/caribbean/no_mans_land/taiga)
 "WT" = (
-/obj/structure/simple_door/fence,
+/obj/structure/door/fence,
 /obj/roof/wood,
 /turf/floor/dirt/dust,
 /area/caribbean/no_mans_land/taiga)
@@ -2258,7 +2258,7 @@
 	name = "Raven King's Cabin"
 	})
 "YD" = (
-/obj/structure/simple_door/key_door/anyone/nordic,
+/obj/structure/door/key/anyone/nordic,
 /turf/floor/plating/cobblestone/vertical/dark,
 /area/caribbean/houses)
 "YF" = (

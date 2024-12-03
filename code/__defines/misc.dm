@@ -90,8 +90,16 @@ GLOBAL_LIST_INIT(bitflags, list((1<<0), (1<<1), (1<<2), (1<<3), (1<<4), (1<<5), 
 #define FULLSCREEN_OVERLAY_RESOLUTION_Y 11
 
 // Material defines.
+#define MATERIAL_WOOD "wood"
 #define MATERIAL_IRON "iron"
 #define MATERIAL_COPPER "copper"
 #define MATERIAL_TIN "tin"
 #define MATERIAL_GOLD "gold"
 #define MATERIAL_SILVER "silver"
+#define MATERIAL_BAMBOO "bamboo"
+
+// AOTD code defines
+#define AOTD_REDCODE 1000
+#define AOTD_BLUECODE 2000
+#define AOTD_YELLOWCODE 3000
+#define AOTD_GREENCODE 4000

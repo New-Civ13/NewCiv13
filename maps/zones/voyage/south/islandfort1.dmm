@@ -32,7 +32,7 @@
 "F" = (/obj/covers/cobblestone,/obj/structure/closet/crate/wood,/turf/floor/beach/sand,/area/caribbean/sea/bottom)
 "G" = (/obj/covers/cobblestone,/obj/structure/closet/crate/stone,/turf/floor/beach/sand,/area/caribbean/sea/bottom)
 "H" = (/obj/covers/cobblestone,/obj/structure/closet/crate/webbings,/turf/floor/beach/sand,/area/caribbean/sea/bottom/roofed)
-"I" = (/obj/structure/simple_door/key_door/anyone/roman{color = "#666666"; name = "door"; unique_door_name = "castle"},/obj/covers/cobblestone,/obj/covers/stone_wall/fortress/archway,/turf/floor/beach/sand,/area/caribbean/sea/bottom/roofed)
+"I" = (/obj/structure/door/key/anyone/roman{color = "#666666"; name = "castle door"},/obj/covers/cobblestone,/obj/covers/stone_wall/fortress/archway,/turf/floor/beach/sand,/area/caribbean/sea/bottom/roofed)
 "J" = (/obj/covers/cobblestone,/mob/living/simple_animal/hostile/human/voyage/spanish/ranged/lt,/turf/floor/beach/sand,/area/caribbean/sea/bottom)
 "K" = (/mob/living/simple_animal/hostile/human/voyage/spanish/ranged,/turf/floor/beach/sand,/area/caribbean/sea/bottom)
 "L" = (/obj/covers/cobblestone,/obj/structure/closet/crate/chest,/obj/item/stack/money/goldvaluables,/obj/item/stack/money/goldvaluables,/obj/item/stack/money/goldvaluables,/obj/item/stack/money/goldvaluables,/turf/floor/beach/sand,/area/caribbean/sea/bottom/roofed)

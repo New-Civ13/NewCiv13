@@ -23,7 +23,7 @@
 	not_disassemblable = FALSE
 	var/glassed = FALSE
 /obj/structure/window/examine(mob/user)
-	. = ..(user)
+	. = ..()
 	if (istype(src, /obj/structure/window/barrier))
 		return
 	if (health == maxhealth)
@@ -210,8 +210,7 @@
 /obj/structure/window/attack_hand(mob/user as mob)
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 
-	if (usr.a_intent == I_HARM)
-
+	if (user.a_intent == I_HARM)
 		playsound(loc, 'sound/effects/glassknock.ogg', 80, TRUE)
 		user.do_attack_animation(src)
 		user.visible_message("<span class='danger'>\The [usr] bangs against \the [src]!</span>",
@@ -222,7 +221,6 @@
 		user.visible_message("[usr.name] knocks on \the [name].",
 							"You knock on \the [name].",
 							"You hear a knocking sound.")
-	return
 
 /obj/structure/window/attack_generic(var/mob/user, var/damage)
 	if (istype(user))

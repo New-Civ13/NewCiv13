@@ -176,7 +176,7 @@ var/list/global/wall_cache = list()
 
 //Appearance
 /turf/wall/examine(mob/user)
-	. = ..(user)
+	. = ..()
 
 	if (!damage && material)
 		user << "<span class='notice'>It looks fully intact.</span>"

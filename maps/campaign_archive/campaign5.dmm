@@ -24,7 +24,7 @@
 "eF" = (/obj/structure/barricade/tires,/obj/structure/window/barrier{dir = 8},/obj/structure/window/barrier{dir = 1},/turf/floor/dirt/dust,/area/caribbean/nomads/forest)
 "eO" = (/obj/structure/barricade/hescobastion,/obj/structure/sign/flag/blugoslavia,/turf/floor/dirt/dust,/area/caribbean/nomads/forest)
 "eT" = (/obj/structure/window/barrier/sandbag,/turf/floor/dirt/dust,/area/caribbean/nomads/forest)
-"eZ" = (/obj/structure/simple_door/key_door/anyone/rustic,/obj/covers/wood,/turf/floor/grass,/area/caribbean/nomads/forest)
+"eZ" = (/obj/structure/door/key/anyone/rustic,/obj/covers/wood,/turf/floor/grass,/area/caribbean/nomads/forest)
 "fo" = (/obj/structure/wild/burnedbush,/obj/structure/wild/burnedtree,/obj/structure/barbwire{dir = 1},/turf/floor/dirt,/area/caribbean/nomads/forest)
 "fq" = (/turf/floor/beach/sand/dark,/area/caribbean/no_mans_land/invisible_wall/temperate/one)
 "fK" = (/obj/structure/wild/rock,/turf/floor/grass,/area/caribbean/nomads/forest)

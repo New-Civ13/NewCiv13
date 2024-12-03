@@ -1476,9 +1476,9 @@ RECIPE: /material/wood/,horizontal wood barrier,/obj/structure/barricade/horizon
 RECIPE: /material/wood/,vertical wood barrier,/obj/structure/barricade/vertical,5,35,1,1,barricades,0,0,0,8,null
 RECIPE: /material/wood/,wood palisade,/obj/structure/grille/logfence,6,80,1,1,barricades,0,0,0,8,null
 RECIPE: /material/wood/,primitive wood fence,/obj/structure/grille/fence,3,60,1,1,barricades,10,0,0,2,null
-RECIPE: /material/wood/,primitive wood fence door,/obj/structure/simple_door/fence,3,60,1,1,barricades,10,0,0,2,null
+RECIPE: /material/wood/,primitive wood fence door,/obj/structure/door/fence,3,60,1,1,barricades,10,0,0,2,null
 RECIPE: /material/wood/,picket wood fence,/obj/structure/grille/fence/picket,3,60,1,1,barricades,30,0,0,8,null
-RECIPE: /material/wood/,picket wood fence door,/obj/structure/simple_door/fence/picket,3,60,1,1,barricades,30,0,0,8,null
+RECIPE: /material/wood/,picket wood fence door,/obj/structure/door/fence/picket,3,60,1,1,barricades,30,0,0,8,null
 RECIPE: /material/wood/,wood structure,/obj/structure/barricade,5,35,1,1,barricades,0,0,0,8,null
 
 //*********************| WOOD HYGIENE |**************************
@@ -1668,7 +1668,7 @@ RECIPE: /material/bamboo/,tiki torch,/obj/item/flashlight/tiki_torch,5,60,0,1,no
 
 //*********************| BAMBOO CONSTRUCTIONS |**************************
 
-RECIPE: /material/bamboo/,large bamboo double doors,/obj/structure/simple_door/key_door/anyone/doubledoor/bamboo,5,50,1,1,construction,18,0,0,8,null
+RECIPE: /material/bamboo/,large bamboo double doors,/obj/structure/door/key/anyone/doubledoor/bamboo,5,50,1,1,construction,18,0,0,8,null
 
 RECIPE: /material/bamboo/,roof support,/obj/structure/roof_support/bamboo,2,30,1,1,construction,0,0,0,8,null
 RECIPE: /material/bamboo/,bamboo wall frame,/obj/structure/wallframe/bamboo,1,150,1,1,construction,10,0,0,8,null

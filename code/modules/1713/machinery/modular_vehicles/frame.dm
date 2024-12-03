@@ -261,7 +261,7 @@
 			if (K.code == doorcode)
 				if (w_front[6])
 					if (w_front[7])
-						visible_message("[H] locks the door.")
+						visible_message("[H] locks \the [src].")
 						playsound(src.loc, 'sound/effects/door_lock_unlock.ogg', 100)
 						w_front[7] = FALSE
 						if (removesroof)
@@ -272,7 +272,7 @@
 									VP.update_icon()
 							noroof = FALSE
 					else
-						visible_message("[H] unlocks the door.")
+						visible_message("[H] unlocks \the [src].")
 						playsound(src.loc, 'sound/effects/door_lock_unlock.ogg', 100)
 						w_front[7] = TRUE
 						if (removesroof)
@@ -285,7 +285,7 @@
 					H.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 				if (w_back[6])
 					if (w_back[7])
-						visible_message("[H] locks the door.")
+						visible_message("[H] locks \the [src].")
 						playsound(src.loc, 'sound/effects/door_lock_unlock.ogg', 100)
 						w_back[7] = FALSE
 						if (removesroof)
@@ -296,7 +296,7 @@
 									VP.update_icon()
 							noroof = FALSE
 					else
-						visible_message("[H] unlocks the door.")
+						visible_message("[H] unlocks \the [src].")
 						playsound(src.loc, 'sound/effects/door_lock_unlock.ogg', 100)
 						w_back[7] = TRUE
 						if (removesroof)
@@ -309,7 +309,7 @@
 					H.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 				if (w_left[6])
 					if (w_left[7])
-						visible_message("[H] locks the door.")
+						visible_message("[H] locks \the [src].")
 						playsound(src.loc, 'sound/effects/door_lock_unlock.ogg', 100)
 						w_left[7] = FALSE
 						if (removesroof)
@@ -320,7 +320,7 @@
 									VP.update_icon()
 							noroof = FALSE
 					else
-						visible_message("[H] unlocks the door.")
+						visible_message("[H] unlocks \the [src].")
 						playsound(src.loc, 'sound/effects/door_lock_unlock.ogg', 100)
 						w_left[7] = TRUE
 						if (removesroof)
@@ -333,7 +333,7 @@
 					H.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 				if (w_right[6])
 					if (w_right[7])
-						visible_message("[H] locks the door.")
+						visible_message("[H] locks \the [src].")
 						playsound(src.loc, 'sound/effects/door_lock_unlock.ogg', 100)
 						w_right[7] = FALSE
 						if (removesroof)
@@ -344,7 +344,7 @@
 									VP.update_icon()
 							noroof = FALSE
 					else
-						visible_message("[H] unlocks the door.")
+						visible_message("[H] unlocks \the [src].")
 						playsound(src.loc, 'sound/effects/door_lock_unlock.ogg', 100)
 						w_right[7] = TRUE
 						if (removesroof)

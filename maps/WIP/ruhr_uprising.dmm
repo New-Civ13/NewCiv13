@@ -1077,7 +1077,7 @@
 /turf/floor/plating/cobblestone/vertical,
 /area/caribbean)
 "gy" = (
-/obj/structure/simple_door/key_door/anyone/wood,
+/obj/structure/door/key/anyone/wood,
 /obj/structure/barricade/horizontal,
 /turf/floor/plating/white,
 /area/caribbean/roofed)
@@ -2144,7 +2144,7 @@
 /area/caribbean)
 "mb" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/simple_door/fence{
+/obj/structure/door/fence{
 	dir = 8
 	},
 /turf/floor/plating/cobblestone/vertical,
@@ -2286,7 +2286,7 @@
 /turf/floor/wood,
 /area/caribbean/british/land/inside/objective)
 "nk" = (
-/obj/structure/simple_door/key_door/anyone/wood,
+/obj/structure/door/key/anyone/wood,
 /obj/structure/barricade/vertical,
 /turf/floor/wood,
 /area/caribbean/roofed)
@@ -2629,7 +2629,7 @@
 	name = "The Caves"
 	})
 "pt" = (
-/obj/structure/simple_door/key_door/anyone/doubledoor/wood,
+/obj/structure/door/key/anyone/doubledoor/wood,
 /turf/floor/plating/cobblestone/vertical,
 /area/caribbean/roofed)
 "py" = (
@@ -2858,7 +2858,7 @@
 	name = "The Caves"
 	})
 "qY" = (
-/obj/structure/simple_door/key_door/anyone/wood,
+/obj/structure/door/key/anyone/wood,
 /turf/floor/dirt,
 /area/caribbean/void/caves{
 	base_turf = /turf/floor/dirt;
@@ -3215,7 +3215,7 @@
 /turf/floor/grass,
 /area/caribbean)
 "tG" = (
-/obj/structure/simple_door/key_door/anyone/wood,
+/obj/structure/door/key/anyone/wood,
 /obj/structure/barricade/horizontal,
 /turf/floor/carpet/redcarpet,
 /area/caribbean/roofed)
@@ -3667,7 +3667,7 @@
 	},
 /area/caribbean/roofed)
 "vZ" = (
-/obj/structure/simple_door/key_door/anyone/wood,
+/obj/structure/door/key/anyone/wood,
 /turf/floor/plating/white,
 /area/caribbean/roofed)
 "wa" = (
@@ -3835,7 +3835,7 @@
 	name = "The Caves"
 	})
 "wG" = (
-/obj/structure/simple_door/key_door/custom/jail/steeljail/german,
+/obj/structure/door/key/jail/steel/german,
 /turf/floor/plating/steel,
 /area/caribbean/roofed)
 "wI" = (
@@ -4352,7 +4352,7 @@
 "zX" = (
 /obj/structure/mine_support,
 /obj/structure/roof_support/admin,
-/obj/structure/simple_door/key_door/anyone/wood,
+/obj/structure/door/key/anyone/wood,
 /turf/floor/dirt,
 /area/caribbean/void/caves{
 	base_turf = /turf/floor/dirt;
@@ -4372,7 +4372,7 @@
 /turf/floor/plating/cobblestone/vertical,
 /area/caribbean)
 "Ad" = (
-/obj/structure/simple_door/key_door/german,
+/obj/structure/door/key/german,
 /turf/floor/wood,
 /area/caribbean/roofed)
 "Ae" = (
@@ -4806,7 +4806,7 @@
 /turf/floor/wood,
 /area/caribbean/roofed)
 "Ct" = (
-/obj/structure/simple_door/key_door/anyone/wood,
+/obj/structure/door/key/anyone/wood,
 /turf/floor/dirt,
 /area/caribbean/no_mans_land/invisible_wall/one)
 "Cu" = (
@@ -5104,7 +5104,7 @@
 	name = "The Caves"
 	})
 "DN" = (
-/obj/structure/simple_door/key_door/custom/jail/steeljail/german,
+/obj/structure/door/key/jail/steel/german,
 /turf/floor/dirt,
 /area/caribbean/void/caves{
 	base_turf = /turf/floor/dirt;
@@ -5329,7 +5329,7 @@
 /turf/floor/dirt,
 /area/caribbean)
 "EV" = (
-/obj/structure/simple_door/key_door/anyone/wood,
+/obj/structure/door/key/anyone/wood,
 /obj/structure/barricade/horizontal,
 /turf/floor/wood,
 /area/caribbean/roofed)
@@ -5551,7 +5551,7 @@
 /turf/floor/trench,
 /area/caribbean)
 "FT" = (
-/obj/structure/simple_door/key_door/anyone/wood,
+/obj/structure/door/key/anyone/wood,
 /turf/floor/wood,
 /area/caribbean/no_mans_land/invisible_wall/inside/two)
 "FY" = (
@@ -5940,7 +5940,7 @@
 /turf/floor/plating/cobblestone/vertical/dark,
 /area/caribbean/roofed)
 "IE" = (
-/obj/structure/simple_door/key_door/anyone/wood,
+/obj/structure/door/key/anyone/wood,
 /turf/floor/wood,
 /area/caribbean/british/land/inside/objective)
 "IG" = (
@@ -6504,7 +6504,7 @@
 /turf/floor/wood,
 /area/caribbean/no_mans_land/invisible_wall/inside/two)
 "LN" = (
-/obj/structure/simple_door/key_door/anyone/wood,
+/obj/structure/door/key/anyone/wood,
 /obj/structure/barricade/horizontal,
 /obj/structure/barricade,
 /turf/floor/wood,
@@ -6900,7 +6900,7 @@
 /turf/floor/plating/cobblestone/vertical,
 /area/caribbean/roofed)
 "Oh" = (
-/obj/structure/simple_door/key_door/anyone/wood,
+/obj/structure/door/key/anyone/wood,
 /turf/floor/dirt,
 /area/caribbean/roofed)
 "Ok" = (
@@ -7640,7 +7640,7 @@
 "St" = (
 /obj/structure/mine_support,
 /obj/structure/roof_support/admin,
-/obj/structure/simple_door/key_door/anyone/wood,
+/obj/structure/door/key/anyone/wood,
 /turf/floor/dirt,
 /area/caribbean/no_mans_land/invisible_wall/one)
 "Sw" = (
@@ -8101,7 +8101,7 @@
 	name = "The Caves"
 	})
 "UC" = (
-/obj/structure/simple_door/key_door/anyone/wood,
+/obj/structure/door/key/anyone/wood,
 /turf/floor/carpet/redcarpet,
 /area/caribbean/roofed)
 "UD" = (
@@ -8256,7 +8256,7 @@
 /turf/floor/wood,
 /area/caribbean/roofed)
 "VA" = (
-/obj/structure/simple_door/key_door/anyone/wood,
+/obj/structure/door/key/anyone/wood,
 /turf/floor/carpet/greencarpet,
 /area/caribbean/roofed)
 "VB" = (
@@ -8687,7 +8687,7 @@
 /turf/floor/wood,
 /area/caribbean/roofed)
 "XS" = (
-/obj/structure/simple_door/key_door/anyone/wood,
+/obj/structure/door/key/anyone/wood,
 /turf/floor/wood,
 /area/caribbean/roofed)
 "XU" = (

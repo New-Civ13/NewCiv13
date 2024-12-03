@@ -166,7 +166,7 @@
 "dm" = (/obj/covers/wood_ship,/obj/item/flashlight/torch/on,/turf/floor/dirt,/area/caribbean/houses/nml_one)
 "dn" = (/obj/structure/grille/fence{icon_state = "fence"; dir = 1},/turf/floor/dirt,/area/caribbean/forest)
 "do" = (/obj/covers/wood_ship,/obj/structure/bed{material = "wood"},/turf/floor/dirt,/area/caribbean/houses/nml_one)
-"dp" = (/obj/structure/simple_door/wood{name = "House"},/obj/covers/wood_ship,/turf/floor/dirt,/area/caribbean/houses/nml_one)
+"dp" = (/obj/structure/door/wood{name = "House"},/obj/covers/wood_ship,/turf/floor/dirt,/area/caribbean/houses/nml_one)
 "dq" = (/obj/structure/closet/crate/rations/meat,/turf/floor/grass,/area/caribbean/colonies/french{location = 1; name = "French Base"})
 "dr" = (/obj/covers/wood_ship,/obj/structure/bed/chair/wood{dir = 4},/turf/floor/dirt,/area/caribbean/houses/nml_one)
 "ds" = (/obj/structure/wild/smallbush,/turf/floor/dirt,/area/caribbean/forest)

@@ -32,7 +32,7 @@ var/GRACE_PERIOD_LENGTH = 7
 					world << "<br><font size=3><span class = 'notice'>It's <b>[lowertext(processes.time_of_day_change.changeto)]</b>, and the season is <b>[get_season()]</b>.</span></font>"
 
 	// open squad preparation doors
-	for (var/obj/structure/simple_door/key_door/keydoor in door_list)
+	for (var/obj/structure/door/key/keydoor in door_list)
 		if (findtext(keydoor.name, "Squad"))
 			if (findtext(keydoor.name, "Preparation"))
 				keydoor.Open()

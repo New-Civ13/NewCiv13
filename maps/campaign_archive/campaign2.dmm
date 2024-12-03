@@ -19,7 +19,7 @@
 "cm" = (/obj/structure/closet/crate/ww2,/obj/item/weapon/plastique/c4,/obj/item/weapon/plastique/c4,/obj/item/weapon/plastique/c4,/obj/item/weapon/plastique/c4,/obj/item/weapon/plastique/c4,/obj/item/weapon/plastique/c4,/turf/floor/dirt,/area/caribbean/japanese{icon_state = "blue2"; name = "Blugoslavian Command Post"})
 "cn" = (/turf/floor/dirt,/area/caribbean/forest)
 "cz" = (/obj/structure/wild/tallgrass2,/turf/floor/beach/sand/dark,/area/caribbean/forest)
-"cG" = (/obj/structure/simple_door/key_door/anyone/rustic,/obj/covers/wood,/turf/floor/grass,/area/caribbean/forest)
+"cG" = (/obj/structure/door/key/anyone/rustic,/obj/covers/wood,/turf/floor/grass,/area/caribbean/forest)
 "cM" = (/obj/covers/wood,/turf/floor/dirt,/area/caribbean/forest)
 "cP" = (/obj/structure/iv_drip,/turf/floor/dirt/dust,/area/caribbean/forest)
 "cR" = (/obj/structure/railing/steel,/obj/structure/wild/bush/big,/obj/structure/lamp/lamppost_small/alwayson,/turf/floor/grass,/area/caribbean/japanese{icon_state = "blue2"; name = "Blugoslavian Command Post"})

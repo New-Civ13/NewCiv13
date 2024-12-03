@@ -305,8 +305,8 @@
 	var/turn_dir = 0
 	var/mob/living/human/H = user
 	var/obj/structure/religious/totem/newtotem = null
-	var/obj/structure/simple_door/key_door/custom/build_override_door = null
-	var/obj/structure/simple_door/key_door/faction_door/faction_override_door = null
+	var/obj/structure/door/key/custom/build_override_door = null
+	var/obj/structure/door/key/civilization/faction_override_door = null
 	var/obj/item/weapon/key/civ/build_override_key = null
 	var/obj/item/weapon/gun/projectile/ancient/firelance/build_override_firelance = null
 	var/obj/structure/vending/sales/build_override_vending = null
@@ -395,7 +395,7 @@
 		if (findtext(recipe.title, "wood sarissa") || findtext(recipe.title, "wood dory") || findtext(recipe.title, "soft wood wall") || findtext(recipe.title, "log wall"))
 			H << "<span class = 'danger'>You don't know how to make this.</span>"
 			return
-		if (recipe.result_type == /obj/structure/simple_door/key_door/anyone/wood)
+		if (recipe.result_type == /obj/structure/door/key/anyone/wood)
 			H << "<span class = 'danger'>You don't know how to make this.</span>"
 			return
 		if (H.original_job_title == "Ant tribesman")
@@ -450,7 +450,7 @@
 			H << "You must be part of a faction to craft this door"
 			return
 		else
-			faction_override_door = new /obj/structure/simple_door/key_door/faction_door
+			faction_override_door = new /obj/structure/door/key/civilization
 			faction_override_door.faction = H.civilization
 			faction_override_door.name = "[H.civilization]'s Door"
 
@@ -492,11 +492,11 @@
 			if (keyname == null)
 				keyname = "Locked"
 			if (findtext(recipe.title, "iron door"))
-				build_override_door = new /obj/structure/simple_door/key_door/custom
+				build_override_door = new /obj/structure/door/key/custom
 			if (findtext(recipe.title, "jail door"))
-				build_override_door = new /obj/structure/simple_door/key_door/custom/jail/steeljail
+				build_override_door = new /obj/structure/door/key/jail/steel
 			if (findtext(recipe.title, "wood jail"))
-				build_override_door = new /obj/structure/simple_door/key_door/custom/jail/woodjail
+				build_override_door = new /obj/structure/door/key/jail/wood
 			build_override_door.name = keyname
 			build_override_door.custom_code = key.code
 

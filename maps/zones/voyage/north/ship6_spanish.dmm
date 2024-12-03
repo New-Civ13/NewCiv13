@@ -12,7 +12,7 @@
 "al" = (/obj/structure/multiz/ladder/ww2/up,/obj/covers/repairedfloor/ship,/turf/floor/beach/water/deep/saltwater,/area/caribbean/sea/top/roofed)
 "am" = (/obj/covers/repairedfloor/ship,/obj/structure/bed/hammock,/turf/floor/beach/water/deep/saltwater,/area/caribbean/sea/top/roofed)
 "an" = (/obj/covers/repairedfloor/ship,/obj/item/flashlight/lantern/on/anchored,/turf/floor/beach/water/deep/saltwater,/area/caribbean/sea/top/roofed)
-"ao" = (/obj/covers/repairedfloor/ship,/obj/structure/simple_door/key_door/anyone/ship,/turf/floor/beach/water/deep/saltwater,/area/caribbean/sea/top/roofed)
+"ao" = (/obj/covers/repairedfloor/ship,/obj/structure/door/key/anyone/ship,/turf/floor/beach/water/deep/saltwater,/area/caribbean/sea/top/roofed)
 "ap" = (/obj/covers/repairedfloor/ship,/obj/structure/table/modern/table,/turf/floor/broken_floor,/area/caribbean/sea/top/roofed)
 "aq" = (/obj/covers/repairedfloor/ship,/turf/floor/broken_floor,/area/caribbean/sea/top/roofed)
 "ar" = (/obj/covers/repairedfloor/ship,/mob/living/simple_animal/hostile/human/voyage/spanish/ranged,/turf/floor/broken_floor,/area/caribbean/sea/top/roofed)

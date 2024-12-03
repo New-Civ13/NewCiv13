@@ -163,8 +163,8 @@
 			var/obj/structure/obstacle = locate(/obj/structure, get_step(src, dir))
 			if (istype(obstacle, /obj/structure/window) || istype(obstacle, /obj/structure/closet) || istype(obstacle, /obj/structure/table) || istype(obstacle, /obj/structure/grille))
 				obstacle.attack_generic(src,rand(melee_damage_lower,melee_damage_upper),attacktext)
-			else if (istype(obstacle, /obj/structure/simple_door))
-				var/obj/structure/simple_door/SD = obstacle
+			else if (istype(obstacle, /obj/structure/door))
+				var/obj/structure/door/SD = obstacle
 				SD.Bumped(src)
 
 /mob/living/simple_animal/hostile/proc/Found(var/atom/A)//This is here as a potential override to pick a specific target if available

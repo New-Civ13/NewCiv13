@@ -9,7 +9,7 @@
 "ai" = (/obj/item/weapon/reagent_containers/blood/OMinus,/obj/item/weapon/reagent_containers/blood/OMinus,/obj/structure/closet/crate/empty,/turf/floor/grass,/area/caribbean/no_mans_land/temperate)
 "aj" = (/obj/covers/wood,/obj/structure/lamp/lamp_big/alwayson{icon_state = "tube"; dir = 1},/obj/structure/bed/padded,/obj/item/weapon/bedsheet/brown,/turf/floor/wood,/area/caribbean/roofed/temperate)
 "ak" = (/obj/covers/wood,/turf/floor/wood,/area/caribbean/roofed/temperate)
-"al" = (/obj/covers/wood,/obj/structure/simple_door/key_door/anyone/wood,/turf/floor/wood,/area/caribbean/roofed/temperate)
+"al" = (/obj/covers/wood,/obj/structure/door/key/anyone/wood,/turf/floor/wood,/area/caribbean/roofed/temperate)
 "am" = (/obj/covers/wood,/obj/structure/lamp/lamp_big/alwayson{icon_state = "tube"; dir = 1},/turf/floor/wood,/area/caribbean/roofed/temperate)
 "an" = (/obj/covers/wood,/obj/structure/closet/cabinet,/obj/item/weapon/gun/projectile/pistol/mauser,/obj/item/weapon/gun/projectile/pistol/mauser,/obj/item/ammo_magazine/mauser,/obj/item/ammo_magazine/mauser,/obj/item/ammo_magazine/mauser,/obj/item/ammo_magazine/mauser,/obj/item/ammo_magazine/mauser,/obj/item/ammo_magazine/mauser,/turf/floor/wood,/area/caribbean/roofed/temperate)
 "ao" = (/obj/structure/bed/padded,/turf/floor/grass,/area/caribbean/no_mans_land/temperate)

@@ -160,7 +160,7 @@
 "HK" = (/obj/structure/wild/jungle,/turf/floor/grass,/area/caribbean/island{base_turf = /turf/floor/dirt; location = 0; name = "Castle"})
 "HQ" = (/obj/effect/spawner/mobspawner/panthers/jaguar,/turf/floor/grass,/area/caribbean/colonies/jungle)
 "HT" = (/obj/structure/wild/rock,/turf/floor/grass,/area/caribbean/colonies/jungle)
-"If" = (/obj/covers/wood,/obj/structure/simple_door/wood,/obj/roof/thatch,/turf/floor/grass,/area/caribbean/colonies/jungle)
+"If" = (/obj/covers/wood,/obj/structure/door/wood,/obj/roof/thatch,/turf/floor/grass,/area/caribbean/colonies/jungle)
 "In" = (/obj/item/flashlight/torch/on/unlimited,/turf/floor/dirt/dust,/area/caribbean/colonies/jungle)
 "Ix" = (/obj/item/ammo_casing/arrow/stone,/obj/item/ammo_casing/arrow/stone,/obj/item/ammo_casing/arrow/stone,/turf/floor/grass,/area/caribbean/colonies/jungle)
 "Jm" = (/obj/covers/wood/stairs{dir = 9; icon_state = "wood2_stairs2"},/turf/floor/dirt/dust,/area/caribbean/colonies/jungle)

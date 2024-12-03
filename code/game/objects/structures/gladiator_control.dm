@@ -276,10 +276,10 @@
 			GATES.density = TRUE
 			spawn(30)
 				GATES.icon_state = "s_gate0"
-		for(var/obj/structure/simple_door/key_door/ancient/roman/DOORS in A)
-			if (DOORS.state)
-				DOORS.density = TRUE
-				DOORS.Close()
+		for(var/obj/structure/door/key/ancient/roman/DOORS in A)
+			if(!DOORS.density)
+				density = TRUE
+			DOORS.Close()
 		return
 	else if (count > count_max && prob(10))
 		world << "<font size=2 color='yellow'>Too many people at [arena]. There should be a maximum of <b>[count_max]</b>!</font>"

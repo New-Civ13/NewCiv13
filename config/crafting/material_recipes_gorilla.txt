@@ -915,7 +915,7 @@ RECIPE: /material/barbedwire/,barbwire,/obj/structure/barbwire,1,20,0,1,none,0,0
 
 RECIPE: /material/lead/,lead safe,/obj/structure/closet/crate/lead,3,100,1,1,none,0,0,65,8,null
 
-RECIPE: /material/lead/,large lead double doors,/obj/structure/simple_door/key_door/anyone/doubledoor/lead,5,100,1,1,none,18,0,0,1,null
+RECIPE: /material/lead/,large lead double doors,/obj/structure/door/key/anyone/doubledoor/lead,5,100,1,1,none,18,0,0,1,null
 
 //**************************************************************
 //*********************| PLASTIC |******************************
@@ -1386,9 +1386,9 @@ RECIPE: /material/stone/,stone block archway,/obj/covers/stone_wall/classic/arch
 RECIPE: /material/stone/,castle gate,/obj/structure/gate,15,210,1,1,doorways and other buildings,102,102,0,8,null
 RECIPE: /material/stone/,castle gate control,/obj/structure/gatecontrol,5,100,1,1,doorways and other buildings,102,102,0,8,null
 
-//RECIPE: /material/stone/,roman door,/obj/structure/simple_door/key_door/anyone/roman,5,50,1,1,construction,28,0,0,8,null
+//RECIPE: /material/stone/,roman door,/obj/structure/door/key/anyone/roman,5,50,1,1,construction,28,0,0,8,null
 
-RECIPE: /material/stone/,large stone double doors,/obj/structure/simple_door/key_door/anyone/doubledoor/stone,10,100,1,1,none,18,0,0,8,null
+RECIPE: /material/stone/,large stone double doors,/obj/structure/door/key/anyone/doubledoor/stone,10,100,1,1,none,18,0,0,8,null
 
 RECIPE: /material/stone/,rock barrier wall,/obj/structure/window/barrier/rock,3,70,1,1,fortifications,0,0,0,8,null
 RECIPE: /material/stone/,fortified wall (horizontal),/obj/structure/barricade/stone_h,5,80,1,1,fortifications,102,0,0,8,null
@@ -1482,7 +1482,7 @@ RECIPE: /material/marble/,marble block archway,/obj/covers/stone_wall/classic/ar
 //RECIPE: /material/marble/,grecian archway,/obj/covers/marble_wall/grecian/archway,8,140,1,1,construction,0,0,0,1,null
 RECIPE: /material/marble/,grand marble archway,/obj/covers/marble_wall/grecian/archway/modern,8,140,1,1,construction,102,0,0,8,null
 
-RECIPE: /material/marble/,large marble double doors,/obj/structure/simple_door/key_door/anyone/doubledoor/marble,10,100,1,1,none,18,0,0,8,null
+RECIPE: /material/marble/,large marble double doors,/obj/structure/door/key/anyone/doubledoor/marble,10,100,1,1,none,18,0,0,8,null
 
 RECIPE: /material/marble/,marble window,/obj/structure/window_frame/marble,5,140,1,1,construction,20,0,0,8,null
 RECIPE: /material/marble/,full stone window,/obj/structure/window_frame/marblefull,5,140,1,1,construction,20,0,0,8,null
@@ -1662,7 +1662,7 @@ RECIPE: /material/steel/,steel public bathtub,/obj/structure/shower/bathtub/big/
 
 RECIPE: /material/gold/,gold coins,/obj/item/stack/money/coin/gold,1,35,0,1,none,0,0,0,8,null
 
-RECIPE: /material/gold/,large gold double doors,/obj/structure/simple_door/key_door/anyone/doubledoor/gold,5,100,1,1,none,18,0,0,8,null
+RECIPE: /material/gold/,large gold double doors,/obj/structure/door/key/anyone/doubledoor/gold,5,100,1,1,none,18,0,0,8,null
 
 //*****************| GOLD CLOTHING & ACCESSORIES |***************************
 
@@ -1688,7 +1688,7 @@ RECIPE: /material/gold/,gold sceptre,/obj/item/weapon/goldsceptre,3,105,0,1,none
 
 RECIPE: /material/silver/,silver coins,/obj/item/stack/money/coin/silver,1,35,0,1,none,0,0,0,8,null
 
-RECIPE: /material/silver/,large silver double doors,/obj/structure/simple_door/key_door/anyone/doubledoor/silver,5,100,1,1,none,18,0,0,8,null
+RECIPE: /material/silver/,large silver double doors,/obj/structure/door/key/anyone/doubledoor/silver,5,100,1,1,none,18,0,0,8,null
 
 //*****************| SILVER WEAPONS & TOOLS |***************************
 
@@ -1710,7 +1710,7 @@ RECIPE: /material/tin/,small tin pot,/obj/item/weapon/reagent_containers/glass/s
 RECIPE: /material/tin/,dummy armor,/obj/item/weapon/dummy_armor,4,120,1,1,none,18,0,0,8,null
 RECIPE: /material/tin/,messtin,/obj/item/weapon/storage/ww2,8,180,0,1,none,115,110,0,8,null
 
-RECIPE: /material/tin/,large tin double doors,/obj/structure/simple_door/key_door/anyone/doubledoor/tin,5,100,1,1,none,18,0,0,8,null
+RECIPE: /material/tin/,large tin double doors,/obj/structure/door/key/anyone/doubledoor/tin,5,100,1,1,none,18,0,0,8,null
 
 //*****************| TIN CANS |***************************
 
@@ -1731,7 +1731,7 @@ RECIPE: /material/copper/,large copper pot,/obj/item/weapon/reagent_containers/g
 RECIPE: /material/copper/,trombone,/obj/item/trombone,6,155,0,1,none,83,0,0,8,null
 RECIPE: /material/copper/,handbell,/obj/item/weapon/handbell,2,50,0,1,none,40,0,0,8,null
 
-RECIPE: /material/copper/,large copper double doors,/obj/structure/simple_door/key_door/anyone/doubledoor/copper,5,100,1,1,none,18,0,0,8,null
+RECIPE: /material/copper/,large copper double doors,/obj/structure/door/key/anyone/doubledoor/copper,5,100,1,1,none,18,0,0,8,null
 
 //*****************| COPPER WEAPONS & TOOLS |***************************
 
@@ -1802,9 +1802,9 @@ RECIPE: /material/steel/,ladder,/obj/item/weapon/siegeladder/metal,6,125,0,1,sie
 
 //*********************| STEEL FLOORS & CONSTRUCTIONS |**************************
 
-RECIPE: /material/steel/,large reinforced large steel double doors,/obj/structure/simple_door/key_door/anyone/doubledoor/steel,10,250,1,1,none,62,0,0,8,null
+RECIPE: /material/steel/,large reinforced large steel double doors,/obj/structure/door/key/anyone/doubledoor/steel,10,250,1,1,none,62,0,0,8,null
 RECIPE: /material/steel/,jail bars,/obj/covers/jail/steeljail,8,30,1,1,construction,75,0,0,8,null
-RECIPE: /material/steel/,locked jail door,/obj/structure/simple_door/key_door/custom/jail/steeljail,12,30,1,1,construction,75,0,0,8,null
+RECIPE: /material/steel/,locked jail door,/obj/structure/door/key/jail/steel,12,30,1,1,construction,75,0,0,8,null
 
 RECIPE: /material/steel/,steel floor,/obj/covers/steelplating,1,15,1,1,construction,96,0,0,8,null
 RECIPE: /material/steel/,white floor,/obj/covers/steelplating/white,1,15,1,1,construction,96,0,0,8,null
@@ -1906,7 +1906,7 @@ RECIPE: /material/steel/,flagpole,/obj/structure/flag/pole,6,95,0,1,none,0,0,0,8
 RECIPE: /material/bronze/,bronze etsy lamp,/obj/item/flashlight/lantern/bronze,4,60,0,1,none,102,0,0,8,null
 RECIPE: /material/bronze/,ashtray,/obj/item/weapon/material/ashtray/bronze,3,30,0,1,none,102,0,0,8,null
 
-RECIPE: /material/bronze/,large bronze double doors,/obj/structure/simple_door/key_door/anyone/doubledoor/bronze,8,100,1,1,none,18,0,0,8,null
+RECIPE: /material/bronze/,large bronze double doors,/obj/structure/door/key/anyone/doubledoor/bronze,8,100,1,1,none,18,0,0,8,null
 
 //*********************| BRONZE WEAPONS & TOOLS |*************************
 
@@ -1996,13 +1996,13 @@ RECIPE: /material/wood/,wood roof builder,/obj/item/weapon/roofbuilder,1,20,0,1,
 
 //RECIPE: /material/wood/,wall frame,/obj/structure/wallframe,1,150,1,1,construction,35,0,0,8,null
 
-RECIPE: /material/wood/,door,/obj/structure/simple_door/key_door/anyone/wood,5,50,1,1,construction,18,0,0,8,null
-RECIPE: /material/wood/,large wood double doors,/obj/structure/simple_door/key_door/anyone/doubledoor/wood,5,50,1,1,construction,18,0,0,8,null
-RECIPE: /material/wood/,aztec door,/obj/structure/simple_door/key_door/anyone/aztec,5,50,1,1,construction,35,0,0,8,null
-RECIPE: /material/wood/,rustic door,/obj/structure/simple_door/key_door/anyone/rustic,4,40,1,1,construction,18,0,0,8,null
-RECIPE: /material/wood/,nordic door,/obj/structure/simple_door/key_door/anyone/nordic,5,50,1,1,construction,35,0,0,8,null
-RECIPE: /material/wood/,wooden privacy door,/obj/structure/simple_door/key_door/anyone/singledoor/privacy,10,100,1,1,construction,102,0,0,8,null
-RECIPE: /material/wood/,wooden house door,/obj/structure/simple_door/key_door/anyone/singledoor/housedoor,5,50,1,1,construction,102,0,0,8,null
+RECIPE: /material/wood/,door,/obj/structure/door/key/anyone/wood,5,50,1,1,construction,18,0,0,8,null
+RECIPE: /material/wood/,large wood double doors,/obj/structure/door/key/anyone/doubledoor/wood,5,50,1,1,construction,18,0,0,8,null
+RECIPE: /material/wood/,aztec door,/obj/structure/door/key/anyone/aztec,5,50,1,1,construction,35,0,0,8,null
+RECIPE: /material/wood/,rustic door,/obj/structure/door/key/anyone/rustic,4,40,1,1,construction,18,0,0,8,null
+RECIPE: /material/wood/,nordic door,/obj/structure/door/key/anyone/nordic,5,50,1,1,construction,35,0,0,8,null
+RECIPE: /material/wood/,wooden privacy door,/obj/structure/door/key/anyone/singledoor/privacy,10,100,1,1,construction,102,0,0,8,null
+RECIPE: /material/wood/,wooden house door,/obj/structure/door/key/anyone/singledoor/housedoor,5,50,1,1,construction,102,0,0,8,null
 
 RECIPE: /material/wood/,floor cover,/obj/item/weapon/covers,2,30,0,1,construction,0,0,0,8,null
 RECIPE: /material/wood/,thatch floor,/obj/covers/thatch,0.75,20,1,1,construction,0,0,0,8,null
@@ -2028,7 +2028,7 @@ RECIPE: /material/wood/,custom golden sign,/obj/structure/sign/custom/golden,6,4
 RECIPE: /material/wood/,signpost,/obj/structure/sign/signpost,4,40,1,1,construction,0,0,0,8,null
 
 RECIPE: /material/wood/,wood jail bars,/obj/covers/jail/woodjail,8,30,1,1,construction,55,0,0,8,null
-RECIPE: /material/wood/,locked wood jail door,/obj/structure/simple_door/key_door/custom/jail/woodjail,12,30,1,1,construction,55,0,0,8,null
+RECIPE: /material/wood/,locked wood jail door,/obj/structure/door/key/jail/woodjail,12,30,1,1,construction,55,0,0,8,null
 
 //*********************| WOOD BARRICADES |**************************
 
@@ -2036,9 +2036,9 @@ RECIPE: /material/wood/,horizontal wood barrier,/obj/structure/barricade/horizon
 RECIPE: /material/wood/,vertical wood barrier,/obj/structure/barricade/vertical,5,35,1,1,barricades,0,0,0,8,null
 RECIPE: /material/wood/,wood palisade,/obj/structure/grille/logfence,6,80,1,1,barricades,0,0,0,8,null
 RECIPE: /material/wood/,primitive wood fence,/obj/structure/grille/fence,3,60,1,1,barricades,10,0,0,2,null
-RECIPE: /material/wood/,primitive wood fence door,/obj/structure/simple_door/fence,3,60,1,1,barricades,10,0,0,2,null
+RECIPE: /material/wood/,primitive wood fence door,/obj/structure/door/fence,3,60,1,1,barricades,10,0,0,2,null
 RECIPE: /material/wood/,picket wood fence,/obj/structure/grille/fence/picket,3,60,1,1,barricades,30,0,0,8,null
-RECIPE: /material/wood/,picket wood fence door,/obj/structure/simple_door/fence/picket,3,60,1,1,barricades,30,0,0,8,null
+RECIPE: /material/wood/,picket wood fence door,/obj/structure/door/fence/picket,3,60,1,1,barricades,30,0,0,8,null
 RECIPE: /material/wood/,wood structure,/obj/structure/barricade,5,35,1,1,barricades,0,0,0,8,null
 
 //*********************| WOOD HYGIENE |**************************
@@ -2262,7 +2262,7 @@ RECIPE: /material/bamboo/,tiki torch,/obj/item/flashlight/tiki_torch,5,60,0,1,no
 
 //*********************| BAMBOO CONSTRUCTIONS |**************************
 
-RECIPE: /material/bamboo/,large bamboo double doors,/obj/structure/simple_door/key_door/anyone/doubledoor/bamboo,5,50,1,1,construction,18,0,0,8,null
+RECIPE: /material/bamboo/,large bamboo double doors,/obj/structure/door/key/anyone/doubledoor/bamboo,5,50,1,1,construction,18,0,0,8,null
 
 RECIPE: /material/bamboo/,roof support,/obj/structure/roof_support/bamboo,2,30,1,1,construction,0,0,0,8,null
 //RECIPE: /material/bamboo/,bamboo wall frame,/obj/structure/wallframe/bamboo,1,150,1,1,construction,10,0,0,8,null
@@ -2373,10 +2373,10 @@ RECIPE: /material/iron/,bayonet,/obj/item/weapon/attachment/bayonet,2,30,0,1,wea
 
 //*********************| IRON CONSTRUCTIONS |**************************
 
-RECIPE: /material/iron/,unlocked iron door,/obj/structure/simple_door/key_door/anyone,10,100,1,1,construction,28,0,0,8,null
-RECIPE: /material/iron/,locked iron door,/obj/structure/simple_door/key_door/custom,15,180,1,1,construction,28,0,0,8,null
+RECIPE: /material/iron/,unlocked iron door,/obj/structure/door/key/anyone,10,100,1,1,construction,28,0,0,8,null
+RECIPE: /material/iron/,locked iron door,/obj/structure/door/key/custom,15,180,1,1,construction,28,0,0,8,null
 
-RECIPE: /material/iron/,unlocked large iron double doors,/obj/structure/simple_door/key_door/anyone/doubledoor/iron,10,100,1,1,construction,28,0,0,8,null
+RECIPE: /material/iron/,unlocked large iron double doors,/obj/structure/door/key/anyone/doubledoor/iron,10,100,1,1,construction,28,0,0,8,null
 
 RECIPE: /material/iron/,key,/obj/item/weapon/key,2,35,0,1,none,28,0,0,8,null
 
@@ -2446,7 +2446,7 @@ RECIPE: /material/sandstone/,red sandstone block wall,/obj/covers/sandstone_wall
 
 RECIPE: /material/sandstone/,castle gate,/obj/structure/gate/sandstone,15,210,1,1,construction,102,102,0,8,null
 RECIPE: /material/sandstone/,castle gate control,/obj/structure/gatecontrol/sandstone,5,100,1,1,construction,102,102,0,8,null
-RECIPE: /material/sandstone/,large sandstone double doors,/obj/structure/simple_door/key_door/anyone/doubledoor/sandstone,10,100,1,1,none,18,0,0,1,null
+RECIPE: /material/sandstone/,large sandstone double doors,/obj/structure/door/key/anyone/doubledoor/sandstone,10,100,1,1,none,18,0,0,1,null
 
 RECIPE: /material/sandstone/,sandstone block archway,/obj/covers/sandstone_wall/classic/archway,6,125,1,1,construction,0,0,0,8,null
 RECIPE: /material/sandstone/,red sandstone block archway,/obj/covers/sandstone_wall/classic/archway/red,6,125,1,1,construction,0,0,0,8,null

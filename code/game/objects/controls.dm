@@ -277,7 +277,7 @@
 
 /obj/structure/gate/whiterun
 	name = "whiterun gate"
-	desc = "A large wooden double door"
+	desc = "A large wooden double-door"
 	icon = 'icons/obj/doors/gates_64x96.dmi'
 	icon_state = "whiterun1"
 	anchored = TRUE

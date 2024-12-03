@@ -859,7 +859,7 @@
 	var/list/turf/emptyTurfs = new
 	for(var/turf/T in range(max_range,src))
 		var/invalid = FALSE
-		for (var/obj/structure/simple_door/SD in T)
+		for (var/obj/structure/door/SD in T)
 			invalid = TRUE
 		if (!invalid)
 			emptyTurfs += T
@@ -867,15 +867,15 @@
 		return pick(emptyTurfs)
 
 /obj/effect/spawner/objspawner/door/blue
-	create_path = /obj/structure/simple_door/key_door/civ/businessblue
+	create_path = /obj/structure/door/key/civ/businessblue
 /obj/effect/spawner/objspawner/door/yellow
-	create_path = /obj/structure/simple_door/key_door/civ/businessyellow
+	create_path = /obj/structure/door/key/civ/businessyellow
 /obj/effect/spawner/objspawner/door/red
-	create_path = /obj/structure/simple_door/key_door/civ/businessred
+	create_path = /obj/structure/door/key/civ/businessred
 /obj/effect/spawner/objspawner/door/green
-	create_path = /obj/structure/simple_door/key_door/civ/businessgreen
+	create_path = /obj/structure/door/key/civ/businessgreen
 /obj/effect/spawner/objspawner/door/police
-	create_path = /obj/structure/simple_door/key_door/civ/police
+	create_path = /obj/structure/door/key/civ/police
 	activated = TRUE
 	timer = 1800
 

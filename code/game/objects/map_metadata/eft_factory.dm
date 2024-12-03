@@ -145,39 +145,39 @@
 	code = "1110"
 
 /obj/item/weapon/key/eft/medgate
-	name = "Med Tent Gate key"
+	name = "\improper Med-Tent Gate key"
 	code = "1111"
 
 /obj/item/weapon/key/eft/cellar
-	name = "Cellar key"
+	name = "\improper Cellar key"
 	code = "1112"
 
 /obj/item/weapon/key/eft/pump
-	name = "Pumping Station front door key"
+	name = "\improper Pumping Station front-door key"
 	code = "1113"
 
 /obj/item/weapon/key/eft/pumpalt
-	name = "Pumping Station back door key"
+	name = "\improper Pumping Station back-door key"
 	code = "1114"
 
 ///////////////////////////////Doors//////////////////////////////////////////////
 
-/obj/structure/simple_door/key_door/eft/gate0
+/obj/structure/door/key/eft/gate0
 	name = "Gate 0"
 	code = "1110"
 
-/obj/structure/simple_door/key_door/eft/medgate
-	name = "Med Tent Gate"
+/obj/structure/door/key/eft/medgate
+	name = "\improper Med-Tent Gate"
 	code = "1111"
 
-/obj/structure/simple_door/key_door/eft/cellar
-	name = "Cellar Door"
+/obj/structure/door/key/eft/cellar
+	name = "\improper Cellar Door"
 	code = "1112"
 
-/obj/structure/simple_door/key_door/eft/pump
-	name = "Pumping Station front door"
+/obj/structure/door/key/eft/pump
+	name = "\improper Pumping Station front-door"
 	code = "1113"
 
-/obj/structure/simple_door/key_door/eft/pumpalt
-	name = "Pumping Station back door"
+/obj/structure/door/key/eft/pumpalt
+	name = "\improper Pumping Station back-door"
 	code = "1114"

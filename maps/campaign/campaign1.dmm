@@ -13,7 +13,7 @@
 "dQ" = (/obj/structure/wild/smallbush,/turf/floor/grass/jungle/savanna,/area/caribbean/no_mans_land/temperate)
 "ek" = (/obj/structure/wild/tallgrass,/turf/floor/grass/jungle/savanna,/area/caribbean/faction2)
 "el" = (/obj/item/weapon/cell/high,/obj/item/weapon/cell/high,/obj/item/weapon/cell/high,/obj/item/weapon/cell/high,/turf/floor/dirt/dust,/area/caribbean/faction2)
-"ew" = (/obj/structure/simple_door/key_door/anyone/rustic,/obj/covers/wood,/turf/floor/grass,/area/caribbean/roofed/temperate)
+"ew" = (/obj/structure/door/key/anyone/rustic,/obj/covers/wood,/turf/floor/grass,/area/caribbean/roofed/temperate)
 "eE" = (/obj/structure/sink/puddle/nomosquitoes,/turf/floor/grass,/area/caribbean/faction2)
 "eF" = (/obj/structure/wild/flowers,/turf/floor/dirt,/area/caribbean/faction2)
 "eS" = (/obj/structure/camonet,/obj/structure/closet/crate/ww2,/obj/item/ammo_magazine/ak47,/obj/item/ammo_magazine/ak47,/obj/item/ammo_magazine/ak47,/obj/item/ammo_magazine/ak47,/obj/item/ammo_magazine/ak47,/obj/item/ammo_magazine/ak47,/obj/item/ammo_magazine/ak47,/obj/item/ammo_magazine/ak47,/obj/item/ammo_magazine/ak47,/obj/item/ammo_magazine/ak47,/obj/item/ammo_magazine/ak47,/obj/item/ammo_magazine/ak47,/turf/floor/dirt,/area/caribbean/faction2)

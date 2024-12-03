@@ -1,3 +1,4 @@
+/*
 /datum/keyslot
 	var/code = -1
 	var/locked = TRUE
@@ -5,7 +6,7 @@
 /datum/keyslot/New()
 	..()
 
-/datum/keyslot/proc/check_weapon(var/obj/item/weapon/W, var/mob/living/human/H, var/msg = FALSE)
+/datum/keyslot/proc/check_weapon(obj/item/weapon/W, mob/living/human/H, msg = FALSE)
 	. = FALSE
 
 	if (istype(W, /obj/item/weapon/key))
@@ -25,7 +26,7 @@
 
 	return .
 
-/datum/keyslot/proc/check_user(var/mob/living/human/H, var/msg = FALSE)
+/datum/keyslot/proc/check_user(mob/living/human/H, msg = FALSE)
 	if (code == -1)
 		return TRUE
 
@@ -61,13 +62,14 @@
 
 	return FALSE
 
-/datum/keyslot/proc/check_individual_key(var/obj/item/weapon/key/key)
+/datum/keyslot/proc/check_individual_key(obj/item/weapon/key/key)
 	if (key.code == code)
 		return TRUE
 	return FALSE
 
-/datum/keyslot/proc/check_individual_keychain(var/obj/item/weapon/storage/belt/keychain/keychain)
+/datum/keyslot/proc/check_individual_keychain(obj/item/weapon/storage/belt/keychain/keychain)
 	for (var/obj/item/weapon/key/K in keychain)
 		if (check_individual_key(K))
 			return TRUE
 	return FALSE
+*/

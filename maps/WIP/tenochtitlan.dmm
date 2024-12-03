@@ -92,7 +92,7 @@
 "bN" = (/obj/covers/sandstone/brick,/obj/covers/sandstone/stairs,/turf/floor/beach/sand,/area/caribbean)
 "bO" = (/obj/covers/straw_wall,/obj/roof/palm,/turf/floor/beach/sand,/area/caribbean)
 "bP" = (/obj/structure/table/marble,/obj/item/weapon/flame/candle,/turf/floor/carpet,/area/caribbean)
-"bQ" = (/obj/structure/simple_door/key_door/anyone/wood,/turf/floor/wood/ship,/area/caribbean)
+"bQ" = (/obj/structure/door/key/anyone/wood,/turf/floor/wood/ship,/area/caribbean)
 "bR" = (/obj/structure/barricade/ship/mast,/turf/floor/wood/ship,/area/caribbean)
 "bS" = (/obj/structure/closet/crate/sandbags,/turf/floor/wood/ship,/area/caribbean)
 "bT" = (/obj/structure/barricade/ship/wood/a6,/turf/floor/beach/water/deep/saltwater,/area/caribbean)
@@ -196,7 +196,7 @@
 "dN" = (/obj/effect/floor_decal/dirtwall{icon_state = "dirt_wall"; dir = 4},/obj/effect/floor_decal/dirtwall{icon_state = "dirt_wall"; dir = 1},/turf/floor/dirt/jungledirt,/area/caribbean)
 "dO" = (/obj/effect/floor_decal/dirtwall{icon_state = "dirt_wall"; dir = 8},/turf/floor/dirt/jungledirt,/area/caribbean)
 "dP" = (/obj/structure/barricade,/turf/floor/wood,/area/caribbean)
-"dQ" = (/obj/structure/simple_door/key_door/anyone/wood,/turf/floor/wood,/area/caribbean)
+"dQ" = (/obj/structure/door/key/anyone/wood,/turf/floor/wood,/area/caribbean)
 "dR" = (/obj/structure/bed{material = "wood"},/turf/floor/wood,/area/caribbean)
 "dS" = (/turf/floor/wood,/area/caribbean)
 

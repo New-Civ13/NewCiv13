@@ -11,7 +11,7 @@
 "ak" = (/obj/covers/wood,/obj/structure/sink,/turf/floor/grass,/area/caribbean)
 "al" = (/obj/covers/wood,/obj/structure/shower/bathtub/steel,/turf/floor/grass,/area/caribbean)
 "am" = (/obj/covers/wood,/obj/structure/props/stove/old,/turf/floor/grass,/area/caribbean)
-"an" = (/obj/covers/wood,/obj/structure/simple_door/wood,/turf/floor/grass,/area/caribbean)
+"an" = (/obj/covers/wood,/obj/structure/door/wood,/turf/floor/grass,/area/caribbean)
 "ao" = (/obj/covers/wood,/obj/structure/window/classic,/obj/structure/curtain/black,/turf/floor/grass,/area/caribbean)
 "ap" = (/obj/covers/wood,/obj/structure/table/wood,/turf/floor/grass,/area/caribbean)
 "aq" = (/obj/covers/slate,/turf/floor/grass,/area/caribbean)

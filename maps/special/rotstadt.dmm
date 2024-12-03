@@ -432,7 +432,7 @@
 /turf/floor/grass,
 /area/caribbean)
 "cC" = (
-/obj/structure/simple_door/key_door/anyone/wood,
+/obj/structure/door/key/anyone/wood,
 /turf/floor/plating/white,
 /area/caribbean/roofed)
 "cI" = (
@@ -948,7 +948,7 @@
 /turf/floor/dirt,
 /area/caribbean)
 "eN" = (
-/obj/structure/simple_door/key_door/anyone/wood,
+/obj/structure/door/key/anyone/wood,
 /turf/floor/plating/tiled,
 /area/caribbean/roofed)
 "eO" = (
@@ -1256,7 +1256,7 @@
 /turf/floor/wood,
 /area/caribbean/roofed)
 "gw" = (
-/obj/structure/simple_door/key_door/anyone/wood,
+/obj/structure/door/key/anyone/wood,
 /turf/floor/dirt/burned,
 /area/caribbean/roofed)
 "gA" = (
@@ -1545,7 +1545,7 @@
 /turf/floor/plating/tiled/darker,
 /area/caribbean/roofed)
 "ij" = (
-/obj/structure/simple_door/key_door/civ/room3,
+/obj/structure/door/key/civ/room3,
 /turf/floor/wood,
 /area/caribbean/roofed)
 "il" = (
@@ -1732,7 +1732,7 @@
 /turf/floor/carpet,
 /area/caribbean/roofed)
 "jF" = (
-/obj/structure/simple_door/key_door/anyone/wood,
+/obj/structure/door/key/anyone/wood,
 /obj/structure/barricade/horizontal,
 /turf/floor/wood,
 /area/caribbean/roofed)
@@ -1835,7 +1835,7 @@
 /turf/floor/plating/road,
 /area/caribbean)
 "kk" = (
-/obj/structure/simple_door/key_door/anyone/wood,
+/obj/structure/door/key/anyone/wood,
 /obj/structure/barricade/horizontal,
 /obj/structure/window/barrier/sandbag,
 /turf/floor/wood,
@@ -1934,7 +1934,7 @@
 /turf/floor/plating/steel,
 /area/caribbean/roofed)
 "kO" = (
-/obj/structure/simple_door/key_door/civ/room2,
+/obj/structure/door/key/civ/room2,
 /turf/floor/wood,
 /area/caribbean/roofed)
 "kT" = (
@@ -1993,7 +1993,7 @@
 /turf/floor/plating/cobblestone/vertical,
 /area/caribbean)
 "lj" = (
-/obj/structure/simple_door/key_door/civ/room1,
+/obj/structure/door/key/civ/room1,
 /turf/floor/wood,
 /area/caribbean/roofed)
 "lo" = (
@@ -2153,7 +2153,7 @@
 /turf/floor/plating/tiled/darker,
 /area/caribbean/roofed)
 "md" = (
-/obj/structure/simple_door/key_door/anyone,
+/obj/structure/door/key/anyone,
 /obj/structure/oven{
 	fuel = 1000
 	},
@@ -3182,7 +3182,7 @@
 	},
 /area/caribbean/roofed)
 "rE" = (
-/obj/structure/simple_door/key_door/anyone/doubledoor/steel,
+/obj/structure/door/key/anyone/doubledoor/steel,
 /obj/effect/decal/warning_stripes{
 	icon_state = "N-corner"
 	},
@@ -3510,7 +3510,7 @@
 /turf/floor/wood,
 /area/caribbean/roofed)
 "th" = (
-/obj/structure/simple_door/key_door/civ/inn,
+/obj/structure/door/key/civ/inn,
 /turf/floor/wood,
 /area/caribbean/roofed)
 "ti" = (
@@ -3576,7 +3576,7 @@
 /turf/floor/plating/tiled/woodh,
 /area/caribbean/roofed)
 "tt" = (
-/obj/structure/simple_door/key_door/anyone,
+/obj/structure/door/key/anyone,
 /turf/floor/plating/steel,
 /area/caribbean/roofed)
 "tx" = (
@@ -3781,7 +3781,7 @@
 /turf/floor/wood,
 /area/caribbean/roofed)
 "uu" = (
-/obj/structure/simple_door/key_door/anyone,
+/obj/structure/door/key/anyone,
 /turf/floor/wood,
 /area/caribbean/roofed)
 "uz" = (
@@ -3882,14 +3882,14 @@
 /turf/floor/carpet,
 /area/caribbean/roofed)
 "va" = (
-/obj/structure/simple_door/key_door/anyone,
+/obj/structure/door/key/anyone,
 /turf/floor/carpet,
 /area/caribbean/roofed)
 "vb" = (
 /turf/floor/dirt,
 /area/caribbean/roofed)
 "vc" = (
-/obj/structure/simple_door/key_door/anyone/wood,
+/obj/structure/door/key/anyone/wood,
 /obj/structure/barricade/horizontal,
 /turf/floor/plating/tiled/darker,
 /area/caribbean/roofed)
@@ -4174,7 +4174,7 @@
 /turf/floor/carpet,
 /area/caribbean/roofed)
 "wm" = (
-/obj/structure/simple_door/key_door/anyone/wood,
+/obj/structure/door/key/anyone/wood,
 /obj/structure/barricade/steel,
 /obj/structure/barricade/vertical,
 /obj/structure/window/barrier/sandbag{
@@ -4636,7 +4636,7 @@
 /turf/floor/dirt/burned,
 /area/caribbean/roofed)
 "yn" = (
-/obj/structure/simple_door/key_door/anyone,
+/obj/structure/door/key/anyone,
 /turf/floor/wood,
 /area/caribbean)
 "yo" = (
@@ -5165,7 +5165,7 @@
 /turf/floor/dirt,
 /area/caribbean)
 "AX" = (
-/obj/structure/simple_door/key_door/anyone/wood,
+/obj/structure/door/key/anyone/wood,
 /turf/floor/plating/steel,
 /area/caribbean/roofed)
 "AY" = (
@@ -5372,7 +5372,7 @@
 	},
 /area/caribbean/roofed)
 "BU" = (
-/obj/structure/simple_door/key_door/civ/inn,
+/obj/structure/door/key/civ/inn,
 /turf/floor/plating/steel{
 	icon_state = "carpet-broken"
 	},
@@ -5386,7 +5386,7 @@
 /turf/floor/wood,
 /area/caribbean/roofed)
 "BX" = (
-/obj/structure/simple_door/key_door/anyone,
+/obj/structure/door/key/anyone,
 /obj/structure/oven,
 /obj/structure/barbwire{
 	icon_state = "barbwire";
@@ -6960,7 +6960,7 @@
 /turf/floor/dirt,
 /area/caribbean)
 "Ky" = (
-/obj/structure/simple_door/key_door/anyone/wood,
+/obj/structure/door/key/anyone/wood,
 /turf/floor/plating/tiled/darker,
 /area/caribbean/roofed)
 "KB" = (
@@ -7003,7 +7003,7 @@
 /turf/floor/trench,
 /area/caribbean)
 "KS" = (
-/obj/structure/simple_door/key_door/anyone,
+/obj/structure/door/key/anyone,
 /turf/floor/wood{
 	icon_state = "wood-broken1"
 	},
@@ -7197,7 +7197,7 @@
 /turf/floor/dirt,
 /area/caribbean)
 "LO" = (
-/obj/structure/simple_door/key_door/anyone/wood,
+/obj/structure/door/key/anyone/wood,
 /obj/item/mine/boobytrap{
 	layer = 2.9
 	},
@@ -7288,7 +7288,7 @@
 /turf/floor/wood,
 /area/caribbean/roofed)
 "Mp" = (
-/obj/structure/simple_door/key_door/anyone/wood,
+/obj/structure/door/key/anyone/wood,
 /turf/floor/plating/tiled/woodh,
 /area/caribbean/roofed)
 "Mr" = (
@@ -7437,7 +7437,7 @@
 /turf/wall/wood,
 /area/caribbean/roofed)
 "Nh" = (
-/obj/structure/simple_door/key_door/anyone/wood,
+/obj/structure/door/key/anyone/wood,
 /obj/structure/barricade/vertical,
 /obj/structure/window/barrier/sandbag{
 	dir = 4;
@@ -7873,7 +7873,7 @@
 	},
 /area/caribbean/roofed)
 "Po" = (
-/obj/structure/simple_door/key_door/anyone/doubledoor/steel,
+/obj/structure/door/key/anyone/doubledoor/steel,
 /turf/floor/wood,
 /area/caribbean/roofed)
 "Pp" = (
@@ -8089,7 +8089,7 @@
 /turf/floor/plating/tiled/darker,
 /area/caribbean/roofed)
 "QD" = (
-/obj/structure/simple_door/key_door/anyone,
+/obj/structure/door/key/anyone,
 /turf/floor/plating/tiled/woodh,
 /area/caribbean/roofed)
 "QE" = (
@@ -8104,7 +8104,7 @@
 /turf/floor/plating/cobblestone/vertical,
 /area/caribbean)
 "QI" = (
-/obj/structure/simple_door/key_door/anyone/wood,
+/obj/structure/door/key/anyone/wood,
 /turf/floor/wood,
 /area/caribbean/roofed)
 "QJ" = (
@@ -8117,7 +8117,7 @@
 /turf/floor/trench,
 /area/caribbean)
 "QM" = (
-/obj/structure/simple_door/key_door/civ/room4,
+/obj/structure/door/key/civ/room4,
 /turf/floor/wood,
 /area/caribbean/roofed)
 "QN" = (
@@ -9109,7 +9109,7 @@
 /turf/floor/trench,
 /area/caribbean)
 "VG" = (
-/obj/structure/simple_door/key_door/anyone,
+/obj/structure/door/key/anyone,
 /turf/floor/dirt/burned,
 /area/caribbean/roofed)
 "VH" = (
@@ -9593,8 +9593,8 @@
 /turf/floor/dirt,
 /area/caribbean)
 "XX" = (
-/obj/structure/simple_door/key_door/civ/inn,
-/obj/structure/simple_door/key_door/custom/jail/steeljail/inn,
+/obj/structure/door/key/civ/inn,
+/obj/structure/door/key/jail/steel/inn,
 /turf/floor/wood,
 /area/caribbean/roofed)
 "XY" = (
@@ -9638,7 +9638,7 @@
 /turf/floor/dirt/burned,
 /area/caribbean)
 "Yx" = (
-/obj/structure/simple_door/key_door/anyone,
+/obj/structure/door/key/anyone,
 /turf/floor/wood{
 	icon_state = "wood-broken7"
 	},

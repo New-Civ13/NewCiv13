@@ -133,8 +133,8 @@
 		return FALSE
 	for(var/atom/O in T.contents)
 		if (O.density) // && !(O.flags & ON_BORDER)) -- fuck you, windows, you're dead to me
-			if (istype(O, /obj/structure/simple_door))
-				var/obj/structure/simple_door/D = O
+			if (istype(O, /obj/structure/door))
+				var/obj/structure/door/D = O
 				if (D.locked)
 					return FALSE // a blocked door is a blocking door
 			if (istype(O, /obj/covers))

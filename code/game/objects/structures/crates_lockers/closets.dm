@@ -403,7 +403,7 @@
 	escapee.setClickCooldown(100)
 
 	//okay, so the closet is either welded or locked... resist!!!
-	escapee << "<span class='warning'>You lean on the back of \the [src] and start pushing the door open. (this will take about [breakout_time] minutes)</span>"
+	escapee << "<span class='warning'>You lean on the back of \the [src] and start pushing \the [src] open. (this will take about [breakout_time] minutes)</span>"
 
 	visible_message("<span class='danger'>\The [src] begins to shake violently!</span>")
 
@@ -462,7 +462,7 @@
 /obj/structure/closet/safe/red
 	New()
 		..()
-		custom_code = REDCODE
+		custom_code = AOTD_REDCODE
 		locked = TRUE
 		faction = "Rednikov Industries"
 		var/obj/item/stack/money/dollar/twenty = new (src)
@@ -478,7 +478,7 @@
 /obj/structure/closet/safe/blue
 	New()
 		..()
-		custom_code = BLUECODE
+		custom_code = AOTD_BLUECODE
 		locked = TRUE
 		faction = "Giovanni Blu Stocks"
 		var/obj/item/stack/money/dollar/twenty = new (src)
@@ -494,7 +494,7 @@
 /obj/structure/closet/safe/yellow
 	New()
 		..()
-		custom_code = YELLOWCODE
+		custom_code = AOTD_YELLOWCODE
 		locked = TRUE
 		faction = "Goldstein Solutions"
 		var/obj/item/stack/money/dollar/twenty = new (src)
@@ -510,7 +510,7 @@
 /obj/structure/closet/safe/green
 	New()
 		..()
-		custom_code = GREENCODE
+		custom_code = AOTD_GREENCODE
 		locked = TRUE
 		faction = "Kogama Kraftsmen"
 		var/obj/item/stack/money/dollar/twenty = new (src)

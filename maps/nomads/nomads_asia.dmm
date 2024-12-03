@@ -308,7 +308,7 @@
 "Jt" = (/obj/structure/wild/bamboo,/turf/floor/grass/jungle,/area/caribbean/nomads/forest/Jungle{icon_state = "blue3"; name = "SE Jungle"})
 "Ju" = (/obj/structure/wild/jungle{icon_state = "tree7"},/turf/floor/grass/jungle,/area/caribbean/nomads/forest/Jungle{icon_state = "red1"; name = "E Jungle"})
 "Jx" = (/turf/floor/dirt/dust,/area/caribbean/nomads/semiarid)
-"JH" = (/obj/covers/stonebrickfloor,/obj/structure/simple_door/key_door/anyone/rustic,/obj/roof/clay,/turf/floor/grass,/area/caribbean/nomads/forest)
+"JH" = (/obj/covers/stonebrickfloor,/obj/structure/door/key/anyone/rustic,/obj/roof/clay,/turf/floor/grass,/area/caribbean/nomads/forest)
 "JQ" = (/obj/effect/floor_decal/grass_edge/dead{dir = 1},/turf/floor/beach/sand,/area/caribbean/desert)
 "JX" = (/obj/covers/repairedfloor,/obj/covers/wood/stairs{dir = 1},/obj/structure/window/barrier/railing/stone{dir = 8; icon_state = "stone"},/turf/floor/beach/water,/area/caribbean/nomads/forest)
 "Kh" = (/obj/effect/floor_decal/dirtwall{dir = 1},/turf/floor/grass/jungle/savanna,/area/caribbean/nomads)

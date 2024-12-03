@@ -49,7 +49,7 @@
 "aZ" = (/obj/covers/wood_ship,/obj/structure/table/wood,/turf/floor/broken_floor,/area/caribbean/sea/bottom/roofed)
 "ba" = (/obj/covers/wood_ship,/turf/floor/broken_floor,/area/caribbean/sea/bottom/roofed)
 "bb" = (/obj/structure/window/barrier/ship/blue/bport3{dir = 1},/obj/covers/repairedfloor/ship/south,/turf/floor/broken_floor,/area/caribbean/sea/bottom)
-"bc" = (/obj/structure/simple_door/key_door/custom/singledoor/privacy{code = 1999; locked = 1; unique_door_name = "Captain's Quarters"},/obj/covers/wood_ship,/turf/floor/broken_floor,/area/caribbean/sea/bottom/roofed)
+"bc" = (/obj/structure/door/key/custom/singledoor/privacy{code = 1999; locked = 1; name = "Captain's Quarters"},/obj/covers/wood_ship,/turf/floor/broken_floor,/area/caribbean/sea/bottom/roofed)
 "bd" = (/obj/covers/wood_ship,/turf/floor/broken_floor,/area/caribbean/sea/bottom)
 "be" = (/obj/covers/wood_ship,/mob/living/simple_animal/hostile/human/voyage/spanish/ranged/sgt,/turf/floor/broken_floor,/area/caribbean/sea/bottom)
 "bf" = (/obj/covers/wood_ship,/obj/structure/barricade/ship/blue/beast,/turf/floor/broken_floor,/area/caribbean/sea/bottom)

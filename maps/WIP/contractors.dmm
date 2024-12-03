@@ -528,7 +528,7 @@
 /area/caribbean)
 "iu" = (
 /obj/covers/sandstone/tile,
-/obj/structure/simple_door/key_door/anyone/doubledoor/sandstone,
+/obj/structure/door/key/anyone/doubledoor/sandstone,
 /turf/floor/beach/sand/desert,
 /area/caribbean)
 "ix" = (
@@ -544,7 +544,7 @@
 /area/caribbean)
 "iB" = (
 /obj/covers/sandstone,
-/obj/structure/simple_door/key_door/civ/police{
+/obj/structure/door/key/civ/police{
 	name = "Bunker"
 	},
 /turf/floor/beach/sand/desert,
@@ -1108,7 +1108,7 @@
 /turf/floor/beach/sand/desert,
 /area/caribbean/houses)
 "rO" = (
-/obj/structure/simple_door/key_door/custom/jail/steeljail/police{
+/obj/structure/door/key/jail/steel/police{
 	name = "camp"
 	},
 /turf/floor/beach/sand/desert,
@@ -2054,7 +2054,7 @@
 /area/caribbean)
 "IM" = (
 /obj/covers/sandstone/slab,
-/obj/structure/simple_door/key_door/anyone/wood,
+/obj/structure/door/key/anyone/wood,
 /turf/floor/beach/sand/desert,
 /area/caribbean/houses)
 "IO" = (
@@ -2415,7 +2415,7 @@
 /turf/floor/beach/sand/desert,
 /area/caribbean)
 "Oa" = (
-/obj/structure/simple_door/key_door/anyone/singledoor/housedoor,
+/obj/structure/door/key/anyone/singledoor/housedoor,
 /obj/covers/sandstone/brick,
 /turf/floor/plating/concrete,
 /area/caribbean/british/land/inside/objective)

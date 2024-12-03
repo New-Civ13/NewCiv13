@@ -25,7 +25,7 @@
 		if (state == 5)
 			to_chat(usr, "The washing machine is already running.")
 		else if (state == 3)
-			to_chat(usr, "You need to close the door first.")
+			to_chat(usr, "You need to close \the [src] first.")
 		else
 			to_chat(usr, "You need to fill the washing machine with something.")
 		return

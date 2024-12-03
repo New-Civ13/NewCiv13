@@ -7,10 +7,10 @@
 /turf/floor/dirt/dust,
 /area/caribbean)
 "aH" = (
-/obj/structure/simple_door/key_door/anyone/doubledoor/steel/store_door{
+/obj/structure/door/key/anyone/doubledoor/steel/store_door{
 	locked = 1;
 	health = 9000;
-	initial_health = 9000
+	max_health = 9000
 	},
 /turf/wall/cement,
 /area/caribbean/roofed/temperate)
@@ -59,7 +59,7 @@
 /turf/floor/grass,
 /area/caribbean/no_mans_land/invisible_wall/one)
 "ce" = (
-/obj/structure/simple_door/key_door/anyone/wood,
+/obj/structure/door/key/anyone/wood,
 /turf/floor/dirt,
 /area/caribbean/roofed/temperate)
 "cl" = (
@@ -129,7 +129,7 @@
 /turf/floor/plating/cobblestone/vertical,
 /area/caribbean/roofed/temperate)
 "eP" = (
-/obj/structure/simple_door/key_door/anyone/doubledoor/steel/store_door,
+/obj/structure/door/key/anyone/doubledoor/steel/store_door,
 /turf/floor/plating/marble/tile,
 /area/caribbean/roofed/temperate)
 "eU" = (
@@ -147,7 +147,7 @@
 /turf/floor/wood,
 /area/caribbean/roofed/temperate)
 "fg" = (
-/obj/structure/simple_door/key_door/anyone/doubledoor/steel/store_door,
+/obj/structure/door/key/anyone/doubledoor/steel/store_door,
 /turf/floor/plating/cobblestone/vertical/dark,
 /area/caribbean/roofed/temperate)
 "fF" = (
@@ -182,12 +182,10 @@
 /area/caribbean)
 "gj" = (
 /obj/covers/carpet/arcade,
-/obj/structure/simple_door/key_door/anyone/doubledoor/steel/store_door{
+/obj/structure/door/key/anyone/doubledoor/steel/store_door{
 	locked = 1;
-	health = 9000;
-	initial_health = 9000;
-	name = "Pig Pen";
-	unique_door_name = "Pig Pen"
+	max_health = 9000;
+	name = "Pig Pen door"
 	},
 /turf/floor/plating/road,
 /area/caribbean/roofed/temperate)
@@ -405,7 +403,7 @@
 /turf/floor/plating/cobblestone/vertical,
 /area/caribbean)
 "nt" = (
-/obj/structure/simple_door/key_door/anyone/singledoor/privacy,
+/obj/structure/door/key/anyone/singledoor/privacy,
 /turf/floor/plating/marble/grid,
 /area/caribbean/roofed/temperate)
 "nu" = (
@@ -647,7 +645,7 @@
 /turf/floor/plating/cobblestone/vertical,
 /area/caribbean/no_mans_land/capturable/one/outside)
 "vW" = (
-/obj/structure/simple_door/key_door/anyone/doubledoor/steel/store_door,
+/obj/structure/door/key/anyone/doubledoor/steel/store_door,
 /turf/floor/plating/white,
 /area/caribbean/roofed/temperate)
 "wo" = (
@@ -805,7 +803,7 @@
 /turf/floor/plating/road,
 /area/caribbean/no_mans_land/invisible_wall)
 "Aq" = (
-/obj/structure/simple_door/key_door/anyone/doubledoor/steel,
+/obj/structure/door/key/anyone/doubledoor/steel,
 /turf/floor/plating/marble/tile,
 /area/caribbean/roofed/temperate)
 "Au" = (
@@ -835,10 +833,10 @@
 /turf/floor/dirt/dust,
 /area/caribbean/no_mans_land/capturable/two/outside)
 "AH" = (
-/obj/structure/simple_door/key_door/anyone/doubledoor/steel/store_door{
+/obj/structure/door/key/anyone/doubledoor/steel/store_door{
 	locked = 1;
 	health = 9000;
-	initial_health = 9000
+	max_health = 9000
 	},
 /turf/floor/plating/white,
 /area/caribbean/roofed/temperate)
@@ -913,10 +911,10 @@
 /turf/floor/dirt/dust,
 /area/caribbean/no_mans_land/capturable/two/outside)
 "Da" = (
-/obj/structure/simple_door/key_door/anyone/doubledoor/steel/store_door{
+/obj/structure/door/key/anyone/doubledoor/steel/store_door{
 	locked = 1;
 	health = 9000;
-	initial_health = 9000
+	max_health = 9000
 	},
 /turf/floor/plating/white,
 /area/caribbean/no_mans_land/capturable/three)
@@ -925,7 +923,7 @@
 /turf/floor/plating/road,
 /area/caribbean/no_mans_land/capturable/three/outside)
 "Dp" = (
-/obj/structure/simple_door/key_door/anyone,
+/obj/structure/door/key/anyone,
 /turf/floor/plating/marble/grid,
 /area/caribbean/roofed/temperate)
 "DH" = (
@@ -1182,7 +1180,7 @@
 /turf/floor/grass,
 /area/caribbean)
 "LD" = (
-/obj/structure/simple_door/key_door/anyone/wood,
+/obj/structure/door/key/anyone/wood,
 /obj/covers/wood/alt/four,
 /turf/floor/dirt,
 /area/caribbean/roofed/temperate)
