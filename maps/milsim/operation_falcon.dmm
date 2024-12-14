@@ -385,7 +385,7 @@
 "CS" = (/obj/structure/lamp/lamp_small/alwayson{dir = 8},/obj/structure/table/modern/table,/obj/item/kitchen/wood_bowl,/obj/item/kitchen/wood_bowl,/obj/item/kitchen/wood_bowl,/obj/item/kitchen/wood_bowl,/obj/item/kitchen/wood_bowl,/obj/item/kitchen/wood_bowl,/obj/item/kitchen/wood_bowl,/obj/item/kitchen/wood_bowl,/obj/item/kitchen/wood_bowl,/obj/item/kitchen/wood_bowl,/turf/floor/plating/road,/area/caribbean/british/land/inside)
 "CU" = (/obj/structure/grille/metalsheetfence/corner/red{dir = 4},/turf/floor/plating/dark,/area/caribbean/no_mans_land/capturable/three)
 "De" = (/obj/structure/curtain/closed/red{pixel_x = 32},/turf/floor/plating/tiled/woodh,/area/caribbean/british/land/inside)
-"Dj" = (/obj/structure/door/key{code = 9999; max_health = 10000; health = 10000},/turf/wall/iron,/area/caribbean/no_mans_land/sky/paratrooper_drop_zone/plane)
+"Dj" = (/obj/structure/door/key{code = 9999; max_health = 10000},/turf/wall/iron,/area/caribbean/no_mans_land/sky/paratrooper_drop_zone/plane)
 "Ds" = (/obj/structure/window/classic,/obj/structure/grille/ironfence,/turf/floor/wood/fancywood,/area/caribbean/british/land/inside)
 "DB" = (/obj/structure/shelf/palette,/turf/floor/dirt/dust,/area/caribbean/no_mans_land/capturable/three)
 "DC" = (/turf/floor/plating/road/whiteline{dir = 10},/area/caribbean)

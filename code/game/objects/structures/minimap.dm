@@ -132,9 +132,9 @@
 /obj/item/weapon/map/update_icon()
 	..()
 	img.overlays.Cut()
-	var/turf/T = get_turf(src)
-	playerloc.pixel_x = min(600,ceil(T.x*2.72))
-	playerloc.pixel_y = min(600,ceil(T.y*2.72))
+	var/turf/T = get_turf(src) // We use a macro and RU-CIV uses a proc for get_turf() so we must assign a var for direct-access.
+	playerloc.pixel_x = min(600, ceil(T.x * 2.72))
+	playerloc.pixel_y = min(600, ceil(T.y * 2.72))
 	img.overlays += playerloc
 
 /obj/item/weapon/map/attack_self(mob/user)
@@ -149,13 +149,30 @@
 	w_class = ITEM_SIZE_TINY
 	flags = FALSE
 	var/image/img
+	var/x_scale = 1 // (To be counted as such: 600/world.maxx)
+	var/y_scale = 1 // (To be counted as such: 600/world.maxy)
 
-/obj/item/weapon/map_tdm/examine(mob/user)
-	update_icon()
+/obj/item/weapon/map_tdm/examine(mob/living/human/user)
+	if (!img || !user.Adjacent(src))
+		..()
+		return
+	img.overlays.Cut()
+	if (map.fob_spawns)
+		for (var/obj/structure/fob_spawnpoint/F in world)
+			if (F.faction_text == user.faction_text)
+				var/turf/T = get_turf(F)
+				var/image/fob_loc = image(icon = 'icons/effects/mapeffects.dmi', icon_state = "whiteandblue",layer=src.layer+1)
+				fob_loc.pixel_x = min(600,ceil(T.x*x_scale))
+				fob_loc.pixel_y = min(600,ceil(T.y*y_scale))
+				img.overlays += fob_loc
+	var/image/playerloc = image(icon = 'icons/effects/mapeffects.dmi', icon_state = "yellowdot",layer=src.layer+1)
+	var/turf/T = get_turf(user)
+	playerloc.pixel_x = min(600,ceil(T.x*x_scale))
+	playerloc.pixel_y = min(600,ceil(T.y*y_scale))
+	img.overlays += playerloc
 	user << browse(getFlatIcon(img),"window=popup;size=630x630")
 
 /obj/item/weapon/map_tdm/attack_self(mob/user)
-	update_icon()
 	examine(user)
 
 /obj/item/weapon/map_tdm/abashiri/New()
@@ -163,7 +180,7 @@
 	name = "abashiri prison map"
 	img = image(icon = 'icons/minimaps.dmi', icon_state = "abashiri_map")
 
-/obj/item/weapon/map_tdm/kandahar/New()
+/obj/item/weapon/map_tdm/sovafghan/New()
 	desc = "A portable map of the Kandahar region."
 	name = "Kandahar region map"
 	img = image(icon = 'icons/minimaps.dmi', icon_state = "sovafghan_map")
@@ -173,6 +190,11 @@
 	name = "Area map"
 	img = image(icon = 'icons/minimaps.dmi', icon_state = "clash_map")
 
+/obj/item/weapon/map_tdm/operation_falcon/New()
+	desc = "A folding map of the area of operations."
+	name = "area map"
+	img = image(icon = 'icons/minimaps.dmi', icon_state = "operation_falcon_map")
+
 ///MAP BOARD///
 
 /obj/structure/sign/map_board
@@ -181,28 +203,66 @@
 	icon_state = "map_board"
 	density = TRUE
 	var/image/img
+	var/list/stored_img = list()
+	var/x_scale = 1 // (To be counted as such: 600/world.maxx)
+	var/y_scale = 1 // (To be counted as such: 600/world.maxy)
 
 /obj/structure/sign/map_board/New()
 	..()
 	switch (map.ID)
 		if (MAP_KANDAHAR)
 			img = image(icon = 'icons/minimaps.dmi', icon_state = "sovafghan_map")
+			x_scale = 2.31
+			y_scale = 2
 		if (MAP_OPERATION_FALCON)
 			img = image(icon = 'icons/minimaps.dmi', icon_state = "operation_falcon_map")
+			x_scale = 1.5
+			y_scale = 1.5
 
-/obj/structure/sign/map_board/examine(mob/living/human/user)
-	if (img)
-		user << browse(getFlatIcon(img),"window=popup;size=630x630")
-	if (map.ID == MAP_OPERATION_FALCON)
-		var/friendly_fob = FALSE
-		var/dat = "<h1>FOB COORDINATES</h1>"
-		if (ishuman(user))
-			for (var/obj/structure/fob_spawnpoint/F in world)
-				if (F.faction_text == user.faction_text)
-					friendly_fob = TRUE
-					dat += "<b>[F.name]:</b> ([F.x];[F.y])<br>"
-		if (friendly_fob)
-			user << browse(dat, "window=FOB Coordinates")
+/obj/structure/sign/map_board/examine(mob/user)
+	if (!img)
+		..()
+		return
+	img.overlays.Cut()
+	stored_img = list()
+	if (map.fob_spawns)
+		for (var/obj/structure/fob_spawnpoint/F in world)
+			var/mob/living/human/H = user
+			if (F.faction_text == H.faction_text)
+				var/turf/T = get_turf(F)
+				var/image/fob_loc = image(icon = 'icons/effects/mapeffects.dmi', icon_state = "whiteandblue",layer=src.layer+1)
+				fob_loc.pixel_x = min(600,ceil(T.x*1.5))
+				fob_loc.pixel_y = min(600,ceil(T.y*1.5))
+				img.overlays += fob_loc
+				stored_img += fob_loc
+	for (var/mob/living/human/H in human_mob_list)
+		var/mob/living/human/U = user
+		if (H != U && H.faction_text == U.faction_text && H.stat != DEAD)
+			var/turf/T = get_turf(H)
+			var/image/allied_loc = image(icon = 'icons/effects/mapeffects.dmi', icon_state = "greendot",layer=src.layer+1.1)
+			allied_loc.pixel_x = min(600,ceil(T.x*x_scale))
+			allied_loc.pixel_y = min(600,ceil(T.y*y_scale))
+			img.overlays += allied_loc
+			stored_img += allied_loc
+	var/turf/TT = get_turf(user)
+	var/image/self_loc = image(icon = 'icons/effects/mapeffects.dmi', icon_state = "yellowdot",layer=src.layer+1.1)
+	self_loc.pixel_x = min(600,ceil(TT.x*x_scale))
+	self_loc.pixel_y = min(600,ceil(TT.y*y_scale))
+	img.overlays += self_loc
+	stored_img += self_loc
+	user << browse(getFlatIcon(img),"window=popup;size=630x630")
 
 /obj/structure/sign/map_board/attack_hand(mob/user)
 	examine(user)
+
+/obj/structure/sign/map_board/grozny/New()
+	..()
+	img = image(icon = 'icons/minimaps.dmi', icon_state = "grozny_map")
+
+/obj/structure/sign/map_board/falcon_artillery_ru/New()
+	..()
+	img = image(icon = 'icons/minimaps.dmi', icon_state = "operation_falcon_map_artillery_ru")
+
+/obj/structure/sign/map_board/falcon_artillery_du/New()
+	..()
+	img = image(icon = 'icons/minimaps.dmi', icon_state = "operation_falcon_map_artillery_du")

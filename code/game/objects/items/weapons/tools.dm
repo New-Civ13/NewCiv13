@@ -656,7 +656,6 @@
 ///////////////////////////////////////END OF WELDER/////////////////////////////////////////////////////////////////////////
 Shinobi's unfinished welder stuff - siro*/
 
-
 /obj/item/weapon/gongmallet
 	name = "gong mallet"
 	desc = "A wooden mallet used to hit a gong."
@@ -685,7 +684,7 @@ Shinobi's unfinished welder stuff - siro*/
 	var/time = 10 SECONDS
 	var/max_offset = 6
 
-/obj/item/weapon/compass/attack_self(mob/user as mob)
+/obj/item/weapon/compass/attack_self(mob/living/human/user as mob)
 	var/offset = rand(-max_offset,max_offset)
 	var/pos_x = user.x + offset
 	var/pos_y = user.y + offset
@@ -696,26 +695,31 @@ Shinobi's unfinished welder stuff - siro*/
 	var/pos_dir_y = "UNKNOWN"
 
 	var/pos_message = "You're in the [pos_dir_y][pos_dir_x] of the area."
-	if (do_after(user,time,src))
-		if (pos_x <= lat_x)
-			pos_dir_x = "WEST"
-		else if (pos_x >= 2*lat_x)
-			pos_dir_x = "EAST"
-		else
-			pos_dir_x = ""
 
-		if (pos_y <= lat_y)
-			pos_dir_y = "SOUTH"
-		else if (pos_y >= 2*lat_y)
-			pos_dir_y = "NORTH"
-		else
-			pos_dir_y = ""
+	if (!do_after(user,time,src))
+		return
+	if (pos_x <= lat_x)
+		pos_dir_x = "WEST"
+	else if (pos_x >= 2*lat_x)
+		pos_dir_x = "EAST"
+	else
+		pos_dir_x = ""
 
-		if (pos_dir_x != "" || pos_dir_y != "")
-			pos_message = "You're in the <b>[pos_dir_y][pos_dir_x]</b> of the area."
-		else
-			pos_message = "You're in the <b>CENTER</b> of the area."
-		usr << "You estimate your position to be <b>[pos_x];[pos_y]</b>. [pos_message]"
+	if (pos_y <= lat_y)
+		pos_dir_y = "SOUTH"
+	else if (pos_y >= 2*lat_y)
+		pos_dir_y = "NORTH"
+	else
+		pos_dir_y = ""
+
+	if (pos_dir_x != "" || pos_dir_y != "")
+		pos_message = "You're in the <b>[pos_dir_y][pos_dir_x]</b> of the area."
+	else
+		pos_message = "You're in the <b>CENTER</b> of the area."
+	if (map.ID == MAP_OPERATION_FALCON)
+		to_chat(user,"You estimate your position to be <b>[pos_x];[pos_y] ([user.get_coded_loc()])</b>. [pos_message]")
+	else
+		to_chat(user,"You estimate your position to be <b>[pos_x];[pos_y]</b>. [pos_message]")
 
 /obj/item/weapon/compass/modern
 	name = "navigation tablet"
@@ -727,30 +731,26 @@ Shinobi's unfinished welder stuff - siro*/
 	secondary_action = TRUE
 	var/on = FALSE
 
-/obj/item/weapon/compass/modern/attack_self(mob/user as mob)
+/obj/item/weapon/compass/modern/attack_self(mob/living/human/user as mob)
 	if (!on)
-		usr << SPAN_WARNING("You need to turn the tablet on.")
+		to_chat(user, SPAN_WARNING("You need to turn the tablet on."))
 		return
-	else
-		. = ..()
+	. = ..()
+
+/obj/item/weapon/compass/modern/secondary_attack_self(mob/living/human/user)
+	turn_on()
 
 /obj/item/weapon/compass/modern/AltClick()
 	..()
 	turn_on()
 
-/obj/item/weapon/compass/modern/verb/turn_on()
-	set name = "Toggle Power"
-	set category = null
+/obj/item/weapon/compass/modern/proc/turn_on()
 	if (!on)
 		on = TRUE
 		icon_state = "compass_modern_on"
-		update_icon()
-		return
 	else
 		on = FALSE
 		icon_state = "compass_modern"
-		update_icon()
-		return
 
 /obj/item/weapon/compass/modern/tacmap
 	name = "tactical map"
@@ -763,8 +763,34 @@ Shinobi's unfinished welder stuff - siro*/
 		if (MAP_OPERATION_FALCON)
 			img = image(icon = 'icons/minimaps.dmi', icon_state = "operation_falcon_map")
 
-/obj/item/weapon/compass/modern/tacmap/examine(mob/user)
+/obj/item/weapon/compass/modern/tacmap/examine(mob/living/human/user)
+	if (!img || !(on && (user.item_is_in_hands(src) || user.Adjacent(src))))
+		..()
+		return
+	img.overlays.Cut()
+	if (map.ID == MAP_OPERATION_FALCON)
+		for (var/obj/structure/fob_spawnpoint/F in world)
+			if (F.faction_text == user.faction_text)
+				var/turf/T = get_turf(F)
+				var/image/fob_loc = image(icon = 'icons/effects/mapeffects.dmi', icon_state = "whiteandblue",layer=src.layer+1)
+				fob_loc.pixel_x = min(600,ceil(T.x*1.5))
+				fob_loc.pixel_y = min(600,ceil(T.y*1.5))
+				img.overlays += fob_loc
+		if (user.original_job.is_squad_leader || user.original_job.is_commander)
+			for (var/mob/living/human/H in human_mob_list)
+				if (H != user && H.faction_text == user.faction_text && H.stat != DEAD)
+					var/turf/T = get_turf(H)
+					var/image/allied_loc = image(icon = 'icons/effects/mapeffects.dmi', icon_state = "greendot",layer=src.layer+1.1)
+					allied_loc.pixel_x = min(600,ceil(T.x*1.5))
+					allied_loc.pixel_y = min(600,ceil(T.y*1.5))
+					img.overlays += allied_loc
+		var/turf/TT = get_turf(user)
+		var/image/self_loc = image(icon = 'icons/effects/mapeffects.dmi', icon_state = "yellowdot",layer=src.layer+1.1)
+		self_loc.pixel_x = min(600,ceil(TT.x*1.5))
+		self_loc.pixel_y = min(600,ceil(TT.y*1.5))
+		img.overlays += self_loc
 	user << browse(getFlatIcon(img),"window=popup;size=630x630")
+
 
 //////////////////////////////////////////LOCKPICK/////////////////////////////////////////////////////////////////////////////
 /obj/item/weapon/lockpick
