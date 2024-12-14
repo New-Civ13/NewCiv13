@@ -508,15 +508,15 @@
 				H.football = null
 		jump_act(src, M)
 	else
-		if(M.middle_click_intent == "kick")
-			return kick_act(M)
-		else if(M.middle_click_intent == "jump")
-			jump_act(src, M)
-		else if(M.middle_click_intent == "bite")
-			bite_act(M)
-		else
-			M.swap_hand()
-
+		switch(M.middle_click_intent)
+			if("kick")
+				return kick_act(M)
+			if("jump")
+				jump_act(src, M)
+			if("bite")
+				bite_act(M)
+			else
+				M.swap_hand()
 // AUTOMATIC CLICKS
 
 ///////////////////////////
