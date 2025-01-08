@@ -23,9 +23,9 @@
 
 /obj/structure/wild/rock/attack_hand(var/mob/living/human/H)
 	if (H.a_intent == I_GRAB)
-		H << "You start looking for some flint among the rocks..."
+		to_chat(H, SPAN_NOTICE("You start looking for a flint among \the [src]..."))
 		if (do_after(H, 50, H.loc) && flint_amount > 0)
-			H << "You find some flint."
+			to_chat(H, SPAN_NOTICE("You find a flint, a hatchet can be made with this!"))
 			flint_amount--
 			var/obj/item/weapon/flint/newflint = new/obj/item/weapon/flint(src.loc)
 			H.put_in_hands(newflint)
@@ -39,10 +39,10 @@
 		H.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 		var/obj/item/weapon/flint/F = W
 		if (!F.sharpened)
-			H << "<span class='warning'>You hit the rock with \the [W].</span>"
+			H.visible_message(SPAN_NOTICE("[src] hits \the [src] with \the [W]"), SPAN_WARNING("You hit \the [src] with \the [W]."))
 			playsound(src,'sound/effects/chop.ogg',100,1)
 			if (prob(20))
-				H << "\The [W] chips away, exposing a sharp edge!"
+				W.visible_message("\The [W] chips away, [pick("exposing","revealing","creating")] a sharp edge.")
 				F.sharpen()
 		return
 
