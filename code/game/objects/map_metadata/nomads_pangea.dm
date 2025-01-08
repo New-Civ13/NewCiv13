@@ -1,3 +1,4 @@
+
 /obj/map_metadata/nomads_pangea
 	ID = MAP_NOMADS_PANGEA
 	title = "Nomads (Pangea)"
@@ -29,7 +30,6 @@
 	gamemode = "Classic (Stone Age Start)"
 	var/list/arealist_r = list()
 	var/list/arealist_g = list()
-	
 /obj/map_metadata/nomads_pangea/New()
 	..()
 	spawn(18000)
