@@ -1,4 +1,3 @@
-
 /obj/map_metadata/nomads_gaia
 	ID = MAP_NOMADS_GAIA
 	title = "Nomads (Gaia)"
