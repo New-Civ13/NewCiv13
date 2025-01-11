@@ -1382,7 +1382,7 @@
 		if(traumatic_shock < 0.5 * shock_stage) // Lower shock faster if pain is gone completely.
 			recovery++
 		if(traumatic_shock < 0.25 * shock_stage)
-			recovery++
+			recovery = recovery*3.5 // Nerfs shock_stage.
 		shock_stage = max(shock_stage - recovery, 0)
 		return
 	if (stat == UNCONSCIOUS) return FALSE // If they're unconscious they won't feel pain.
@@ -1404,12 +1404,12 @@
 		if(70)
 			if (prob(2))
 				custom_pain("[pick("The pain is excruciating", "Please, just end the pain", "Your whole body is going numb")]!", shock_stage, nohalloss = TRUE)
-				Weaken(10)
+				Weaken(5)
 
 		if(80 to 119)
 			if (prob(5))
 				custom_pain("[pick("The pain is excruciating", "Please, just end the pain", "Your whole body is going numb")]!", shock_stage, nohalloss = TRUE)
-				Weaken(20)
+				Weaken(10)
 
 		if(120 to 149)
 			if (prob(2))
@@ -1418,10 +1418,10 @@
 
 		if(150)
 			emote("me", 1, "can no longer stand, collapsing!")
-			Weaken(20)
+			Weaken(15)
 
 		else
-			Weaken(20)
+			Weaken(8)
 			if (prob(1))
 				adjustOxyLoss(10)
 

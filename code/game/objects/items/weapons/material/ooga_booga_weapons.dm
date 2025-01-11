@@ -37,7 +37,7 @@
 		to_chat(H, SPAN_NOTICE("You start removing the small twigs from \the [src]."))
 		if (do_after(H, 60, src))
 			if (src && branched)
-				new /obj/item/weapon/branch(get_turf(src))
+				new /obj/item/weapon/material/primitive_handle(get_turf(src))
 				to_chat(H, SPAN_NOTICE("You finish clearing the stick."))
 				branched = FALSE
 				qdel(src)
@@ -66,6 +66,14 @@
 	var/sharpened = FALSE
 
 	var/ants = FALSE
+/obj/item/weapon/branch/sharpened
+	name = "sharpened stick"
+	desc = "A sharpened stick, to be used against bad apes."
+	icon_state = "sharpened_stick"
+	item_state = "sharpened_stick"
+	sharp = TRUE
+	force = 14
+	sharpened = TRUE
 
 /obj/item/weapon/branch/get_fuel()
 	return amount + rand(0,6) // Different branches have different sizes.
@@ -114,14 +122,41 @@
 					qdel(F)
 					qdel(src)
 					return
-	else
-		..()
-
-/obj/item/weapon/branch/sharpened
-	name = "sharpened stick"
-	desc = "A sharpened stick, to be used against bad apes."
-	icon_state = "sharpened_stick"
-	item_state = "sharpened_stick"
-	sharp = TRUE
-	force = 14
-	sharpened = TRUE
+/obj/item/weapon/material/primitive_handle/attackby(obj/item/weapon/W as obj, mob/user as mob) // Handle to Twined Handle
+    if (istype(W, /obj/item/stack/material/twine))
+        var/obj/item/stack/material/twine/R = W
+        user << "You start attaching some twine"
+        if (do_after(user, 20, src))
+            user << "You finish making the twined handle."
+            new /obj/item/weapon/material/handle/primitive/twined(user.loc)
+            if (R.amount > 1) // Reduce the stack size by 1 (consume one twine from the stack)
+                R.amount -= 1
+            else
+                qdel(R)  // If only one twine is left, delete the stack
+            qdel(src)  // Remove the original object (handle or something else)
+            return
+    ..()
+/obj/item/weapon/material/handle/primitive/twined/attackby(obj/item/weapon/W as obj, mob/user as mob) // Hatchet & Knife Final Craft
+    var/item_type
+    var/message_start
+    var/message_finish
+    if (istype(W, /obj/item/weapon/material/primitive_axehead_1))
+        item_type = /obj/item/weapon/material/hatchet/primitive
+        message_start = "You start attaching the axehead to the handle..."
+        message_finish = "You finish making the stone axe."
+    else if (istype(W, /obj/item/weapon/material/primitive_knifehead_1))
+        item_type = /obj/item/weapon/material/kitchen/utensil/knife/primitive_knife_1
+        message_start = "You start attaching the knifehead to the handle..."
+        message_finish = "You finish making the stone knife."
+    if (item_type)
+        var/obj/item/R = W
+        user << message_start
+        if (do_after(user, 20, src))
+            user << message_finish
+            var/obj/item/new_item = new item_type()
+            if (!user.put_in_hands(new_item))
+                new_item.loc = user.loc // Fallback to placing it on the ground if the hands are full
+            qdel(R)
+            qdel(src)
+            return
+    ..()
